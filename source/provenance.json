@@ -1,0 +1,29 @@
+{
+  "manuscript_sha256": "3e1fa267e30950db43de9edac4774db864c6d298a85de406b1cd920c8783d9f1",
+  "manuscript_origin": "Author-supplied canonical manuscript; source bytes unchanged from the formalization snapshot.",
+  "labels": {
+    "thm:potential": 81,
+    "lem:cancellation": 242,
+    "lem:matrix-value": 300,
+    "prop:general-extraction": 339,
+    "lem:separator": 377,
+    "lem:block-conversion": 414,
+    "prop:local-value": 454,
+    "prop:convolution": 587,
+    "thm:main": 206,
+    "lem:descent": 1148
+  },
+  "navot_repository": "https://github.com/selanavot/matrix-multiplication-all-fields",
+  "navot_commit": "08481ef22bca7dc9ffba091083b7c1e81e537220",
+  "mathlib_commit": "ccbef15ebdb41c2addfac682131f83c75904c3c1",
+  "lean": "leanprover/lean4:v4.35.0",
+  "state": "All17 square and18 rectangular approved anchors SEALED_VERIFIED",
+  "upstream_original_pair": {
+    "lean": "leanprover/lean4:v4.35.0-rc2",
+    "mathlib_commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55"
+  },
+  "author_approval": "2026-10-16 exact 17-statement packet, extraction annotations, five provider-import successors, and two convolution-import successors approved",
+  "rectangular_authorization": "2026-10-16: proceed with rectangular bound; routine imports and proved wrappers preauthorized",
+  "rectangular_author_approval": "2026-10-16: Approve the exact definitions and18statements; packet review/rectangular/AuthorReview.txt",
+  "manuscript_pdf_sha256": "57ab58080e19df83e0dc85a5b199dd741c4b53a307fa7a1f3a116f6d3e2bc5b9"
+}

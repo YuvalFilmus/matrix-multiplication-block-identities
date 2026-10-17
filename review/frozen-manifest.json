@@ -1,0 +1,1381 @@
+{
+  "schema_version": 1,
+  "author_approval": {
+    "date": "2026-10-16",
+    "by": "Yuval Filmus",
+    "text": "Approve the exact statements and definitions",
+    "packet_sha256": "2ea58218ab77d3f69b098f29027c1bc8852043dc7f435e8c4bcf84e99458faf5"
+  },
+  "source": {
+    "path": "source/manuscript.tex",
+    "sha256": "3e1fa267e30950db43de9edac4774db864c6d298a85de406b1cd920c8783d9f1"
+  },
+  "semantic_modules": {
+    "BlockIdentities/Arithmetic/FormalPolynomial.lean": "111c01c9be4398a2588da76a46e1817da5c00e6de9d11f574b78a10112042b57",
+    "BlockIdentities/Tensor/Definitions.lean": "e4540c7cdb08ddef446453c081b0371b79fb1bf685b34ecacf942765f2e2a7a2",
+    "BlockIdentities/Tensor/Value.lean": "20f945863ffae431af451fe4f7bbd4b55ac72ee0624e74c95f4d1ebdb287f026",
+    "BlockIdentities/Tensor/ConvolutionSplittings.lean": "1864779879b0ca91f2f7328797d50636123c9659d770bc9b937888c89c021406",
+    "BlockIdentities/Rectangular/Definitions.lean": "e9a34b8e1fcc3a4b7e16a95092dde84e0410a83f1298ed5d6f4d53b2c8db100a",
+    "BlockIdentities/Tensor/MatrixShapeNonzero.lean": "b3aa97e5113fdffe9646828648ed392b8181e00596b4a94196e465d6d2b1c515",
+    "BlockIdentities/Tensor/NonzeroSum.lean": "4d55af6e55a03157ebb280cb5c0a8822f3824af480a235d03a4208955930b6ec"
+  },
+  "anchors": [
+    {
+      "id": "formalCorrect_implies_correct",
+      "path": "BlockIdentities/Frozen/formalCorrect_implies_correct.lean",
+      "export": "BlockIdentities.Square.formalCorrect_implies_correct",
+      "state": "SEALED",
+      "allowed_body": "by sorry\n",
+      "prefix_sha256": "5cb12e0b20202852608a9b49e2d9ed54912dbc5067b615e454449b60fc47e5c9",
+      "suffix_sha256": "b889e05bfd73aeefe614d77a11b8ff369720b3f10cd597e2bfd8ee8dba629d9a",
+      "declaration_sha256": "756aea23de2a7e4b8af6169771e2bbec7384a34492b91417f019d27062ecd56a",
+      "abi_sha256": "d3cbf5f1750980358d5597bc20b3bb80392f6bf9238d5b5f5f2b52181c78e0ef",
+      "source": "Introduction formal-polynomial convention",
+      "provider": {
+        "module": "BlockIdentities.Arithmetic.FormalPolynomial",
+        "export": "BlockIdentities.Arithmetic.formalCorrect_implies_correct"
+      },
+      "quarantine": false,
+      "contract": {
+        "id": "BlockIdentities.Square.formalCorrect_implies_correct",
+        "version": "1"
+      },
+      "sealed_body_sha256": "e0fbe7b6ecbae4194db8c808ffe5a316004dd9ba784e5d9958e364155429c142",
+      "proof_audit": "PASS independent source/consumption review; exact export kernel build, unchanged ABI and standard-axiom closure verified by scripts/check.sh 2026-10-16",
+      "provider_status": "SEALED_VERIFIED"
+    },
+    {
+      "id": "formalOmega_eq_exactRankExponent.v2",
+      "path": "BlockIdentities/Frozen/formalOmega_eq_exactRankExponent_v2.lean",
+      "export": "BlockIdentities.Square.formalOmega_eq_exactRankExponent",
+      "state": "SEALED",
+      "allowed_body": "by sorry\n",
+      "prefix_sha256": "5e544055a7930afcc7b5f08c115b0d1f4c3e2f55fd2f1da3153d196f44a6af4d",
+      "suffix_sha256": "b889e05bfd73aeefe614d77a11b8ff369720b3f10cd597e2bfd8ee8dba629d9a",
+      "declaration_sha256": "bed8aaf213d647533ded8e3adc3c987979e7da29443dd27cda4089463d3ddc86",
+      "abi_sha256": "807d66851e830b5768f7d7992c3eca0bfb88d4d21a7e270a5d37091d1186e16a",
+      "source": "Appendix A tensor characterization",
+      "provider": {
+        "module": "BlockIdentities.Providers.RankAndField",
+        "export": "BlockIdentities.Providers.formalOmega_eq_exactRankExponent"
+      },
+      "quarantine": false,
+      "contract": {
+        "id": "BlockIdentities.Square.formalOmega_eq_exactRankExponent",
+        "version": "2"
+      },
+      "provider_status": "SEALED_VERIFIED",
+      "sealed_body_sha256": "a125267a8d2a0c2ae06ac17abec37a730dc34b7d41283ac977e99d96bccc3cfe",
+      "proof_audit": "PASS independent source/consumption review; exact export kernel build, unchanged ABI and standard-axiom closure verified by scripts/check.sh 2026-10-16",
+      "successor_approval": {
+        "date": "2026-10-16",
+        "text": "Approve the five provider imports and wrappers",
+        "packet": "review/ProviderImportReview.txt",
+        "sha256": "5ced3f23c2a6fb6620ae69a13f9ba81805a0e3332570cbe18b61c5bd071c621d"
+      },
+      "retired": {
+        "id": "formalOmega_eq_exactRankExponent",
+        "file": "review/retired/formalOmega_eq_exactRankExponent-v1.lean.txt",
+        "reason": "Author-approved provider import; unchanged theorem type and ABI"
+      }
+    },
+    {
+      "id": "formalOmega_eq_algebraicClosure.v2",
+      "path": "BlockIdentities/Frozen/formalOmega_eq_algebraicClosure_v2.lean",
+      "export": "BlockIdentities.Square.formalOmega_eq_algebraicClosure",
+      "state": "SEALED",
+      "allowed_body": "by sorry\n",
+      "prefix_sha256": "42b9ec12cbe6a3660ab33d27ca5eb09b6a33be1647ab6d9755a8c36350ff24ea",
+      "suffix_sha256": "b889e05bfd73aeefe614d77a11b8ff369720b3f10cd597e2bfd8ee8dba629d9a",
+      "declaration_sha256": "773fbfe9d3b8fa2cd9e7b038f97890f2f7564d8111ffdb3a272ffab3547fe1af",
+      "abi_sha256": "11013f2823e1412ee789046a88d6141406b7a5183ab9b669a253a32f4969c197",
+      "source": "lem:descent",
+      "provider": {
+        "module": "BlockIdentities.Providers.RankAndField",
+        "export": "BlockIdentities.Providers.formalOmega_eq_algebraicClosure"
+      },
+      "quarantine": false,
+      "contract": {
+        "id": "BlockIdentities.Square.formalOmega_eq_algebraicClosure",
+        "version": "2"
+      },
+      "provider_status": "SEALED_VERIFIED",
+      "sealed_body_sha256": "43540ddc7b270d0c0860734cd025b9df7b99f59f5560477ab2cc73c6960c050b",
+      "proof_audit": "PASS independent source/consumption review; exact export kernel build, unchanged ABI and standard-axiom closure verified by scripts/check.sh 2026-10-16",
+      "successor_approval": {
+        "date": "2026-10-16",
+        "text": "Approve the five provider imports and wrappers",
+        "packet": "review/ProviderImportReview.txt",
+        "sha256": "5ced3f23c2a6fb6620ae69a13f9ba81805a0e3332570cbe18b61c5bd071c621d"
+      },
+      "retired": {
+        "id": "formalOmega_eq_algebraicClosure",
+        "file": "review/retired/formalOmega_eq_algebraicClosure-v1.lean.txt",
+        "reason": "Author-approved provider import; unchanged theorem type and ABI"
+      }
+    },
+    {
+      "id": "scalar_descent.v2",
+      "path": "BlockIdentities/Frozen/scalar_descent_v2.lean",
+      "export": "BlockIdentities.Square.scalar_descent",
+      "state": "SEALED",
+      "allowed_body": "by sorry\n",
+      "prefix_sha256": "f0e65ad56f8dbd61ce80eb2b07a17e3d4014e0e9b7abffca000a581083ef079a",
+      "suffix_sha256": "b889e05bfd73aeefe614d77a11b8ff369720b3f10cd597e2bfd8ee8dba629d9a",
+      "declaration_sha256": "5c0cf4745340d7b09bd0a9562bd067afc022dbd36b507a1d8de8da641fdfdfbc",
+      "abi_sha256": "ebf1f19d35ca7dc1b997d24ee0faaa329ae16f3fba0f4786e1d9b4343a8dde88",
+      "source": "lem:descent",
+      "provider": {
+        "module": "BlockIdentities.Square.FieldDescent",
+        "export": "BlockIdentities.Square.scalar_descent_bound"
+      },
+      "quarantine": false,
+      "contract": {
+        "id": "BlockIdentities.Square.scalar_descent",
+        "version": "2"
+      },
+      "provider_status": "SEALED_VERIFIED",
+      "sealed_body_sha256": "4e5f7681537b2ba3d846238e942fef6d2cec57b68e27aff7cf44a874b0f93ef8",
+      "proof_audit": "PASS independent source/consumption review; exact export kernel build, unchanged ABI and standard-axiom closure verified by scripts/check.sh 2026-10-16",
+      "successor_approval": {
+        "date": "2026-10-16",
+        "text": "Approve the five provider imports and wrappers",
+        "packet": "review/ProviderImportReview.txt",
+        "sha256": "5ced3f23c2a6fb6620ae69a13f9ba81805a0e3332570cbe18b61c5bd071c621d"
+      },
+      "retired": {
+        "id": "scalar_descent",
+        "file": "review/retired/scalar_descent-v1.lean.txt",
+        "reason": "Author-approved provider import; unchanged theorem type and ABI"
+      }
+    },
+    {
+      "id": "asymptotic_cancellation.v2",
+      "path": "BlockIdentities/Frozen/asymptotic_cancellation_v2.lean",
+      "export": "BlockIdentities.Square.asymptotic_cancellation",
+      "state": "SEALED",
+      "allowed_body": "by sorry\n",
+      "prefix_sha256": "dc630ba48150a327498d0fbf1ac19aaa56e54708e616d4d53fe7cb8efa881408",
+      "suffix_sha256": "b889e05bfd73aeefe614d77a11b8ff369720b3f10cd597e2bfd8ee8dba629d9a",
+      "declaration_sha256": "50865096d5261d5dedb3a5e85a8c52ced05595967ad557962a72969cd542bf21",
+      "abi_sha256": "64ed50ad52ec2cecf3ddbe896a8f58cf7dc32b24627b9f0c5da3b4b673d74962",
+      "source": "lem:cancellation",
+      "provider": {
+        "module": "BlockIdentities.Providers.Cancellation",
+        "export": "BlockIdentities.Providers.asymptotic_cancellation"
+      },
+      "quarantine": false,
+      "contract": {
+        "id": "BlockIdentities.Square.asymptotic_cancellation",
+        "version": "2"
+      },
+      "provider_status": "SEALED_VERIFIED",
+      "sealed_body_sha256": "bcae0ca9b93e91c55957d0ba9f13603df9ef3622cf2f465d2c04c7524f2c3073",
+      "proof_audit": "INDEPENDENT_SOURCE_PASS; EXACT_EXPORT_KERNEL_ABI_AXIOMS_PASS",
+      "successor_approval": {
+        "date": "2026-10-16",
+        "text": "Approve the cancellation import and wrapper",
+        "packet": "review/CancellationImportReview.txt",
+        "sha256": "45c821fdbd1264f9542ae5ef822804441226b96faa16718432c57d0dab1927f0"
+      },
+      "retired": {
+        "id": "asymptotic_cancellation",
+        "file": "review/retired/asymptotic_cancellation-v1.lean.txt",
+        "reason": "Author-approved provider import; unchanged theorem type and ABI"
+      }
+    },
+    {
+      "id": "value_matrix_factor.v2",
+      "path": "BlockIdentities/Frozen/value_matrix_factor_v2.lean",
+      "export": "BlockIdentities.Square.value_matrix_factor",
+      "state": "SEALED",
+      "allowed_body": "by sorry\n",
+      "prefix_sha256": "262da9b0d4b4faf6627650d2c9959ad0d2265f0cf437828533c608260633b1ab",
+      "suffix_sha256": "b889e05bfd73aeefe614d77a11b8ff369720b3f10cd597e2bfd8ee8dba629d9a",
+      "declaration_sha256": "658613d735df4cd1c0c109ea18fcaa829a69aaf6df30b869d8f895f67760e87c",
+      "abi_sha256": "8b775218bff7dc56e52c4ef6f1a5bee5e9551e88ef864fb83b3ebb3838b1b364",
+      "source": "lem:matrix-value",
+      "provider": {
+        "module": "BlockIdentities.Providers.ValueMatrixFactor",
+        "export": "BlockIdentities.Providers.value_matrix_factor"
+      },
+      "quarantine": false,
+      "contract": {
+        "id": "BlockIdentities.Square.value_matrix_factor",
+        "version": "2"
+      },
+      "provider_status": "SEALED_VERIFIED",
+      "sealed_body_sha256": "cea67cd1407d2cdb03e510c51b6f4eec036bf31cbd3ae88edd063e7f12eca2f5",
+      "proof_audit": "INDEPENDENT_SOURCE_PASS; EXACT_EXPORT_KERNEL_ABI_AXIOMS_PASS",
+      "successor_approval": {
+        "date": "2026-10-16",
+        "text": "Approve the value import and wrapper",
+        "packet": "review/ValueMatrixFactorImportReview.txt",
+        "sha256": "a1bba5a503b3cddaf132fbafbdb68f5dfe650bb348b6d6269a6aea1d4fc7ac98"
+      },
+      "retired": {
+        "id": "value_matrix_factor",
+        "file": "review/retired/value_matrix_factor-v1.lean.txt",
+        "reason": "Author-approved provider import; unchanged theorem type and ABI"
+      }
+    },
+    {
+      "id": "general_extraction.v3",
+      "path": "BlockIdentities/Frozen/general_extraction_v3.lean",
+      "export": "BlockIdentities.Square.general_extraction",
+      "state": "SEALED",
+      "allowed_body": "by sorry\n",
+      "prefix_sha256": "28ba947f63797912c50fc53de545ac76c9c0fd39769d8b2161769190b21b7ca6",
+      "suffix_sha256": "b889e05bfd73aeefe614d77a11b8ff369720b3f10cd597e2bfd8ee8dba629d9a",
+      "declaration_sha256": "921d580dc1c01f1a1fc8bebdf9f4880ca37f5b886afac1a7111198cd61ac78b4",
+      "abi_sha256": "b62f50d89fe020dedcd92a2509c457ea1b7f3768c7ce1024a52072f253403fca",
+      "source": "prop:general-extraction",
+      "provider": {
+        "module": "BlockIdentities.Providers.GeneralExtraction",
+        "export": "BlockIdentities.Providers.general_extraction"
+      },
+      "quarantine": false,
+      "elaboration_note": "v2: explicit scalar parameter and subtype.val projections; mathematical binders and type unchanged; v1 did not elaborate.",
+      "author_annotation_approval": "2026-10-16: Approve the explicit annotations",
+      "contract": {
+        "id": "BlockIdentities.Square.general_extraction",
+        "version": "3"
+      },
+      "provider_status": "SEALED_VERIFIED",
+      "sealed_body_sha256": "d58024b2d5047e7c9d97f42626904c30a48fbfe37f10b5ea48cad251e7c3cf6b",
+      "proof_audit": "INDEPENDENT_SOURCE_PASS; EXACT_EXPORT_KERNEL_ABI_AXIOMS_PASS",
+      "successor_approval": {
+        "date": "2026-10-16",
+        "text": "Approve the extraction import and wrapper",
+        "packet": "review/GeneralExtractionImportReview.txt",
+        "sha256": "5f298b2e7db761568c90009e1b9c1ae260bfea9012656721716d3a0142dc259c"
+      },
+      "retired": {
+        "id": "general_extraction.v2",
+        "file": "review/retired/general_extraction-v2.lean.txt",
+        "metadata": "review/retired/general_extraction-v2-manifest.json",
+        "reason": "Author-approved provider import; unchanged theorem type and ABI"
+      }
+    },
+    {
+      "id": "shared_leg_value_inequality.v2",
+      "path": "BlockIdentities/Frozen/shared_leg_value_inequality_v2.lean",
+      "export": "BlockIdentities.Square.shared_leg_value_inequality",
+      "state": "SEALED",
+      "allowed_body": "by sorry\n",
+      "prefix_sha256": "37393aadeff3521babdcacf40a79184a739636f6cad0bcedb3a7a7a98f503eaf",
+      "suffix_sha256": "b889e05bfd73aeefe614d77a11b8ff369720b3f10cd597e2bfd8ee8dba629d9a",
+      "declaration_sha256": "e5f87846ab2de8b7b42d68bad379659d3887af592e193baa76c9ab646cc2d342",
+      "abi_sha256": "a49ea58afe8ebeeb69a3af83ddf072d8f93e79531b04326e996281c4322be1d2",
+      "source": "prop:local-value",
+      "provider": {
+        "module": "BlockIdentities.Providers.SharedLegValue",
+        "export": "BlockIdentities.Providers.shared_leg_value_inequality"
+      },
+      "quarantine": false,
+      "contract": {
+        "id": "BlockIdentities.Square.shared_leg_value_inequality",
+        "version": "2"
+      },
+      "provider_status": "SEALED_VERIFIED",
+      "sealed_body_sha256": "26287bf7985ff73008b0a47c6324445583e65e9a95c42ea02cfd7cb8e6eb98b6",
+      "proof_audit": "INDEPENDENT_SOURCE_PASS; EXACT_EXPORT_KERNEL_ABI_AXIOMS_PASS",
+      "successor_approval": {
+        "date": "2026-10-16",
+        "text": "Approve the shared-leg value import and wrapper",
+        "packet": "review/SharedLegValueImportReview.txt",
+        "sha256": "cd9e3dea3070010f342e626d2d067c2eded92a021de29b5e01876263dd2825a0"
+      },
+      "retired": {
+        "id": "shared_leg_value_inequality",
+        "file": "review/retired/shared_leg_value_inequality-v1.lean.txt",
+        "metadata": "review/retired/shared_leg_value_inequality-v1-manifest.json",
+        "reason": "Author-approved provider import; unchanged theorem type and ABI"
+      }
+    },
+    {
+      "id": "identities_to_exponent.v2",
+      "path": "BlockIdentities/Frozen/identities_to_exponent_v2.lean",
+      "export": "BlockIdentities.Square.identities_to_exponent",
+      "state": "SEALED",
+      "allowed_body": "by sorry\n",
+      "prefix_sha256": "ef343ab05d244dbfbfcca56140e69027d7bf2f0cc142cb4dd51aeab36716d051",
+      "suffix_sha256": "b889e05bfd73aeefe614d77a11b8ff369720b3f10cd597e2bfd8ee8dba629d9a",
+      "declaration_sha256": "0a70c6f024274d586df2c6d6602412faccc065d83edee4d109cc83298632d223",
+      "abi_sha256": "bc7c1482eb7e0432c9df8256e6d28fc24d4dfe741c6d4cc8af366936f5e656cc",
+      "source": "thm:potential",
+      "provider": {
+        "module": "BlockIdentities.Providers.IdentitiesToExponent",
+        "export": "BlockIdentities.Providers.identities_to_exponent"
+      },
+      "quarantine": false,
+      "contract": {
+        "id": "BlockIdentities.Square.identities_to_exponent",
+        "version": "2"
+      },
+      "provider_status": "SEALED_VERIFIED",
+      "sealed_body_sha256": "345599070959cb228c06798cb237cbd85ad4c3cad4d63c7863887a7bacbcb374",
+      "proof_audit": "INDEPENDENT_SOURCE_PASS; EXACT_EXPORT_KERNEL_ABI_AXIOMS_PASS",
+      "successor_approval": {
+        "date": "2026-10-16",
+        "text": "Approve both certificate endpoint imports and wrappers",
+        "packet": "review/CertificateEndpointImportReview.txt",
+        "sha256": "7854e42614fbd53bca8f15171fe116ef18b03bca21a91edccd2d758d1ac3b168"
+      },
+      "retired": {
+        "id": "identities_to_exponent",
+        "file": "review/retired/identities_to_exponent-v1.lean.txt",
+        "metadata": "review/retired/identities_to_exponent-v1-manifest.json",
+        "reason": "Author-approved provider import; unchanged theorem type and ABI"
+      }
+    },
+    {
+      "id": "convolution_neighbor_degeneration.v2",
+      "path": "BlockIdentities/Frozen/convolution_neighbor_degeneration_v2.lean",
+      "export": "BlockIdentities.Square.convolution_neighbor_degeneration",
+      "state": "SEALED",
+      "allowed_body": "by sorry\n",
+      "prefix_sha256": "9b5a6de21c771c25463ffffd1b385b49dc09a9c7e0200036d59a994aa9758592",
+      "suffix_sha256": "b889e05bfd73aeefe614d77a11b8ff369720b3f10cd597e2bfd8ee8dba629d9a",
+      "declaration_sha256": "e4433c6d92d249107e7351ab081e48840a4405babe78e3a84c8d6fab8ea7b923",
+      "abi_sha256": "80a760cb1c95b34b5ae879b86d7a61882569224042c68357b710ec9485222521",
+      "source": "prop:convolution item 1",
+      "provider": {
+        "module": "BlockIdentities.Providers.ConvolutionNeighbor",
+        "export": "BlockIdentities.Providers.Neighbor.convolution_neighbor_degeneration"
+      },
+      "quarantine": false,
+      "contract": {
+        "id": "BlockIdentities.Square.convolution_neighbor_degeneration",
+        "version": "2"
+      },
+      "provider_status": "SEALED_VERIFIED",
+      "sealed_body_sha256": "824bdb8153d0da83f28ecc971e18993b335158bbf97e54c9308c69562ccdb673",
+      "proof_audit": "PASS independent source/consumption review; exact export kernel build, unchanged ABI and standard-axiom closure verified by scripts/check.sh 2026-10-16",
+      "successor_approval": {
+        "date": "2026-10-16",
+        "text": "Approve the two convolution imports and wrappers",
+        "packet": "review/ConvolutionImportReview.txt",
+        "sha256": "3ce99c3ef2a81c9e8c13076ea74da8b3650267a5ced3157eab5b4e35ef69f149"
+      },
+      "retired": {
+        "id": "convolution_neighbor_degeneration",
+        "file": "review/retired/convolution_neighbor_degeneration-v1.lean.txt",
+        "reason": "Author-approved provider import; unchanged theorem type and ABI"
+      }
+    },
+    {
+      "id": "convolution_tripling_degeneration.v2",
+      "path": "BlockIdentities/Frozen/convolution_tripling_degeneration_v2.lean",
+      "export": "BlockIdentities.Square.convolution_tripling_degeneration",
+      "state": "SEALED",
+      "allowed_body": "by sorry\n",
+      "prefix_sha256": "cc50d49b5b413c408ac2a988f30cede47588b9d4e1d13bd76c5cc3f6a5f6ea16",
+      "suffix_sha256": "b889e05bfd73aeefe614d77a11b8ff369720b3f10cd597e2bfd8ee8dba629d9a",
+      "declaration_sha256": "9264607c2013833260c5344f051124c480d8b6b25e5119910603f0d80fc9ce5e",
+      "abi_sha256": "417f99ce026c19fc09fb5c1475edfe7a6c6a2ff61f76522e80a296ebff30ec90",
+      "source": "prop:convolution item 2",
+      "provider": {
+        "module": "BlockIdentities.Providers.ConvolutionTripling",
+        "export": "BlockIdentities.Providers.convolution_tripling_degeneration"
+      },
+      "quarantine": false,
+      "contract": {
+        "id": "BlockIdentities.Square.convolution_tripling_degeneration",
+        "version": "2"
+      },
+      "provider_status": "SEALED_VERIFIED",
+      "sealed_body_sha256": "f360b2393455d7246c6c9a29f38aac37c54b89ba87b732186762703c45a52012",
+      "proof_audit": "PASS independent source/consumption review; exact export kernel build, unchanged ABI and standard-axiom closure verified by scripts/check.sh 2026-10-16",
+      "successor_approval": {
+        "date": "2026-10-16",
+        "text": "Approve the two convolution imports and wrappers",
+        "packet": "review/ConvolutionImportReview.txt",
+        "sha256": "3ce99c3ef2a81c9e8c13076ea74da8b3650267a5ced3157eab5b4e35ef69f149"
+      },
+      "retired": {
+        "id": "convolution_tripling_degeneration",
+        "file": "review/retired/convolution_tripling_degeneration-v1.lean.txt",
+        "reason": "Author-approved provider import; unchanged theorem type and ABI"
+      }
+    },
+    {
+      "id": "tripling_middle_isomorphism.v2",
+      "path": "BlockIdentities/Frozen/tripling_middle_isomorphism_v2.lean",
+      "export": "BlockIdentities.Square.tripling_middle_isomorphism",
+      "state": "SEALED",
+      "allowed_body": "by sorry\n",
+      "prefix_sha256": "6150986879afab1e0650e127e3265a9a7db25c7e1b31239abbf39cb09ae30f0f",
+      "suffix_sha256": "b889e05bfd73aeefe614d77a11b8ff369720b3f10cd597e2bfd8ee8dba629d9a",
+      "declaration_sha256": "7f771a2f583eb9d205f441ba12a595a84acf2ace62a0e57de72c4fcbe12b755d",
+      "abi_sha256": "21c696cfeb22427bd1f9fa1270025def619f5e259abd9896aefd6e60bbc3a73b",
+      "source": "prop:convolution item 2",
+      "provider": {
+        "module": "BlockIdentities.Tensor.Isomorphism",
+        "export": "BlockIdentities.Square.middleConvolution_isomorphic"
+      },
+      "quarantine": false,
+      "contract": {
+        "id": "BlockIdentities.Square.tripling_middle_isomorphism",
+        "version": "2"
+      },
+      "provider_status": "SEALED_VERIFIED",
+      "sealed_body_sha256": "e66c49eac1e7e682ac94e81f7d909547b92fb7ee86f161c53f8f9e81061d23bb",
+      "proof_audit": "PASS independent source/consumption review; exact export kernel build, unchanged ABI and standard-axiom closure verified by scripts/check.sh 2026-10-16",
+      "successor_approval": {
+        "date": "2026-10-16",
+        "text": "Approve the five provider imports and wrappers",
+        "packet": "review/ProviderImportReview.txt",
+        "sha256": "5ced3f23c2a6fb6620ae69a13f9ba81805a0e3332570cbe18b61c5bd071c621d"
+      },
+      "retired": {
+        "id": "tripling_middle_isomorphism",
+        "file": "review/retired/tripling_middle_isomorphism-v1.lean.txt",
+        "reason": "Author-approved provider import; unchanged theorem type and ABI"
+      }
+    },
+    {
+      "id": "convolution_boundary_isomorphism.v2",
+      "path": "BlockIdentities/Frozen/convolution_boundary_isomorphism_v2.lean",
+      "export": "BlockIdentities.Square.convolution_boundary_isomorphism",
+      "state": "SEALED",
+      "allowed_body": "by sorry\n",
+      "prefix_sha256": "270d7382cfc4003d0d2c609f335b572b9a6e86a6c3870b5d93a307d88767232b",
+      "suffix_sha256": "b889e05bfd73aeefe614d77a11b8ff369720b3f10cd597e2bfd8ee8dba629d9a",
+      "declaration_sha256": "ef7f3b3738589eac265902141d2b7284f172ffbe947a05272eb6f69601fa20d3",
+      "abi_sha256": "3d826c2ea44aca858d333498d6c3c6e390a7c9162ab9acdeb2d711a3970da68b",
+      "source": "prop:convolution lower boundary",
+      "provider": {
+        "module": "BlockIdentities.Tensor.Isomorphism",
+        "export": "BlockIdentities.Square.convolution_boundary_isomorphic"
+      },
+      "quarantine": false,
+      "contract": {
+        "id": "BlockIdentities.Square.convolution_boundary_isomorphism",
+        "version": "2"
+      },
+      "provider_status": "SEALED_VERIFIED",
+      "sealed_body_sha256": "2c57b4f07b7b286da600db92a346d27882f939ad5507b7a35b6e06377cfd559f",
+      "proof_audit": "PASS independent source/consumption review; exact export kernel build, unchanged ABI and standard-axiom closure verified by scripts/check.sh 2026-10-16",
+      "successor_approval": {
+        "date": "2026-10-16",
+        "text": "Approve the five provider imports and wrappers",
+        "packet": "review/ProviderImportReview.txt",
+        "sha256": "5ced3f23c2a6fb6620ae69a13f9ba81805a0e3332570cbe18b61c5bd071c621d"
+      },
+      "retired": {
+        "id": "convolution_boundary_isomorphism",
+        "file": "review/retired/convolution_boundary_isomorphism-v1.lean.txt",
+        "reason": "Author-approved provider import; unchanged theorem type and ABI"
+      }
+    },
+    {
+      "id": "finite_convolution_bound.v2",
+      "path": "BlockIdentities/Frozen/finite_convolution_bound_v2.lean",
+      "export": "BlockIdentities.Square.finite_convolution_bound",
+      "state": "SEALED",
+      "allowed_body": "by sorry\n",
+      "prefix_sha256": "c3bfc36ec834b31f712d332d8ee5a18573d3651e15ab264616f67aba7ccba23d",
+      "suffix_sha256": "b889e05bfd73aeefe614d77a11b8ff369720b3f10cd597e2bfd8ee8dba629d9a",
+      "declaration_sha256": "0d24d4d765ab5e45382b7bd3ccd33b526dbb5ce07eecc4516d040b07df703cd2",
+      "abi_sha256": "5fafe05d0a61ea949123c65dcd182f5f56902755a3c555e287e0f19a2fb52598",
+      "source": "eq:profile-lower and eq:finite-profile-exponent",
+      "provider": {
+        "module": "BlockIdentities.Providers.FiniteConvolutionBound",
+        "export": "BlockIdentities.Providers.finite_convolution_bound"
+      },
+      "quarantine": false,
+      "contract": {
+        "id": "BlockIdentities.Square.finite_convolution_bound",
+        "version": "2"
+      },
+      "provider_status": "SEALED_VERIFIED",
+      "sealed_body_sha256": "8c3b67b2a35dc1e8f75a1300cbb58c64603cb376973921ec894d4e4a29ddf79c",
+      "proof_audit": "INDEPENDENT_SOURCE_PASS; EXACT_EXPORT_KERNEL_ABI_AXIOMS_PASS",
+      "successor_approval": {
+        "date": "2026-10-16",
+        "text": "Approve both certificate endpoint imports and wrappers",
+        "packet": "review/CertificateEndpointImportReview.txt",
+        "sha256": "7854e42614fbd53bca8f15171fe116ef18b03bca21a91edccd2d758d1ac3b168"
+      },
+      "retired": {
+        "id": "finite_convolution_bound",
+        "file": "review/retired/finite_convolution_bound-v1.lean.txt",
+        "metadata": "review/retired/finite_convolution_bound-v1-manifest.json",
+        "reason": "Author-approved provider import; unchanged theorem type and ABI"
+      }
+    },
+    {
+      "id": "formalOmega_le_nine_quarters.v2",
+      "path": "BlockIdentities/Frozen/formalOmega_le_nine_quarters_v2.lean",
+      "export": "BlockIdentities.Square.formalOmega_le_nine_quarters",
+      "state": "SEALED",
+      "allowed_body": "by sorry\n",
+      "prefix_sha256": "d9b6ade744b027d7334e1286d8ca1b277578192c2722120a2e2d33f0acdd13e2",
+      "suffix_sha256": "b889e05bfd73aeefe614d77a11b8ff369720b3f10cd597e2bfd8ee8dba629d9a",
+      "declaration_sha256": "e22dd3a59ad4b3e9153df48b886eb25e52cc0c4704c1be4aecded250afeffc1a",
+      "abi_sha256": "d0aca133035ae658d6ecafd5dfb30bb5ef8b68026614f91182b747a90af5789c",
+      "source": "thm:main",
+      "provider": {
+        "module": "BlockIdentities.Providers.FinalSquare",
+        "export": "BlockIdentities.Providers.formalOmega_le_nine_quarters"
+      },
+      "quarantine": false,
+      "contract": {
+        "id": "BlockIdentities.Square.formalOmega_le_nine_quarters",
+        "version": "2"
+      },
+      "provider_status": "SEALED_VERIFIED",
+      "sealed_body_sha256": "a900b058ea37c39b28c3471bb5491b8713eb9756407eeca1014a4cea89067235",
+      "proof_audit": "INDEPENDENT_SOURCE_PASS; EXACT_EXPORT_KERNEL_ABI_AXIOMS_PASS",
+      "successor_approval": {
+        "date": "2026-10-16",
+        "text": "Approve all three final square imports and wrappers",
+        "packet": "review/FinalSquareImportReview.txt",
+        "sha256": "6322a9c12b8b9b25967e149747350cf05e1d9ca2d7a86c29f55561f640adbebd"
+      },
+      "retired": {
+        "id": "formalOmega_le_nine_quarters",
+        "file": "review/retired/formalOmega_le_nine_quarters-v1.lean.txt",
+        "metadata": "review/retired/formalOmega_le_nine_quarters-v1-manifest.json",
+        "reason": "Author-approved provider import; unchanged theorem type and ABI"
+      }
+    },
+    {
+      "id": "formal_matrix_multiplication_cost_le.v2",
+      "path": "BlockIdentities/Frozen/formal_matrix_multiplication_cost_le_v2.lean",
+      "export": "BlockIdentities.Square.formal_matrix_multiplication_cost_le",
+      "state": "SEALED",
+      "allowed_body": "by sorry\n",
+      "prefix_sha256": "f5e3482b47595001053ce7977f11729469b83822a0e0baf52be746511eb38e2d",
+      "suffix_sha256": "b889e05bfd73aeefe614d77a11b8ff369720b3f10cd597e2bfd8ee8dba629d9a",
+      "declaration_sha256": "c0e504a7d776c27e630f5ac692955cf7e9dad3ade72c9af9d14c71f0ff28c3e7",
+      "abi_sha256": "c15c457ca12a7370e927423d453d4518a39c2c5f3e45c31ec2ec54962cfd22fb",
+      "source": "thm:main and Introduction",
+      "provider": {
+        "module": "BlockIdentities.Providers.FinalSquare",
+        "export": "BlockIdentities.Providers.formal_matrix_multiplication_cost_le"
+      },
+      "quarantine": false,
+      "contract": {
+        "id": "BlockIdentities.Square.formal_matrix_multiplication_cost_le",
+        "version": "2"
+      },
+      "provider_status": "SEALED_VERIFIED",
+      "sealed_body_sha256": "0ee5c043bb2323ff5049a6490153165f10b03396fd136edab7b4865c77f5a4f3",
+      "proof_audit": "INDEPENDENT_SOURCE_PASS; EXACT_EXPORT_KERNEL_ABI_AXIOMS_PASS",
+      "successor_approval": {
+        "date": "2026-10-16",
+        "text": "Approve all three final square imports and wrappers",
+        "packet": "review/FinalSquareImportReview.txt",
+        "sha256": "6322a9c12b8b9b25967e149747350cf05e1d9ca2d7a86c29f55561f640adbebd"
+      },
+      "retired": {
+        "id": "formal_matrix_multiplication_cost_le",
+        "file": "review/retired/formal_matrix_multiplication_cost_le-v1.lean.txt",
+        "metadata": "review/retired/formal_matrix_multiplication_cost_le-v1-manifest.json",
+        "reason": "Author-approved provider import; unchanged theorem type and ABI"
+      }
+    },
+    {
+      "id": "omega_le_nine_quarters.v2",
+      "path": "BlockIdentities/Frozen/omega_le_nine_quarters_v2.lean",
+      "export": "BlockIdentities.Square.omega_le_nine_quarters",
+      "state": "SEALED",
+      "allowed_body": "by sorry\n",
+      "prefix_sha256": "6dab987fcf75aabdd8c6d5bccbf9f46b4151003a43a73b5c70b2bbd0bbd39fcd",
+      "suffix_sha256": "b889e05bfd73aeefe614d77a11b8ff369720b3f10cd597e2bfd8ee8dba629d9a",
+      "declaration_sha256": "bcad149dceca23775698e78d1e24517eb2504a570470fe231b27d50dd26459f1",
+      "abi_sha256": "5fc15dde3433aadca639ee456094414aa9d38a9170fb52d5d9a1c7ba6938c86c",
+      "source": "Compatibility corollary",
+      "provider": {
+        "module": "BlockIdentities.Providers.FinalSquare",
+        "export": "BlockIdentities.Providers.omega_le_nine_quarters"
+      },
+      "quarantine": false,
+      "contract": {
+        "id": "BlockIdentities.Square.omega_le_nine_quarters",
+        "version": "2"
+      },
+      "provider_status": "SEALED_VERIFIED",
+      "sealed_body_sha256": "edada6b690926533bc8b6c376bd833d226616ba898f418c1b3841d37defdcf64",
+      "proof_audit": "INDEPENDENT_SOURCE_PASS; EXACT_EXPORT_KERNEL_ABI_AXIOMS_PASS",
+      "successor_approval": {
+        "date": "2026-10-16",
+        "text": "Approve all three final square imports and wrappers",
+        "packet": "review/FinalSquareImportReview.txt",
+        "sha256": "6322a9c12b8b9b25967e149747350cf05e1d9ca2d7a86c29f55561f640adbebd"
+      },
+      "retired": {
+        "id": "omega_le_nine_quarters",
+        "file": "review/retired/omega_le_nine_quarters-v1.lean.txt",
+        "metadata": "review/retired/omega_le_nine_quarters-v1-manifest.json",
+        "reason": "Author-approved provider import; unchanged theorem type and ABI"
+      }
+    },
+    {
+      "id": "rectangular.oriented_rank_asymptotics",
+      "path": "BlockIdentities/Rectangular/Frozen/oriented_rank_asymptotics.lean",
+      "export": "BlockIdentities.Rectangular.oriented_rank_asymptotics",
+      "state": "SEALED",
+      "allowed_body": "by sorry\n",
+      "prefix_sha256": "d9fccdbe0c7de542f5108a977d6adac9cf6d92790ff9b983a68af21209559b60",
+      "suffix_sha256": "5ccd386f756feebc84ecdbd5ba454002db8827e1bb74643656606b896e33706c",
+      "declaration_sha256": "cda9bcc8eb74c8ee55e0e16afd6aeff470b995a580589a45db12ea74a05ca0fe",
+      "abi_sha256": "b1f63668ffa919d81dd58193047d197c16d65588f4d66bb464ac0a61bf38240c",
+      "source": "TARGET 1: manuscript.tex:816\u2013838",
+      "provider": {
+        "module": "BlockIdentities.Rectangular.Providers.OrientedRankAsymptotics",
+        "export": "BlockIdentities.Rectangular.Providers.oriented_rank_asymptotics"
+      },
+      "quarantine": false,
+      "contract": {
+        "id": "rectangular.oriented_rank_asymptotics",
+        "version": "1"
+      },
+      "author_approval": {
+        "date": "2026-10-16",
+        "by": "Yuval Filmus",
+        "text": "Approve the exact definitions and 18 statements",
+        "packet": "review/rectangular/AuthorReview.txt",
+        "packet_sha256": "f6a1c82aae0849adb15274101a10927a1b2c171e45d992281d108ba02326ac4f",
+        "routine_imports_and_proved_wrappers": "preauthorized by author"
+      },
+      "provider_status": "SEALED_VERIFIED",
+      "sealed_body_sha256": "b0ace4c43864bbec21f9255f0562ec7bac2d9c5b5d8e23fe374582b4655964ee",
+      "proof_audit": "PASS independent source/semantic/consumption audit; exact frozen export compiled, unchanged35ABIs verified, standard-three-axiom closure and quarantine/import checks PASS (targeted rectangular check 2026-10-16); full ongoing frontier integration tracked separately",
+      "routine_import_changes": [
+        {
+          "date": "2026-10-16",
+          "authorization": "Author preauthorized routine imports and proved wrappers; mathematical declaration and definitions unchanged",
+          "old_prefix_sha256": "261ba2e24be3a654c8c89aca4c8a08f176b3d50d01300a7b3c3be01c680dfb57",
+          "new_prefix_sha256": "d9fccdbe0c7de542f5108a977d6adac9cf6d92790ff9b983a68af21209559b60",
+          "added_import": "BlockIdentities.Rectangular.Providers.OrientedRankAsymptotics",
+          "audit": "review/rectangular/rank-asymptotics-proof-audit.txt"
+        }
+      ]
+    },
+    {
+      "id": "rectangular.oriented_exponent_properties",
+      "path": "BlockIdentities/Rectangular/Frozen/oriented_exponent_properties.lean",
+      "export": "BlockIdentities.Rectangular.oriented_exponent_properties",
+      "state": "SEALED",
+      "allowed_body": "by sorry\n",
+      "prefix_sha256": "48b892892fad0b85f2289ea75739bdc2a5e9953f28ef809486ffe9ab318fd6bd",
+      "suffix_sha256": "5ccd386f756feebc84ecdbd5ba454002db8827e1bb74643656606b896e33706c",
+      "declaration_sha256": "d8c79e21101cf55e465617b20ec613077db40895d9f9489f52855df07501df95",
+      "abi_sha256": "b318e592f4f5ed5fe2087cbe0c93374ad60e8caba0644f9b9e85908aec8643b4",
+      "source": "TARGET 2: manuscript.tex:823\u2013838",
+      "provider": {
+        "module": "BlockIdentities.Rectangular.Providers.OrientedExponentProperties",
+        "export": "BlockIdentities.Rectangular.Providers.oriented_exponent_properties"
+      },
+      "quarantine": false,
+      "contract": {
+        "id": "rectangular.oriented_exponent_properties",
+        "version": "1"
+      },
+      "author_approval": {
+        "date": "2026-10-16",
+        "by": "Yuval Filmus",
+        "text": "Approve the exact definitions and 18 statements",
+        "packet": "review/rectangular/AuthorReview.txt",
+        "packet_sha256": "f6a1c82aae0849adb15274101a10927a1b2c171e45d992281d108ba02326ac4f",
+        "routine_imports_and_proved_wrappers": "preauthorized by author"
+      },
+      "provider_status": "SEALED_VERIFIED",
+      "sealed_body_sha256": "8ac4028398b47d531fe48d5308b44ab58f54ebe503b33ddee62b311b066d108d",
+      "proof_audit": "PASS independent source/semantic/consumption audit; exact frozen export compiled, unchanged35ABIs verified, standard-three-axiom closure and quarantine/import checks PASS (targeted rectangular check 2026-10-16); full ongoing frontier integration tracked separately",
+      "routine_import_changes": [
+        {
+          "date": "2026-10-16",
+          "authorization": "Author preauthorized routine imports and proved wrappers; mathematical declaration and definitions unchanged",
+          "old_prefix_sha256": "9d4fa5cc26b807dcb68f403c666afc3cd9b058ad474da72b54fe71b794d3252a",
+          "new_prefix_sha256": "48b892892fad0b85f2289ea75739bdc2a5e9953f28ef809486ffe9ab318fd6bd",
+          "added_import": "BlockIdentities.Rectangular.Providers.OrientedExponentProperties",
+          "audit": "review/rectangular/geometry-provider-descent-audit.txt"
+        }
+      ]
+    },
+    {
+      "id": "rectangular.interior_support_exists",
+      "path": "BlockIdentities/Rectangular/Frozen/interior_support_exists.lean",
+      "export": "BlockIdentities.Rectangular.interior_support_exists",
+      "state": "SEALED",
+      "allowed_body": "by sorry\n",
+      "prefix_sha256": "7f710e4eac2bd147ad6ee2080c837c12a26a9ee6565975e3d2b7f5659e2023a7",
+      "suffix_sha256": "5ccd386f756feebc84ecdbd5ba454002db8827e1bb74643656606b896e33706c",
+      "declaration_sha256": "cda36c2f3f541c9719dd37edfd7837cf369ffc795498c01bc8fbfe2e0ced3aac",
+      "abi_sha256": "1f6869dca1229b2632934677f30f243ed48702498bf8140fa460edccd315d33c",
+      "source": "TARGET 3: manuscript.tex:840\u2013847",
+      "provider": {
+        "module": "BlockIdentities.Rectangular.Providers.InteriorSupportExists",
+        "export": "BlockIdentities.Rectangular.Providers.interior_support_exists"
+      },
+      "quarantine": false,
+      "contract": {
+        "id": "rectangular.interior_support_exists",
+        "version": "1"
+      },
+      "author_approval": {
+        "date": "2026-10-16",
+        "by": "Yuval Filmus",
+        "text": "Approve the exact definitions and 18 statements",
+        "packet": "review/rectangular/AuthorReview.txt",
+        "packet_sha256": "f6a1c82aae0849adb15274101a10927a1b2c171e45d992281d108ba02326ac4f",
+        "routine_imports_and_proved_wrappers": "preauthorized by author"
+      },
+      "provider_status": "SEALED_VERIFIED",
+      "sealed_body_sha256": "3bc4335c5597c2a6844c4fbfec58b75965661ca8b3e51a5f4487a2ac422ad030",
+      "proof_audit": "PASS independent source/semantic/consumption audit; exact frozen export compiled, unchanged35ABIs verified, standard-three-axiom closure and quarantine/import checks PASS (targeted rectangular check 2026-10-16); full ongoing frontier integration tracked separately",
+      "routine_import_changes": [
+        {
+          "date": "2026-10-16",
+          "authorization": "Author preauthorized routine imports and proved wrappers; mathematical declaration and definitions unchanged",
+          "old_prefix_sha256": "71ba33bfbb97e3b362f77951e0ea19425f0c4c4dc2e417202dbeabbdaf66a44d",
+          "new_prefix_sha256": "7f710e4eac2bd147ad6ee2080c837c12a26a9ee6565975e3d2b7f5659e2023a7",
+          "added_import": "BlockIdentities.Rectangular.Providers.InteriorSupportExists",
+          "audit": "review/rectangular/geometry-provider-descent-audit.txt"
+        }
+      ]
+    },
+    {
+      "id": "rectangular.support_weight_bounds",
+      "path": "BlockIdentities/Rectangular/Frozen/support_weight_bounds.lean",
+      "export": "BlockIdentities.Rectangular.support_weight_bounds",
+      "state": "SEALED",
+      "allowed_body": "by sorry\n",
+      "prefix_sha256": "1911796baa23bb1360d085f3ba0a73b298ed2f00c84b91f08edfecb06d9b4f56",
+      "suffix_sha256": "5ccd386f756feebc84ecdbd5ba454002db8827e1bb74643656606b896e33706c",
+      "declaration_sha256": "fef05de859c940d2e706cf22a1bf3a717057ee17bbd6dc85a9cd7dd3b24a7599",
+      "abi_sha256": "ab8f77e3322bf726933bc4810216f14f3d1c45c83665cbdd259a5fc95e37fec9",
+      "source": "TARGET 4: manuscript.tex:840\u2013847",
+      "provider": {
+        "module": "BlockIdentities.Rectangular.Providers.SupportWeightBounds",
+        "export": "BlockIdentities.Rectangular.Providers.support_weight_bounds"
+      },
+      "quarantine": false,
+      "contract": {
+        "id": "rectangular.support_weight_bounds",
+        "version": "1"
+      },
+      "author_approval": {
+        "date": "2026-10-16",
+        "by": "Yuval Filmus",
+        "text": "Approve the exact definitions and 18 statements",
+        "packet": "review/rectangular/AuthorReview.txt",
+        "packet_sha256": "f6a1c82aae0849adb15274101a10927a1b2c171e45d992281d108ba02326ac4f",
+        "routine_imports_and_proved_wrappers": "preauthorized by author"
+      },
+      "provider_status": "SEALED_VERIFIED",
+      "sealed_body_sha256": "4ce323f2c333f4ac7418b9f747ed437a5ed5e8a00644fe5a0e23a1fa804513f9",
+      "proof_audit": "PASS independent source/semantic/consumption audit; exact frozen export compiled, unchanged35ABIs verified, standard-three-axiom closure and quarantine/import checks PASS (targeted rectangular check 2026-10-16); full ongoing frontier integration tracked separately",
+      "routine_import_changes": [
+        {
+          "date": "2026-10-16",
+          "authorization": "Author preauthorized routine imports and proved wrappers; mathematical declaration and definitions unchanged",
+          "old_prefix_sha256": "b4be8de8abb8cc9ceee50fc054c8dbcf4367a7f9d55babef04d2a4de9678c5ef",
+          "new_prefix_sha256": "1911796baa23bb1360d085f3ba0a73b298ed2f00c84b91f08edfecb06d9b4f56",
+          "added_import": "BlockIdentities.Rectangular.Providers.SupportWeightBounds",
+          "audit": "review/rectangular/geometry-provider-descent-audit.txt"
+        }
+      ]
+    },
+    {
+      "id": "rectangular.oriented_value_rank",
+      "path": "BlockIdentities/Rectangular/Frozen/oriented_value_rank.lean",
+      "export": "BlockIdentities.Rectangular.oriented_value_rank",
+      "state": "SEALED",
+      "allowed_body": "by sorry\n",
+      "prefix_sha256": "ebcf324ce5a83d936d075d0801a8aeab4740d77bd91e8023af77f90226b07c21",
+      "suffix_sha256": "5ccd386f756feebc84ecdbd5ba454002db8827e1bb74643656606b896e33706c",
+      "declaration_sha256": "9f8774d128a79847e796d545017e5cde7381ab3da9940ff008855b9d731b92e3",
+      "abi_sha256": "d0c3456bbb54f0c96ca07b0dcfaea85cf7a4a50785c8b000b21c4577ea0a86cb",
+      "source": "TARGET 5: manuscript.tex:867\u2013921",
+      "provider": {
+        "module": "BlockIdentities.Rectangular.Providers.OrientedValueRank",
+        "export": "BlockIdentities.Rectangular.Providers.oriented_value_rank"
+      },
+      "quarantine": false,
+      "contract": {
+        "id": "rectangular.oriented_value_rank",
+        "version": "1"
+      },
+      "author_approval": {
+        "date": "2026-10-16",
+        "by": "Yuval Filmus",
+        "text": "Approve the exact definitions and 18 statements",
+        "packet": "review/rectangular/AuthorReview.txt",
+        "packet_sha256": "f6a1c82aae0849adb15274101a10927a1b2c171e45d992281d108ba02326ac4f",
+        "routine_imports_and_proved_wrappers": "preauthorized by author"
+      },
+      "provider_status": "SEALED_VERIFIED",
+      "sealed_body_sha256": "ed42e5beb9f57738e2f2f7b3f60ad82714cd36deb46993e337fc8bc51e15fc55",
+      "proof_audit": "Independent source/semantic/consumption static PASS; exact provider and frozen export compiled; all 35 elaborated ABI hashes unchanged; exact export uses only propext, Classical.choice, Quot.sound (review/rectangular/current-interface-check.txt)",
+      "routine_import_changes": [
+        {
+          "date": "2026-10-17",
+          "authorization": "Author preauthorized routine imports and proved wrappers; mathematical declaration and definitions unchanged",
+          "old_prefix_sha256": "6d34a8b81f5f080888ace10f09683c612f3037e6ddabd54bc8c13d59aa325769",
+          "new_prefix_sha256": "ebcf324ce5a83d936d075d0801a8aeab4740d77bd91e8023af77f90226b07c21",
+          "added_import": "BlockIdentities.Rectangular.Providers.OrientedValueRank",
+          "audit": "review/rectangular/oriented-value-rank-proof-audit.txt"
+        }
+      ]
+    },
+    {
+      "id": "rectangular.oriented_value_properties",
+      "path": "BlockIdentities/Rectangular/Frozen/oriented_value_properties.lean",
+      "export": "BlockIdentities.Rectangular.oriented_value_properties",
+      "state": "SEALED",
+      "allowed_body": "by sorry\n",
+      "prefix_sha256": "03f34d7d71eac9dae727626454ed80a874b10d59f478bb1de27e910370669a77",
+      "suffix_sha256": "5ccd386f756feebc84ecdbd5ba454002db8827e1bb74643656606b896e33706c",
+      "declaration_sha256": "0225a52206d83c8fc3d5712d40e57e8e71711a52e43b5b15dc4910d075ac9d2f",
+      "abi_sha256": "9c3d08018ee22148624d19d4a7557dc11787a309a9e35551d5295cde5e4ae5c7",
+      "source": "TARGET 6: manuscript.tex:926\u2013957",
+      "provider": {
+        "module": "BlockIdentities.Rectangular.Providers.OrientedValueProperties",
+        "export": "BlockIdentities.Rectangular.Providers.oriented_value_properties"
+      },
+      "quarantine": false,
+      "contract": {
+        "id": "rectangular.oriented_value_properties",
+        "version": "1"
+      },
+      "author_approval": {
+        "date": "2026-10-16",
+        "by": "Yuval Filmus",
+        "text": "Approve the exact definitions and 18 statements",
+        "packet": "review/rectangular/AuthorReview.txt",
+        "packet_sha256": "f6a1c82aae0849adb15274101a10927a1b2c171e45d992281d108ba02326ac4f",
+        "routine_imports_and_proved_wrappers": "preauthorized by author"
+      },
+      "provider_status": "SEALED_VERIFIED",
+      "sealed_body_sha256": "6695ec92e8b272c385aaa6a70ec81c6a3267e1e69f6ea3ff42ccebdd33a197b0",
+      "proof_audit": "Independent source/semantic/consumption static PASS; exact provider and frozen export compiled; all35 elaborated ABI hashes unchanged; exact export standard-three-axiom closure PASS (review/rectangular/current-interface-check.txt).",
+      "routine_import_changes": [
+        {
+          "date": "2026-10-17",
+          "authorization": "Author preauthorized routine imports and proved wrappers; mathematical declaration and definitions unchanged",
+          "old_prefix_sha256": "2a8546090bbda92b5141e7b5ce644a81126acfc60cc8ae8cb22443a4df29dd6b",
+          "new_prefix_sha256": "03f34d7d71eac9dae727626454ed80a874b10d59f478bb1de27e910370669a77",
+          "added_import": "BlockIdentities.Rectangular.Providers.OrientedValueProperties",
+          "audit": "review/rectangular/oriented-value-sum-proof-audit.txt"
+        }
+      ]
+    },
+    {
+      "id": "rectangular.oriented_general_extraction",
+      "path": "BlockIdentities/Rectangular/Frozen/oriented_general_extraction.lean",
+      "export": "BlockIdentities.Rectangular.oriented_general_extraction",
+      "state": "SEALED",
+      "allowed_body": "by sorry\n",
+      "prefix_sha256": "aa7a25f693e220e9aa937fd66d3a8bb1f29f195f6f39abd4c89440b920c6b2f5",
+      "suffix_sha256": "5ccd386f756feebc84ecdbd5ba454002db8827e1bb74643656606b896e33706c",
+      "declaration_sha256": "bfdc365746e7c7351c70e54318c149998660055614856eda32ef25a9c93253f9",
+      "abi_sha256": "da049e150c4d18ae21c9b8a4095e8b9b521896672148019f106d3d3305e7871e",
+      "source": "TARGET 7: manuscript.tex:988\u2013998",
+      "provider": {
+        "module": "BlockIdentities.Rectangular.Providers.OrientedGeneralExtraction",
+        "export": "BlockIdentities.Rectangular.Providers.oriented_general_extraction"
+      },
+      "quarantine": false,
+      "contract": {
+        "id": "rectangular.oriented_general_extraction",
+        "version": "1"
+      },
+      "author_approval": {
+        "date": "2026-10-16",
+        "by": "Yuval Filmus",
+        "text": "Approve the exact definitions and 18 statements",
+        "packet": "review/rectangular/AuthorReview.txt",
+        "packet_sha256": "f6a1c82aae0849adb15274101a10927a1b2c171e45d992281d108ba02326ac4f",
+        "routine_imports_and_proved_wrappers": "preauthorized by author"
+      },
+      "provider_status": "SEALED_VERIFIED",
+      "sealed_body_sha256": "c11025bb848585b3989ecfdf0c052379d909e4a2f90bd3920d2ef904ab444d1e",
+      "proof_audit": "Independent source/semantic/consumption static PASS; exact provider and frozen export compiled; all35 elaborated ABI hashes unchanged; exact export standard-three-axiom closure PASS (review/rectangular/current-interface-check.txt).",
+      "routine_import_changes": [
+        {
+          "date": "2026-10-17",
+          "authorization": "Author preauthorized routine imports and proved wrappers; mathematical declaration and definitions unchanged",
+          "old_prefix_sha256": "880694ab9b57ceec13c97feff88287664600a4d7f90b3efdd653b952a0825a6f",
+          "new_prefix_sha256": "aa7a25f693e220e9aa937fd66d3a8bb1f29f195f6f39abd4c89440b920c6b2f5",
+          "added_import": "BlockIdentities.Rectangular.Providers.OrientedGeneralExtraction",
+          "audit": "review/rectangular/general-oriented-extraction-audit.txt"
+        }
+      ]
+    },
+    {
+      "id": "rectangular.oriented_shared_leg_entropy",
+      "path": "BlockIdentities/Rectangular/Frozen/oriented_shared_leg_entropy.lean",
+      "export": "BlockIdentities.Rectangular.oriented_shared_leg_entropy",
+      "state": "SEALED",
+      "allowed_body": "by sorry\n",
+      "prefix_sha256": "e8a8055e826c26265b677d5e1aaf44a731c4d289416a114154c38b490114b5f3",
+      "suffix_sha256": "5ccd386f756feebc84ecdbd5ba454002db8827e1bb74643656606b896e33706c",
+      "declaration_sha256": "22b8729268d2f84165897ec6faeb0c338026480fb60ff00e0f294641800d2815",
+      "abi_sha256": "de9e61a696b6a832f1ce9beb72b3ec0e084c8ddb19455994cbb524e1bac06a24",
+      "source": "TARGET 8: manuscript.tex:960\u2013987; aligned unfactored form, all permutations retained",
+      "provider": {
+        "module": "BlockIdentities.Rectangular.Providers.OrientedSharedLegEntropy",
+        "export": "BlockIdentities.Rectangular.Providers.oriented_shared_leg_entropy"
+      },
+      "quarantine": false,
+      "contract": {
+        "id": "rectangular.oriented_shared_leg_entropy",
+        "version": "1"
+      },
+      "author_approval": {
+        "date": "2026-10-16",
+        "by": "Yuval Filmus",
+        "text": "Approve the exact definitions and 18 statements",
+        "packet": "review/rectangular/AuthorReview.txt",
+        "packet_sha256": "f6a1c82aae0849adb15274101a10927a1b2c171e45d992281d108ba02326ac4f",
+        "routine_imports_and_proved_wrappers": "preauthorized by author"
+      },
+      "provider_status": "SEALED_VERIFIED",
+      "sealed_body_sha256": "070930d5b41a57e646b8788771ca50882e434b06bc8b3557c24ac160ba28cfd7",
+      "proof_audit": "Independent source/semantic/consumption static PASS; exact provider and frozen export compiled; all35 elaborated ABI hashes unchanged; exact export standard-three-axiom closure PASS (review/rectangular/current-interface-check.txt).",
+      "routine_import_changes": [
+        {
+          "date": "2026-10-17",
+          "authorization": "Author preauthorized routine imports and proved wrappers; mathematical declaration and definitions unchanged",
+          "old_prefix_sha256": "a4cdf763c8f0d8a5ff114acf02d21e8ac70bfc9de07504a365a1a06de2332921",
+          "new_prefix_sha256": "e8a8055e826c26265b677d5e1aaf44a731c4d289416a114154c38b490114b5f3",
+          "added_import": "BlockIdentities.Rectangular.Providers.OrientedSharedLegEntropy",
+          "audit": "review/rectangular/shared-entropy-repair-audit.txt"
+        }
+      ]
+    },
+    {
+      "id": "rectangular.convolution_general_tripling",
+      "path": "BlockIdentities/Rectangular/Frozen/convolution_general_tripling.lean",
+      "export": "BlockIdentities.Rectangular.convolution_general_tripling",
+      "state": "SEALED",
+      "allowed_body": "by sorry\n",
+      "prefix_sha256": "2d2b6d54e84d9ca129c84e4e06fb15ed1fb59c5295e71a91557f3e32024c5fa5",
+      "suffix_sha256": "5ccd386f756feebc84ecdbd5ba454002db8827e1bb74643656606b896e33706c",
+      "declaration_sha256": "f60c872ebb46c2a1ba50e2d07fc58099063409db94c66d5f72a724f11f80ae83",
+      "abi_sha256": "d40383a478ae40171290072ece3a983bbeeef90a51d7d7b030bbe4082f800657",
+      "source": "TARGET 9: manuscript.tex:1022\u20131030; Uznanski-v2/main.tex:938\u2013967",
+      "provider": {
+        "module": "BlockIdentities.Rectangular.Providers.ConvolutionGeneralTripling",
+        "export": "BlockIdentities.Rectangular.Providers.convolution_general_tripling"
+      },
+      "quarantine": false,
+      "contract": {
+        "id": "rectangular.convolution_general_tripling",
+        "version": "1"
+      },
+      "author_approval": {
+        "date": "2026-10-16",
+        "by": "Yuval Filmus",
+        "text": "Approve the exact definitions and 18 statements",
+        "packet": "review/rectangular/AuthorReview.txt",
+        "packet_sha256": "f6a1c82aae0849adb15274101a10927a1b2c171e45d992281d108ba02326ac4f",
+        "routine_imports_and_proved_wrappers": "preauthorized by author"
+      },
+      "provider_status": "SEALED_VERIFIED",
+      "sealed_body_sha256": "bc454ebe3aed0ff1e708c8e73b5b015ee3c2718da498985a11b56c9a4da46c34",
+      "proof_audit": "PASS independent raw-source/coefficient-map/consumption review; exact export kernel build, unchanged35ABIs and standard-three-axiom closure verified by scripts/check.sh 2026-10-16",
+      "routine_import_changes": [
+        {
+          "date": "2026-10-16",
+          "authorization": "Author preauthorized routine imports and proved wrappers; no mathematical declaration/definition/ABI change",
+          "old_prefix_sha256": "b092d6b0d14f999f1b692f4c23dd39aca7be462a11c68d565441d7d140e4ed8d",
+          "new_prefix_sha256": "2d2b6d54e84d9ca129c84e4e06fb15ed1fb59c5295e71a91557f3e32024c5fa5",
+          "added_import": "BlockIdentities.Rectangular.Providers.ConvolutionGeneralTripling",
+          "audit": "review/rectangular/general-tripling-proof-audit.txt"
+        }
+      ]
+    },
+    {
+      "id": "rectangular.convolution_replication",
+      "path": "BlockIdentities/Rectangular/Frozen/convolution_replication.lean",
+      "export": "BlockIdentities.Rectangular.convolution_replication",
+      "state": "SEALED",
+      "allowed_body": "by sorry\n",
+      "prefix_sha256": "6b9c01e06018a4baa719d3508da3ab1be7363a4b2009e946535567620323dcce",
+      "suffix_sha256": "5ccd386f756feebc84ecdbd5ba454002db8827e1bb74643656606b896e33706c",
+      "declaration_sha256": "2632ca7850612f8a7564c174d5e72875ba46985901409d4b5e8caeb2365ef4ec",
+      "abi_sha256": "adc251be31669aaf1385028df414c0d3c1162680ef9a99e9ba38253d26b75a60",
+      "source": "TARGET 10: manuscript.tex:1059\u20131063",
+      "provider": {
+        "module": "BlockIdentities.Rectangular.Providers.ConvolutionReplication",
+        "export": "BlockIdentities.Rectangular.Providers.convolution_replication"
+      },
+      "quarantine": false,
+      "contract": {
+        "id": "rectangular.convolution_replication",
+        "version": "1"
+      },
+      "author_approval": {
+        "date": "2026-10-16",
+        "by": "Yuval Filmus",
+        "text": "Approve the exact definitions and 18 statements",
+        "packet": "review/rectangular/AuthorReview.txt",
+        "packet_sha256": "f6a1c82aae0849adb15274101a10927a1b2c171e45d992281d108ba02326ac4f",
+        "routine_imports_and_proved_wrappers": "preauthorized by author"
+      },
+      "provider_status": "SEALED_VERIFIED",
+      "sealed_body_sha256": "48c5322cdead2221bf085573f6d13f307002d4f43a3812af7bf2e0d0a4259256",
+      "proof_audit": "Independent source/semantic/consumption static PASS; exact provider and frozen export compiled; all 35 elaborated ABI hashes unchanged; exact export uses only propext, Classical.choice, Quot.sound (review/rectangular/current-interface-check.txt)",
+      "routine_import_changes": [
+        {
+          "date": "2026-10-16",
+          "authorization": "Author preauthorized routine imports and proved wrappers; mathematical declaration and definitions unchanged",
+          "old_prefix_sha256": "80e2aeb6e6f7cab702db8faf357866309ccbfd710e252ea0ff3968364ee72be7",
+          "new_prefix_sha256": "6b9c01e06018a4baa719d3508da3ab1be7363a4b2009e946535567620323dcce",
+          "added_import": "BlockIdentities.Rectangular.Providers.ConvolutionReplication",
+          "audit": "review/rectangular/convolution-replication-proof-audit.txt"
+        }
+      ]
+    },
+    {
+      "id": "rectangular.support_angular_constraint",
+      "path": "BlockIdentities/Rectangular/Frozen/support_angular_constraint.lean",
+      "export": "BlockIdentities.Rectangular.support_angular_constraint",
+      "state": "SEALED",
+      "allowed_body": "by sorry\n",
+      "prefix_sha256": "566a7c443c2b3c6c1e1b88aa22bae870c0df7145259c52c710bd3f6a36afe92b",
+      "suffix_sha256": "5ccd386f756feebc84ecdbd5ba454002db8827e1bb74643656606b896e33706c",
+      "declaration_sha256": "a9e0aff28a804d86f5259791685c0f0ab1b98d722da2416cf109436f4af3bab5",
+      "abi_sha256": "cf6c22f53841dd110dc72a58d2d4c8cf9f7d23d9c78c1d21e382bac0b129b2a2",
+      "source": "TARGET 11: manuscript.tex:1031\u20131035; Uznanski-v2 Sections4\u20135/AppendicesF\u2013G",
+      "provider": {
+        "module": "BlockIdentities.Rectangular.Providers.SupportAngularConstraint",
+        "export": "BlockIdentities.Rectangular.Providers.support_angular_constraint"
+      },
+      "quarantine": false,
+      "contract": {
+        "id": "rectangular.support_angular_constraint",
+        "version": "1"
+      },
+      "author_approval": {
+        "date": "2026-10-16",
+        "by": "Yuval Filmus",
+        "text": "Approve the exact definitions and 18 statements",
+        "packet": "review/rectangular/AuthorReview.txt",
+        "packet_sha256": "f6a1c82aae0849adb15274101a10927a1b2c171e45d992281d108ba02326ac4f",
+        "routine_imports_and_proved_wrappers": "preauthorized by author"
+      },
+      "provider_status": "SEALED_VERIFIED",
+      "sealed_body_sha256": "92dcc3d4efc0996087ed8cb38ce7e0448ae429915d03aab912cfc2a61cfa43fa",
+      "proof_audit": "Independent exact-source assembly audit PASS; exact provider and frozen export compiled; all35 approved ABI hashes unchanged; sealed exports and321 ordinary frontier exports use only standard3 axioms.",
+      "routine_import_changes": [
+        {
+          "date": "2026-10-17",
+          "authorization": "Author preauthorized routine imports and proved wrappers; mathematical declaration and definitions unchanged",
+          "old_prefix_sha256": "30f7d6b52d904b40807aa84f00d181bb3865fa99070a09d6853ef87f158ae8d7",
+          "new_prefix_sha256": "566a7c443c2b3c6c1e1b88aa22bae870c0df7145259c52c710bd3f6a36afe92b",
+          "added_import": "BlockIdentities.Rectangular.Providers.SupportAngularConstraint",
+          "audit": "review/rectangular/profile-angular-assembly-proof-audit.txt"
+        }
+      ]
+    },
+    {
+      "id": "rectangular.formalShapeOmega_eq_algebraicClosure",
+      "path": "BlockIdentities/Rectangular/Frozen/formalShapeOmega_eq_algebraicClosure.lean",
+      "export": "BlockIdentities.Rectangular.formalShapeOmega_eq_algebraicClosure",
+      "state": "SEALED",
+      "allowed_body": "by sorry\n",
+      "prefix_sha256": "942df8831778d79fa9aba6a712e565e8d255f802ce3091e0202ed6476a8acfe6",
+      "suffix_sha256": "5ccd386f756feebc84ecdbd5ba454002db8827e1bb74643656606b896e33706c",
+      "declaration_sha256": "286544c84097b6c5a9c8b267e5e5be2f6795f6ffa8c460c04c45e649e6e9b16c",
+      "abi_sha256": "5ca349d9e62d843eb8ed1bbd0a301bf1c5e6dc890fcf5ce1f65260fbdce63996",
+      "source": "TARGET 12: manuscript.tex:1065\u20131069",
+      "provider": {
+        "module": "BlockIdentities.Rectangular.Providers.FormalshapeomegaEqAlgebraicclosure",
+        "export": "BlockIdentities.Rectangular.Providers.formalShapeOmega_eq_algebraicClosure"
+      },
+      "quarantine": false,
+      "contract": {
+        "id": "rectangular.formalShapeOmega_eq_algebraicClosure",
+        "version": "1"
+      },
+      "author_approval": {
+        "date": "2026-10-16",
+        "by": "Yuval Filmus",
+        "text": "Approve the exact definitions and 18 statements",
+        "packet": "review/rectangular/AuthorReview.txt",
+        "packet_sha256": "f6a1c82aae0849adb15274101a10927a1b2c171e45d992281d108ba02326ac4f",
+        "routine_imports_and_proved_wrappers": "preauthorized by author"
+      },
+      "provider_status": "SEALED_VERIFIED",
+      "sealed_body_sha256": "0fc3f18c7121985dad9065aa8ff37bb369f4e2cda5e1a24761840fdba42d0cce",
+      "proof_audit": "PASS independent source/semantic/consumption audit; exact frozen export compiled, unchanged35ABIs verified, standard-three-axiom closure and quarantine/import checks PASS (targeted rectangular check 2026-10-16); full ongoing frontier integration tracked separately",
+      "routine_import_changes": [
+        {
+          "date": "2026-10-16",
+          "authorization": "Author preauthorized routine imports and proved wrappers; mathematical declaration and definitions unchanged",
+          "old_prefix_sha256": "0ff34877473255ad8d40f3c5ac925c0d260a7d850098a2721e48ef40612285d1",
+          "new_prefix_sha256": "942df8831778d79fa9aba6a712e565e8d255f802ce3091e0202ed6476a8acfe6",
+          "added_import": "BlockIdentities.Rectangular.Providers.FormalshapeomegaEqAlgebraicclosure",
+          "audit": "review/rectangular/geometry-provider-descent-audit.txt"
+        }
+      ]
+    },
+    {
+      "id": "rectangular.formalShapeOmega_general_bound",
+      "path": "BlockIdentities/Rectangular/Frozen/formalShapeOmega_general_bound.lean",
+      "export": "BlockIdentities.Rectangular.formalShapeOmega_general_bound",
+      "state": "SEALED",
+      "allowed_body": "by sorry\n",
+      "prefix_sha256": "509cf4935599ce836c771e4bce6f3d456719804428eddbdf77c39f88466f058a",
+      "suffix_sha256": "5ccd386f756feebc84ecdbd5ba454002db8827e1bb74643656606b896e33706c",
+      "declaration_sha256": "31567d9352db11d6f3356b4526bf139b44b29d5539985c470a285284577ac859",
+      "abi_sha256": "78c190ef3a0f6574a306312ac79a7ff0bcad60a8b65f19d96cc2cd573283cc49",
+      "source": "TARGET 13: manuscript.tex:1037\u20131047 and1069; positive sorted source shape",
+      "provider": {
+        "module": "BlockIdentities.Rectangular.Providers.FormalshapeomegaGeneralBound",
+        "export": "BlockIdentities.Rectangular.Providers.formalShapeOmega_general_bound"
+      },
+      "quarantine": false,
+      "contract": {
+        "id": "rectangular.formalShapeOmega_general_bound",
+        "version": "1"
+      },
+      "author_approval": {
+        "date": "2026-10-16",
+        "by": "Yuval Filmus",
+        "text": "Approve the exact definitions and 18 statements",
+        "packet": "review/rectangular/AuthorReview.txt",
+        "packet_sha256": "f6a1c82aae0849adb15274101a10927a1b2c171e45d992281d108ba02326ac4f",
+        "routine_imports_and_proved_wrappers": "preauthorized by author"
+      },
+      "provider_status": "SEALED_VERIFIED",
+      "sealed_body_sha256": "e500e0637a9705b622379648d355dc2de7e70ba6ff6627ddf19f9a0b5dda8c61",
+      "proof_audit": "Independent exact-source template audit PASS; activated commands unchanged except license comment; exact provider and frozen export compiled; all35 approved ABI hashes unchanged; standard3axioms only.",
+      "routine_import_changes": [
+        {
+          "date": "2026-10-17",
+          "authorization": "Author preauthorized routine imports and proved wrappers; mathematical declaration and definitions unchanged",
+          "old_prefix_sha256": "59a9674e248cfd19ea7bde5ffd18d6b3c7c88025caa46a77c44fa0c40ed4e5a7",
+          "new_prefix_sha256": "509cf4935599ce836c771e4bce6f3d456719804428eddbdf77c39f88466f058a",
+          "added_import": "BlockIdentities.Rectangular.Providers.FormalshapeomegaGeneralBound",
+          "audit": "review/rectangular/final-provider-templates-source-audit.txt"
+        }
+      ]
+    },
+    {
+      "id": "rectangular.formalRectangularOmega_curve",
+      "path": "BlockIdentities/Rectangular/Frozen/formalRectangularOmega_curve.lean",
+      "export": "BlockIdentities.Rectangular.formalRectangularOmega_curve",
+      "state": "SEALED",
+      "allowed_body": "by sorry\n",
+      "prefix_sha256": "f26ad4aa8c22f97cf5b27dd77257b30b06bb54c266d42d01fbf2b1561ed525a1",
+      "suffix_sha256": "5ccd386f756feebc84ecdbd5ba454002db8827e1bb74643656606b896e33706c",
+      "declaration_sha256": "f2464897bf8b66cecf3e8b7545988050bb81ddeccf191173910292437ad80513",
+      "abi_sha256": "c2253eadd40e3e03271ce9eac1f39f8c81b991d886e7527e62291421496f76fa",
+      "source": "TARGET 14: manuscript.tex:1004\u20131015",
+      "provider": {
+        "module": "BlockIdentities.Rectangular.Providers.FormalrectangularomegaCurve",
+        "export": "BlockIdentities.Rectangular.Providers.formalRectangularOmega_curve"
+      },
+      "quarantine": false,
+      "contract": {
+        "id": "rectangular.formalRectangularOmega_curve",
+        "version": "1"
+      },
+      "author_approval": {
+        "date": "2026-10-16",
+        "by": "Yuval Filmus",
+        "text": "Approve the exact definitions and 18 statements",
+        "packet": "review/rectangular/AuthorReview.txt",
+        "packet_sha256": "f6a1c82aae0849adb15274101a10927a1b2c171e45d992281d108ba02326ac4f",
+        "routine_imports_and_proved_wrappers": "preauthorized by author"
+      },
+      "provider_status": "SEALED_VERIFIED",
+      "sealed_body_sha256": "219229e350b219d020861e4b60e62716c6937566a398bbc6b6b6b4f0067e1771",
+      "proof_audit": "Independent exact-source template audit PASS; activated commands unchanged except license comment; exact provider and frozen export compiled; all35 approved ABI hashes unchanged; standard3axioms only.",
+      "routine_import_changes": [
+        {
+          "date": "2026-10-17",
+          "authorization": "Author preauthorized routine imports and proved wrappers; mathematical declaration and definitions unchanged",
+          "old_prefix_sha256": "5d4dd3132be400f97a134ce3ea6e2f1a8773118b6176b605d1529d7e327972fe",
+          "new_prefix_sha256": "f26ad4aa8c22f97cf5b27dd77257b30b06bb54c266d42d01fbf2b1561ed525a1",
+          "added_import": "BlockIdentities.Rectangular.Providers.FormalrectangularomegaCurve",
+          "audit": "review/rectangular/final-provider-templates-source-audit.txt"
+        }
+      ]
+    },
+    {
+      "id": "rectangular.formal_rectangular_cost_le",
+      "path": "BlockIdentities/Rectangular/Frozen/formal_rectangular_cost_le.lean",
+      "export": "BlockIdentities.Rectangular.formal_rectangular_cost_le",
+      "state": "SEALED",
+      "allowed_body": "by sorry\n",
+      "prefix_sha256": "2397be41719d68aa7f5d67b784c1e614df868e322b029790fb261a7144593c4d",
+      "suffix_sha256": "5ccd386f756feebc84ecdbd5ba454002db8827e1bb74643656606b896e33706c",
+      "declaration_sha256": "308e49523679937a8cd6035e8dd1ae70e21501b6d16533b9f1cbbecf6e6ac58d",
+      "abi_sha256": "dc1c7772c5adc0953e7320e697e27176e4ba61ec3ce12ca7bbcb8ce372c01063",
+      "source": "TARGET 15: manuscript.tex:1004\u20131015 and1069, positive-slack formal convention",
+      "provider": {
+        "module": "BlockIdentities.Rectangular.Providers.FormalRectangularCostLe",
+        "export": "BlockIdentities.Rectangular.Providers.formal_rectangular_cost_le"
+      },
+      "quarantine": false,
+      "contract": {
+        "id": "rectangular.formal_rectangular_cost_le",
+        "version": "1"
+      },
+      "author_approval": {
+        "date": "2026-10-16",
+        "by": "Yuval Filmus",
+        "text": "Approve the exact definitions and 18 statements",
+        "packet": "review/rectangular/AuthorReview.txt",
+        "packet_sha256": "f6a1c82aae0849adb15274101a10927a1b2c171e45d992281d108ba02326ac4f",
+        "routine_imports_and_proved_wrappers": "preauthorized by author"
+      },
+      "provider_status": "SEALED_VERIFIED",
+      "sealed_body_sha256": "dc77436e9223af15856c966d64bc787c375f52ade75352dc3255f67de4493885",
+      "proof_audit": "Independent exact-source template audit PASS; activated commands unchanged except license comment; exact provider and frozen export compiled; all35 approved ABI hashes unchanged; standard3axioms only.",
+      "routine_import_changes": [
+        {
+          "date": "2026-10-17",
+          "authorization": "Author preauthorized routine imports and proved wrappers; mathematical declaration and definitions unchanged",
+          "old_prefix_sha256": "747b03e0f68b473ea918075835e703b2cc3de3861d5f468f2993bfd3570d3028",
+          "new_prefix_sha256": "2397be41719d68aa7f5d67b784c1e614df868e322b029790fb261a7144593c4d",
+          "added_import": "BlockIdentities.Rectangular.Providers.FormalRectangularCostLe",
+          "audit": "review/rectangular/final-provider-templates-source-audit.txt"
+        }
+      ]
+    },
+    {
+      "id": "rectangular.rectangularOmega_curve",
+      "path": "BlockIdentities/Rectangular/Frozen/rectangularOmega_curve.lean",
+      "export": "BlockIdentities.Rectangular.rectangularOmega_curve",
+      "state": "SEALED",
+      "allowed_body": "by sorry\n",
+      "prefix_sha256": "9f40eb4e9a71b3ac51ca2a5714a6947d99cc4debe0838a14857d393102566c4e",
+      "suffix_sha256": "5ccd386f756feebc84ecdbd5ba454002db8827e1bb74643656606b896e33706c",
+      "declaration_sha256": "3920ad05ac09342cb557165355d19edd84bf5f48e49c97c29c8158018a46e75f",
+      "abi_sha256": "b28b016a936a825fd1032b1330b740d8e68683fddef563ea90300f68641ea3a1",
+      "source": "TARGET 16: formal-polynomial to preserved Navot functional exponent implication",
+      "provider": {
+        "module": "BlockIdentities.Rectangular.Providers.RectangularomegaCurve",
+        "export": "BlockIdentities.Rectangular.Providers.rectangularOmega_curve"
+      },
+      "quarantine": false,
+      "contract": {
+        "id": "rectangular.rectangularOmega_curve",
+        "version": "1"
+      },
+      "author_approval": {
+        "date": "2026-10-16",
+        "by": "Yuval Filmus",
+        "text": "Approve the exact definitions and 18 statements",
+        "packet": "review/rectangular/AuthorReview.txt",
+        "packet_sha256": "f6a1c82aae0849adb15274101a10927a1b2c171e45d992281d108ba02326ac4f",
+        "routine_imports_and_proved_wrappers": "preauthorized by author"
+      },
+      "provider_status": "SEALED_VERIFIED",
+      "sealed_body_sha256": "268e588cb104f4b0d83b2bbb91ed231da50d3e6c5218d669ebf953624440acac",
+      "proof_audit": "Independent exact-source template audit PASS; activated commands unchanged except license comment; exact provider and frozen export compiled; all35 approved ABI hashes unchanged; standard3axioms only.",
+      "routine_import_changes": [
+        {
+          "date": "2026-10-17",
+          "authorization": "Author preauthorized routine imports and proved wrappers; mathematical declaration and definitions unchanged",
+          "old_prefix_sha256": "4b64a67f52ab14339cb715516c86e414774fa5f7e4245a5fafed7ad33a67c4f4",
+          "new_prefix_sha256": "9f40eb4e9a71b3ac51ca2a5714a6947d99cc4debe0838a14857d393102566c4e",
+          "added_import": "BlockIdentities.Rectangular.Providers.RectangularomegaCurve",
+          "audit": "review/rectangular/final-provider-templates-source-audit.txt"
+        }
+      ]
+    },
+    {
+      "id": "rectangular.formalAlpha_ge_half",
+      "path": "BlockIdentities/Rectangular/Frozen/formalAlpha_ge_half.lean",
+      "export": "BlockIdentities.Rectangular.formalAlpha_ge_half",
+      "state": "SEALED",
+      "allowed_body": "by sorry\n",
+      "prefix_sha256": "83c0a004a49ede8a62f2bb5733f9be0dcbcf124b22b6899336769ebdee3eed7e",
+      "suffix_sha256": "5ccd386f756feebc84ecdbd5ba454002db8827e1bb74643656606b896e33706c",
+      "declaration_sha256": "dc3c02a5aad4a4b54865c59f9bde57c952c4fdb927713e74ad9f8cecb9dc1adf",
+      "abi_sha256": "e597a4f3788b64ffe10435fc031e702274daa89bac42754ce2f3a0167a23914d",
+      "source": "TARGET 17: manuscript.tex:1013",
+      "provider": {
+        "module": "BlockIdentities.Rectangular.Providers.FormalalphaGeHalf",
+        "export": "BlockIdentities.Rectangular.Providers.formalAlpha_ge_half"
+      },
+      "quarantine": false,
+      "contract": {
+        "id": "rectangular.formalAlpha_ge_half",
+        "version": "1"
+      },
+      "author_approval": {
+        "date": "2026-10-16",
+        "by": "Yuval Filmus",
+        "text": "Approve the exact definitions and 18 statements",
+        "packet": "review/rectangular/AuthorReview.txt",
+        "packet_sha256": "f6a1c82aae0849adb15274101a10927a1b2c171e45d992281d108ba02326ac4f",
+        "routine_imports_and_proved_wrappers": "preauthorized by author"
+      },
+      "provider_status": "SEALED_VERIFIED",
+      "sealed_body_sha256": "cea2526d6ff57d5871bf3758658179748368c05b4bf4f5294cdf11c08f01fed1",
+      "proof_audit": "Independent exact-source template audit PASS; activated commands unchanged except license comment; exact provider and frozen export compiled; all35 approved ABI hashes unchanged; standard3axioms only.",
+      "routine_import_changes": [
+        {
+          "date": "2026-10-17",
+          "authorization": "Author preauthorized routine imports and proved wrappers; mathematical declaration and definitions unchanged",
+          "old_prefix_sha256": "8a56840692e4ee5d6d90ba7443597c79c75591614796f89ea549690e90f72f86",
+          "new_prefix_sha256": "83c0a004a49ede8a62f2bb5733f9be0dcbcf124b22b6899336769ebdee3eed7e",
+          "added_import": "BlockIdentities.Rectangular.Providers.FormalalphaGeHalf",
+          "audit": "review/rectangular/final-provider-templates-source-audit.txt"
+        }
+      ]
+    },
+    {
+      "id": "rectangular.rectangular_alpha_ge_half",
+      "path": "BlockIdentities/Rectangular/Frozen/rectangular_alpha_ge_half.lean",
+      "export": "BlockIdentities.Rectangular.rectangular_alpha_ge_half",
+      "state": "SEALED",
+      "allowed_body": "by sorry\n",
+      "prefix_sha256": "d49c8d5356c925c867be2b77203a28f1a85347f904cb104e75e7a263ea1fa06d",
+      "suffix_sha256": "5ccd386f756feebc84ecdbd5ba454002db8827e1bb74643656606b896e33706c",
+      "declaration_sha256": "4a0978c3bba9d63fa20c58135786095eeeb8d792d202b93e0a15b64295b8b19c",
+      "abi_sha256": "38960cf85778a78369b483d93a29be4265cbce63da5c7aa04b06253a9efd0ef5",
+      "source": "TARGET 18: formal to preserved Navot functional dual exponent over each field",
+      "provider": {
+        "module": "BlockIdentities.Rectangular.Providers.RectangularAlphaGeHalf",
+        "export": "BlockIdentities.Rectangular.Providers.rectangular_alpha_ge_half"
+      },
+      "quarantine": false,
+      "contract": {
+        "id": "rectangular.rectangular_alpha_ge_half",
+        "version": "1"
+      },
+      "author_approval": {
+        "date": "2026-10-16",
+        "by": "Yuval Filmus",
+        "text": "Approve the exact definitions and 18 statements",
+        "packet": "review/rectangular/AuthorReview.txt",
+        "packet_sha256": "f6a1c82aae0849adb15274101a10927a1b2c171e45d992281d108ba02326ac4f",
+        "routine_imports_and_proved_wrappers": "preauthorized by author"
+      },
+      "provider_status": "SEALED_VERIFIED",
+      "sealed_body_sha256": "ac56bda84fc20dfef9a5836d02e2490175b323c27f5886d5f47c3fe4538b28d0",
+      "proof_audit": "Independent actual-source final-provider/last-wrapper audit PASS; complete scripts/check.sh PASS:all35 exact approved types/ABIs, standard3axioms,321 ordinary rectangular frontier exports,44 square helper exports,306-module import boundary;0drafts.",
+      "routine_import_changes": [
+        {
+          "date": "2026-10-17",
+          "authorization": "Author preauthorized routine imports and proved wrappers; mathematical declaration and definitions unchanged",
+          "old_prefix_sha256": "4dd134261998bc224d0dc905ba8942f558ec08216f97e309aca947c188eaf199",
+          "new_prefix_sha256": "d49c8d5356c925c867be2b77203a28f1a85347f904cb104e75e7a263ea1fa06d",
+          "added_import": "BlockIdentities.Rectangular.Providers.RectangularAlphaGeHalf",
+          "audit": "review/rectangular/final-active-provider-source-audit.txt"
+        }
+      ]
+    }
+  ],
+  "rectangular_author_approval": {
+    "date": "2026-10-16",
+    "by": "Yuval Filmus",
+    "text": "Approve the exact definitions and 18 statements",
+    "packet": "review/rectangular/AuthorReview.txt",
+    "packet_sha256": "f6a1c82aae0849adb15274101a10927a1b2c171e45d992281d108ba02326ac4f",
+    "routine_imports_and_proved_wrappers": "preauthorized by author"
+  }
+}

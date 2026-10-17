@@ -1,0 +1,24 @@
+Block identities for matrix multiplication
+Copyright (c) 2026 Yuval Filmus.
+Project Lean code and verification scripts: Apache License 2.0 (LICENSE).
+
+Vendored dependency: selanavot/matrix-multiplication-all-fields
+https://github.com/selanavot/matrix-multiplication-all-fields
+Source baseline: 08481ef22bca7dc9ffba091083b7c1e81e537220.
+Original OpenAI and Navot source copyright notices and Apache-2.0 license retained.
+This is a selected source distribution, excluding upstream campaign reports,
+Comparator challenges, and papers. Only the consumer import closure is validated.
+Changes relative to that baseline: stable Lean4.35.0/Mathlib pin adaptation;
+Tensor/ComplexTensor.lean closure_minimal uses an explicit inclusion lambda.
+See vendor/navot/UPSTREAM.md for original attribution.
+
+source/manuscript.tex, source/manuscript.pdf and accompanying bibliography:
+author-supplied manuscript, published here with the author's authorization.
+Copyright retained by the author; the code license does not grant a manuscript
+license. The PDF accompanies the exact LaTeX source used for this formalization.
+
+source/rectangular/uznanski-v2/main.tex: Przemyslaw Uznanski,
+Rectangular matrix multiplication from polynomial products, arXiv:2610.10494v2.
+https://arxiv.org/abs/2610.10494v2
+Licensed CC BY4.0: https://creativecommons.org/licenses/by/4.0/
+Source unchanged. Retrieval/version/hash details: accompanying provenance.json.

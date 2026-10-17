@@ -1,0 +1,1241 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[margin=1.05in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{array}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\definecolor{paperlink}{RGB}{0,0,114}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{xurl}
+\usepackage{hyperref}
+\newcommand{\doi}[1]{\href{https://doi.org/#1}{doi:\nolinkurl{#1}}}
+\hypersetup{colorlinks=true,linktoc=all,linkcolor=paperlink,citecolor=paperlink,urlcolor=paperlink,pdfstartview=Fit,pdftitle={Matrix multiplication from block identities}}
+\setlength{\emergencystretch}{1em}
+\setlength{\parindent}{1.25em}
+\setlength{\parskip}{0pt}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Matrix multiplication from block identities}
+\fancyhead[R]{\small\thepage}
+\setlength{\headheight}{14pt}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\numberwithin{equation}{section}
+\newcommand{\MM}{\mathsf M}
+\newcommand{\R}{\operatorname{R}}
+\newcommand{\br}{\underline{\operatorname{R}}}
+\newcommand{\degen}{\unrhd}
+\newcommand{\res}{\succeq}
+\title{Matrix multiplication from block identities}
+\author{}
+\date{}
+\begin{document}
+\maketitle
+\begin{abstract}
+We formulate a finite certificate criterion that turns a family of shared-leg block identities into an upper bound on the matrix-multiplication exponent. Auxiliary matrix factors may occur on either side. The proof combines ordinary tensor value, classical asymptotic cancellation and OpenAI's shared-leg separator; normalized values satisfy the required linear inequalities, so weak duality completes the argument. No asymptotic spectra or global composition optimization is needed. For the convolution identities, an explicit telescoping certificate recovers~$\omega_F\leq9/4$ over every field, and an affine profile establishes limiting tightness for the chosen data. We also give a polynomial-interpolation variant of the separator without roots of unity and record its extraction inequality and the classical catalytic sum inequality in forms usable independently of convolution. An orientation-sensitive value extends the extraction argument to rectangular multiplication and recovers the known convolution curve over every field without asymptotic spectra.
+\end{abstract}
+
+\section{Introduction}
+
+For a field~$F$, the matrix-multiplication exponent~$\omega_F$ is the infimum of the real numbers~$\tau$ for which two~$n\times n$ matrices over~$F$ can be multiplied using~$O(n^\tau)$ arithmetic operations. Algorithms are division-free arithmetic circuits, and correctness means equality as formal polynomials in the input entries, including over finite fields. The laser method derives bounds on this exponent by extracting independent matrix products from tensor powers. Tensor value makes the method recursive: intermediate tensors can be useful even when they are not themselves matrix multiplication tensors~\cite{Str87,CW90,DS13,VW12,LG14}.
+
+This paper gives a certificate formulation for a finite family of shared-leg block identities. The criterion permits auxiliary matrix multiplication tensors on both sides and reduces its application to a nonnegative weighting satisfying explicit linear inequalities. Its proof replaces the asymptotic-spectrum argument by ordinary tensor value and classical asymptotic cancellation, while retaining the shared-leg separator of~\cite{OpenAI}. Applied to the convolution identities of that paper, it gives a short proof of the bound~$9/4$, including the arbitrary-field conclusion already established by Navot~\cite{Navot26,NavotNote26}. We give a general certificate formulation, specialize it to a direct linear weighting and tightness calculation for convolution, and replace the separator's roots-of-unity filter by polynomial interpolation. The exponent bound, the central tensor constructions and the underlying scalar profile are inherited from earlier work; Appendix~\ref{sec:comparison} also compares our weighting with the exact binary certificate of~\cite{Extraction}.
+
+Proposition~\ref{prop:general-extraction} gives a more general extraction principle encompassing Sch\"onhage's asymptotic sum inequality, the classical value-based laser method underlying Coppersmith--Winograd and its improvements by Stothers, Vassilevska Williams and Le Gall, and the refined laser method of Alman and Vassilevska Williams~\cite{Sch81,CW90,Sto10,VW12,LG14,AW21}. Each is a specialization obtained from its corresponding tensor-power extraction. The same principle gives the local inequalities behind Theorem~\ref{thm:potential}. Section~\ref{sec:proof-overview} explains the extraction and combination layers, and Section~\ref{sec:laser-comparison} situates the criterion within this laser-method paradigm using a different extraction mechanism.
+
+\subsection{A criterion for block identities}
+
+Tensor statements are over~$K=\overline F$. Appendix~\ref{sec:descent} proves~$\omega_K=\omega_F$; write this common exponent as~$\omega$. A tensor is a trilinear form, with its three variable groups called legs. Write~$A\degen B$ for degeneration by parameter-dependent linear substitutions. The rank~$\R(A)$ is the least number of simple tensors summing to~$A$, and the border rank~$\br(A)$ is the least size of a diagonal tensor degenerating to~$A$. Tensor products are regrouped by corresponding legs; full direct sums, denoted by~$\oplus$, use independent variables on all three legs. Ordinary sums may share variables.
+
+Let~$\langle a,b,c\rangle$ be the tensor multiplying an~$a\times b$ matrix by a~$b\times c$ matrix, and put~$\MM_d=\langle d,d,d\rangle$. The volume of~$D=\langle a,b,c\rangle$ is~$\operatorname{vol}(D)=abc$. For a tensor~$A$, its cyclic symmetrization is
+\begin{equation*}
+ \mathcal S(A)=A\otimes A^{(123)}\otimes A^{(132)}\,.
+\end{equation*}
+Here superscripts permute the legs. Cyclic permutations of~$A$ leave~$\mathcal S(A)$ unchanged up to isomorphism, and~$\mathcal S(A\otimes B)\cong\mathcal S(A)\otimes\mathcal S(B)$. Multiplying matrix dimensions gives
+\begin{equation}\label{eq:rectangular-balancing}
+ \mathcal S(\langle a,b,c\rangle)\cong\MM_{abc}\,.
+\end{equation}
+
+Blocks~$T_i\in X_i\otimes Y_i\otimes Z_i$ are \emph{independent on two legs} if two of the subspace sums~$\sum_iX_i$, $\sum_iY_i$, $\sum_iZ_i$ are direct. Their subspaces on the remaining leg can overlap arbitrarily. The choice of separated legs may differ between identities.
+
+Let~$V$ be a finite set indexing nonzero tensors~$A_v$, and let~$E$ be a finite family of block identities. Identity~$e$ has source label~$\sigma(e)$, output labels~$w(e,i)$ for~$1\leq i\leq q_e$, and the form
+\begin{equation}\label{eq:identity-system}
+ \begin{aligned}
+ A_{\sigma(e)}\otimes D_e&\degen\sum_{i=1}^{q_e}T_{e,i}\,,\\
+ T_{e,i}&\degen\bigl(A_{w(e,i)}\otimes D_{e,i}\bigr)^{\pi_{e,i}}\,.
+ \end{aligned}
+\end{equation}
+For each~$e$, the blocks are independent on two legs, every~$D_e,D_{e,i}$ is a rectangular matrix multiplication tensor, and~$\pi_{e,i}\in S_3$. The scalar tensor~$\langle1,1,1\rangle$ is allowed. The individual block maps need not agree on the overlapping leg; the proof applies them only after separation. Define
+\begin{equation}\label{eq:weighted-multiplicities}
+ c_e=\operatorname{vol}(D_e)\,,\qquad
+ k_{e,i}=\operatorname{vol}(D_{e,i})\,,\qquad
+ m_{e,v}=\sum_{i:\,w(e,i)=v}k_{e,i}\,.
+\end{equation}
+Repeated labels contribute separately. With scalar output auxiliaries,~$m_{e,v}$ is the number of blocks labelled~$v$.
+
+\begin{theorem}[Identities-to-exponent criterion]\label{thm:potential}
+Let~$s,t\in V$ be distinct labels, with no identity in~$E$ having source~$t$. Suppose
+\begin{equation*}
+ \mathcal S(A_t)\cong\MM_d\,,\qquad\br(A_s)\leq r
+\end{equation*}
+for integers~$d\geq2$ and~$r\geq1$. Let nonnegative real weights~$\mu_e$ satisfy
+\begin{equation}\label{eq:dual-certificate}
+ \sum_{e:\sigma(e)=v}c_e\mu_e-\sum_{e\in E}m_{e,v}\mu_e
+ \leq\mathbf1_{\{v=s\}}\qquad(v\in V\setminus\{t\})\,.
+\end{equation}
+Put~$L=\sum_{e\in E}m_{e,t}\mu_e$. If~$L>d^{-1}$, then
+\begin{equation}\label{eq:dual-exponent-bound}
+ \omega\leq\frac{3\log r}{\log d+\log L}\,.
+\end{equation}
+\end{theorem}
+
+The weights pay for at most one unit of the source and leave no net consumption at intermediate labels. The terminal output is~$L$.
+
+For a familiar special case, suppose~$A\degen\MM_n$ with~$n\geq2$ and~$\br(A)\leq r$. Take just two labels, with~$A_s=A$ and~$A_t=\MM_n$, and use this degeneration as the only identity, with scalar auxiliary factors. Its weight~$\mu=1$ satisfies~\eqref{eq:dual-certificate} and gives~$L=1$. Since~$\mathcal S(\MM_n)\cong\MM_{n^3}$, the theorem has~$d=n^3$ and yields the familiar bound
+\begin{equation*}
+ \omega\leq\frac{3\log r}{\log(n^3)}=\frac{\log r}{\log n}\,.
+\end{equation*}
+In particular, Strassen's rank-seven algorithm for~$2\times2$ matrix multiplication gives~$\omega\leq\log_2 7$~\cite{Str69}.
+
+If a sharper estimate~$R\geq\br(\mathcal S(A_s))$ is known, the same proof replaces~$3\log r$ by~$\log R$.
+
+\subsection{Proof overview}\label{sec:proof-overview}
+
+Theorem~\ref{thm:potential} has two layers. A shared-leg construction first turns each block identity into a local inequality for tensor value. A nonnegative certificate then combines those inequalities across the labelled tensors. The numerical argument uses ordinary value and classical cancellation in place of asymptotic spectra. Section~\ref{sec:laser-comparison} places both layers within the value-based laser-method paradigm, with shared-leg separation supplying the extraction mechanism.
+
+\paragraph{Extraction and value.}
+Tensor value measures how much matrix multiplication can be extracted asymptotically; Section~\ref{sec:value} gives the precise definition. Proposition~\ref{prop:general-extraction} records a common numerical principle:
+\begin{equation*}
+ \log V_\omega(A)\geq
+ \sum_i p_i\log V_\omega(A_i)+\alpha+\omega\beta\,.
+\end{equation*}
+The~$p_i$ record the frequencies of the output tensor factors. The independent-copy rate~$\alpha$ measures the number of independent outputs, while~$\beta$ measures their net matrix-dimension gain, including any input matrix cost. These rates are normalized per three input factors, since the extraction starts from powers of~$\mathcal S(A)$. Common multiplicities are cancelled first, and the remaining source-copy overhead has zero exponential rate. The proposition supplies the precise hypotheses; the constructions supplying the extractions determine the rates.
+
+For the following comparison, omit auxiliary matrix factors and let~$p$ be a probability distribution on the blocks; write~$S$ for the block-index support in the classical and refined rows. Use the convention~$0\log0=0$, and write~$H(p)=-\sum_i p_i\log p_i$, $\overline H(p)$ for the average entropy of the three block-index marginals, and~$\Gamma_S(p)$ for the maximum entropy among distributions on~$S$ with those marginals, minus~$H(p)$; see~\eqref{eq:laser-compatibility}.
+\begin{center}
+\begingroup
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{.18\linewidth}>{\raggedright\arraybackslash}p{.39\linewidth}cc@{}}
+Extraction & Applicable identity and blocks & $\alpha$ & $\beta$\\[3pt]
+Independent blocks & $A\degen\bigoplus_i A_i$; independent on all three legs & $H(p)$ & $0$\\
+Classical laser & $A\degen\sum_{s\in S}A_s$; tight partitioned support & $\overline H(p)-\Gamma_S(p)$ & $0$\\
+Refined laser & The same tight-support identities & $\overline H(p)-\Gamma_S(p)/2$ & $0$\\
+Shared-leg & $A\degen\sum_iT_i$, $T_i\degen A_i^{\pi_i}$; independent on two legs & $0$ & $H(p)/3$
+\end{tabular}
+\endgroup
+\end{center}
+For the classical and refined rows, the blocks lie in~$X_i\otimes Y_j\otimes Z_k$, with a direct-sum partition on each leg. Tightness means that, after injective integer relabelling, every nonzero block satisfies~$i+j+k=\kappa$. These classes overlap: shared-leg identities admit a tight-support presentation, but the corresponding classical and refined estimates can be weaker. Section~\ref{sec:laser-comparison} gives the detailed sum-inequality specialization and the classical and refined extraction estimates~\cite{Sch81,LG14,AW21}.
+
+\paragraph{The shared-leg construction.}
+Take tensor powers of an identity and retain branch sequences of a fixed type~$p$. Their number is~$\exp(nH(p)+O(\log n))$. OpenAI's separator makes the overlapping leg independent while retaining a dot-product factor in each output. Cyclic symmetrization turns these factors into matrix multiplication tensors, and classical cancellation removes a common direct-sum multiplicity. This construction plays the role of the independent-block selection step in the classical laser method. The central separator is inherited from~\cite{OpenAI}. In Lemma~\ref{lem:separator}, we replace its roots-of-unity filter by polynomial interpolation. This gives a separator valid in every characteristic, over a field extension if necessary, using~$O(M)$ copies for~$M$ sectors. The constant-factor increase in the number of source copies has no effect on the asymptotic value inequality; Appendix~\ref{sec:descent} explains the descent to the original field.
+
+Including the auxiliary matrix volumes gives~$\alpha=0$ and~$\beta=(H(p)+\sum_i p_i\log k_{e,i}-\log c_e)/3$. Apply the general principle and optimize over~$p$. Proposition~\ref{prop:local-value} obtains
+\begin{equation*}
+ c_e x(A_{\sigma(e)})\geq\sum_v m_{e,v}x(A_v)\,,
+ \qquad x(A)=V_\omega(A)^{3/\omega}\,.
+\end{equation*}
+
+\paragraph{Combining inequalities.}
+Multiply these inequalities by~$\mu_e$ and sum. The certificate conditions cancel or discard the intermediate contributions, leaving~$x(A_s)\geq Lx(A_t)=Ld$. The source estimate gives~$x(A_s)\leq r^{3/\omega}$, hence
+\begin{equation*}
+ Ld\leq r^{3/\omega}\,,\qquad
+ \omega\leq\frac{3\log r}{\log d+\log L}\,.
+\end{equation*}
+This is the second layer of Theorem~\ref{thm:potential}. Its relation to other ways of combining extractions is as follows.
+\begin{center}
+\begingroup
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{.22\linewidth}>{\raggedright\arraybackslash}p{.34\linewidth}>{\raggedright\arraybackslash}p{.36\linewidth}@{}}
+Approach & Information passed between stages & Combination rule\\[3pt]
+Asymptotic sum inequality & Matrix dimensions & Sum the output contributions\\
+Classical/refined recursive laser & Constituent value bounds & Substitute inequalities through a hierarchy\\
+Asymmetric multilevel methods & Intermediate tensors with distribution constraints & Compose compatible stages, tracking copies, dimensions and losses\\
+Our criterion & Labelled values~$x(A_v)$ & A nonnegative certificate; dependencies may contain cycles
+\end{tabular}
+\endgroup
+\end{center}
+The later asymmetric methods retain internal structure that a scalar constituent value alone does not describe~\cite{DWZ23,VXXZ24,AD25}. Their improvements change the extraction and the information carried between levels, as well as its numerical optimization. Their final conversions fit the extraction viewpoint, but a stage-by-stage formulation can require tensor families beyond the fixed tensors of Proposition~\ref{prop:general-extraction}. Theorem~\ref{thm:potential} retains the simpler finite certificate system.
+
+\paragraph{Other tensor tools.}
+Classical cancellation also gives the catalytic asymptotic sum inequality of Proposition~\ref{lem:catalyst}: for nonzero~$A,Z$,
+\begin{equation*}
+ Z\otimes A\degen Z\otimes\bigoplus_i\langle a_i,b_i,c_i\rangle
+ \quad\Longrightarrow\quad
+ \sum_i(a_ib_ic_i)^{\omega/3}\leq\widetilde\R(A)\leq\br(A)\,.
+\end{equation*}
+Here~$\widetilde\R$ denotes asymptotic rank. The auxiliary tensor is returned unchanged, so repeated reuse amortizes its initial rank cost. This classical consequence and the shared-leg extraction are useful independently of convolution. The proof uses no tensor character or asymptotic-spectrum theorem.
+
+
+\subsection{The convolution application}
+
+For positive integers~$r,b$, define
+\begin{equation}\label{eq:convolution-definition}
+ C(r,b)=\sum_{i=0}^{r-1}\sum_{j=0}^{b-1}x_i y_j z_{i+j}\,.
+\end{equation}
+If~$x(t)=\sum_i x_i t^i$ and~$y(t)=\sum_j y_j t^j$, their product has coefficient~$\sum_{i+j=k}x_i y_j$ at~$t^k$. Thus~$C(r,b)$ pairs the coefficients of polynomial multiplication with~$z_k$; it is the tensor of finite convolution. The dot-product tensor is
+\begin{equation}\label{eq:balancing}
+ \langle1,1,d\rangle=x\sum_{j=1}^d y_jz_j\,,\qquad
+ \mathcal S(\langle1,1,d\rangle)\cong\MM_d\,.
+\end{equation}
+
+The two block degenerations used here are
+\begin{equation*}
+ \begin{aligned}
+ C(r,b)\otimes \langle1,1,2\rangle&\degen T_++T_-\,,
+ &T_\pm&\cong C(r,b\pm1)\,,\\
+ C(r,4r-1)&\degen T_L+T_M+T_R\,,
+ &T_L,T_R&\cong C(r,r)\,,\quad T_M\cong C(r,r)^{(23)}\,.
+ \end{aligned}
+\end{equation*}
+The first holds for~$r\geq1,b\geq2$ and the second for~$r\geq2$. Each is an ordinary sum with a common first leg and independent sectors on the other two legs. The block identifications are individual, rather than one simultaneous change of variables on the common leg. These are the constructions of~\cite{OpenAI}; Section~\ref{sec:convolution} proves them through exact algebraic identities involving a parameter.
+
+Take source~$C(a,a)$ and terminal~$C(1,2)$ for a finite cutoff~$a\geq2$. Interpolation bounds the source rank by~$2a-1$, while~$\mathcal S(C(1,2))\cong\MM_2$. Section~\ref{sec:explicit-dual} gives explicit nonnegative weights with terminal value
+\begin{equation*}
+ L=\frac{3a-1}{4}\prod_{j=1}^{a-1}\left(1+\frac1{3j}\right)
+ \geq\frac12a^{4/3}\,.
+\end{equation*}
+Theorem~\ref{thm:potential} yields~$\omega\leq(9/4)\log(2a-1)/\log a$. Letting~$a\to\infty$ recovers the following known conclusion.
+
+\begin{theorem}\label{thm:main}
+For every field~$F$, the matrix-multiplication exponent satisfies~$\omega_F\leq9/4$.
+\end{theorem}
+
+An affine profile in Section~\ref{sec:tightness} shows that optimizing this certificate system with the stated source estimate gives the same limiting bound.
+
+\paragraph{Rectangular extension.}
+Section~\ref{sec:rectangular} extends the extraction argument while retaining the three tensor orientations. A matrix-assisted value, related to the weighted lower values of~\cite{ALP26}, has exact scaling by rectangular matrix factors and is bounded by asymptotic rank. It gives a common numerical formulation of classical rectangular laser extractions and our convolution argument: the former recover the rectangular asymptotic sum inequality, while the latter yield oriented common-leg inequalities. The combinatorial data needed to construct and compose multilevel extractions remain method-specific~\cite{LGU18,VXXZ24}. Applying the numerical profile analysis of Uzna\'nski~\cite{Uznanski26}, we recover~$\omega_F(1,k,1)\leq2$ for~$0\leq k\leq1/2$ and~$\omega_F(1,k,1)\leq1+k+1/(4k)$ for~$k\geq1/2$, now over every field (Theorem~\ref{thm:rectangular}). The square certificate above does not depend on this extension.
+
+\paragraph{Comparison with previous proofs.}
+OpenAI's proof and Navot's arbitrary-field extension use tensor characters~\cite{OpenAI,NavotNote26}. Here operational tensor value, classical cancellation and a finite certificate replace the spectral passage. The earlier explicit construction~\cite{Extraction} also avoids spectra, while retaining quantitative source-size and construction bounds not reproduced here. Appendix~\ref{sec:comparison} gives the detailed comparison. The broader literature, including the quantum-information interpretation, is discussed in Section~\ref{sec:related-work}.
+
+\paragraph{Organization.}
+Section~\ref{sec:potential} proves the criterion using value and shared-leg extraction, and places it within the general extraction principle and its classical special cases. Section~\ref{sec:convolution} proves the convolution identities, and Section~\ref{sec:application} applies the criterion and then discusses tightness. Section~\ref{sec:rectangular} gives the oriented-value extension and rectangular application, and Section~\ref{sec:related-work} surveys related work. Appendices~\ref{sec:descent} and~\ref{sec:comparison} contain scalar descent and comparisons with earlier proofs.
+
+
+\section{Tensor value and extraction}\label{sec:potential}
+
+The proof assigns a numerical value to every labelled tensor. Shared-leg extraction makes these values satisfy the linear inequalities associated with the block identities. Multiplying by the supplied weights then proves the exponent bound. The machinery needed to account for auxiliary factors is classical asymptotic cancellation.
+
+\subsection{Asymptotic cancellation}
+
+We work over~$K=\overline F$ and write~$\omega=\omega_K=\omega_F$; Appendix~\ref{sec:descent} proves the equality. All logarithms are natural. A restriction~$A\res B$ applies linear maps to the three legs. A degeneration~$A\degen B$ allows parameter-dependent maps and takes a leading coefficient. We regroup tensor products by corresponding legs. The diagonal tensor~$\Delta_h=\sum_{j=1}^h x_jy_jz_j$ satisfies~$\Delta_h\otimes A\cong A^{\oplus h}$, so it records full direct-sum multiplicity. A scalar multiple~$\lambda A$ means coefficient scaling only.
+
+Write~$A\gtrsim B$ if there are positive integers~$a_n$ with~$\log a_n=o(n)$ such that
+\begin{equation}\label{eq:asymptotic-restriction}
+ (A^{\otimes n})^{\oplus a_n}\degen B^{\otimes n}\,.
+\end{equation}
+This is the usual asymptotic restriction preorder. Polynomial interpolation~\cite{Bini80} lets one replace degeneration by restriction in this definition: for a fixed degeneration of degree~$D$,
+\begin{equation}\label{eq:interpolation}
+ (A^{\otimes k})^{\oplus(kD+1)}\res B^{\otimes k}\,.
+\end{equation}
+The polynomial copy cost has zero exponential rate: repeat each fixed-scale degeneration first, then let that scale grow sufficiently slowly. Rate comparisons below allow integer rounding and an arbitrarily small loss before taking a limit.
+
+The following cancellation law is part of the classical laser method~\cite{Str87}; see also~\cite[equation (6)]{Christandl24}. We include its elementary proof to make the field scope explicit.
+
+\begin{lemma}[Asymptotic cancellation]\label{lem:cancellation}
+For nonzero~$Z$, if~$A\otimes Z\gtrsim B\otimes Z$, then~$A\gtrsim B$.
+\end{lemma}
+\begin{proof}
+Fix a scale~$k$ for which
+\begin{equation*}
+ (A^{\otimes k}\otimes Z^{\otimes k})^{\oplus a_k}
+ \degen B^{\otimes k}\otimes Z^{\otimes k}\,.
+\end{equation*}
+Reuse~$Z^{\otimes k}$ through~$j$ applications. Supply it once from~$\R(Z)^k$ scalar tensors and restrict it to a scalar at the end. The resulting degeneration is
+\begin{equation*}
+ (A^{\otimes kj})^{\oplus\R(Z)^k a_k^j}\degen B^{\otimes kj}\,.
+\end{equation*}
+The logarithmic copy cost per input factor tends to~$\log(a_k)/k$ as~$j\to\infty$, and this tends to zero as~$k\to\infty$. Choosing~$k$ to grow sufficiently slowly with the total tensor power, and supplying the fewer than~$k$ remaining factors by a fixed rank decomposition of~$B$, proves~\eqref{eq:asymptotic-restriction}.
+\end{proof}
+
+One useful consequence is the catalytic form of Sch\"onhage's asymptotic sum inequality. Here~$\widetilde\R(A)=\lim_n\R(A^{\otimes n})^{1/n}$ denotes asymptotic rank.
+
+\begin{proposition}[Catalytic asymptotic sum inequality]\label{lem:catalyst}
+For nonzero tensors~$A,Z$ and positive matrix dimensions,
+\begin{equation}\label{eq:catbound}
+ Z\otimes A\degen Z\otimes\bigoplus_i\langle a_i,b_i,c_i\rangle
+ \quad\Longrightarrow\quad
+ \sum_i(a_ib_ic_i)^{\omega/3}\leq\widetilde\R(A)\leq\br(A)\,.
+\end{equation}
+\end{proposition}
+\begin{proof}
+Cancel~$Z$ by Lemma~\ref{lem:cancellation}. Asymptotic rank is monotone for~$\gtrsim$ by~\eqref{eq:interpolation}. Apply Sch\"onhage's asymptotic sum inequality~\cite{Sch81}, in the form stated in~\cite[Theorem 3.2]{AFL15}, to tensor powers of the output direct sum and take roots. Finally, interpolation of a border-rank decomposition gives~$\R(A^{\otimes n})\leq O(n)\br(A)^n$, proving the last inequality.
+\end{proof}
+
+\subsection{Value and matrix factors}\label{sec:value}
+
+Tensor value measures how much matrix multiplication can be extracted from tensor powers. It is defined for arbitrary tensors, so an intermediate block need not itself be a matrix multiplication tensor. We use the ordinary value with unrestricted degenerations, following~\cite{Sto10,DS13,LG14,AFL15}, rather than a value restricted to a chosen partition or class of maps.
+
+For a nonzero tensor~$T$ and~$2\leq\rho\leq3$, define
+\begin{equation}\label{eq:value-definition}
+ V_\rho(T)=\sup_{n\geq1}\max\left\{(hm^\rho)^{1/(3n)}:
+ \mathcal S(T)^{\otimes n}\degen\MM_m^{\oplus h}\right\}\,.
+\end{equation}
+All maxima are over positive integers~$h,m$. The supremum is the limit of the corresponding maxima, by supermultiplicativity. The equivalent definition allowing rectangular products or unequal output sizes gives the same value~\cite[Section 3.2]{AFL15}. For a tensor invariant under cyclic leg permutations, the same definition uses~$T^{\otimes n}$ and exponent~$1/n$. In particular, this applies to~$\mathcal S(A)$. Two direct consequences of the definition are
+\begin{equation}\label{eq:value-symmetry}
+ V_\rho(A^\pi)=V_\rho(A)\quad(\pi\in S_3)\,,\qquad
+ V_\rho(\mathcal S(A))=V_\rho(A)^3\,.
+\end{equation}
+For the first equality, permuting an extraction permutes its square matrix outputs, which are isomorphic to the original outputs; cyclic conjugation also gives~$\mathcal S(A^\pi)\cong\mathcal S(A)^\pi$. For the second, compute the value of the cyclically invariant tensor~$\mathcal S(A)$ using its own powers and compare the exponents~$1/n$ and~$1/(3n)$.
+
+We use value at the true exponent~$\rho=\omega$. Its classical properties are
+\begin{equation}\label{eq:value-properties}
+ \begin{gathered}
+ V_\omega(T^{\otimes n})=V_\omega(T)^n\,,\qquad
+ V_\omega(T\otimes U)\geq V_\omega(T)V_\omega(U)\,,\\
+ V_\omega(T\oplus U)\geq V_\omega(T)+V_\omega(U)\,,\\
+ V_\omega(\MM_d)=d^\omega\,,\qquad
+ 1\leq V_\omega(T)\leq\br(T)\quad(T\ne0)\,.
+ \end{gathered}
+\end{equation}
+The upper bound is the asymptotic sum inequality applied to the extracted products; see~\cite[Lemma 3.3]{AFL15}. General supermultiplicativity alone does not let us divide out an input matrix factor. Cancellation supplies the exact special case needed here.
+
+\begin{lemma}[Value with matrix factors]\label{lem:matrix-value}
+Let~$T$ be nonzero and invariant up to isomorphism under cyclic leg permutations. Then~$V_\omega$ is monotone under asymptotic restriction between such tensors, and
+\begin{equation}\label{eq:matrix-value}
+ V_\omega(T\otimes\MM_d)=d^\omega V_\omega(T)
+ \qquad(d\geq1)\,.
+\end{equation}
+For every positive integer~$b$,
+\begin{equation}\label{eq:bounded-copies}
+ V_\omega(T^{\oplus b})\leq b^\omega V_\omega(T)\,.
+\end{equation}
+\end{lemma}
+\begin{proof}
+We first explain why subexponential source multiplicity has no effect on value for these tensors. If~$\R(T)>1$, some one-leg contraction of~$T$ is a matrix of rank at least two. Indeed, a linear space of matrices all of rank at most one has a common row or column factor; contracting that factor on another leg either gives rank at least two or shows that~$T$ has rank one. Thus~$T$ restricts to a rank-two dot product in some orientation. Cyclic invariance supplies its three orientations from three copies of~$T$; their product is~$\MM_2$, which restricts to~$\Delta_2$. Hence~$o(n)$ extra powers of~$T$ supply any~$\exp(o(n))$ source-copy overhead. If~$T$ has rank one, its value is one, and flattening ranks show that every nonzero asymptotic restriction of~$T$ also has rank one. This proves monotonicity for~$\gtrsim$.
+
+Let~$q(T)$ be the largest asymptotic matrix-dimension rate, defined by
+\begin{equation*}
+ q(T)=\sup\left\{a\geq1:\ (T^{\otimes n})^{\oplus b_n}\degen\MM_{\lfloor a^n\rfloor}
+ \text{ for all sufficiently large }n,\ \log b_n=o(n)\right\}\,.
+\end{equation*}
+The~$b_n$ are positive integers. At the true exponent,
+\begin{equation}\label{eq:value-yield}
+ V_\omega(T)=q(T)^\omega\,.
+\end{equation}
+To check this, an extraction~$T^{\otimes n}\degen\Delta_h\otimes\MM_m$ can be repeated~$j$ times. For every~$\varepsilon>0$, algorithms of exponent~$\omega+\varepsilon$ supply integers~$N_j=h^{j/(\omega+\varepsilon)-o(j)}$ with~$\R(\MM_{N_j})\leq h^j$. Such a rank decomposition gives the restriction~$\Delta_h^{\otimes j}\res\MM_{N_j}$. Letting~$\varepsilon\downarrow0$, the resulting matrix-dimension rate tends to~$(hm^\omega)^{1/(n\omega)}$. Conversely, a single square matrix output is allowed in~\eqref{eq:value-definition}, and the preceding paragraph absorbs subexponential copies. For a nonzero rank-one tensor both sides of~\eqref{eq:value-yield} are one.
+
+Tensoring extractions gives~$q(T\otimes\MM_d)\geq dq(T)$. For the reverse inequality, choose~$\alpha<q(T\otimes\MM_d)$ with~$\alpha>d$, and then~$1<\beta<\alpha/d$. At each sufficiently large fixed scale~$k$, the strict rate margin gives
+\begin{equation*}
+ T^{\otimes k}\otimes\MM_{d^k}
+ \gtrsim\MM_{\lfloor\beta^k\rfloor}\otimes\MM_{d^k}\,.
+\end{equation*}
+Indeed, the~$j$th power of the source extracts matrix dimension at rate at least~$\alpha^{kj}$, up to integer rounding, while~$(d^k\lfloor\beta^k\rfloor)^j<\alpha^{kj}$; the source-copy overhead is subexponential in~$j$. Cancel~$\MM_{d^k}$ by Lemma~\ref{lem:cancellation}, obtaining~$q(T)\geq\lfloor\beta^k\rfloor^{1/k}$. Let~$k\to\infty$, then~$\beta\uparrow\alpha/d$ and~$\alpha\uparrow q(T\otimes\MM_d)$. If~$q(T\otimes\MM_d)\leq d$, the required upper bound follows from~$q(T)\geq1$. Equation~\eqref{eq:value-yield} proves~\eqref{eq:matrix-value}. Finally,~$\MM_b\res\Delta_b$, so~$T\otimes\MM_b\res T^{\oplus b}$, proving~\eqref{eq:bounded-copies}.
+\end{proof}
+
+
+\subsection{A general extraction principle}\label{sec:general-extraction}
+
+An extraction can yield many independent copies, a matrix multiplication factor in each copy, or both. The following consequence of ordinary value records these two gains separately. It will connect the shared-leg argument with the asymptotic sum inequality and the classical and refined laser methods. Their respective tensor-power constructions supply the extractions; the proposition converts those extractions into numerical inequalities.
+
+\begin{samepage}
+\begin{proposition}[General extraction principle]\label{prop:general-extraction}
+Let~$A,A_1,\ldots,A_q$ be nonzero tensors. Along an unbounded sequence of positive integers~$n$, suppose there are positive integers~$a_n,b_n,u_n,h_n$, nonnegative integers~$m_{i,n}$, and permutations~$\pi_{i,n}\in S_3$ such that
+\begin{equation}\label{eq:general-extraction-input}
+ \left(\mathcal S(A)^{\otimes n}\otimes\MM_{a_n}\right)^{\oplus u_n}
+ \gtrsim\left[\MM_{b_n}\otimes
+ \bigotimes_{i=1}^q\mathcal S(A_i^{\pi_{i,n}})^{\otimes m_{i,n}}\right]^{\oplus h_n}\,.
+\end{equation}
+Suppose, along the same sequence,
+\begin{equation}\label{eq:general-extraction-rates}
+ \begin{gathered}
+ \log u_n=o(n)\,,\qquad \frac{m_{i,n}}n\longrightarrow p_i\quad(1\leq i\leq q)\,,\\
+ \frac{\log h_n}{3n}\longrightarrow\alpha\,,\qquad
+ \frac{\log(b_n/a_n)}{3n}\longrightarrow\beta\,,
+ \end{gathered}
+\end{equation}
+where all limits are finite. Then
+\begin{equation}\label{eq:general-extraction-value}
+ \log V_\omega(A)\geq
+ \sum_{i=1}^q p_i\log V_\omega(A_i)+\alpha+\omega\beta\,.
+\end{equation}
+\end{proposition}
+\end{samepage}
+\begin{proof}
+All tensors in~\eqref{eq:general-extraction-input} are cyclically invariant. Apply Lemma~\ref{lem:matrix-value}, superadditivity and supermultiplicativity of value, and~\eqref{eq:value-symmetry}. They give
+\begin{equation*}
+ u_n^\omega V_\omega(A)^{3n}a_n^\omega
+ \geq h_n b_n^\omega
+ \prod_{i=1}^q V_\omega(A_i)^{3m_{i,n}}\,.
+\end{equation*}
+Take logarithms, divide by~$3n$, and use~\eqref{eq:general-extraction-rates}.
+\end{proof}
+
+The~$p_i$ need not sum to one: the proposition also permits products of several labelled tensors per input. Common direct-sum multiplicities or catalytic tensors may first be removed by Lemma~\ref{lem:cancellation}. The remaining source-copy overhead must have zero exponential rate, as required in~\eqref{eq:general-extraction-rates}.
+
+\subsection{Shared-leg extraction}\label{sec:extraction}
+
+Independent sectors on two legs leave the third leg free to overlap. The separator of~\cite[Proposition 3.1]{OpenAI} makes that leg independent as well, while retaining a dot product in every block. The following interpolation variant avoids roots of unity. Its linear copy cost is what matters asymptotically.
+
+\begin{lemma}[Shared-leg separator]\label{lem:separator}
+Suppose~$A=\sum_{h=1}^M A_h$, with blocks independent on two legs. Permute these legs into the second and third positions. There is an absolute positive integer~$C$, independent of the field and the tensors, such that
+\begin{equation}\label{eq:separator}
+ A^{\oplus CM}\degen\bigoplus_{h=1}^M\bigl(A_h\otimes \langle1,1,M\rangle\bigr)\,.
+\end{equation}
+\end{lemma}
+\begin{proof}
+We prove the stronger bound of~$6M-5$ source copies, so~$C=6$ suffices. Embed all first-leg subspaces in their sum; they need not coincide or be independent. Write~$A=\sum c_{h,a,b,c}x_a y_{h,b}z_{h,c}$. We replace the Fourier filter of~\cite[Proposition 3.1]{OpenAI} by polynomial interpolation. Introduce a parameter~$t$ and make the substitutions
+\begin{align*}
+ x_a&\longmapsto\sum_{g=1}^M t^{2(g-1)}X_{a,g},\\
+ y_{h,b}&\longmapsto\sum_{u=1}^M t^{u-1+M-h}Y_{h,b,u},\\
+ z_{h,c}&\longmapsto\sum_{v=1}^M t^{M-v+M-h}Z_{h,c,v}.
+\end{align*}
+The resulting tensor-valued polynomial~$P(t)$ has degree at most~$6M-6$. A term indexed by~$g,h,u,v$ has exponent~$3M-3+2(g-h)+u-v$. Thus~$F=[t^{3M-3}]P(t)$ retains precisely the terms with
+\begin{equation}\label{eq:separator-relation}
+ 2(g-h)+u-v=0\,.
+\end{equation}
+Choose~$6M-5$ distinct elements~$\alpha_\ell$ of~$K$. Polynomial interpolation gives scalars~$\lambda_\ell$ for which
+\begin{equation*}
+ F=\sum_{\ell=1}^{6M-5}\lambda_\ell P(\alpha_\ell)\,.
+\end{equation*}
+Each evaluation is a restriction of~$A$. Identifying the target variables across copies and absorbing~$\lambda_\ell$ into one leg therefore gives~$A^{\oplus(6M-5)}\res F$.
+
+Give~$X_{a,g},Y_{h,b,u},Z_{h,c,v}$ the respective parameter weights~$g^2,hu-h^2,-hv$. On every term of~$F$, relation~\eqref{eq:separator-relation} gives total weight
+\begin{equation*}
+ g^2+hu-h^2-hv=(g-h)^2\geq0\,.
+\end{equation*}
+Shift all weights on each leg by a sufficiently large constant to make the maps polynomial; this shifts every total degree by the same amount. The lowest-degree coefficient has~$g=h$ and then~$u=v$. It is
+\begin{equation*}
+ \sum_{h,a,b,c,u}c_{h,a,b,c}X_{a,h}Y_{h,b,u}Z_{h,c,u}
+ =\bigoplus_{h=1}^M\bigl(A_h\otimes \langle1,1,M\rangle\bigr)\,.
+\end{equation*}
+The weights and relation~\eqref{eq:separator-relation} are integers, not elements of~$K$, so the argument works in every characteristic.
+\end{proof}
+
+Tensor powers supply exponentially many sectors of each fixed type. Applying the separator in the three cyclic orientations turns their retained dot products into matrix multiplication. The next statement records the finite conversion, including the matrix factors on both sides.
+
+\begin{lemma}[Shared-leg extraction]\label{lem:block-conversion}
+Let~$A,A_1,\ldots,A_q$ be nonzero tensors, and let~$D,D_1,\ldots,D_q$ be rectangular matrix multiplication tensors of volumes~$c,k_1,\ldots,k_q$. Suppose
+\begin{equation}\label{eq:block-input}
+ A\otimes D\degen\sum_{i=1}^q T_i\,,\qquad
+ T_i\degen(A_i\otimes D_i)^{\pi_i}\,,
+\end{equation}
+where the blocks~$T_i$ are independent on two legs and~$\pi_i\in S_3$. For every rational probability vector~$p=(p_1,\ldots,p_q)$ and every positive~$n$ with all~$np_i$ integral, put~$M_n=n!/\prod_i(np_i)!$. Then
+\begin{equation}\label{eq:block-parameters}
+ \begin{aligned}
+ &\left(\mathcal S(A)^{\otimes n}\otimes\MM_{c^n}\right)^{\oplus(CM_n)^3}\\
+ &\qquad\degen
+ \left[\left(\bigotimes_i\mathcal S(A_i^{\pi_i})^{\otimes np_i}\right)
+ \otimes\MM_{M_n\prod_i k_i^{np_i}}\right]^{\oplus M_n^3}\,.
+ \end{aligned}
+\end{equation}
+Here~$C$ is the absolute constant of Lemma~\ref{lem:separator}. In particular, the logarithm of the ratio of output to input matrix dimensions is~$ng+O(\log n)$, where
+\begin{equation}\label{eq:block-gain}
+ g=H(p)+\sum_i p_i\log k_i-\log c\,,
+ \qquad H(p)=-\sum_i p_i\log p_i\,.
+\end{equation}
+The ratio of source to output direct-sum multiplicities is~$C^3$.
+\end{lemma}
+\begin{proof}
+Apply a cyclic permutation to the identity so that the second- and third-leg sectors are independent. In the~$n$th tensor power, retain on both legs only sector words with~$np_i$ occurrences of label~$i$. Each surviving term has the same word on these two legs. There are~$M_n$ such words, and every sector individually degenerates to~$\bigotimes_i((A_i\otimes D_i)^{\pi_i})^{\otimes np_i}$ after reordering the factors.
+
+Apply Lemma~\ref{lem:separator} to the surviving sectors. They become independent on all three legs and each retains~$\langle1,1,M_n\rangle$. The designated block maps can now be applied separately; their first-leg maps may depend on the sector word. Tensor the construction in the three cyclic orientations. The resulting source multiplicity is~$(CM_n)^3$ and the output multiplicity is~$M_n^3$. The labelled factors become~$\mathcal S(A_i^{\pi_i})$; their orientations are retained in the tensor identity. Equation~\eqref{eq:rectangular-balancing} gives
+\begin{equation*}
+ \mathcal S(D)\cong\MM_c\,,\qquad
+ \mathcal S(D_i)\cong\MM_{k_i}\,,\qquad
+ \mathcal S(\langle1,1,M_n\rangle)\cong\MM_{M_n}\,.
+\end{equation*}
+These matrix factors give~\eqref{eq:block-parameters}. Finally, Stirling's formula gives~$\log M_n=nH(p)+O(\log n)$, proving~\eqref{eq:block-gain}.
+\end{proof}
+
+Only the exponential sector count enters the gain. More generally, if a construction from~$(A\otimes D)^{\otimes n}$ yields~$M_n$ sectors independent on two legs, each individually degenerating to the same prescribed product of labelled tensors and matrix factors, the same proof applies. When~$\log M_n=n\eta+o(n)$, it replaces~$H(p)$ by~$\eta$ in~\eqref{eq:block-gain}. Thus more general initial overlap patterns can be treated once an appropriate sector extraction is supplied; unrestricted overlap alone gives no such count.
+
+\subsection{The value inequality and the criterion}\label{sec:optimization-proof}
+
+The common direct-sum multiplicity in~\eqref{eq:block-parameters} is an auxiliary tensor and can be cancelled. This converts the finite extraction into a local inequality for value, with no need to coordinate branch frequencies across different identities.
+
+\begin{proposition}[Shared-leg value inequality]\label{prop:local-value}
+For the data of Lemma~\ref{lem:block-conversion}, put
+\begin{equation}\label{eq:normalized-value}
+ x(A)=V_\omega(A)^{3/\omega}\,.
+\end{equation}
+Then
+\begin{equation}\label{eq:local-value}
+ c\,x(A)\geq\sum_i k_i x(A_i)\,.
+\end{equation}
+\end{proposition}
+\begin{proof}
+Fix a rational~$p$ and let~$n$ range over its admissible scales in~\eqref{eq:block-parameters}. Cancel the common tensor~$\Delta_{M_n^3}$ by Lemma~\ref{lem:cancellation}. Apply Proposition~\ref{prop:general-extraction} with
+\begin{equation*}
+ \begin{gathered}
+ u_n=C^3\,,\qquad h_n=1\,,\qquad m_{i,n}=np_i\,,\\
+ a_n=c^n\,,\qquad b_n=M_n\prod_i k_i^{np_i}\,.
+ \end{gathered}
+\end{equation*}
+Then~$\alpha=0$ and~$\beta=(H(p)+\sum_i p_i\log k_i-\log c)/3$. Equation~\eqref{eq:general-extraction-value}, multiplied by~$3/\omega$, yields
+\begin{equation*}
+ \log(c\,x(A))\geq H(p)+\sum_i p_i\log(k_i x(A_i))\,.
+\end{equation*}
+All~$x(A_i)$ are positive. The supremum of the right side over probability vectors is~$\log\sum_i k_i x(A_i)$, by the entropy variational formula. Rational vectors are dense, so the same supremum is obtained from the vectors used above.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:potential}]
+Set~$z_v=x(A_v)/d$. By~\eqref{eq:value-symmetry}, we have~$x(A)=V_\omega(\mathcal S(A))^{1/\omega}$. The terminal assumption~$\mathcal S(A_t)\cong\MM_d$, together with~\eqref{eq:value-properties} and~\eqref{eq:local-value}, gives
+\begin{equation}\label{eq:identity-lp}
+ z_t=1\,,\qquad z_v>0\,,\qquad
+ c_ez_{\sigma(e)}\geq\sum_v m_{e,v}z_v\quad(e\in E)\,.
+\end{equation}
+Multiply by~$\mu_e$ and sum. As no identity has source~$t$, the terminal terms give~$L$. The certificate~\eqref{eq:dual-certificate} and positivity of~$z_v$ therefore imply
+\begin{equation*}
+ L\leq\sum_{v\ne t}z_v
+ \left(\sum_{e:\sigma(e)=v}c_e\mu_e-\sum_e m_{e,v}\mu_e\right)
+ \leq z_s\,.
+\end{equation*}
+This is weak linear-programming duality~\cite{Goemans}, applied to the actual values of the labelled tensors. On the other hand,
+\begin{equation*}
+ z_s\leq\frac{\br(\mathcal S(A_s))^{1/\omega}}{d}
+ \leq\frac{r^{3/\omega}}{d}\,.
+\end{equation*}
+Thus~$Ld\leq r^{3/\omega}$. Since~$Ld>1$, taking logarithms proves~\eqref{eq:dual-exponent-bound}.
+\end{proof}
+
+\paragraph{Other auxiliary tensors.}
+The same argument permits arbitrary nonzero~$D_e,D_{e,i}$ if specified positive integers~$c_e,k_{e,i}$ satisfy
+\begin{equation}\label{eq:general-auxiliaries}
+ \MM_{c_e}\degen\mathcal S(D_e)\,,\qquad
+ \mathcal S(D_{e,i})\degen\MM_{k_{e,i}}\,.
+\end{equation}
+Supply each input auxiliary factor from the indicated matrix tensor and extract the indicated matrix tensor from each output factor in the proof of Lemma~\ref{lem:block-conversion}. This gives the same conversion~\eqref{eq:block-parameters} and the same value inequality. Every finite tensor can be supplied from some matrix tensor: if~$D=\sum_{i,j,k}d_{ijk}x_i y_jz_k$ has second- and third-leg dimensions~$m,n$, substitute~$X_{kj}=\sum_i d_{ijk}x_i$ in~$\langle n,m,1\rangle=\sum_{k,j}X_{kj}y_jz_k$. The main theorem retains one labelled tensor per output block; products of several labelled tensors require a different numerical system.
+
+\subsection{Relation to the laser method}\label{sec:laser-comparison}
+
+The proof overview in Section~\ref{sec:proof-overview} separates the extraction mechanism from the combination of its numerical consequences. Here we derive the specializations behind its first table, then explain the recursive and asymmetric multilevel combinations in more detail. Proposition~\ref{prop:general-extraction} supplies a common numerical principle; each method supplies its own combinatorial extraction. Theorem~\ref{thm:potential} is the finite certificate specialization for our shared-leg identities.
+
+\paragraph{Independent blocks and the asymptotic sum inequality.}
+Suppose~$A\degen\bigoplus_{i=1}^q A_i$. Fix a rational probability vector~$p$ and take~$n$ with all~$np_i$ integral. In each cyclic orientation, retain only the tensor words of type~$p$. Writing~$M_n=n!/\prod_i(np_i)!$, this gives
+\begin{equation*}
+ \mathcal S(A)^{\otimes n}\degen
+ \left[\bigotimes_i\mathcal S(A_i)^{\otimes np_i}\right]^{\oplus M_n^3}\,.
+\end{equation*}
+Thus~$a_n=b_n=u_n=1$, $h_n=M_n^3$, and~$m_{i,n}=np_i$. Stirling's formula gives~$\alpha=H(p)$ and~$\beta=0$. Proposition~\ref{prop:general-extraction} yields
+\begin{equation*}
+ \log V_\omega(A)\geq H(p)+\sum_i p_i\log V_\omega(A_i)\,.
+\end{equation*}
+Rational probability vectors are dense, so optimizing over~$p$ by the entropy variational formula recovers~$V_\omega(A)\geq\sum_iV_\omega(A_i)$. In particular, for~$A_i=\langle a_i,b_i,c_i\rangle$, the matrix values~$V_\omega(A_i)=(a_ib_ic_i)^{\omega/3}$ give Sch\"onhage's asymptotic sum inequality~\cite{Sch81}:
+\begin{equation}\label{eq:asi-special-case}
+ \sum_i(a_ib_ic_i)^{\omega/3}\leq V_\omega(A)\leq\br(A)\,.
+\end{equation}
+As in the standard value formalism, the upper bound~$V_\omega(A)\leq\br(A)$ already incorporates the classical sum inequality. This specialization records its relation to the extraction principle. 
+
+
+
+\paragraph{Classical and refined extraction.}
+For the classical and refined laser methods, partition each variable group into disjoint subspaces indexed by integers. Write~$A=\sum_{s\in S}A_s$, where~$S$ is the support of the nonzero blocks, and assume~$s_X+s_Y+s_Z=\kappa$ for every~$s\in S$. More generally, a tight support admits such a description after injective integer relabelling on each leg. For a probability distribution~$p$ on~$S$, let~$p_X,p_Y,p_Z$ be its three marginals and put
+\begin{equation}\label{eq:laser-compatibility}
+ \overline H(p)=\frac{H(p_X)+H(p_Y)+H(p_Z)}3\,,\qquad
+ \Gamma_S(p)=\max_{q:\,q_X=p_X,\ q_Y=p_Y,\ q_Z=p_Z}H(q)-H(p)\,.
+\end{equation}
+The maximum is over probability distributions on~$S$. It measures the entropy penalty from other block types with the same marginals.
+
+The classical extraction behind~\cite[Theorem 4.1 and Appendix A.3]{LG14} selects independent copies of the type product~$\bigotimes_s\mathcal S(A_s)^{\otimes np(s)}$. For rational~$p$ and admissible~$n$, the extraction supplies at least~$\exp(3n(\overline H(p)-\Gamma_S(p))-o(n))$ copies. Discarding extra copies if necessary gives~$\alpha=\overline H(p)-\Gamma_S(p)$ in~\eqref{eq:general-extraction-rates}, with~$\beta=0$. Proposition~\ref{prop:general-extraction} gives
+\begin{equation}\label{eq:classical-laser-value}
+ \log V_\omega(A)\geq
+ \sum_{s\in S}p(s)\log V_\omega(A_s)+\overline H(p)-\Gamma_S(p)\,.
+\end{equation}
+This is the value-based form of the Coppersmith--Winograd analysis and its recursive use for powers by Stothers, Vassilevska Williams and Le Gall~\cite{CW90,Sto10,DS13,VW12,LG14}. The values of the blocks can themselves be bounded by another extraction. When a block is a tensor product, supermultiplicativity supplies a lower bound from its factors; when several terms form a larger matrix multiplication tensor, its matrix value can give a stronger bound.
+
+The refined extraction of Alman and Vassilevska Williams~\cite[Theorem 4.1 and Sections 4.1--4.5]{AW21} improves the independent-copy rate to~$\alpha=\overline H(p)-\Gamma_S(p)/2$, again with~$\beta=0$. Thus the same proposition gives
+\begin{equation}\label{eq:refined-laser-value}
+ \log V_\omega(A)\geq
+ \sum_{s\in S}p(s)\log V_\omega(A_s)+\overline H(p)-\frac12\Gamma_S(p)\,.
+\end{equation}
+Continuity extends both estimates from rational distributions to all~$p$. Alman and Vassilevska Williams use~$\tau=\rho/3$, whereas Le Gall uses~$\rho$ as we do. Both cited laser estimates hold for every~$2\leq\rho\leq3$; we record their specializations to~$\rho=\omega$. The improved copy count is the combinatorial content of the refined method and is supplied by the cited extraction.
+
+\paragraph{Combining levels.}
+In a recursive value analysis, write~$u(T)=\log V_\omega(T)$. After fixing a branch distribution, an extraction gives an inequality of the form
+\begin{equation*}
+ u(T)\geq g+\sum_i p_i u(T_i)\,.
+\end{equation*}
+Substitute a further value bound for each~$u(T_i)$. For product constituents, supermultiplicativity gives~$u(U\otimes W)\geq u(U)+u(W)$; terminal matrix constituents have known values. Repeated substitution accumulates extraction gains until the root bound can be compared with the rank estimate for the original tensor power. The distributions across the levels are optimization parameters, and their choices affect the final bound~\cite[Sections 5--6]{AW21}. For a fixed hierarchy, substitution induces nonnegative weights on its local inequalities. Our certificate plays a related role, but combines inequalities in~$x(A)$ directly and also permits cyclic dependencies. The general extraction principle and the finite linear certificate theorem are therefore distinct parts of the argument.
+
+Recent asymmetric methods make the information passed between levels more explicit. Duan, Wu and Zhou~\cite[Section 2]{DWZ23} identify combination loss by examining constituent structure that an isolated scalar value estimate suppresses. Their asymmetric hashing changes the extraction so that more of this structure can be used. Vassilevska Williams, Xu, Xu and Zhou~\cite[Section 4.1]{VXXZ24} organize the recursion through interface tensors carrying complete split distributions on the three legs. A constituent stage outputs independent copies of a lower-level interface tensor together with a matrix multiplication factor; the terminal interfaces yield matrix multiplication tensors. The later analysis of~\cite{AD25} treats the legs more asymmetrically and controls compatibility and missing variables. These are improvements to the intermediate tensor constructions and their composition, rather than simply different weights for the same constituent-value inequalities.
+
+The distinction also specifies the scope of Proposition~\ref{prop:general-extraction}. It evaluates an extraction once its tensor factors, independent-copy rate and net matrix gain are known. The detailed stage-by-stage descriptions in the asymmetric methods can involve parameterized tensor families, distribution constraints and error tolerances, which its present fixed-tensor statement does not encode. Their final matrix extractions fit the same value-based paradigm. The combinatorial arguments that make the stages compatible and establish their rates remain essential inputs.
+
+
+\paragraph{Shared-leg gain.}
+There is a quantitative distinction between the extraction used here and direct substitution into the usual block-value estimate. For support~$\{(0,i,-i)\}_i$, the marginal entropies are~$0,H(p),H(p)$ and the compatibility penalty vanishes. Theorem 4.1 of~\cite{LG14} therefore gives an entropy contribution~$2H(p)/3$. For example, applying it to the scalar blocks of~$\langle1,1,m\rangle=\sum_{i=1}^m xy_i z_i$, with uniform~$p$, gives only
+\begin{equation*}
+ V_\omega(\langle1,1,m\rangle)\geq m^{2/3}\,,
+ \qquad\text{whereas}\qquad
+ V_\omega(\langle1,1,m\rangle)=m^{\omega/3}\,.
+\end{equation*}
+The equality is its rectangular-matrix value. The separator retains dot products from the sector indices; after symmetrization they supply the matrix factor~$\MM_{M_n}$ in~\eqref{eq:block-parameters}. This is the additional gain used in~\eqref{eq:local-value}, and its central construction is inherited from~\cite{OpenAI}. This example compares the stated estimates, rather than asserting a limitation of every possible repartitioning or merging analysis.
+
+
+\section{The convolution identities}\label{sec:convolution}
+
+The tensor input consists of two block identities for polynomial multiplication. One changes an input length by~$1$; the other replaces length~$4r-1$ by~$r$ in three blocks. These are the constructions of~\cite[Sections 3--4]{OpenAI}, which we express as algebraic identities below.
+
+Recall the polynomial-multiplication tensor~$C(r,b)$ from~\eqref{eq:convolution-definition}. Evaluation at~$r+b-1$ distinct points and interpolation give a rank-$(r+b-1)$ decomposition of~$C(r,b)$. Consequently,
+\begin{equation}\label{eq:Q}
+ \begin{gathered}
+ \R(C(r,b))\leq r+b-1\,,\qquad
+ V_\omega(C(r,b))=V_\omega(C(b,r))\,,\\
+ \mathcal S(C(1,2))\cong\MM_2\,.
+ \end{gathered}
+\end{equation}
+The value equality follows by interchanging the input legs and using~\eqref{eq:value-symmetry}. The last identity follows from~$C(1,2)=\langle1,1,2\rangle$ and~\eqref{eq:balancing}.
+
+\begin{proposition}[Convolution degenerations]\label{prop:convolution}
+The following degenerations and isomorphism hold.
+\begin{enumerate}
+\item For~$r\geq1$ and~$b\geq2$,
+\begin{equation}\label{eq:neighbor-degeneration}
+ C(r,b)\otimes \langle1,1,2\rangle\degen T_++T_-\,,\qquad
+ T_+\cong C(r,b+1)\,,\quad T_-\cong C(r,b-1)\,.
+\end{equation}
+\item For~$r\geq2$,
+\begin{equation}\label{eq:tripling-degeneration}
+ C(r,4r-1)\degen T_L+T_M+T_R\,,
+\end{equation}
+where~$T_L,T_M,T_R$ are individually isomorphic to~$C(r,r)$, $C(r,r)^{(23)}$ and~$C(r,r)$, respectively.
+\end{enumerate}
+In each degeneration, the blocks share their first leg and have pairwise disjoint sectors on the second and third legs. At the lower boundary,
+\begin{equation}\label{eq:boundary-isomorphism}
+ C(r,r-1)\cong C(r-1,r)^{(12)}\qquad(r\geq2)\,.
+\end{equation}
+\end{proposition}
+\begin{proof}
+\emph{Neighboring lengths.} Put~$n=r+b-2$ and write the source as
+\begin{equation*}
+ C(r,b)\otimes \langle1,1,2\rangle=\sum_{i=0}^{r-1}\sum_{j=0}^{b-1}
+ x_i\bigl(Y_j^0Z_{i+j}^0+Y_j^1Z_{i+j}^1\bigr)\,.
+\end{equation*}
+Introduce independent variables~$y_j^+$ for~$0\leq j\leq b$, $y_j^-$ for~$0\leq j\leq b-2$, $z_k^+$ for~$0\leq k\leq n+1$, and~$z_k^-$ for~$0\leq k\leq n-1$. Set~$y_{-1}^-=y_{b-1}^-=z_n^-=0$. For~$\varepsilon\ne0$, the substitutions
+\begin{equation}\label{eq:neighbor-substitution}
+\begin{aligned}
+ Y_j^0&=y_j^+-\varepsilon^{-1}y_{j-1}^-\,,&
+ Y_j^1&=\varepsilon^{-1}y_j^-+\mathbf1_{\{j=b-1\}}y_b^+\,,\\
+ Z_k^0&=z_k^+\,,&
+ Z_k^1&=z_{k+1}^++\varepsilon z_k^-
+\end{aligned}
+\end{equation}
+are invertible and give the exact identity
+\begin{equation}\label{eq:neighbor-explicit}
+\begin{aligned}
+ &\sum_{i=0}^{r-1}\sum_{j=0}^{b-1}
+ x_i\bigl(Y_j^0Z_{i+j}^0+Y_j^1Z_{i+j}^1\bigr)\\
+ &\quad=\sum_{i=0}^{r-1}\sum_{j=0}^{b}x_i y_j^+z_{i+j}^+
+ +\sum_{i=0}^{r-1}\sum_{j=0}^{b-2}x_i y_j^-z_{i+j}^- \\
+ &\qquad\quad+\varepsilon y_b^+\sum_{i=0}^{r-2}x_i z_{b-1+i}^-\,.
+\end{aligned}
+\end{equation}
+To verify the identity, the coefficient of~$\varepsilon^{-1}$ cancels for each~$i$ because
+\begin{equation*}
+ -\sum_{j=1}^{b-1}y_{j-1}^-z_{i+j}^+
+ +\sum_{j=0}^{b-2}y_j^-z_{i+j+1}^+=0\,.
+\end{equation*}
+The terms of degree zero are the two displayed convolution blocks. The remaining terms give the last sum, which is empty when~$r=1$. Taking the constant term in~\eqref{eq:neighbor-explicit} proves~\eqref{eq:neighbor-degeneration}.
+
+\emph{Tripling.} Partition the second- and third-leg indices into the inclusive intervals
+\begin{equation*}
+ \begin{array}{c|ccc}
+ &L&M&R\\\hline
+ Y &[0,r-1]&[r,3r-2]&[3r-1,4r-2]\\
+ Z &[0,2r-2]&[2r-1,3r-2]&[3r-1,5r-3].
+ \end{array}
+\end{equation*}
+Multiply the middle~$Y$ variables by~$\varepsilon$ and the middle~$Z$ variables by~$\varepsilon^{-1}$, leaving the outer variables fixed. Equivalently, put
+\begin{equation*}
+ Y_j=\begin{cases}\varepsilon y_j,&r\leq j\leq3r-2,\\y_j,&\text{otherwise},\end{cases}
+ \qquad
+ Z_k=\begin{cases}\varepsilon^{-1}z_k,&2r-1\leq k\leq3r-2,\\z_k,&\text{otherwise}.\end{cases}
+\end{equation*}
+The resulting algebraic identity is
+\begin{equation}\label{eq:tripling-explicit}
+\begin{aligned}
+ \sum_{i=0}^{r-1}\sum_{j=0}^{4r-2}x_iY_jZ_{i+j}
+ ={}&\sum_{i,j=0}^{r-1}x_i y_jz_{i+j}\\
+ &+\sum_{i,j=0}^{r-1}x_{r-1-i}y_{r+i+j}z_{2r-1+j}\\
+ &+\sum_{i,j=0}^{r-1}x_i y_{3r-1+j}z_{3r-1+i+j}
+ +\varepsilon E\,,
+\end{aligned}
+\end{equation}
+where
+\begin{equation*}
+ E=\sum_{\substack{0\leq i<r,\ r\leq j\leq3r-2\\
+ i+j<2r-1\ \text{or}\ i+j>3r-2}}x_i y_jz_{i+j}\,.
+\end{equation*}
+A left second-leg index always has a left output, and a right second-leg index always has a right output. These terms form the first and third blocks. For a middle output, write its index as~$2r-1+j$ and the first-leg index as~$r-1-i$; its second-leg index is~$r+i+j$, giving the second block. Every other term has a middle second-leg index and an outer output, and so acquires exactly one factor of~$\varepsilon$.
+
+The outer blocks become~$C(r,r)$ by translating indices. In the middle block, set~$X_i=x_{r-1-i}$, $\widetilde Y_k=y_{r+k}$ and~$\widetilde Z_j=z_{2r-1+j}$. It becomes
+\begin{equation*}
+ \sum_{i,j=0}^{r-1}X_i\widetilde Y_{i+j}\widetilde Z_j
+ =C(r,r)^{(23)}\,.
+\end{equation*}
+This identifies the middle block individually; all three displayed blocks retain the original common first leg. Taking the constant term proves~\eqref{eq:tripling-degeneration}.
+
+Finally, interchanging the first two legs in
+\begin{equation*}
+ C(r,r-1)=\sum_{i=0}^{r-1}\sum_{j=0}^{r-2}x_i y_jz_{i+j}
+\end{equation*}
+and renaming the indices proves~\eqref{eq:boundary-isomorphism}.
+\end{proof}
+
+
+
+\section{The convolution bound}
+\label{sec:application}
+
+We apply Theorem~\ref{thm:potential} to the two convolution degenerations. Explicit nonnegative weights give the bound~$9/4$ by a telescoping identity. A final affine profile shows that optimizing these identities cannot improve the limiting bound.
+
+\subsection{The identity system}
+
+Fix an integer~$a\geq2$. The label set, tensors and distinguished labels are
+\begin{equation*}
+ \begin{gathered}
+ V=\{t\}\sqcup\{(r,b):2\leq r\leq a,\ r\leq b\leq4r-1\}\,,\\
+ A_{(r,b)}=C(r,b)\,,\qquad A_t=C(1,2)\,,\qquad s=(a,a)\,.
+ \end{gathered}
+\end{equation*}
+There is one identity at each nonterminal label:
+\begin{equation*}
+ E=\{e_{r,b}:2\leq r\leq a,\ r\leq b<4r-1\}
+ \sqcup\{f_r:2\leq r\leq a\}\,.
+\end{equation*}
+For~$e_{r,b}$, use the neighbor degeneration~\eqref{eq:neighbor-degeneration}, with source~$(r,b)$, cost~$c_{e_{r,b}}=2$, and output labels~$(r,b+1)$ and
+\begin{equation*}
+ \ell(r,b)=\begin{cases}
+ (r,b-1),&b>r,\\
+ (r-1,r),&b=r>2,\\
+ t,&r=b=2.
+ \end{cases}
+\end{equation*}
+The lower-boundary identifications use~\eqref{eq:boundary-isomorphism}. For~$f_r$, use the tripling degeneration~\eqref{eq:tripling-degeneration}, with source~$(r,4r-1)$, cost~$c_{f_r}=1$, and three output labels~$(r,r)$. Thus the output multiplicities are explicitly
+\begin{equation*}
+ m_{e_{r,b},v}=\mathbf1_{\{v=(r,b+1)\}}+\mathbf1_{\{v=\ell(r,b)\}}\,,\qquad
+ m_{f_r,v}=3\mathbf1_{\{v=(r,r)\}}\,.
+\end{equation*}
+Here every output matrix factor is scalar, so~$k_{e,i}=1$ for all branches. The input auxiliary tensors are~$D_{e_{r,b}}=\langle1,1,2\rangle$ and~$D_{f_r}=\langle1,1,1\rangle$. The shared-leg and disjoint-sector conditions hold by Proposition~\ref{prop:convolution}. Finally,~\eqref{eq:Q} gives the terminal dimension and the source bound required by the criterion:
+\begin{equation*}
+ \mathcal S(A_t)\cong\MM_2\,,\qquad
+ \br(A_s)\leq\R(C(a,a))\leq2a-1\,.
+\end{equation*}
+
+\subsection{An explicit certificate}
+\label{sec:explicit-dual}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+Write~$\mu_{r,b}$ for the weight of~$e_{r,b}$ and~$\nu_r$ for the weight of~$f_r$. Set~$w_a=1$ and define the weights downwards for~$r=a,a-1,\ldots,2$ by
+\begin{equation}\label{eq:explicit-weights}
+ \begin{gathered}
+ h_r=\begin{cases}1,&r=a,\\2,&r<a,\end{cases}
+ \qquad \nu_r=\frac{h_rw_r}{3r-3}\,,\\
+ \mu_{r,b}=\nu_r(4r-1-b)-w_r\mathbf1_{\{r<a,\ b=r\}}
+ \quad(r\leq b\leq4r-2),\qquad
+ w_{r-1}=\mu_{r,r}\,.
+ \end{gathered}
+\end{equation}
+The neighbor weights decrease linearly along each row, apart from the correction at its first position. They are all nonnegative: the only subtraction occurs when~$r<a$ and~$b=r$, where
+\begin{equation*}
+ \mu_{r,r}=\frac{3r+1}{3r-3}w_r>0\,.
+\end{equation*}
+
+To verify the certificate, introduce independent formal symbols~$x_{r,b}$ and~$x_t$, with boundary shorthand
+\begin{equation*}
+ x_{r,r-1}=x_{r-1,r}\quad(r\geq3)\,,\qquad x_{2,1}=x_t\,.
+\end{equation*}
+Collecting coefficients in one row gives
+\begin{equation}\label{eq:row-certificate}
+ \begin{aligned}
+ &\sum_{b=r}^{4r-2}\mu_{r,b}
+ (2x_{r,b}-x_{r,b-1}-x_{r,b+1})
+ +\nu_r(x_{r,4r-1}-3x_{r,r})\\
+ &\qquad=\begin{cases}
+ w_a x_{a,a}-w_{a-1}x_{a,a-1},&r=a,\\
+ w_r x_{r,r+1}-w_{r-1}x_{r,r-1},&r<a.
+ \end{cases}
+ \end{aligned}
+\end{equation}
+Indeed, without the correction in~\eqref{eq:explicit-weights}, the affine sequence~$\mu_{r,b}=\nu_r(4r-1-b)$ gives coefficients~$(3r-3)\nu_r$ at~$x_{r,r}$ and~$-\mu_{r,r}$ at~$x_{r,r-1}$, with every other coefficient zero. For~$r<a$, the correction subtracts~$w_r(2x_{r,r}-x_{r,r-1}-x_{r,r+1})$, giving the stated result.
+
+The boundary identifications make the right sides of~\eqref{eq:row-certificate} telescope. Their sum is~$x_{a,a}-w_1x_t$. The left sides are precisely the source-minus-output expressions for the identities in~$E$. Hence the weights satisfy~\eqref{eq:dual-certificate} with equality at every nonterminal label, and their terminal value is~$L=w_1$.
+
+The recursion gives
+\begin{equation}\label{eq:profile-lower}
+ L=\frac{3a-1}{3a-3}\prod_{r=2}^{a-1}\frac{3r+1}{3r-3}
+ =\frac{3a-1}{4}\prod_{j=1}^{a-1}\left(1+\frac1{3j}\right)\,.
+\end{equation}
+Empty products are one. Since
+\begin{equation*}
+ \left(1+\frac1{3j}\right)^3\geq\frac{j+1}{j}\,,
+\end{equation*}
+we have~$L\geq(3a-1)a^{1/3}/4\geq a^{4/3}/2$. Thus~$\log2+\log L\geq(4/3)\log a>0$, and Theorem~\ref{thm:potential}, with~$d=2$ and raw source bound~$r=2a-1$, yields
+\begin{equation}\label{eq:finite-profile-exponent}
+ \omega\leq\frac{3\log(2a-1)}{\log2+\log L}
+ \leq\frac94\frac{\log(2a-1)}{\log a}
+ \longrightarrow\frac94\,.
+\end{equation}
+The equality~$\omega_F=\omega_K$ from Appendix~\ref{sec:descent} gives the assertion over the arbitrary field~$F$.
+\end{proof}
+
+\subsection{Tightness}\label{sec:tightness}
+
+The certificate has the largest possible value for this identity system. To see this, normalize~$z_t=1$ and use the boundary shorthand~$z(r,r-1)=z(r-1,r)$ for~$r\geq3$ and~$z(2,1)=1$. The nonnegative profiles obeying the two identity inequalities satisfy
+\begin{equation}\label{eq:convolution-lp}
+ \begin{aligned}
+ 2z(r,b)&\geq z(r,b-1)+z(r,b+1)
+ &&(2\leq r\leq a,\ r\leq b<4r-1),\\
+ z(r,4r-1)&\geq3z(r,r)
+ &&(2\leq r\leq a),\\
+ z(r,b)&\geq0\,.
+ \end{aligned}
+\end{equation}
+The neighbor and tripling inequalities are all tight at the affine profile
+\begin{equation}\label{eq:optimal-profile}
+ s_r=\frac12\prod_{j=1}^{r-1}\left(1+\frac1{3j}\right)\,,\qquad
+ z^*(r,b)=s_r\left(b+\frac{r-1}{2}\right)\,.
+\end{equation}
+More precisely, each row is affine and~$z^*(r,4r-1)=3z^*(r,r)$. The recurrence~$s_r/s_{r-1}=(3r-2)/(3r-3)$ gives~$z^*(r,r-1)=z^*(r-1,r)$, while~$z^*(2,1)=1$. Thus~$z^*$ is positive and feasible, and its objective value is~$z^*(a,a)=L$. Weak duality now gives
+\begin{equation}\label{eq:profile}
+ \rho_a:=\min\{z(a,a):z\text{ satisfies }\eqref{eq:convolution-lp}\}=L\,.
+\end{equation}
+The minimum uses the above boundary conventions and~$z_t=1$. Since~$\log(1+x)=x+O(x^2)$ and~$\sum_{j<a}j^{-1}=\log a+O(1)$, we have~$\log L=(4/3)\log a+O(1)$. The profile bounds every certificate value by~$L$, and the explicit weights attain it. Consequently, the best bound supplied by Theorem~\ref{thm:potential} for this identity family, using~$\br(C(a,a))\leq2a-1$, is
+\begin{equation*}
+ \frac{3\log(2a-1)}{\log2+\log L}\longrightarrow\frac94\,.
+\end{equation*}
+This is optimality within the stated certificate system and source estimate; it does not rule out a different extraction or a stronger source bound.
+
+
+\section{Rectangular multiplication}\label{sec:rectangular}
+
+Keeping the three legs oriented lets the same separator evaluate rectangular extractions. The square proof remains independent of this extension: ordinary value already supplies its linear certificate. Here a matrix-assisted value gives exact scaling by rectangular factors, and its rank bound replaces the spectral passage in the rectangular convolution argument of~\cite{Uznanski26}.
+
+\subsection{Supporting weights and oriented value}\label{sec:oriented-value}
+Work over~$K=\overline F$, where~$F$ is any field. All tensors are finite-dimensional and have ordered legs. Let~$\omega_K(a,b,c)$ be the infimum of exponents~$\tau$ permitting multiplication of an~$\lceil n^a\rceil\times\lceil n^b\rceil$ matrix by a~$\lceil n^b\rceil\times\lceil n^c\rceil$ matrix in~$O(n^\tau)$ operations. As in the introduction, algorithms compute formal polynomial identities using division-free arithmetic circuits. Let~$\mathsf P_X(q)=\langle1,1,q\rangle$, $\mathsf P_Y(q)=\langle q,1,1\rangle$, and~$\mathsf P_Z(q)=\langle1,q,1\rangle$. Thus
+\begin{equation}\label{rect:eq:matrix}
+ \MM(\mathbf q):=\bigotimes_{i=X,Y,Z}\mathsf P_i(q_i)
+ \cong\langle q_Y,q_Z,q_X\rangle\,.
+\end{equation}
+For~$\mathbf u\geq0$, let
+\begin{equation}\label{rect:eq:W}
+ W(\mathbf u)=\omega_K(u_Y,u_Z,u_X)\,.
+\end{equation}
+Equivalently, matrices with logarithmic dimensions~$N\mathbf u+o(N)$ have rank~$\exp(NW(\mathbf u)+o(N))$. The tensor characterization of the arithmetic exponent and recursive blocking give this equivalence~\cite{BCS97}. Tensoring algorithms proves subadditivity of~$W$; changing the size parameter proves positive homogeneity. Restriction proves monotonicity, while supplying an extra dot-product factor proves
+\begin{equation*}
+ 0\leq W(\mathbf u+t\mathbf e_i)-W(\mathbf u)\leq t
+ \qquad(t\geq0)\,.
+\end{equation*}
+Consequently~$W$ is continuous and convex.
+
+Fix~$\mathbf v\in\mathbb R_{>0}^3$ and choose a supporting vector~$\mathbf p$:
+\begin{equation}\label{rect:eq:support}
+ \mathbf p\cdot\mathbf u\leq W(\mathbf u)\quad(\mathbf u\geq0),
+ \qquad \mathbf p\cdot\mathbf v=W(\mathbf v)\,.
+\end{equation}
+A supporting vector exists by finite-dimensional convexity at the interior point~$\mathbf v$. Homogeneity removes the affine constant. The coordinate bounds above give~$0\leq p_i\leq1$. No differentiability is assumed. For a matrix tensor define
+\begin{equation}\label{rect:eq:weight}
+ w_{\mathbf p}(\MM(\mathbf q))=\prod_iq_i^{p_i},
+ \qquad
+ w_{\mathbf p}(\langle a,b,c\rangle)=a^{p_Y}b^{p_Z}c^{p_X}\,.
+\end{equation}
+The unknown actual function~$W$, rather than a proposed upper bound, determines~$\mathbf p$. This is analogous to defining ordinary value at the unknown true square exponent.
+
+Write~$A\gtrsim B$ for asymptotic restriction allowing a subexponential number of full source copies, as in~\eqref{eq:asymptotic-restriction}. This preorder admits classical cancellation of a fixed nonzero tensor. Let~$\Delta_h$ be the diagonal tensor of rank~$h$.
+
+We seek a notion of value that measures rectangular matrix multiplication while retaining the distinction between the three tensor legs. With the weights~\eqref{rect:eq:weight}, a natural definition would measure the total weight of matrix products extracted from powers of a tensor~$T$. We also want auxiliary matrix factors to have a predictable effect: supplying a factor~$D$ should multiply the value by exactly~$w_{\mathbf p}(D)$. This lets us compare tensor conversions that contain matrix factors on either side.
+
+We therefore allow an auxiliary matrix tensor~$D$ on the input and charge for its weight. A conversion
+\begin{equation*}
+ T^{\otimes n}\otimes D\gtrsim\Delta_h\otimes E
+\end{equation*}
+produces~$h$ independent copies of the matrix tensor~$E$. Its output weight is~$h\,w_{\mathbf p}(E)$; dividing by~$w_{\mathbf p}(D)$ accounts for the supplied auxiliary, and taking an~$n$th root measures the gain per copy of~$T$. The oriented value is the supremum of these gains.
+
+This definition makes exact scaling by matrix factors immediate. The main point to prove is that allowing these auxiliaries does not make the value exceed asymptotic rank.
+
+For nonzero~$T$ define its oriented value by
+\begin{equation}\label{rect:eq:def}
+ \mathcal V_{\mathbf p}(T)=
+ \sup\left\{
+ \left(\frac{h\,w_{\mathbf p}(E)}{w_{\mathbf p}(D)}\right)^{1/n}:
+ T^{\otimes n}\otimes D\gtrsim\Delta_h\otimes E
+ \right\},
+\end{equation}
+where~$n,h\geq1$ are integers and~$D,E$ range over rectangular matrix tensors. Every quadruple~$(n,h,D,E)$ is fixed before the repetition implicit in~$\gtrsim$. The three tensor legs retain their order throughout. No symmetrization is taken. Input matrix tensors are charged at their prescribed weights; they are consumed auxiliaries, not catalysts required to be returned.
+
+\begin{theorem}\label{rect:thm:rank}
+For a supporting vector chosen as in~\eqref{rect:eq:support},
+\begin{equation}\label{rect:eq:rank}
+ 1\leq\mathcal V_{\mathbf p}(T)\leq\widetilde\R(T)\leq\br(T)\,.
+\end{equation}
+\end{theorem}
+\begin{proof}
+A nonzero tensor restricts to a scalar, so the value is at least one. Fix a conversion in~\eqref{rect:eq:def}, and write~$\mathbf d,\mathbf e$ for the logarithms of the three dot-product dimensions of~$D,E$. Choose~$L$ with~$Lv_i>d_i$ for each~$i$. For large~$j$, take
+\begin{equation*}
+ B_j=D^{\otimes j}\otimes
+ \MM\left(\left\lfloor e^{j(Lv_i-d_i)}\right\rfloor_i\right).
+\end{equation*}
+Its logarithmic dimensions are~$jL\mathbf v+o(j)$, so
+$\log\R(B_j)=jLW(\mathbf v)+o(j)$. Repeating the fixed conversion~$j$ times, and carrying the remaining matrix factors unchanged, gives
+\begin{equation*}
+ T^{\otimes nj}\otimes B_j
+ \gtrsim \Delta_{h^j}\otimes
+ \MM\left(e^{j(L\mathbf v+\mathbf e-\mathbf d)+o(j)}\right).
+\end{equation*}
+Here and below, $\operatorname{dims}$ denotes the three dot-product dimensions~$(q_X,q_Y,q_Z)$ in~\eqref{rect:eq:matrix}; exponential vector expressions record these dimensions with integer rounding. The source-copy overhead of the given asymptotic conversion has logarithm~$o(j)$ and does not affect the following estimates.
+
+For~$\varepsilon>0$ put~$t=\log h/(W(\mathbf v)+\varepsilon)$. Actual matrix algorithms in direction~$\mathbf v$ supply a restriction
+\begin{equation*}
+ \Delta_{h^j}\res Q_j,\qquad
+ \log\operatorname{dims}(Q_j)=jt\mathbf v+o(j)\,.
+\end{equation*}
+The strict exponent margin absorbs constants and rounding. For~$h=1$, use the scalar~$Q_j$ and~$t=0$.
+
+The final output is a matrix tensor with logarithmic dimensions
+$j((L+t)\mathbf v+\mathbf e-\mathbf d)+o(j)$. Its asymptotic rank is at least
+\begin{equation*}
+ \exp\left(j\left[(L+t)W(\mathbf v)
+       +\mathbf p\cdot(\mathbf e-\mathbf d)\right]+o(j)\right)
+\end{equation*}
+by the supporting inequality. The source rank is at most
+$\exp(j[n\log\widetilde\R(T)+LW(\mathbf v)]+o(j))$.
+Monotonicity of asymptotic rank under~$\gtrsim$ therefore gives
+\begin{equation*}
+ n\log\widetilde\R(T)\geq tW(\mathbf v)+\mathbf p\cdot(\mathbf e-\mathbf d).
+\end{equation*}
+Let~$\varepsilon\downarrow0$. Then
+$\log h+\log w_{\mathbf p}(E)-\log w_{\mathbf p}(D)
+\leq n\log\widetilde\R(T)$, as required. The final inequality in~\eqref{rect:eq:rank}
+is the usual interpolation consequence of border rank.
+\end{proof}
+
+The large matrix~$B_j$ is essential. Comparing the ranks of~$D$ and~$E$ separately would not justify subtracting their supporting bounds. Here~$D^{\otimes j}$ is supplied inside a matrix whose cost is known along~$\mathbf v$, and only one supporting lower bound is applied, to the final output.
+
+\paragraph{Boundary directions.}
+The condition~$\mathbf v>0$ cannot simply be omitted. In dot-product coordinates, $\mathbf p=(0,1,0)$ supports~$W$ at the boundary direction~$(0,1,0)$. However, $D=\langle1,q,q\rangle\res\Delta_q$ has weight one. Thus~\eqref{rect:eq:def} would give~$\mathcal V_{\mathbf p}(\mathbf1)\geq q$ for every~$q$. Boundary target shapes should be obtained by limits of interior shapes, or treated directly.
+
+
+\subsection{Value properties}
+\begin{proposition}\label{rect:prop:properties}
+The oriented value is monotone under~$\gtrsim$ and satisfies
+\begin{align}
+ \mathcal V_{\mathbf p}(T^{\otimes k})
+ &=\mathcal V_{\mathbf p}(T)^k,\label{rect:eq:powers}\\
+ \mathcal V_{\mathbf p}(T\otimes U)
+ &\geq\mathcal V_{\mathbf p}(T)\mathcal V_{\mathbf p}(U),\label{rect:eq:product}\\
+ \mathcal V_{\mathbf p}(T\oplus U)
+ &\geq\mathcal V_{\mathbf p}(T)+\mathcal V_{\mathbf p}(U),\label{rect:eq:sum}\\
+ \mathcal V_{\mathbf p}(T\otimes M)
+ &=w_{\mathbf p}(M)\mathcal V_{\mathbf p}(T),\label{rect:eq:scaling}
+\end{align}
+where~$M$ is any rectangular matrix tensor. In particular,
+$\mathcal V_{\mathbf p}(M)=w_{\mathbf p}(M)$.
+\end{proposition}
+\begin{proof}
+Monotonicity follows by transitivity in the definition. Repeat an extraction to obtain any multiple of its source length; this proves~\eqref{rect:eq:powers}. Tensoring two extractions at a common multiple of their lengths proves~\eqref{rect:eq:product}.
+
+For~\eqref{rect:eq:scaling}, an extraction from~$T^{\otimes n}$ can carry~$M^{\otimes n}$ to its output, giving one inequality. Conversely, in any extraction from~$(T\otimes M)^{\otimes n}$, regard~$M^{\otimes n}$ as part of the input auxiliary~$D$. Its weight is exactly~$w_{\mathbf p}(M)^n$, giving the other inequality. The scalar has value one by Theorem~\ref{rect:thm:rank}.
+
+For~\eqref{rect:eq:sum}, choose extractions of a common source length~$n$ for~$T$ and~$U$, with normalized gains~$a,b$. In~$(T\oplus U)^{\otimes nN}$ retain all words containing~$nk$ occurrences of~$T$. Their number is~$\binom{nN}{nk}$, and their tensors are independently isomorphic to~$T^{\otimes nk}\otimes U^{\otimes n(N-k)}$. Supply the same auxiliary matrix~$D_T^{\otimes k}\otimes D_U^{\otimes(N-k)}$ to the entire direct sum. Every summand then yields the same matrix output. Its gain is~$a^{nk}b^{n(N-k)}$, including its independent-copy multiplicity. Letting~$N\to\infty$ with~$k/N\to\theta$ gives the lower bound
+$\exp(H(\theta))a^\theta b^{1-\theta}$.
+The maximum over~$\theta\in[0,1]$ is~$a+b$. Taking suprema proves the claim. 
+\end{proof}
+
+We do not assert general multiplicativity or additivity. These inequalities and exact scaling by matrix tensors are sufficient. Permuting tensor legs permutes~$\mathbf p$; with~$\mathbf p$ fixed, values of differently oriented tensors must be retained separately.
+
+For later use, $\MM_b=\langle b,b,b\rangle\res\Delta_b$ and~\eqref{rect:eq:scaling} give
+\begin{equation}\label{rect:eq:copies}
+ \mathcal V_{\mathbf p}(T^{\oplus b})
+ \leq b^{p_X+p_Y+p_Z}\mathcal V_{\mathbf p}(T)\,.
+\end{equation}
+Thus any subexponential source-copy overhead has zero logarithmic rate.
+
+\subsection{Oriented extraction}\label{sec:oriented-extraction}
+Lemma~\ref{lem:separator}, in orientation~$i$, gives, for~$M$ blocks independent on the two legs other than~$i$,
+\begin{equation*}
+ A^{\oplus CM}\degen\bigoplus_{h=1}^M(T_h\otimes \mathsf P_i(M)),
+\end{equation*}
+with absolute~$C$. Taking fixed types, cancelling the common diagonal multiplicity, and applying~\eqref{rect:eq:copies} proves the following.
+
+\begin{proposition}\label{rect:prop:shared}
+Let~$A,A_h$ be nonzero tensors and~$D,D_h$ be rectangular matrix tensors. Suppose~$A\otimes D\degen\sum_hT_h$, with blocks independent on the two legs other than~$i$, and~$T_h\degen A_h\otimes D_h$, all orientations fixed. For every probability vector~$q$,
+\begin{equation}\label{rect:eq:entropy}
+ \log\bigl(w_{\mathbf p}(D)\mathcal V_{\mathbf p}(A)\bigr)
+ \geq p_iH(q)+
+ \sum_hq_h\log\bigl(w_{\mathbf p}(D_h)\mathcal V_{\mathbf p}(A_h)\bigr).
+\end{equation}
+For~$p_i>0$, equivalently,
+\begin{equation}\label{rect:eq:powered}
+ \bigl(w_{\mathbf p}(D)\mathcal V_{\mathbf p}(A)\bigr)^{1/p_i}
+ \geq\sum_h
+ \bigl(w_{\mathbf p}(D_h)\mathcal V_{\mathbf p}(A_h)\bigr)^{1/p_i}.
+\end{equation}
+For~$p_i=0$, the conclusion is~$w_{\mathbf p}(D)\mathcal V_{\mathbf p}(A)\geq\max_h w_{\mathbf p}(D_h)\mathcal V_{\mathbf p}(A_h)$.
+\end{proposition}
+\begin{proof}
+For a rational~$q$ at scale~$n$, let~$M_n=n!/\prod_h(nq_h)!$. Before cyclic symmetrization, the separator and the individual block maps give
+\begin{equation*}
+ (A^{\otimes n}\otimes D^{\otimes n})^{\oplus CM_n}
+ \degen
+ \left[
+ \bigotimes_h(A_h\otimes D_h)^{\otimes nq_h}\otimes \mathsf P_i(M_n)
+ \right]^{\oplus M_n}.
+\end{equation*}
+Cancel the fixed tensor~$\Delta_{M_n}$ at each scale using classical asymptotic cancellation. Apply~\eqref{rect:eq:copies}, exact matrix scaling and supermultiplicativity. Divide logarithms by~$n$ and use~$\log M_n=nH(q)+O(\log n)$. The constant~$C$ has zero rate. Density handles arbitrary~$q$, and entropy optimization gives~\eqref{rect:eq:powered}.
+\end{proof}
+
+More generally, the general extraction principle has the same proof with no factor of three. Let~$A,A_h$ be a fixed finite family of nonzero tensors, let~$D_n,E_n$ be rectangular matrix tensors, let~$u_n,h_n$ be positive integers and~$m_{h,n}$ nonnegative integers. If~$(A^{\otimes n}\otimes D_n)^{\oplus u_n}\gtrsim
+(\bigotimes_h A_h^{\otimes m_{h,n}}\otimes E_n)^{\oplus h_n}$, and
+\begin{equation*}
+ \log u_n=o(n),\quad m_{h,n}/n\to q_h,\quad
+ \log h_n/n\to\alpha,\quad
+ \log\operatorname{dims}(E_n)/n-\log\operatorname{dims}(D_n)/n\to\boldsymbol\beta,
+\end{equation*}
+then
+\begin{equation*}
+ \log\mathcal V_{\mathbf p}(A)\geq
+ \sum_hq_h\log\mathcal V_{\mathbf p}(A_h)+\alpha+
+ \mathbf p\cdot\boldsymbol\beta\,.
+\end{equation*}
+All limits are finite and taken along the same unbounded sequence. Indeed, the value inequality at scale~$n$ is~$u_n^{p_X+p_Y+p_Z}\mathcal V_{\mathbf p}(A)^n w_{\mathbf p}(D_n)\geq h_n w_{\mathbf p}(E_n)\prod_h\mathcal V_{\mathbf p}(A_h)^{m_{h,n}}$; divide its logarithm by~$n$.
+
+\subsection{The rectangular convolution bound}\label{sec:rectangular-convolution}
+
+The convolution curve of~\cite[Corollary 1.2]{Uznanski26} admits the following arbitrary-field form. Its numerical analysis will be used with the oriented value in place of tensor characters.
+
+\begin{theorem}\label{thm:rectangular}
+For every field~$F$, in the formal-polynomial arithmetic model,
+\begin{equation}\label{eq:rectangular-curve}
+ \omega_F(1,k,1)\leq
+ \begin{cases}
+ 2,&0\leq k\leq1/2,\\
+ 1+k+1/(4k),&k\geq1/2.
+ \end{cases}
+\end{equation}
+In particular, $\alpha_F:=\sup\{k\in[0,1]:\omega_F(1,k,1)=2\}\geq1/2$.
+\end{theorem}
+\begin{proof}
+For distinct physical legs~$i,j$, with remaining leg~$k$, write
+\begin{equation*}
+ C_{ij}(r,s)=\sum_{a=0}^{r-1}\sum_{b=0}^{s-1}
+ x_a^{(i)}x_b^{(j)}x_{a+b}^{(k)},\qquad
+ f_{ij}(r,s)=\mathcal V_{\mathbf p}(C_{ij}(r,s))\,.
+\end{equation*}
+The neighboring-length splitting of Proposition~\ref{prop:convolution}, in orientation~$i$, and the general three-block splitting of~\cite[Lemma 2.1 and Appendices A--B]{Uznanski26} give, by Proposition~\ref{rect:prop:shared}, when~$p_i>0$,
+\begin{align*}
+ 2f_{ij}(r,s)^{1/p_i}
+ &\geq f_{ij}(r,s-1)^{1/p_i}+f_{ij}(r,s+1)^{1/p_i},\\
+ f_{ij}(r,3s+r-1)^{1/p_i}
+ &\geq2f_{ij}(r,s)^{1/p_i}+f_{ik}(r,s)^{1/p_i}.
+\end{align*}
+The first inequality has~$s\geq2$; the second has~$r,s\geq1$. In the latter splitting the two outer sectors are~$C_{ij}(r,s)$ and the middle sector is~$C_{ik}(r,s)$; they share leg~$i$. Its coefficient proof uses only index reversal and substitutions with coefficients~$0,1,-1$, so it is valid in every characteristic. At~$s=r$ it is~\eqref{eq:tripling-degeneration}. Rank and restriction give~$1\leq f_{ij}(r,s)\leq r+s-1$ and monotonicity. Input interchange gives~$f_{ij}(r,s)=f_{ji}(s,r)$ without permuting physical legs. Superadditivity and replication, proved below, give~$f_{ij}(mr,ms)\geq m f_{ij}(r,s)$.
+
+The remaining profile analysis is numerical. Specifically, the rescaling proof of~\cite[Lemma 4.1 and Appendix F]{Uznanski26} uses monotonicity, replication, the displayed rank bounds, input interchange and powered concavity and tripling. The common-slope and finite-increment arguments of~\cite[Section 5 and Appendix G]{Uznanski26} then give
+\begin{equation}\label{rect:eq:angular}
+ \sum_{i=X,Y,Z}\arccos\sqrt{p_i}\geq\pi/2\,.
+\end{equation}
+These arguments apply to the profiles above: superadditivity suffices for replication, and Proposition~\ref{rect:prop:shared} replaces the character-based counting lemma. No equality for the value of a general tensor product or direct sum is used. If some~$p_i=0$, its term already proves~\eqref{rect:eq:angular}; powered inequalities are only needed for positive~$p_i$.
+
+For a positive target direction~$\mathbf v$, the equality~$W(\mathbf v)=\mathbf p\cdot\mathbf v$ now converts this constraint directly into an exponent bound. This replaces the spectral conversion in~\cite[Lemma 6.1]{Uznanski26}. The weighted trigonometric optimization in its Section~6 uses only~\eqref{rect:eq:angular} and~$0\leq p_i\leq1$. For sorted positive dimensions~$a\geq b\geq c$, it bounds the objective by
+\begin{equation}\label{rect:eq:general-shape}
+ \omega_K(a,b,c)\leq
+ \begin{cases}
+ a+b,&c\leq ab/(a+b),\\[2pt]
+ \displaystyle\frac{a+b+c}{2}
+ +\frac14\left(\frac{ab}{c}+\frac{ac}{b}+\frac{bc}{a}\right),&c\geq ab/(a+b).
+ \end{cases}
+\end{equation}
+Sorting relabels the objective, not the values of differently oriented tensors. It follows in particular that
+\begin{equation}\label{rect:eq:curve-K}
+ \omega_K(1,k,1)\leq
+ \begin{cases}
+ 2,&0<k\leq1/2,\\
+ 1+k+1/(4k),&k\geq1/2.
+ \end{cases}
+\end{equation}
+The exponent at~$k=0$ is two by the elementary outer-product algorithm. To complete the argument over arbitrary fields, we supply the replication degeneration used above without a roots-of-unity assumption, and then descend the resulting algorithms.
+
+\paragraph{Replication and scalar descent.}
+The numerical profile argument is over real numbers. The convolution splittings hold in every characteristic, and Lemma~\ref{lem:separator} uses interpolation at distinct points in~$K$.
+
+For replication, adapt~\cite[Lemma 2.2 and Appendix E]{Uznanski26} as follows. Choose any monic polynomial~$P(t)=\prod_{h=1}^m(t-a_h)$ with distinct~$a_h\in K$. Write inputs uniquely as~$F=\sum_{a<r}F_aP^a$ and~$G=\sum_{b<s}G_bP^b$, with coefficient blocks of degree less than~$m$. The basis~$t^dP^a$ is triangular by leading degrees. Divide~$F_aG_b=Q_{ab}+PR_{ab}$, with both remainders and quotients of degree less than~$m$. Retain the first~$r+s-1$ output blocks in the same basis; their~$m(r+s-1)$ coordinates fit within the~$m(r+s)-1$ output coordinates of the source. Grading input blocks by~$-a,-b$ and output block~$c$ by~$c$ gives
+\begin{equation*}
+ H_c=\sum_{a+b=c}Q_{ab}+\varepsilon\sum_{a+b=c-1}R_{ab}\,.
+\end{equation*}
+At~$\varepsilon=0$, evaluate each block at~$a_1,\ldots,a_m$. The~$m$ coordinates are independent and give~$m$ copies of~$C_{ij}(r,s)$. This proves~$C_{ij}(mr,ms)\degen C_{ij}(r,s)^{\oplus m}$ even when the characteristic divides~$m$.
+
+Finally fix one exact rectangular rank decomposition over~$K$. Its coefficients generate a finite extension~$E/F$, of degree~$q$. Lemma~\ref{lem:descent} applies to any tensor over~$F$: expanding two factors in an~$F$-basis and applying an~$F$-linear functional taking~$1$ to~$1$ yields~$q^2r^m$ terms for its~$m$th tensor power. The field extension is fixed before~$m$ grows. Amortize~$q^2$, then fix the descended rectangular seed and recurse. Its linear work is controlled by the matrix flattening ranks, as in the rectangular recursion in~\cite[Lemma 6.1]{Uznanski26}. Thus~$W_K=W_F$ for each fixed rectangular shape.
+
+\end{proof}
+
+The same argument descends~\eqref{rect:eq:general-shape}. As with the square exponent, these are infimum statements: exponent two gives an algorithm for every positive exponent allowance, without asserting a single finite seed or a literal~$O(n^2)$ algorithm.
+
+\subsection{Relation to square value and the laser method}\label{sec:rectangular-comparison}
+At the symmetric direction~$\mathbf v=(1,1,1)$ one may choose
+$\mathbf p=(\omega/3,\omega/3,\omega/3)$. Indeed, tensoring the three cyclic orientations of a matrix shape gives
+$3W(\mathbf u)\geq\omega(u_X+u_Y+u_Z)$.
+
+For a cyclically invariant tensor~$T$,
+\begin{equation*}
+ \mathcal V_{(\omega/3,\omega/3,\omega/3)}(T)=V_\omega(T)
+\end{equation*}
+with the convention of~\eqref{eq:value-definition}. Ordinary square-output extractions are admissible, giving the lower bound. Conversely, symmetrize a matrix-assisted extraction in~\eqref{rect:eq:def}. Its source is~$\mathcal S(T)^{\otimes n}\otimes\MM_{\operatorname{vol}(D)}$ and its output is~$\MM_{\operatorname{vol}(E)}^{\oplus h^3}$. Ordinary value and its exact square-matrix scaling give
+\begin{equation*}
+ \left(\frac{h\,w_{\mathbf p}(E)}{w_{\mathbf p}(D)}\right)^3
+ \leq V_\omega(\mathcal S(T))^n=V_\omega(T)^{3n}\,.
+\end{equation*}
+Taking cube roots bounds the extraction gain by~$V_\omega(T)^n$. The same argument gives the upper bound for arbitrary~$T$, but equality has only been asserted here for cyclically invariant~$T$.
+
+Thus the oriented definition retains ordinary value on the cyclic tensors used in the square proof, and makes scaling by rectangular matrix tensors automatic. The rank bound in Theorem~\ref{rect:thm:rank} justifies the matrix-assisted definition without spectral completeness. The separator and type calculation survive before symmetrization.
+
+Theorem~\ref{thm:potential} does not carry over verbatim when different identities share different legs: the powers~$1/p_i$ differ. If one shared leg~$i$ with~$p_i>0$ is used throughout, $\mathcal V_{\mathbf p}(A)^{1/p_i}$ again gives linear inequalities with matrix weights. The rectangular application instead retains the coupled oriented profiles. This distinction concerns the numerical assembly, not the extraction principle.
+
+\paragraph{Existing rectangular laser arguments.}
+Le Gall and Urrutia~\cite[Section 2.2 and Theorem 2.1]{LGU18} formulate their rectangular analysis through explicit extraction of independent rectangular matrix products and the rectangular asymptotic sum inequality. The asymmetric multilevel framework of~\cite[Sections 3.5 and 4]{VXXZ24} likewise records matrix dimensions and multiplicities. They do not use the matrix-assisted definition~\eqref{rect:eq:def}, but their extracted constructions admit its following numerical evaluation:
+\begin{equation}\label{eq:oriented-sum-inequality}
+ T^{\otimes N}\gtrsim\bigoplus_j\langle a_j,b_j,c_j\rangle
+ \quad\Longrightarrow\quad
+ \sum_j a_j^{p_Y}b_j^{p_Z}c_j^{p_X}
+ \leq\mathcal V_{\mathbf p}(T)^N\leq\widetilde\R(T)^N\,.
+\end{equation}
+Indeed, apply monotonicity, superadditivity, exact matrix normalization and the rank bound. For~$h$ copies of~$\langle q^a,q^b,q^c\rangle$, choose support at~$(c,a,b)>0$. Since~$ap_Y+bp_Z+cp_X=\omega_K(a,b,c)$, this becomes
+\begin{equation*}
+ hq^{\omega_K(a,b,c)}\leq\widetilde\R(T)^N\,,
+\end{equation*}
+the usual rectangular asymptotic sum inequality~\cite[Theorem 3.2]{VXXZ24}. Integer rounding is absorbed by repetition and padding. Catalysts common to both sides may first be cancelled.
+
+This is a common numerical formulation of rectangular extractions, including the classical and refined laser extractions discussed in Section~\ref{sec:laser-comparison}. It does not replace the extraction constructions themselves. In particular, the multilevel analysis of~\cite[Section 4]{VXXZ24} retains interface tensors, distributions and missing-block information needed by later stages. A scalar value evaluates the resulting conversions; these additional data ensure that the stages can be composed.
+
+\paragraph{Related notions of value.}
+Alman, Li and Pratt~\cite[Section 7]{ALP26} define an orientation-sensitive lower value
+\begin{equation*}
+ \xi_{\boldsymbol\gamma}(T)
+ =\sup\left\{(a^{\gamma_1}b^{\gamma_2}c^{\gamma_3})^{1/n}:
+ T^{\otimes n}\res\langle a,b,c\rangle\right\}.
+\end{equation*}
+Their definition retains a single rectangular output and has no input auxiliary. Our definition charges for an arbitrary input matrix tensor and records independent output multiplicity. These choices give exact scaling by every rectangular matrix factor and the rank bound proved above. We do not identify the two definitions for arbitrary tensors. The comparison shows that orientation-sensitive value is an established abstraction; the matrix-assisted form here supplies the properties needed to reuse the common-leg extraction argument.
+
+
+
+\section{Related work}
+\label{sec:related-work}
+
+This section places the convolution argument in the broader matrix-multiplication literature. Unqualified exponents refer to the complex field unless a different field scope is specified.
+
+Strassen's seven-product algorithm for two-by-two matrices gave the first subcubic bound, $\omega\leq\log_2 7$~\cite{Str69}. Pan's trilinear aggregation~\cite{Pan78} and approximate bilinear algorithms of Bini, Capovani, Romani and Lotti~\cite{BCLR79} enlarged the available finite constructions. Bini's interpolation argument~\cite{Bini80} converts approximate identities into exact asymptotic algorithms. Sch\"onhage's asymptotic sum inequality~\cite{Sch81} extracts an exponent bound from a low-border-rank direct sum of matrix products; related developments include Romani~\cite{Rom82} and Coppersmith--Winograd~\cite{CW82}. Strassen's laser method~\cite{Str86,Str87} constructs such sums inside tensor powers. Coppersmith and Winograd~\cite{CW90} combined this method with progression-free sets and obtained $\omega<2.376$.
+
+The subsequent improvements refined the analysis of powers of the Coppersmith--Winograd tensor. Stothers~\cite{Sto10} and Davie--Stothers~\cite{DS13} obtained~$\omega<2.3736898$, and Vassilevska Williams~\cite{VW12} lowered the bound below~$2.373$; Le Gall's convex-optimization analysis gave $\omega<2.3728639$~\cite{LG14}. The refined laser method of Alman and Vassilevska Williams gave $\omega<2.3728596$~\cite{AW21}. Duan, Wu and Zhou reduced combination loss through asymmetric hashing, obtaining $\omega<2.371866$~\cite{DWZ23}. Further asymmetric analyses gave $\omega\leq2.371552$~\cite{VXXZ24} and then $\omega<2.371339$~\cite{AD25}. These last two papers appeared in SODA 2024 and SODA 2025, respectively. Dupont et al.~\cite{Dup26} subsequently used modern optimization and AlphaEvolve to obtain $\omega<2.371177$ within the combination-loss framework. Zadeh~\cite{Zadeh26} reports a further structured-optimization bound of $2.37115924$ in an October 2026 preprint.
+
+A different approach embeds matrix multiplication in group algebras. Cohn and Umans~\cite{CU03} introduced this framework, and Cohn, Kleinberg, Szegedy and Umans~\cite{CKSU05} developed simultaneous embeddings and constructions yielding $\omega<2.41$. Cohn and Umans~\cite{CU13} generalized the framework to coherent configurations and introduced support rank, relating its exponent to the ordinary matrix-multiplication exponent. More recent extensions study matrix groups~\cite{BCGPU23} and obtain finite algorithms from constructions in infinite groups, including Lie groups~\cite{BCGPU25}.
+
+Rectangular multiplication has its own exponent function: $\omega(a,b,c)$ measures the arithmetic cost of multiplying an $n^a\times n^b$ matrix by an $n^b\times n^c$ matrix, with integer rounding understood. The dual exponent is $\alpha=\sup\{k\in[0,1]:\omega(1,k,1)=2\}$. Coppersmith~\cite{Cop82,Cop97}, Lotti--Romani~\cite{LR83}, Le Gall~\cite{LG12}, and Le Gall--Urrutia~\cite{LGU18} developed increasingly strong rectangular bounds; combination-loss analyses further improved them~\cite{LG24,VXXZ24,AD25}. For example, the lower bounds on $\alpha$ progressed from $0.29462$ to $0.30298$, $0.31389$, and $0.321334$ in these works. Bounds for general shapes are relevant even when they do not improve the square exponent.
+
+Several results delimit particular methods. Ambainis, Filmus and Le Gall~\cite{AFL15} proved limitations of specified Coppersmith--Winograd analyses; Alman and Vassilevska Williams~\cite{AW18} and Alman~\cite{Alman21} established barriers for broader classes of tensor constructions. Christandl, Vrana and Zuiddam~\cite{CVZ21} formulated barriers through tensor irreversibility, and Christandl, Le Gall, Lysikov and Zuiddam~\cite{CGLZ25} treated rectangular multiplication. Sunflower and cap-set methods also constrain routes within the group-theoretic framework~\cite{ASU13,BCCGNSU17}. These results concern their stated tensors and allowed operations; they are not lower bounds greater than two for $\omega$ itself. The later asymmetric-hashing analysis~\cite{DWZ23}, for instance, goes beyond the constituent analysis underlying the earlier $2.3725$ barrier.
+
+The recent convolution approach supplies the input to this paper. OpenAI's October manuscript~\cite{OpenAI} proves $\omega\leq9/4$ over $\mathbb C$ using shared-leg separation, polynomial-multiplication identities and asymptotic spectra. An earlier companion~\cite{OpenAIRect26} gives $\omega<2.258$, $\alpha>0.465$ and $\omega(1,0.709,1)<2.092$ in characteristic zero, with finite-exception transfers for its strict square and specified rectangular bounds. A separate September manuscript~\cite{OpenAIStaggered26} gives an all-field bound below $2.371054887$ by staggered extraction in the Coppersmith--Winograd framework. These are distinct constructions and field statements. Navot's subsequent extension and formalization~\cite{Navot26,NavotNote26} establishes the convolution bound $9/4$ over every field. Uzna\'nski~\cite{Uznanski26} obtains, in characteristic zero, $\alpha\geq1/2$ and the rectangular curve $\omega(1,k,1)\leq1+k+1/(4k)$ for $k\geq1/2$, with exponent two for $0\leq k\leq1/2$. The finite-extraction manuscript~\cite{Extraction} gives an explicit finite construction from convolution profiles, with rational seeds and quantitative cost accounting. Our square argument formulates a finite certificate criterion using the shared-leg separator, ordinary tensor value and classical cancellation. Section~\ref{sec:rectangular} retains Uzna\'nski's rectangular numerical analysis, replaces its spectral conversion by oriented value, and extends its curve to arbitrary fields.
+
+For background, the monograph of B\"urgisser, Clausen and Shokrollahi~\cite{BCS97} gives a systematic account of algebraic complexity; Bl\"aser~\cite{Blaeser13} surveys fast matrix multiplication, Landsberg~\cite{Landsberg17} develops its geometric aspects, and Ottaviani--Reichenbach~\cite{OR22} introduce tensor rank and its complexity applications. Strassen's asymptotic spectrum~\cite{Str88}, the universal spectral points of Christandl, Vrana and Zuiddam~\cite{CVZ}, and the survey of Wigderson and Zuiddam~\cite{WZ26} provide the spectral context for the original convolution proof. The square proof uses operational tensor value and asymptotic cancellation, followed by weak duality. The rectangular proof uses the supporting weights of the actual rectangular exponent and a matrix-assisted value. Neither invokes spectral completeness. Separate questions concern leading constants~\cite{AY25}, numerical stability~\cite{DDHK07}, and small-format algorithm discovery, including AlphaTensor~\cite{AlphaTensor22}; an asymptotic exponent bound alone does not settle their finite-size behavior.
+
+\paragraph{Quantum information.}
+Over~$\mathbb C$, a normalized tensor is a multipartite pure state, and tensor restriction corresponds to stochastic local operations and classical communication (SLOCC) with nonzero success probability~\cite{VC15}. A degeneration describes a limiting conversion; it need not preserve a positive lower bound on that probability. The diagonal tensor~$\Delta_h$ represents a GHZ state, and~$\langle1,1,d\rangle$ is an entangled pair shared by the second and third parties. The three orientations of this pair tensor to~$\MM_d$, a triangle of pairwise entanglement~\cite{CZ19,Christandl24}. A tensor supplied and returned unchanged is an entanglement catalyst; the classical LOCC phenomenon of~\cite{JP99} is related but uses a different class of allowed operations from our degeneration setting. Quantum entropy also enters the spectral approach: the quantum functionals of Christandl, Vrana and Zuiddam connect tensor spectra to quantum marginal problems and entanglement polytopes~\cite{CVZ}. These interpretations explain the resource-conversion language; no quantum computational speedup follows from the exponent argument itself.
+
+
+\appendix
+\section{Changing the scalar field}
+\label{sec:descent}
+
+
+Interpolation and the shared-leg separator require arbitrarily many distinct scalars. We therefore work over~$K$, and use the following descent argument to return to~$F$. This is the classical fixed-overhead field-extension argument; see~\cite[Theorems 2.7--2.8]{Sch81} and its use for the convolution bound in~\cite{Navot26}.
+
+\begin{lemma}[Scalar descent]\label{lem:descent}
+Let~$T$ be a tensor over~$F$ and let~$T_K$ be its scalar extension to~$K=\overline F$. If~$\R_K(T_K)\leq r$, there is an integer~$q\geq1$ such that, for every~$m\geq1$,
+\begin{equation}\label{eq:field-descent}
+ \R_F(T^{\otimes m})\leq q^2r^m\,.
+\end{equation}
+Consequently~$\omega_F=\omega_K$.
+\end{lemma}
+\begin{proof}
+Fix one~$r$-term decomposition of~$T_K$. Its finitely many coefficients generate a finite extension~$E/F$; put~$q=[E:F]$. Fix a basis~$e_1,\ldots,e_q$ of~$E$ and an~$F$-linear functional~$\pi:E\to F$ with~$\pi(1)=1$.
+
+The~$m$th tensor power of the fixed decomposition has at most~$r^m$ terms over the same field~$E$. Write it as
+\begin{equation*}
+ T^{\otimes m}(x,y,z)=\sum_{\ell=1}^{r^m}a_\ell(x)b_\ell(y)c_\ell(z)\,,
+\end{equation*}
+where the identity is interpreted over~$E$. Expand~$a_\ell=\sum_i a_{\ell i}e_i$ and~$b_\ell=\sum_j b_{\ell j}e_j$ with~$F$-coefficient linear forms, and apply~$\pi$. This gives the coefficient identity over~$F$
+\begin{equation*}
+ T^{\otimes m}(x,y,z)
+ =\sum_{\ell=1}^{r^m}\sum_{i,j=1}^q
+ a_{\ell i}(x)b_{\ell j}(y)\,
+ \pi\bigl(e_i e_jc_\ell(z)\bigr)\,.
+\end{equation*}
+Each summand has rank one over~$F$, proving~\eqref{eq:field-descent}. The degree~$q$ is fixed before~$m$ varies; no separability or field trace is needed.
+
+With the formal-polynomial convention of the introduction, the tensor characterization of the arithmetic exponent~\cite{BCS97} is
+\begin{equation*}
+ \omega_F=\inf_{u\geq2}\log_u\R_F(\MM_u)\,.
+\end{equation*}
+Indeed, retaining the components of bidegrees~$(0,0)$, $(1,0)$, $(0,1)$ and~$(1,1)$ at each circuit gate gives a bilinear algorithm with constant-factor overhead. Conversely, a fixed rank decomposition gives a recursive block algorithm. Taking exponent infima removes the fixed factors and any logarithmic overhead. This argument uses formal coefficient identities, rather than equality only on field-valued inputs.
+
+For fixed~$u$, take~$r=\R_K(\MM_u)$. Since~$\MM_u^{\otimes m}\cong\MM_{u^m}$, the rank bound gives
+\begin{equation*}
+ \omega_F\leq\frac{\log(q^2r^m)}{m\log u}
+ \longrightarrow\log_u r\,.
+\end{equation*}
+Taking the infimum over~$u$ proves~$\omega_F\leq\omega_K$. Extending any coefficient identity from~$F$ to~$K$ gives the reverse inequality.
+\end{proof}
+
+
+
+\section{Comparison with earlier proofs}
+\label{sec:comparison}
+
+The main change from OpenAI's proof and its arbitrary-field extension is the elimination of asymptotic spectra. The present argument obtains an exponent bound from ordinary tensor value, classical asymptotic cancellation and a finite nonnegative certificate. The change to the shared-leg separator is separate and smaller: polynomial interpolation replaces roots of unity while keeping a linear copy cost. It still requires sufficiently many distinct scalars; we work over an algebraic closure and descend to the base field as in Appendix~\ref{sec:descent}. The explicit finite construction~\cite{Extraction} also follows a route through tensor conversions and catalytic reuse; our comparison with it concerns the general criterion and the quantitative information retained.
+
+\subsection{A proof without asymptotic spectra}
+
+OpenAI~\cite{OpenAI} passes from its convolution identities to the exponent bound through real-valued tensor characters. Its detecting-character Lemma 2.2, supported by the separation and fixed-point arguments in Appendix A, provides a character that witnesses the matrix-multiplication exponent. The local identities imply inequalities for that character; Lemma 5.1 then proves the diagonal lower bound~$P(a,a)\geq a^{4/3}$. This spectral passage is the part of the proof replaced here.
+
+Theorem~\ref{thm:potential} uses ordinary tensor value~\cite{DS13,LG14,AFL15}, which measures operational extraction from tensor powers. Proposition~\ref{prop:local-value} shows that the normalized values~$x(A_v)=V_\omega(A_v)^{3/\omega}$ satisfy the same linear inequalities needed for the convolution calculation. The supplied weights combine those inequalities by weak duality. The terminal has known matrix value and the source is bounded by border rank. Classical cancellation justifies removal of matrix auxiliaries and common direct-sum multiplicities; no character, spectral separation or fixed-point theorem is constructed. Section~\ref{sec:laser-comparison} places this argument within the established value-based laser framework.
+
+For the convolution application, Section~\ref{sec:explicit-dual} supplies the weights directly, so the reader need not optimize over profiles or branch distributions. Proposition~\ref{prop:convolution} gives the local constructions as algebraic identities, and the final estimate is a telescoping coefficient identity followed by an elementary product bound. The convolution relations and the underlying~$4/3$ growth analysis are inherited from the earlier proofs; their organization as an explicit certificate for a general theorem is the point of the present treatment.
+
+\paragraph{The separator.}
+OpenAI's Proposition 3.1 uses a Fourier filter and~$5M$ source copies to separate~$M$ sectors. Lemma~\ref{lem:separator} uses polynomial interpolation and~$6M-5$ copies, requiring only sufficiently many distinct scalars. Thus the construction works over an algebraic closure in every characteristic without choosing roots of unity. Both copy bounds are~$O(M)$, so they give the same entropy rate and exponent bound. The numerical constant is secondary to the removal of the root-of-unity assumption.
+
+\subsection{The arbitrary-field extension}
+
+Navot's extension already establishes the convolution bound~$\omega_F\leq9/4$ over every field~\cite{Navot26}. The accompanying note~\cite[Theorem 1.1]{NavotNote26} explains the arbitrary-field proof. It retains the spectral architecture: Section 2 uses real-valued tensor characters, and Section 2.3 retains the detecting-character argument and the original separation and fixed-point machinery. Our all-field conclusion therefore agrees with this earlier extension; the proof here obtains it through shared-leg extraction, operational value, classical cancellation and weak duality instead.
+
+The note makes Fourier separation valid in positive characteristic by choosing a period that is invertible in the field. In its Section 2.1, the period is~$5M$ when this integer is nonzero in the field and~$5M+1$ otherwise. The chosen period lies between~$5M$ and~$6M$, and the algebraic closure supplies a primitive root of that order. Its Section 2.2 also uses distinct nonzero interpolation nodes, repairing the integer-node choice in the original formalization; the original prose interpolation lemma already permitted such nodes. In contrast, our separator obtains its~$6M-5$ copy bound by coefficient extraction through polynomial interpolation, so no Fourier period or primitive root is needed.
+
+The descent to the base field uses the same classical principle in both arguments. Section 3 of the note fixes a finite-dimensional coefficient algebra before taking tensor powers and obtains a bound of the form~$q^2r^m$, with~$q$ independent of~$m$. An~$F$-linear functional taking~$1$ to~$1$ gives coefficient descent, with no trace or separability assumption. Appendix~\ref{sec:descent} proves this descent directly for a finite extension inside the algebraic closure. Both uses follow the field-extension argument of Schönhage~\cite[Theorems 2.7--2.8]{Sch81}.
+
+The formalization archive~\cite{Navot26} and the later prose note~\cite{NavotNote26} are distinct sources: the archived version predates the note. The note's Section 4 explains the passage from exact coefficient identities to arithmetic programs. The comparison here concerns the mathematical proof described in that note; it does not assert that the generalized criterion or its proof has been formally verified.
+
+\subsection{The explicit finite construction}
+
+The explicit finite construction~\cite{Extraction} also replaces the spectral passage by tensor-power maps and catalytic reuse. Theorem~\ref{thm:potential} isolates a general certificate criterion: local value inequalities make a supplied nonnegative weighting sufficient, without choosing global branch frequencies or composition weights. The convolution application then reduces to a short, explicit certificate. The finite-extraction manuscript instead retains enough parameter information to construct and count a family of exact recursive schemes and rational bilinear seeds.
+
+The exact binary certificate in~\cite[Appendix A, Proposition A.1]{Extraction} already gives positive rational weights that telescope the logarithmic inequalities obtained from the affine profile. The weights in Section~\ref{sec:explicit-dual} act directly on the original linear inequalities in~$x(A_v)$, so no tangent probabilities or logarithmic profile normalization is needed. The underlying affine-row telescoping pattern and optimal diagonal product are shared; the present simplification is their direct use in the general certificate theorem.
+
+The finite-extraction construction uses determinant-based multiway identities, rational occupation flows and integral circulation rounding, followed by type selection, a Fourier separator, interpolation and repeated use of a catalyst. Both arguments use threefold balancing. Here ordinary value is invariant under all leg permutations, so the numerical argument does not track the remaining block orientations. Its Proposition 4.3 uses~$2M-1$ separator copies in the specialization needed there. Sections 5--7 control occupation costs, rounding losses and the pooled recursive scheme.
+
+For example,~\cite[Theorems 1.1--1.2]{Extraction} gives, for~$a\geq2^{64}$, a relative scheme with recursive exponent~$p$ and source dimension~$A$ satisfying
+\begin{equation*}
+ \frac94<p<\frac94+\frac{900}{\log a}\,,\qquad
+ \log A\leq181a^5\lceil\log_2a\rceil^2\,.
+\end{equation*}
+Its effective extraction and coefficient descent give a terminating construction of a rational bilinear seed for any prescribed positive rational exponent allowance, yielding characteristic-zero algorithms. The displayed source-dimension estimate concerns the relative scheme, rather than the final rational seed dimension or the construction time. The present argument proves the all-field exponent bound but does not reproduce these source-size estimates, rounding bounds or fully counted recursive family.
+
+The scalar calculations agree after normalization. In the notation of~\cite[Theorem 3.2]{Extraction}, its least diagonal profile is
+\begin{equation*}
+ F(a,a)=\frac{3a-1}{2}\prod_{j=1}^{a-1}\left(1+\frac1{3j}\right)=2L\,.
+\end{equation*}
+Consequently,
+\begin{equation*}
+ \frac{3\log(2a-1)}{\log2+\log L}
+ =\frac{3\log(2a-1)}{\log F(a,a)}\,.
+\end{equation*}
+Thus the limiting profile exponent is the same. The present criterion makes that calculation available for a general family of shared-leg identities, including rectangular matrix factors on both sides. Neither argument supplies a single finite seed of exponent exactly~$9/4$ or a claim of practical efficiency. The comparison with~\cite{Extraction} refers throughout to the repository revision specified in the bibliography.
+
+\bibliographystyle{plainnat}
+\bibliography{matrix-multiplication}
+\end{document}

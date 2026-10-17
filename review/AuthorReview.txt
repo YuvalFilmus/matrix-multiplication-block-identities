@@ -1,0 +1,583 @@
+EXACT DECLARATION REVIEW — NOT AN IMPORTED LEAN FILE
+
+The proof bodies below are proposed quarantined DRAFT_SORRY anchors, not proofs.
+No active frozen anchors or sorry bodies have been created.
+Definitions used by these commands are included verbatim below; their meaning is
+part of the review. Independent audit reports are in this directory.
+
+===== SOURCE-FACING THEOREM COMMANDS =====
+
+module
+public import BlockIdentities.Arithmetic.FormalPolynomial
+public import BlockIdentities.Tensor.Value
+public import BlockIdentities.Tensor.ConvolutionSplittings
+public import OAI.LinearAlgebra.MatrixMultiplication.AuxiliarySeparation.Arithmetic.RankExponent
+public import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
+
+open scoped BigOperators
+open OAI.MatrixMultiplication
+open BlockIdentities BlockIdentities.Square BlockIdentities.Arithmetic
+
+namespace BlockIdentities.Square
+
+-- Introduction: formal circuit correctness implies upstream input correctness.
+theorem formalCorrect_implies_correct
+    {F : Type*} [Field F] {a b c : ℕ}
+    (P : OAI.MatrixMultiplication.Arithmetic.MatrixAlgorithm F a b c) (hP : FormalCorrect P)
+    : P.Correct := by sorry
+
+-- Appendix A: both interfaces denote exactly the same formal-polynomial exponent.
+-- This does NOT assert equality with upstream functional omega over finite fields.
+theorem formalOmega_eq_exactRankExponent
+    (F : Type*) [Field F]
+    : formalOmega F = AuxiliarySeparation.exactRankExponent F := by sorry
+
+-- Appendix A: the extension is the algebraic closure of this particular field.
+theorem formalOmega_eq_algebraicClosure
+    (F : Type*) [Field F]
+    : formalOmega F = formalOmega (AlgebraicClosure F) := by sorry
+
+-- Appendix A: fixed coefficient extension before taking all tensor powers.
+theorem scalar_descent
+    {F X Y Z : Type*} [Field F] [Fintype X] [Fintype Y] [Fintype Z]
+    (T : OAI.MatrixMultiplication.Foundation.Tensor F X Y Z) (r : ℕ)
+    (h : OAI.MatrixMultiplication.Foundation.Tensor.RankAtMost
+      (fun x y z => algebraMap F (AlgebraicClosure F) (T x y z)) r)
+    : ∃ q : ℕ, 1 ≤ q ∧ ∀ m : ℕ, 1 ≤ m →
+        OAI.MatrixMultiplication.Foundation.Tensor.RankAtMost
+          (OAI.MatrixMultiplication.Foundation.Tensor.power T m) (q ^ 2 * r ^ m) := by sorry
+
+-- Lemma 2.1: the catalyst is returned unchanged and is nonzero.
+theorem asymptotic_cancellation
+    {K : Type*} [Field K] [IsAlgClosed K]
+    (A B Z : FiniteTensor K) (hZ : Nonzero Z)
+    (h : AsymptoticallyRestricts (product A Z) (product B Z))
+    : AsymptoticallyRestricts A B := by sorry
+
+-- Full Lemma 2.3: monotonicity, exact matrix scaling, and bounded copies.
+theorem value_matrix_factor
+    {K : Type*} [Field K] [IsAlgClosed K]
+    (T : NonzeroTensor K)
+    (hcyclic : Isomorphic T.val (permute .yzx T.val))
+    : (∀ U : NonzeroTensor K, Isomorphic U.val (permute .yzx U.val) →
+        AsymptoticallyRestricts T.val U.val → valueAtOmega U ≤ valueAtOmega T) ∧
+      (∀ d : ℕ, ∀ hd : 1 ≤ d,
+        valueAtOmega (T.product (nonzeroSquare d hd)) =
+          (d : ℝ) ^ formalOmega K * valueAtOmega T) ∧
+      (∀ b : ℕ, ∀ hb : 1 ≤ b,
+        valueAtOmega (T.copies b hb) ≤ (b : ℝ) ^ formalOmega K * valueAtOmega T) := by sorry
+
+-- Proposition 2.4: index an unbounded sequence of scales by j → n j.
+-- There is no requirement that the p_i sum to one.
+-- Permutations may depend on both the constituent and the scale.
+theorem general_extraction
+    {K : Type*} [Field K] [IsAlgClosed K]
+    {ι : Type} [Fintype ι]
+    (A : NonzeroTensor K) (B : ι → NonzeroTensor K)
+    (n a b u h : ℕ → ℕ) (m : ι → ℕ → ℕ)
+    (π : ι → ℕ → LegPermutation)
+    (hn : ∀ j, 1 ≤ n j) (ha : ∀ j, 1 ≤ a j)
+    (hb : ∀ j, 1 ≤ b j) (hu : ∀ j, 1 ≤ u j) (hh : ∀ j, 1 ≤ h j)
+    (hn_tendsto : Filter.Tendsto n Filter.atTop Filter.atTop)
+    (hconvert : ∀ j, AsymptoticallyRestricts
+      (copies (u j) (product (power (symmetrize A) (n j)) (square (a j))))
+      (copies (h j) (product (square (b j))
+        (tensorProductList (List.ofFn (fun l : Fin (Fintype.card ι) =>
+          let i := (Fintype.equivFin ι).symm l
+          power (symmetrize (permute (π i j) (B i))) (m i j)))))))
+    (p : ι → ℝ) (α β : ℝ)
+    (hu_rate : Filter.Tendsto (fun j => Real.log (u j : ℝ) / (n j : ℝ))
+      Filter.atTop (nhds 0))
+    (hm_rate : ∀ i, Filter.Tendsto (fun j => (m i j : ℝ) / (n j : ℝ))
+      Filter.atTop (nhds (p i)))
+    (hh_rate : Filter.Tendsto (fun j => Real.log (h j : ℝ) / (3 * (n j : ℝ)))
+      Filter.atTop (nhds α))
+    (hab_rate : Filter.Tendsto
+      (fun j => Real.log ((b j : ℝ) / (a j : ℝ)) / (3 * (n j : ℝ)))
+      Filter.atTop (nhds β))
+    : Real.log (valueAtOmega A) ≥
+        (∑ i, p i * Real.log (valueAtOmega (B i))) + α + formalOmega K * β := by sorry
+
+-- Proposition 2.7: local inequality; individual block maps need not agree.
+theorem shared_leg_value_inequality
+    {K : Type*} [Field K] [IsAlgClosed K]
+    {ι : Type} [Fintype ι]
+    (A : NonzeroTensor K) (B : ι → NonzeroTensor K)
+    (D : MatrixShape) (E : ι → MatrixShape)
+    (identity : SharedLegIdentity A.val (fun i => (B i).val) D E)
+    : (D.volume : ℝ) * normalizedValueAtOmega A ≥
+        ∑ i, ((E i).volume : ℝ) * normalizedValueAtOmega (B i) := by sorry
+
+-- Theorem 1.1: the source bound is border rank, not a hidden value inequality.
+-- c and m are expanded literally from matrix dimensions and branch labels.
+theorem identities_to_exponent
+    {F : Type*} [Field F]
+    {V E : Type} [Fintype V] [DecidableEq V] [Fintype E]
+    (A : V → FiniteTensor (AlgebraicClosure F)) (hA : ∀ v, Nonzero (A v))
+    (q : E → ℕ) (σ : E → V) (w : (e : E) → Fin (q e) → V)
+    (D : E → MatrixShape) (Dout : (e : E) → Fin (q e) → MatrixShape)
+    (identities : ∀ e, SharedLegIdentity (A (σ e)) (fun i => A (w e i)) (D e) (Dout e))
+    (s t : V) (hst : s ≠ t) (hterminal : ∀ e, σ e ≠ t)
+    (d r : ℕ) (hd : 2 ≤ d) (hr : 1 ≤ r)
+    (ht : Isomorphic (symmetrize (A t)) (square d))
+    (hs : BorderRankAtMost (A s) r)
+    (μ : E → ℝ) (hμ : ∀ e, 0 ≤ μ e)
+    (hcertificate : ∀ v, v ≠ t →
+      (∑ e, if σ e = v then ((D e).volume : ℝ) * μ e else 0) -
+      (∑ e, (∑ i : Fin (q e), if w e i = v then ((Dout e i).volume : ℝ) else 0) * μ e)
+      ≤ if v = s then 1 else 0)
+    (hL : (d : ℝ)⁻¹ <
+      ∑ e, (∑ i : Fin (q e), if w e i = t then ((Dout e i).volume : ℝ) else 0) * μ e)
+    : formalOmega F ≤ 3 * Real.log (r : ℝ) /
+      (Real.log (d : ℝ) + Real.log
+        (∑ e, (∑ i : Fin (q e), if w e i = t then ((Dout e i).volume : ℝ) else 0) * μ e)) := by sorry
+
+-- Proposition 3.1: canonical sums retain both exact constituent tensors.
+theorem convolution_neighbor_degeneration
+    {K : Type*} [Field K] (r b : ℕ+) (hb : 2 ≤ (b : ℕ))
+    : Degenerates (product (convolution (K := K) r b) dotShape.tensor)
+        (neighborSplit r b hb) := by sorry
+
+-- Proposition 3.1: the shared target retains the middle first-leg reversal.
+theorem convolution_tripling_degeneration
+    {K : Type*} [Field K] (r : ℕ+) (hr : 2 ≤ (r : ℕ))
+    : Degenerates
+        (convolution (K := K) r ⟨4 * (r : ℕ) - 1, by omega⟩)
+        (triplingSplit r hr) := by sorry
+
+-- Only this individual block isomorphism removes the reversed first coordinate.
+theorem tripling_middle_isomorphism
+    {K : Type*} [Field K] (r : ℕ+)
+    : Isomorphic (middleConvolution (K := K) r)
+        (permute .xzy (convolution r r)) := by sorry
+
+-- Proposition 3.1 lower boundary, with its exact input transposition.
+theorem convolution_boundary_isomorphism
+    {K : Type*} [Field K] (r : ℕ+) (hr : 2 ≤ (r : ℕ))
+    : Isomorphic
+        (convolution (K := K) r ⟨(r : ℕ) - 1, by omega⟩)
+        (permute .yxz (convolution ⟨(r : ℕ) - 1, by omega⟩ r)) := by sorry
+
+-- Explicit certificate's scalar terminal value, used in the finite square bound.
+-- The closed product is written inline; no assumed LP optimum is used.
+theorem finite_convolution_bound
+    (F : Type*) [Field F] (a : ℕ) (ha : 2 ≤ a)
+    : formalOmega F ≤ 3 * Real.log (2 * (a : ℝ) - 1) /
+      (Real.log 2 + Real.log (((3 * (a : ℝ) - 1) / 4) *
+        ∏ j ∈ Finset.Icc 1 (a - 1), (1 + 1 / (3 * (j : ℝ))))) := by sorry
+
+-- Main theorem: no characteristic, infinitude, perfectness or closure hypothesis.
+theorem formalOmega_le_nine_quarters
+    (F : Type*) [Field F]
+    : formalOmega F ≤ (9 : ℝ) / 4 := by sorry
+
+-- Strong public conclusion: one constant for every positive size, polynomial identity.
+theorem formal_matrix_multiplication_cost_le
+    (F : Type*) [Field F] (ε : ℝ) (hε : 0 < ε)
+    : ∃ C : ℝ, 0 < C ∧ ∀ n : ℕ, 1 ≤ n →
+        ∃ P : OAI.MatrixMultiplication.Arithmetic.MatrixAlgorithm F n n n,
+          FormalCorrect P ∧ (P.cost : ℝ) ≤ C * (n : ℝ) ^ ((9 : ℝ) / 4 + ε) := by sorry
+
+-- Compatibility corollary in OpenAI/Navot's unchanged functional model.
+theorem omega_le_nine_quarters
+    (F : Type*) [Field F]
+    : OAI.MatrixMultiplication.Arithmetic.omega F ≤ (9 : ℝ) / 4 := by sorry
+
+end BlockIdentities.Square
+
+===== Arithmetic/FormalPolynomial.lean (complete definition module) =====
+
+/-
+Copyright (c) 2026 Yuval Filmus. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+-/
+module
+
+public import OAI.LinearAlgebra.MatrixMultiplication.Model
+public import Mathlib.Algebra.MvPolynomial.Eval
+
+/-! Polynomial semantics for the unchanged upstream division-free circuits. -/
+
+@[expose] public section
+noncomputable section
+
+namespace BlockIdentities.Arithmetic
+
+open OAI.MatrixMultiplication.Arithmetic
+open scoped BigOperators
+
+variable {F Input Register : Type*}
+
+/-- Interpret a gate in a commutative ring using the supplied coefficient map. -/
+def evalGateIn {R : Type*} [CommRing R] (φ : F → R)
+    (g : Gate F Input Register) (inputs : Input → R) (registers : Register → R) : R :=
+  match g with
+  | .constant c => φ c
+  | .input i => inputs i
+  | .add i j => registers i + registers j
+  | .sub i j => registers i - registers j
+  | .mul i j => registers i * registers j
+
+/-- Interpret a program without requiring the target ring to be a field. -/
+def evalProgramIn {R : Type*} [CommRing R] (φ : F → R) :
+    {r : ℕ} → Program F Input r → (Input → R) → Fin r → R
+  | 0, .nil, _ => Fin.elim0
+  | _ + 1, .step p g, inputs =>
+      Fin.cases (evalGateIn φ g inputs (evalProgramIn φ p inputs))
+        (evalProgramIn φ p inputs)
+
+/-- Interpretation commutes with a homomorphism of the target rings. -/
+theorem map_evalProgramIn {R S : Type*} [CommRing R] [CommRing S]
+    (φ : F → R) (ψ : R →+* S) {r : ℕ} (p : Program F Input r)
+    (inputs : Input → R) (i : Fin r) :
+    ψ (evalProgramIn φ p inputs i) =
+      evalProgramIn (fun c => ψ (φ c)) p (fun j => ψ (inputs j)) i := by
+  induction p with
+  | nil => exact Fin.elim0 i
+  | @step r p g ih =>
+    refine Fin.cases ?_ (fun j => ih j) i
+    cases g <;> simp [evalProgramIn, evalGateIn, ih]
+
+/-- Interpreting in the original field agrees with the upstream evaluator. -/
+theorem evalProgramIn_id [Field F] {r : ℕ} (p : Program F Input r)
+    (inputs : Input → F) (i : Fin r) :
+    evalProgramIn id p inputs i = p.eval inputs i := by
+  induction p with
+  | nil => exact Fin.elim0 i
+  | @step r p g ih =>
+    refine Fin.cases ?_ (fun j => ih j) i
+    cases g <;> simp [evalProgramIn, evalGateIn, Program.eval, Gate.eval, ih]
+
+/-- The formal output polynomials of a program; all inputs are indeterminates. -/
+def polynomialOutputs [CommRing F] {r : ℕ} (p : Program F Input r) :
+    Fin r → MvPolynomial Input F :=
+  evalProgramIn MvPolynomial.C p MvPolynomial.X
+
+/-- Evaluating the formal outputs recovers the upstream field evaluation. -/
+theorem eval_polynomialOutputs [Field F] {r : ℕ} (p : Program F Input r)
+    (inputs : Input → F) (i : Fin r) :
+    MvPolynomial.eval inputs (polynomialOutputs p i) = p.eval inputs i := by
+  induction p with
+  | nil => exact Fin.elim0 i
+  | @step r p g ih =>
+    simp only [polynomialOutputs] at ih
+    refine Fin.cases ?_ (fun j => ih j) i
+    cases g <;> simp [polynomialOutputs, evalProgramIn, evalGateIn,
+      Program.eval, Gate.eval, ih]
+
+/-- Correctness is coefficientwise equality in the polynomial ring, over every field. -/
+def FormalCorrect [Field F] {a b c : ℕ} (P : MatrixAlgorithm F a b c) : Prop :=
+  ∀ (i : Fin a) (k : Fin c),
+    polynomialOutputs P.program (P.output i k) =
+      ∑ j : Fin b,
+        MvPolynomial.X (Sum.inl (i, j)) * MvPolynomial.X (Sum.inr (j, k))
+
+/-- Polynomial correctness specializes to correctness on field-valued inputs. -/
+theorem formalCorrect_implies_correct [Field F] {a b c : ℕ}
+    (P : MatrixAlgorithm F a b c) (hP : FormalCorrect P) : P.Correct := by
+  intro A B
+  funext i k
+  have h := congrArg (MvPolynomial.eval (matrixInputs A B)) (hP i k)
+  rw [eval_polynomialOutputs] at h
+  simpa only [map_sum, map_mul, MvPolynomial.eval_X, matrixInputs,
+    MatrixAlgorithm.eval, Matrix.mul_apply] using h
+
+/-- Positive slack and a size-uniform cost constant, with formal correctness. -/
+def FormalAdmissibleExponent (F : Type*) [Field F] (τ : ℝ) : Prop :=
+  ∀ ε : ℝ, 0 < ε → ∃ C : ℝ, 0 < C ∧
+    ∀ n : ℕ, 1 ≤ n → ∃ P : MatrixAlgorithm F n n n,
+      FormalCorrect P ∧ (P.cost : ℝ) ≤ C * (n : ℝ) ^ (τ + ε)
+
+/-- The manuscript's formal-polynomial exponent, distinct from upstream omega. -/
+noncomputable def formalOmega (F : Type*) [Field F] : ℝ :=
+  sInf {τ : ℝ | FormalAdmissibleExponent F τ}
+
+end BlockIdentities.Arithmetic
+
+===== Tensor/Definitions.lean (complete definition module) =====
+
+/-
+Copyright (c) 2026 Yuval Filmus. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+-/
+module
+
+public import OAI.LinearAlgebra.MatrixMultiplication.AuxiliarySeparation.Tensor.Semiring
+public import OAI.LinearAlgebra.MatrixMultiplication.Polynomial.ComplexPolynomialDegenerationComposition
+public import OAI.LinearAlgebra.MatrixMultiplication.AuxiliarySeparation.Convolution.Basic
+
+/-! Concrete tensor interfaces for the manuscript, with no spectral assumptions. -/
+
+@[expose] public section
+noncomputable section
+
+namespace BlockIdentities
+
+open OAI.MatrixMultiplication.Foundation
+open OAI.MatrixMultiplication.AuxiliarySeparation
+open scoped BigOperators
+
+abbrev FiniteTensor := TensorSemiring.FiniteTensor
+
+namespace Square
+
+variable {K : Type*} [Field K]
+
+/-- All matrix dimensions in the manuscript are positive. -/
+structure MatrixShape where
+  a : ℕ
+  b : ℕ
+  c : ℕ
+  a_pos : 0 < a
+  b_pos : 0 < b
+  c_pos : 0 < c
+
+def MatrixShape.volume (D : MatrixShape) : ℕ := D.a * D.b * D.c
+
+def matrix (a b c : ℕ) : FiniteTensor K :=
+  TensorSemiring.FiniteTensor.ofTensor (matrixMultiplicationTensor (K := K) a b c)
+
+def MatrixShape.tensor (D : MatrixShape) : FiniteTensor K := matrix D.a D.b D.c
+
+def convolution (r b : ℕ+) : FiniteTensor K :=
+  TensorSemiring.FiniteTensor.ofTensor (OAI.MatrixMultiplication.AuxiliarySeparation.convolution (K := K) r b)
+
+def scalarShape : MatrixShape := ⟨1, 1, 1, Nat.zero_lt_one, Nat.zero_lt_one, Nat.zero_lt_one⟩
+
+def dotShape : MatrixShape := ⟨1, 1, 2, Nat.zero_lt_one, Nat.zero_lt_one, by decide⟩
+
+def square (n : ℕ) : FiniteTensor K := matrix n n n
+
+def diagonal (n : ℕ) : FiniteTensor K :=
+  ⟨n, n, n, fun i j k => if i = j ∧ j = k then 1 else 0⟩
+
+def product (A B : FiniteTensor K) : FiniteTensor K := TensorSemiring.FiniteTensor.product A B
+
+def power (A : FiniteTensor K) (n : ℕ) : FiniteTensor K :=
+  TensorSemiring.FiniteTensor.ofTensor (Tensor.power A.coeff n)
+
+def tensorProductList : List (FiniteTensor K) → FiniteTensor K
+  | [] => square 1
+  | A :: rest => product A (tensorProductList rest)
+
+def copies (n : ℕ) (A : FiniteTensor K) : FiniteTensor K :=
+  TensorSemiring.FiniteTensor.ofTensor (Tensor.directSum (fun _ : Fin n => A.coeff))
+
+/-- A permutation of the three ordered tensor legs, in displayed-coordinate order. -/
+inductive LegPermutation where
+  | xyz | xzy | yxz | yzx | zxy | zyx
+  deriving DecidableEq
+
+def permute (π : LegPermutation) (A : FiniteTensor K) : FiniteTensor K :=
+  match π with
+  | .xyz => A
+  | .xzy => ⟨A.nx, A.nz, A.ny, fun x z y => A.coeff x y z⟩
+  | .yxz => ⟨A.ny, A.nx, A.nz, fun y x z => A.coeff x y z⟩
+  | .yzx => ⟨A.ny, A.nz, A.nx, fun y z x => A.coeff x y z⟩
+  | .zxy => ⟨A.nz, A.nx, A.ny, fun z x y => A.coeff x y z⟩
+  | .zyx => ⟨A.nz, A.ny, A.nx, fun z y x => A.coeff x y z⟩
+
+def symmetrize (A : FiniteTensor K) : FiniteTensor K :=
+  product (product A (permute .yzx A)) (permute .zxy A)
+
+/-- Actual invertible linear changes of the three variable groups. -/
+def Isomorphic (A B : FiniteTensor K) : Prop :=
+  ∃ (ex : (Fin A.nx → K) ≃ₗ[K] (Fin B.nx → K))
+    (ey : (Fin A.ny → K) ≃ₗ[K] (Fin B.ny → K))
+    (ez : (Fin A.nz → K) ≃ₗ[K] (Fin B.nz → K)),
+    B.coeff = Tensor.restrict (fun x i => ex (Pi.single i 1) x)
+      (fun y j => ey (Pi.single j 1) y) (fun z k => ez (Pi.single k 1) z) A.coeff
+
+/-- Polynomial local maps, a common leading order, and exact coefficient identities. -/
+def Degenerates (A B : FiniteTensor K) : Prop :=
+  ∃ k Lx Ly Lz : ℕ,
+    Nonempty (Tensor.PolynomialRestrictionDegeneration A.coeff B.coeff k Lx Ly Lz)
+
+def BorderRankAtMost (A : FiniteTensor K) (r : ℕ) : Prop :=
+  Degenerates (diagonal r) A
+
+def Nonzero (A : FiniteTensor K) : Prop := A.coeff ≠ 0
+
+/-- The full source-copy overhead is subexponential; all positive powers are covered. -/
+def AsymptoticallyRestricts (A B : FiniteTensor K) : Prop :=
+  ∃ a : ℕ → ℕ, (∀ n, 0 < a n) ∧
+    Filter.Tendsto (fun n : ℕ => Real.log (a n : ℝ) / (n : ℝ))
+      Filter.atTop (nhds 0) ∧
+    ∀ n : ℕ, 1 ≤ n → Degenerates (copies (a n) (power A n)) (power B n)
+
+/-- A shared-leg identity, in bases with disjoint second- and third-leg sectors.
+The source can first permute its legs. Individual block maps are independent. -/
+structure SharedLegIdentity {ι : Type} [Fintype ι]
+    (A : FiniteTensor K) (B : ι → FiniteTensor K)
+    (D : MatrixShape) (E : ι → MatrixShape) where
+  ambient : FiniteTensor K
+  blocks : ι → Tensor K (Fin ambient.nx) (Fin ambient.ny) (Fin ambient.nz)
+  ySector : Fin ambient.ny → ι
+  zSector : Fin ambient.nz → ι
+  support : ∀ i x y z, blocks i x y z ≠ 0 → ySector y = i ∧ zSector z = i
+  sum_eq : ambient.coeff = ∑ i, blocks i
+  sourcePermutation : LegPermutation
+  source_degeneration : Degenerates (permute sourcePermutation (product A D.tensor)) ambient
+  outputPermutation : ι → LegPermutation
+  block_degeneration : ∀ i, Degenerates
+    ⟨ambient.nx, ambient.ny, ambient.nz, blocks i⟩
+    (permute (outputPermutation i) (product (B i) (E i).tensor))
+
+end Square
+end BlockIdentities
+
+===== Tensor/Value.lean (complete definition module) =====
+
+/-
+Copyright (c) 2026 Yuval Filmus. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+-/
+module
+
+public import BlockIdentities.Tensor.Definitions
+public import BlockIdentities.Arithmetic.FormalBounds
+
+/-! Ordinary value on exactly the manuscript's nonzero-tensor and exponent domains. -/
+
+@[expose] public section
+noncomputable section
+
+namespace BlockIdentities.Square
+
+open OAI.MatrixMultiplication.Foundation
+open OAI.MatrixMultiplication.AuxiliarySeparation
+open scoped BigOperators
+
+variable {K : Type*} [Field K]
+
+abbrev NonzeroTensor (K : Type*) [Field K] := {A : FiniteTensor K // Nonzero A}
+
+theorem nonzero_iff (A : FiniteTensor K) :
+    Nonzero A ↔ ∃ x y z, A.coeff x y z ≠ 0 := by
+  simp only [Nonzero, Function.ne_iff, Pi.zero_apply]
+
+theorem nonzero_ofTensor {X Y Z : Type*} [Fintype X] [Fintype Y] [Fintype Z]
+    {T : Tensor K X Y Z} (hT : T ≠ 0) :
+    Nonzero (TensorSemiring.FiniteTensor.ofTensor T) := by
+  rcases Function.ne_iff.mp hT with ⟨x, hx⟩
+  rcases Function.ne_iff.mp hx with ⟨y, hy⟩
+  rcases Function.ne_iff.mp hy with ⟨z, hz⟩
+  apply (nonzero_iff _).mpr
+  refine ⟨Fintype.equivFin X x, Fintype.equivFin Y y, Fintype.equivFin Z z, ?_⟩
+  simpa [TensorSemiring.FiniteTensor.ofTensor, Tensor.pullback] using hz
+
+theorem nonzero_product {A B : FiniteTensor K} (hA : Nonzero A) (hB : Nonzero B) :
+    Nonzero (product A B) := by
+  rcases (nonzero_iff A).mp hA with ⟨x, y, z, h⟩
+  rcases (nonzero_iff B).mp hB with ⟨u, v, w, h'⟩
+  apply nonzero_ofTensor
+  intro hz
+  have hval := congrFun (congrFun (congrFun hz (x, u)) (y, v)) (z, w)
+  exact (mul_ne_zero h h') hval
+
+theorem nonzero_square {d : ℕ} (hd : 1 ≤ d) : Nonzero (square (K := K) d) := by
+  apply nonzero_ofTensor
+  let i : Fin d := ⟨0, lt_of_lt_of_le Nat.zero_lt_one hd⟩
+  intro hz
+  have hval := congrFun (congrFun (congrFun hz (i, i)) (i, i)) (i, i)
+  simp [matrixMultiplicationTensor] at hval
+
+theorem nonzero_copies {A : FiniteTensor K} (hA : Nonzero A)
+    {b : ℕ} (hb : 1 ≤ b) : Nonzero (copies b A) := by
+  rcases (nonzero_iff A).mp hA with ⟨x, y, z, h⟩
+  apply nonzero_ofTensor
+  let i : Fin b := ⟨0, lt_of_lt_of_le Nat.zero_lt_one hb⟩
+  intro hz
+  have hval := congrFun (congrFun (congrFun hz (i, x)) (i, y)) (i, z)
+  apply h
+  simpa [Tensor.directSum] using hval
+
+def NonzeroTensor.product (A B : NonzeroTensor K) : NonzeroTensor K :=
+  ⟨BlockIdentities.Square.product A.val B.val, nonzero_product A.property B.property⟩
+
+def nonzeroSquare (d : ℕ) (hd : 1 ≤ d) : NonzeroTensor K :=
+  ⟨square d, nonzero_square hd⟩
+
+def NonzeroTensor.copies (A : NonzeroTensor K) (b : ℕ) (hb : 1 ≤ b) : NonzeroTensor K :=
+  ⟨BlockIdentities.Square.copies b A.val, nonzero_copies A.property hb⟩
+
+/-- The source formula, restricted to nonzero tensors and 2 ≤ ρ ≤ 3. -/
+def value [IsAlgClosed K] (ρ : Set.Icc (2 : ℝ) 3) (A : NonzeroTensor K) : ℝ :=
+  sSup {v : ℝ | ∃ n h m : ℕ, 1 ≤ n ∧ 1 ≤ h ∧ 1 ≤ m ∧
+    Degenerates (power (symmetrize A.val) n) (copies h (square m)) ∧
+    v = ((h : ℝ) * (m : ℝ) ^ (ρ : ℝ)) ^ (1 / (3 * (n : ℝ)))}
+
+/-- Source specialization at the true formal-polynomial exponent. -/
+def valueAtOmega [IsAlgClosed K] (A : NonzeroTensor K) : ℝ :=
+  value ⟨Arithmetic.formalOmega K, Arithmetic.formalOmega_mem_Icc (F := K)⟩ A
+
+/-- The normalized value x(A) in the shared-leg value inequality. -/
+def normalizedValueAtOmega [IsAlgClosed K] (A : NonzeroTensor K) : ℝ :=
+  valueAtOmega A ^ (3 / Arithmetic.formalOmega K)
+
+end BlockIdentities.Square
+
+===== Tensor/ConvolutionSplittings.lean (complete definition module) =====
+
+/-
+Copyright (c) 2026 Yuval Filmus. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+-/
+module
+
+public import BlockIdentities.Tensor.Definitions
+
+/-! The canonical shared-leg sums in the manuscript's convolution proposition.
+Each displayed block is its stated convolution tensor on its intrinsic spaces;
+only the first leg is shared. This retains the middle block's exact orientation. -/
+
+@[expose] public section
+noncomputable section
+
+namespace BlockIdentities.Square
+
+open OAI.MatrixMultiplication.Foundation
+open OAI.MatrixMultiplication.AuxiliarySeparation
+
+variable {K X Y₀ Z₀ Y₁ Z₁ Y₂ Z₂ : Type*} [Field K]
+
+/-- Two sectors share X and use disjoint variable groups on the other legs. -/
+def sharedFirstPair [Fintype X] [Fintype Y₀] [Fintype Z₀]
+    [Fintype Y₁] [Fintype Z₁] (T₀ : Tensor K X Y₀ Z₀) (T₁ : Tensor K X Y₁ Z₁) :
+    FiniteTensor K :=
+  TensorSemiring.FiniteTensor.ofTensor fun x y z =>
+    match y, z with
+    | Sum.inl y, Sum.inl z => T₀ x y z
+    | Sum.inr y, Sum.inr z => T₁ x y z
+    | _, _ => 0
+
+/-- Three sectors with the same shared first leg, on their intrinsic side spaces. -/
+def sharedFirstThree [Fintype X] [Fintype Y₀] [Fintype Z₀]
+    [Fintype Y₁] [Fintype Z₁] [Fintype Y₂] [Fintype Z₂]
+    (T₀ : Tensor K X Y₀ Z₀) (T₁ : Tensor K X Y₁ Z₁) (T₂ : Tensor K X Y₂ Z₂) :
+    FiniteTensor K :=
+  TensorSemiring.FiniteTensor.ofTensor fun x y z =>
+    match y, z with
+    | Sum.inl y, Sum.inl z => T₀ x y z
+    | Sum.inr (Sum.inl y), Sum.inr (Sum.inl z) => T₁ x y z
+    | Sum.inr (Sum.inr y), Sum.inr (Sum.inr z) => T₂ x y z
+    | _, _ => 0
+
+/-- Exactly C(r,b+1) + C(r,b-1), sharing only their first variable group. -/
+def neighborSplit (r b : ℕ+) (_hb : 2 ≤ (b : ℕ)) : FiniteTensor K :=
+  sharedFirstPair
+    (OAI.MatrixMultiplication.AuxiliarySeparation.convolution (K := K) r ((b : ℕ) + 1))
+    (OAI.MatrixMultiplication.AuxiliarySeparation.convolution (K := K) r ((b : ℕ) - 1))
+
+/-- The middle constituent before its individual first-leg reversal. -/
+def middleConvolution (r : ℕ+) : FiniteTensor K :=
+  let C := OAI.MatrixMultiplication.AuxiliarySeparation.convolution (K := K) r r
+  TensorSemiring.FiniteTensor.ofTensor (fun (x : Fin (r : ℕ)) z y => C x.rev y z)
+
+/-- The exact shared sum: the middle block retains its independent first-leg
+reversal. Its individual isomorphism to C(r,r)^(23) cannot be applied globally. -/
+def triplingSplit (r : ℕ+) (_hr : 2 ≤ (r : ℕ)) : FiniteTensor K :=
+  let C := OAI.MatrixMultiplication.AuxiliarySeparation.convolution (K := K) r r
+  sharedFirstThree C (fun (x : Fin (r : ℕ)) z y => C x.rev y z) C
+
+end BlockIdentities.Square

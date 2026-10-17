@@ -1,0 +1,14 @@
+{
+  "url": "https://arxiv.org/src/2610.10494v2",
+  "version": "v2",
+  "date": "2026-10-11",
+  "retrieved": "2026-10-16",
+  "title": "Rectangular matrix multiplication from polynomial products",
+  "author": "Przemysław Uznański",
+  "license": "CC BY 4.0 (arXiv v2 HTML license declaration)",
+  "archive_sha256": "3ba6f6bb4860c7f1eda3fdfc7b5cec5e9c2b7d87bea2e4d646e2faedf2d58f8a",
+  "files": {
+    "main.tex": "8207fb1f75e57a313586e31ddab82b0e9787d55800e3e25ad44122e51934f8c6",
+    "00README.json": "d1f6b1a71c9accb812ec5121d1fff7910c025ca7bb201948bacdb40941bc14e5"
+  }
+}
