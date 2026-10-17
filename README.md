@@ -9,10 +9,18 @@ and [PDF](source/manuscript.pdf), with its [bibliography](source/matrix-multipli
 
 For the formal polynomial exponent, the results include
 
-$$\omega_F\leq\frac94,\qquad
-\omega_F(1,k,1)\leq
-\begin{cases}2&0\leq k\leq 1/2,\\1+k+1/(4k)&k>1/2,\end{cases}
-\qquad\alpha_F\geq\frac12.$$
+```math
+\omega_F \leq \frac{9}{4},
+\qquad \alpha_F \geq \frac{1}{2}.
+```
+
+```math
+\omega_F(1,k,1) \leq
+\begin{cases}
+2, & 0 \leq k \leq \frac{1}{2}, \\
+1+k+\frac{1}{4k}, & k > \frac{1}{2}.
+\end{cases}
+```
 
 The cost theorems produce division-free algorithms with formal polynomial
 correctness and cost at most $C n^{b+\varepsilon}$ for every $\varepsilon>0$,
