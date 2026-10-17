@@ -1,0 +1,358 @@
+fun {F} [Field F] u d hd hrates =>
+  Filter.Tendsto (fun j => Real.log ↑(exactRank (matrixMultiplicationTensor (d 1 j) (d 2 j) (d 0 j))) / (↑j + 1))
+    Filter.atTop
+    (nhds
+      (orientedExponent F
+        u)) : {F : Type u_1} →
+  [Field F] →
+    (u : Axis → ℝ≥0) →
+      (d : Axis → ℕ → ℕ) →
+        (∀ (i : Axis) (j : ℕ), 1 ≤ d i j) →
+          (∀ (i : Axis), Filter.Tendsto (fun j => Real.log ↑(d i j) / (↑j + 1)) Filter.atTop (nhds ↑(u i))) → Prop
+work/tmputaimqjd.lean:29:5: warning: Variable name `hd` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hd
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+work/tmputaimqjd.lean:30:5: warning: Variable name `hrates` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hrates
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'BlockIdentities.Rectangular.oriented_rank_asymptotics' depends on axioms: [propext, Classical.choice, Quot.sound]
+fun {F} [Field F] =>
+  orientedExponent F 0 = 0 ∧
+    (∀ (u v : Axis → ℝ≥0), orientedExponent F (u + v) ≤ orientedExponent F u + orientedExponent F v) ∧
+      (∀ (t : ℝ≥0) (u : Axis → ℝ≥0), orientedExponent F (t • u) = ↑t * orientedExponent F u) ∧
+        (∀ (u v : Axis → ℝ≥0), (∀ (i : Axis), u i ≤ v i) → orientedExponent F u ≤ orientedExponent F v) ∧
+          ∀ (u : Axis → ℝ≥0) (i : Axis) (t : ℝ≥0),
+            0 ≤ orientedExponent F (u + Pi.single i t) - orientedExponent F u ∧
+              orientedExponent F (u + Pi.single i t) - orientedExponent F u ≤ ↑t : {F : Type u_1} → [Field F] → Prop
+'BlockIdentities.Rectangular.oriented_exponent_properties' depends on axioms: [propext, Classical.choice, Quot.sound]
+fun {F} [Field F] v hv =>
+  ∃ S, S.direction = v : {F : Type u_1} → [Field F] → (v : Axis → ℝ≥0) → (∀ (i : Axis), 0 < v i) → Prop
+work/tmputaimqjd.lean:49:22: warning: Variable name `hv` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'BlockIdentities.Rectangular.interior_support_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+fun {F} [Field F] S =>
+  ∀ (i : Axis), S.weight i ∈ Set.Icc 0 1 : {F : Type u_1} → [inst : Field F] → InteriorSupport F → Prop
+'BlockIdentities.Rectangular.support_weight_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+fun {F} [Field F] S T =>
+  (orientedGains S T).Nonempty ∧
+    BddAbove (orientedGains S T) ∧
+      1 ≤ orientedValue S T ∧
+        orientedValue S T ≤ tensorAsymptoticRank T ∧
+          ∀ (r : ℕ),
+            BorderRankAtMost (↑T) r →
+              tensorAsymptoticRank T ≤ ↑r : {F : Type u_1} → [inst : Field F] → InteriorSupport F → TensorOf F → Prop
+'BlockIdentities.Rectangular.oriented_value_rank' depends on axioms: [propext, Classical.choice, Quot.sound]
+fun {F} [Field F] S =>
+  (∀ (T U : TensorOf F), AsymptoticallyRestricts ↑T ↑U → orientedValue S U ≤ orientedValue S T) ∧
+    (∀ (T : TensorOf F) (k : ℕ), orientedValue S (NonzeroTensor.power T k) = orientedValue S T ^ k) ∧
+      (∀ (T U : TensorOf F), orientedValue S T * orientedValue S U ≤ orientedValue S (NonzeroTensor.product T U)) ∧
+        (∀ (T U : TensorOf F), orientedValue S T + orientedValue S U ≤ orientedValue S (NonzeroTensor.sum T U)) ∧
+          (∀ (T : TensorOf F) (D : MatrixShape),
+              orientedValue S (NonzeroTensor.product T D.nonzeroTensor) = matrixWeight S D * orientedValue S T) ∧
+            ∀ (D : MatrixShape),
+              orientedValue S D.nonzeroTensor =
+                matrixWeight S D : {F : Type u_1} → [inst : Field F] → InteriorSupport F → Prop
+'BlockIdentities.Rectangular.oriented_value_properties' depends on axioms: [propext, Classical.choice, Quot.sound]
+fun {F} [Field F] {ι} [Fintype ι] S A B n u h m D E hn hu hh hntop hconvert q α β hu_rate hm_rate hh_rate hdim_rate =>
+  Real.log (orientedValue S A) ≥
+    ∑ i, q i * Real.log (orientedValue S (B i)) + α +
+      ∑ i,
+        S.weight i *
+          β
+            i : {F : Type u_1} →
+  [inst : Field F] →
+    {ι : Type} →
+      [inst_1 : Fintype ι] →
+        InteriorSupport F →
+          (A : TensorOf F) →
+            (B : ι → TensorOf F) →
+              (n u h : ℕ → ℕ) →
+                (m : ι → ℕ → ℕ) →
+                  (D E : ℕ → MatrixShape) →
+                    (∀ (j : ℕ), 1 ≤ n j) →
+                      (∀ (j : ℕ), 1 ≤ u j) →
+                        (∀ (j : ℕ), 1 ≤ h j) →
+                          Filter.Tendsto n Filter.atTop Filter.atTop →
+                            (∀ (j : ℕ),
+                                AsymptoticallyRestricts (copies (u j) (product (power (↑A) (n j)) (D j).tensor))
+                                  (copies (h j)
+                                    (product
+                                      (tensorProductList
+                                        (List.ofFn fun l =>
+                                          let i := (Fintype.equivFin ι).symm l;
+                                          power (↑(B i)) (m i j)))
+                                      (E j).tensor))) →
+                              (q : ι → ℝ) →
+                                (α : ℝ) →
+                                  (β : Axis → ℝ) →
+                                    Filter.Tendsto (fun j => Real.log ↑(u j) / ↑(n j)) Filter.atTop (nhds 0) →
+                                      (∀ (i : ι),
+                                          Filter.Tendsto (fun j => ↑(m i j) / ↑(n j)) Filter.atTop (nhds (q i))) →
+                                        Filter.Tendsto (fun j => Real.log ↑(h j) / ↑(n j)) Filter.atTop (nhds α) →
+                                          (∀ (i : Axis),
+                                              Filter.Tendsto
+                                                (fun j =>
+                                                  (logDotDimensions (E j) i - logDotDimensions (D j) i) / ↑(n j))
+                                                Filter.atTop (nhds (β i))) →
+                                            Prop
+work/tmputaimqjd.lean:81:5: warning: Variable name `hn` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hn
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+work/tmputaimqjd.lean:81:25: warning: Variable name `hu` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+work/tmputaimqjd.lean:81:45: warning: Variable name `hh` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hh
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+work/tmputaimqjd.lean:82:5: warning: Variable name `hntop` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hntop
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+work/tmputaimqjd.lean:83:5: warning: Variable name `hconvert` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hconvert
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+work/tmputaimqjd.lean:90:5: warning: Variable name `hu_rate` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu_rate
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+work/tmputaimqjd.lean:92:5: warning: Variable name `hm_rate` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hm_rate
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+work/tmputaimqjd.lean:94:5: warning: Variable name `hh_rate` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hh_rate
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+work/tmputaimqjd.lean:96:5: warning: Variable name `hdim_rate` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hdim_rate
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'BlockIdentities.Rectangular.oriented_general_extraction' depends on axioms: [propext, Classical.choice, Quot.sound]
+fun {F} [Field F] {ι} [Fintype ι] S A B D E identity q hq hsum =>
+  Real.log (orientedValue S ((NonzeroTensor.product A D.nonzeroTensor).permute identity.sourcePermutation)) ≥
+    S.weight 0 * OAI.MatrixMultiplication.Foundation.finiteEntropy q +
+      ∑ i,
+        q i *
+          Real.log
+            (orientedValue S
+              ((NonzeroTensor.product (B i) (E i).nonzeroTensor).permute
+                (identity.outputPermutation
+                  i))) : {F : Type u_1} →
+  [inst : Field F] →
+    {ι : Type} →
+      [inst_1 : Fintype ι] →
+        InteriorSupport F →
+          (A : TensorOf F) →
+            (B : ι → TensorOf F) →
+              (D : MatrixShape) →
+                (E : ι → MatrixShape) →
+                  SharedLegIdentity (↑A) (fun i => ↑(B i)) D E →
+                    (q : ι → ℝ) → (∀ (i : ι), 0 ≤ q i) → ∑ i, q i = 1 → Prop
+work/tmputaimqjd.lean:106:17: warning: Variable name `hq` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hq
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+work/tmputaimqjd.lean:106:37: warning: Variable name `hsum` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hsum
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'BlockIdentities.Rectangular.oriented_shared_leg_entropy' depends on axioms: [propext, Classical.choice, Quot.sound]
+fun {K} [Field K] r s =>
+  Degenerates (Square.convolution r ⟨3 * ↑s + ↑r - 1, ⋯⟩)
+    (generalTriplingSplit r s) : {K : Type u_1} → [Field K] → ℕ+ → ℕ+ → Prop
+'BlockIdentities.Rectangular.convolution_general_tripling' depends on axioms: [propext, Classical.choice, Quot.sound]
+fun {F} [Field F] m r s =>
+  Degenerates (Square.convolution (m * r) (m * s))
+    (copies (↑m) (Square.convolution r s)) : {F : Type u_1} → [Field F] → ℕ+ → ℕ+ → ℕ+ → Prop
+'BlockIdentities.Rectangular.convolution_replication' depends on axioms: [propext, Classical.choice, Quot.sound]
+fun {F} [Field F] S =>
+  Real.pi / 2 ≤ ∑ i, Real.arccos √(S.weight i) : {F : Type u_1} → [inst : Field F] → InteriorSupport F → Prop
+'BlockIdentities.Rectangular.support_angular_constraint' depends on axioms: [propext, Classical.choice, Quot.sound]
+fun F [Field F] a b c =>
+  Arithmetic.formalShapeOmega F a b c =
+    Arithmetic.formalShapeOmega (AlgebraicClosure F) a b c : (F : Type u_1) → [Field F] → ℝ≥0 → ℝ≥0 → ℝ≥0 → Prop
+'BlockIdentities.Rectangular.formalShapeOmega_eq_algebraicClosure' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+fun F [Field F] a b c hab hbc hc =>
+  Arithmetic.formalShapeOmega F a b c ≤
+    if ↑c ≤ ↑a * ↑b / (↑a + ↑b) then ↑a + ↑b
+    else
+      (↑a + ↑b + ↑c) / 2 +
+        (↑a * ↑b / ↑c + ↑a * ↑c / ↑b + ↑b * ↑c / ↑a) /
+          4 : (F : Type u_1) → [Field F] → (a b c : ℝ≥0) → b ≤ a → c ≤ b → 0 < c → Prop
+work/tmputaimqjd.lean:138:5: warning: Variable name `hab` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hab
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+work/tmputaimqjd.lean:138:19: warning: Variable name `hbc` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hbc
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+work/tmputaimqjd.lean:138:33: warning: Variable name `hc` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hc
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'BlockIdentities.Rectangular.formalShapeOmega_general_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+fun F [Field F] k hk =>
+  Arithmetic.formalRectangularOmega F k ≤
+    if k ≤ 1 / 2 then 2 else 1 + k + 1 / (4 * k) : (F : Type u_1) → [Field F] → (k : ℝ) → 0 ≤ k → Prop
+work/tmputaimqjd.lean:146:42: warning: Variable name `hk` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hk
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'BlockIdentities.Rectangular.formalRectangularOmega_curve' depends on axioms: [propext, Classical.choice, Quot.sound]
+fun F [Field F] k hk ε hε =>
+  ∃ C,
+    0 < C ∧
+      ∀ (n : ℕ),
+        1 ≤ n →
+          ∃ P,
+            Arithmetic.FormalCorrect P ∧
+              ↑P.cost ≤
+                C *
+                  ↑n ^
+                    ((if k ≤ 1 / 2 then 2 else 1 + k + 1 / (4 * k)) +
+                      ε) : (F : Type u_1) → [Field F] → (k : ℝ) → 0 ≤ k → (ε : ℝ) → 0 < ε → Prop
+work/tmputaimqjd.lean:149:42: warning: Variable name `hk` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hk
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+work/tmputaimqjd.lean:150:13: warning: Variable name `hε` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hε
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'BlockIdentities.Rectangular.formal_rectangular_cost_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+fun F [Field F] k hk =>
+  OAI.MatrixMultiplication.Arithmetic.rectangularOmega F k ≤
+    if k ≤ 1 / 2 then 2 else 1 + k + 1 / (4 * k) : (F : Type u_1) → [Field F] → (k : ℝ) → 0 ≤ k → Prop
+work/tmputaimqjd.lean:157:42: warning: Variable name `hk` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hk
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'BlockIdentities.Rectangular.rectangularOmega_curve' depends on axioms: [propext, Classical.choice, Quot.sound]
+fun F [Field F] => 1 / 2 ≤ Arithmetic.formalAlpha F : (F : Type u_1) → [Field F] → Prop
+'BlockIdentities.Rectangular.formalAlpha_ge_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+fun F [Field F] =>
+  1 / 2 ≤
+    sSup
+      {k |
+        k ∈ Set.Icc 0 1 ∧
+          OAI.MatrixMultiplication.Arithmetic.rectangularOmega F k = 2} : (F : Type u_1) → [Field F] → Prop
+'BlockIdentities.Rectangular.rectangular_alpha_ge_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Arithmetic.FormalShapeAdmissibleExponent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Arithmetic.formalShapeOmega' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Arithmetic.FormalRectangularAdmissibleExponent' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Arithmetic.formalRectangularOmega' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Arithmetic.formalAlpha' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Arithmetic.FormalRectangularAdmissibleExponent.admissible' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Arithmetic.formalRectangularAdmissibleExponent_naive' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Arithmetic.formalRectangularAdmissibleExponent_nonempty' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Arithmetic.formalRectangularAdmissibleExponent_two_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Arithmetic.formalRectangularAdmissibleExponent_bddBelow' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Arithmetic.formalRectangularOmega_two_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Arithmetic.formalRectangularOmega_le_naive' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Arithmetic.formalRectangularOmega_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Arithmetic.formalShapeAdmissibleExponent_iff_rectangular' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Arithmetic.formalShapeOmega_one_k_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Arithmetic.formalShapeAdmissibleExponent_naive' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Arithmetic.formalShapeAdmissibleExponent_nonempty' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Arithmetic.formalShapeAdmissibleExponent_output_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Arithmetic.formalShapeAdmissibleExponent_bddBelow' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Arithmetic.formalShapeOmega_output_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Arithmetic.formalShapeOmega_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Arithmetic.formalShapeOmega_le_naive' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Arithmetic.formalShapeAdmissibleExponent_formalShapeOmega' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Arithmetic.formalShapeOmega_zero_zero_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Arithmetic.rectangularOmega_le_formalRectangularOmega' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Arithmetic.formalRectangularAdmissibleExponent_formalRectangularOmega' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Arithmetic.formalRectangularAdmissibleExponent_of_omega_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Arithmetic.formalAlpha_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Arithmetic.formalAlpha_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.orientedExponent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.matrixWeight' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.logDotDimensions' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.orientedGains' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.orientedValue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.tensorAsymptoticRank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.generalTriplingSplit' depends on axioms: [propext, Classical.choice, Quot.sound]

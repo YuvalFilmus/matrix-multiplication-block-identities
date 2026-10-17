@@ -1,0 +1,1403 @@
+ABI-BEGIN:formalCorrect_implies_correct
+@BlockIdentities.Square.formalCorrect_implies_correct.{u_1} : ∀ {F : Type u_1} [inst : Field.{u_1} F] {a b c : Nat}
+  (P : OAI.MatrixMultiplication.Arithmetic.MatrixAlgorithm.{u_1} F a b c)
+  (hP : @BlockIdentities.Arithmetic.FormalCorrect.{u_1} F inst a b c P),
+  @OAI.MatrixMultiplication.Arithmetic.MatrixAlgorithm.Correct.{u_1} F inst a b c P
+ABI-END:formalCorrect_implies_correct
+ABI-BEGIN:formalOmega_eq_exactRankExponent.v2
+BlockIdentities.Square.formalOmega_eq_exactRankExponent.{u_1} : ∀ (F : Type u_1) [inst : Field.{u_1} F],
+  @Eq.{1} Real (@BlockIdentities.Arithmetic.formalOmega.{u_1} F inst)
+    (@OAI.MatrixMultiplication.AuxiliarySeparation.exactRankExponent.{u_1} F inst)
+ABI-END:formalOmega_eq_exactRankExponent.v2
+ABI-BEGIN:formalOmega_eq_algebraicClosure.v2
+BlockIdentities.Square.formalOmega_eq_algebraicClosure.{u_1} : ∀ (F : Type u_1) [inst : Field.{u_1} F],
+  @Eq.{1} Real (@BlockIdentities.Arithmetic.formalOmega.{u_1} F inst)
+    (@BlockIdentities.Arithmetic.formalOmega.{u_1} (@AlgebraicClosure.{u_1} F inst)
+      (@AlgebraicClosure.instField.{u_1} F inst))
+ABI-END:formalOmega_eq_algebraicClosure.v2
+ABI-BEGIN:scalar_descent.v2
+@BlockIdentities.Square.scalar_descent.{u_1, u_2, u_3,
+    u_4} : ∀ {F : Type u_1} {X : Type u_2} {Y : Type u_3} {Z : Type u_4} [inst : Field.{u_1} F] [Fintype.{u_2} X]
+  [Fintype.{u_3} Y] [Fintype.{u_4} Z] (T : OAI.MatrixMultiplication.Foundation.Tensor.{u_1, u_2, u_3, u_4} F X Y Z)
+  (r : Nat)
+  (h :
+    @OAI.MatrixMultiplication.Foundation.Tensor.RankAtMost.{u_1, u_2, u_3, u_4} (@AlgebraicClosure.{u_1} F inst) X Y Z
+      (@Semifield.toCommSemiring.{u_1} (@AlgebraicClosure.{u_1} F inst)
+        (@Field.toSemifield.{u_1} (@AlgebraicClosure.{u_1} F inst) (@AlgebraicClosure.instField.{u_1} F inst)))
+      (fun (x : X) (y : Y) (z : Z) =>
+        @DFunLike.coe.{u_1 + 1, u_1 + 1, u_1 + 1}
+          (@RingHom.{u_1, u_1} F (@AlgebraicClosure.{u_1} F inst)
+            (@Semiring.toNonAssocSemiring.{u_1} F
+              (@CommSemiring.toSemiring.{u_1} F (@Semifield.toCommSemiring.{u_1} F (@Field.toSemifield.{u_1} F inst))))
+            (@Semiring.toNonAssocSemiring.{u_1} (@AlgebraicClosure.{u_1} F inst)
+              (@CommSemiring.toSemiring.{u_1} (@AlgebraicClosure.{u_1} F inst)
+                (@CommRing.toCommSemiring.{u_1} (@AlgebraicClosure.{u_1} F inst)
+                  (@AlgebraicClosure.instCommRing.{u_1} F inst)))))
+          F (fun (x : F) => @AlgebraicClosure.{u_1} F inst)
+          (@RingHom.instFunLike.{u_1, u_1} F (@AlgebraicClosure.{u_1} F inst)
+            (@Semiring.toNonAssocSemiring.{u_1} F
+              (@CommSemiring.toSemiring.{u_1} F (@Semifield.toCommSemiring.{u_1} F (@Field.toSemifield.{u_1} F inst))))
+            (@Semiring.toNonAssocSemiring.{u_1} (@AlgebraicClosure.{u_1} F inst)
+              (@CommSemiring.toSemiring.{u_1} (@AlgebraicClosure.{u_1} F inst)
+                (@CommRing.toCommSemiring.{u_1} (@AlgebraicClosure.{u_1} F inst)
+                  (@AlgebraicClosure.instCommRing.{u_1} F inst)))))
+          (@Algebra.algebraMap.{u_1, u_1} F (@AlgebraicClosure.{u_1} F inst)
+            (@Semifield.toCommSemiring.{u_1} F (@Field.toSemifield.{u_1} F inst))
+            (@CommSemiring.toSemiring.{u_1} (@AlgebraicClosure.{u_1} F inst)
+              (@CommRing.toCommSemiring.{u_1} (@AlgebraicClosure.{u_1} F inst)
+                (@AlgebraicClosure.instCommRing.{u_1} F inst)))
+            (@AlgebraicClosure.instAlgebra.{u_1, u_1} F inst F
+              (@Semifield.toCommSemiring.{u_1} F (@Field.toSemifield.{u_1} F inst))
+              (@Algebra.id.{u_1} F (@Semifield.toCommSemiring.{u_1} F (@Field.toSemifield.{u_1} F inst)))))
+          (T x y z))
+      r),
+  @Exists.{1} Nat fun (q : Nat) =>
+    And (@LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) q)
+      (∀ (m : Nat),
+        @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) m →
+          @OAI.MatrixMultiplication.Foundation.Tensor.RankAtMost.{u_1, u_2, u_3, u_4} F (Fin m → X) (Fin m → Y)
+            (Fin m → Z) (@Semifield.toCommSemiring.{u_1} F (@Field.toSemifield.{u_1} F inst))
+            (@OAI.MatrixMultiplication.Foundation.Tensor.power.{u_1, u_2, u_3, u_4} F X Y Z
+              (@Semifield.toCommSemiring.{u_1} F (@Field.toSemifield.{u_1} F inst)) T m)
+            (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+              (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid))) q
+                (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid))) r m)))
+ABI-END:scalar_descent.v2
+ABI-BEGIN:asymptotic_cancellation.v2
+@BlockIdentities.Square.asymptotic_cancellation.{u_1} : ∀ {K : Type u_1} [inst : Field.{u_1} K]
+  [@IsAlgClosed.{u_1} K inst] (A B Z : @BlockIdentities.FiniteTensor.{u_1} K inst)
+  (hZ : @BlockIdentities.Square.Nonzero.{u_1} K inst Z)
+  (h :
+    @BlockIdentities.Square.AsymptoticallyRestricts.{u_1} K inst (@BlockIdentities.Square.product.{u_1} K inst A Z)
+      (@BlockIdentities.Square.product.{u_1} K inst B Z)),
+  @BlockIdentities.Square.AsymptoticallyRestricts.{u_1} K inst A B
+ABI-END:asymptotic_cancellation.v2
+ABI-BEGIN:value_matrix_factor.v2
+@BlockIdentities.Square.value_matrix_factor.{u_1} : ∀ {K : Type u_1} [inst : Field.{u_1} K]
+  [inst_1 : @IsAlgClosed.{u_1} K inst] (T : @BlockIdentities.Square.NonzeroTensor.{u_1} K inst)
+  (hcyclic :
+    @BlockIdentities.Square.Isomorphic.{u_1} K inst
+      (@Subtype.val.{u_1 + 1} (@BlockIdentities.FiniteTensor.{u_1} K inst)
+        (fun (A : @BlockIdentities.FiniteTensor.{u_1} K inst) => @BlockIdentities.Square.Nonzero.{u_1} K inst A) T)
+      (@BlockIdentities.Square.permute.{u_1} K inst BlockIdentities.Square.LegPermutation.yzx
+        (@Subtype.val.{u_1 + 1} (@BlockIdentities.FiniteTensor.{u_1} K inst)
+          (fun (A : @BlockIdentities.FiniteTensor.{u_1} K inst) => @BlockIdentities.Square.Nonzero.{u_1} K inst A) T))),
+  And
+    (∀ (U : @BlockIdentities.Square.NonzeroTensor.{u_1} K inst),
+      @BlockIdentities.Square.Isomorphic.{u_1} K inst
+          (@Subtype.val.{u_1 + 1} (@BlockIdentities.FiniteTensor.{u_1} K inst)
+            (fun (A : @BlockIdentities.FiniteTensor.{u_1} K inst) => @BlockIdentities.Square.Nonzero.{u_1} K inst A) U)
+          (@BlockIdentities.Square.permute.{u_1} K inst BlockIdentities.Square.LegPermutation.yzx
+            (@Subtype.val.{u_1 + 1} (@BlockIdentities.FiniteTensor.{u_1} K inst)
+              (fun (A : @BlockIdentities.FiniteTensor.{u_1} K inst) => @BlockIdentities.Square.Nonzero.{u_1} K inst A)
+              U)) →
+        @BlockIdentities.Square.AsymptoticallyRestricts.{u_1} K inst
+            (@Subtype.val.{u_1 + 1} (@BlockIdentities.FiniteTensor.{u_1} K inst)
+              (fun (A : @BlockIdentities.FiniteTensor.{u_1} K inst) => @BlockIdentities.Square.Nonzero.{u_1} K inst A)
+              T)
+            (@Subtype.val.{u_1 + 1} (@BlockIdentities.FiniteTensor.{u_1} K inst)
+              (fun (A : @BlockIdentities.FiniteTensor.{u_1} K inst) => @BlockIdentities.Square.Nonzero.{u_1} K inst A)
+              U) →
+          @LE.le.{0} Real Real.instLE (@BlockIdentities.Square.valueAtOmega.{u_1} K inst inst_1 U)
+            (@BlockIdentities.Square.valueAtOmega.{u_1} K inst inst_1 T))
+    (And
+      (∀ (d : Nat) (hd : @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) d),
+        @Eq.{1} Real
+          (@BlockIdentities.Square.valueAtOmega.{u_1} K inst inst_1
+            (@BlockIdentities.Square.NonzeroTensor.product.{u_1} K inst T
+              (@BlockIdentities.Square.nonzeroSquare.{u_1} K inst d hd)))
+          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+            (@HPow.hPow.{0, 0, 0} Real Real Real (@instHPow.{0, 0} Real Real Real.instPow)
+              (@Nat.cast.{0} Real Real.instNatCast d) (@BlockIdentities.Arithmetic.formalOmega.{u_1} K inst))
+            (@BlockIdentities.Square.valueAtOmega.{u_1} K inst inst_1 T)))
+      (∀ (b : Nat) (hb : @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) b),
+        @LE.le.{0} Real Real.instLE
+          (@BlockIdentities.Square.valueAtOmega.{u_1} K inst inst_1
+            (@BlockIdentities.Square.NonzeroTensor.copies.{u_1} K inst T b hb))
+          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+            (@HPow.hPow.{0, 0, 0} Real Real Real (@instHPow.{0, 0} Real Real Real.instPow)
+              (@Nat.cast.{0} Real Real.instNatCast b) (@BlockIdentities.Arithmetic.formalOmega.{u_1} K inst))
+            (@BlockIdentities.Square.valueAtOmega.{u_1} K inst inst_1 T))))
+ABI-END:value_matrix_factor.v2
+ABI-BEGIN:general_extraction.v3
+@BlockIdentities.Square.general_extraction.{u_1} : ∀ {K : Type u_1} [inst : Field.{u_1} K]
+  [inst_1 : @IsAlgClosed.{u_1} K inst] {ι : Type} [inst_2 : Fintype.{0} ι]
+  (A : @BlockIdentities.Square.NonzeroTensor.{u_1} K inst) (B : ι → @BlockIdentities.Square.NonzeroTensor.{u_1} K inst)
+  (n a b u h : Nat → Nat) (m : ι → Nat → Nat) (π : ι → Nat → BlockIdentities.Square.LegPermutation)
+  (hn : ∀ (j : Nat), @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) (n j))
+  (ha : ∀ (j : Nat), @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) (a j))
+  (hb : ∀ (j : Nat), @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) (b j))
+  (hu : ∀ (j : Nat), @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) (u j))
+  (hh : ∀ (j : Nat), @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) (h j))
+  (hn_tendsto :
+    @Filter.Tendsto.{0, 0} Nat Nat n (@Filter.atTop.{0} Nat Nat.instPreorder) (@Filter.atTop.{0} Nat Nat.instPreorder))
+  (hconvert :
+    ∀ (j : Nat),
+      @BlockIdentities.Square.AsymptoticallyRestricts.{u_1} K inst
+        (@BlockIdentities.Square.copies.{u_1} K inst (u j)
+          (@BlockIdentities.Square.product.{u_1} K inst
+            (@BlockIdentities.Square.power.{u_1} K inst
+              (@BlockIdentities.Square.symmetrize.{u_1} K inst
+                (@Subtype.val.{u_1 + 1} (@BlockIdentities.FiniteTensor.{u_1} K inst)
+                  (fun (A : @BlockIdentities.FiniteTensor.{u_1} K inst) =>
+                    @BlockIdentities.Square.Nonzero.{u_1} K inst A)
+                  A))
+              (n j))
+            (@BlockIdentities.Square.square.{u_1} K inst (a j))))
+        (@BlockIdentities.Square.copies.{u_1} K inst (h j)
+          (@BlockIdentities.Square.product.{u_1} K inst (@BlockIdentities.Square.square.{u_1} K inst (b j))
+            (@BlockIdentities.Square.tensorProductList.{u_1} K inst
+              (@List.ofFn.{u_1} (@BlockIdentities.FiniteTensor.{u_1} K inst) (@Fintype.card.{0} ι inst_2)
+                fun (l : Fin (@Fintype.card.{0} ι inst_2)) =>
+                have i : ι :=
+                  @DFunLike.coe.{1, 1, 1} (Equiv.{1, 1} (Fin (@Fintype.card.{0} ι inst_2)) ι)
+                    (Fin (@Fintype.card.{0} ι inst_2)) (fun (x : Fin (@Fintype.card.{0} ι inst_2)) => ι)
+                    (@EquivLike.toFunLike.{1, 1, 1} (Equiv.{1, 1} (Fin (@Fintype.card.{0} ι inst_2)) ι)
+                      (Fin (@Fintype.card.{0} ι inst_2)) ι
+                      (@Equiv.instEquivLike.{1, 1} (Fin (@Fintype.card.{0} ι inst_2)) ι))
+                    (@Equiv.symm.{1, 1} ι (Fin (@Fintype.card.{0} ι inst_2)) (@Fintype.equivFin.{0} ι inst_2)) l;
+                @BlockIdentities.Square.power.{u_1} K inst
+                  (@BlockIdentities.Square.symmetrize.{u_1} K inst
+                    (@BlockIdentities.Square.permute.{u_1} K inst (π i j)
+                      (@Subtype.val.{u_1 + 1} (@BlockIdentities.FiniteTensor.{u_1} K inst)
+                        (fun (A : @BlockIdentities.FiniteTensor.{u_1} K inst) =>
+                          @BlockIdentities.Square.Nonzero.{u_1} K inst A)
+                        (B i))))
+                  (m i j))))))
+  (p : ι → Real) (α β : Real)
+  (hu_rate :
+    @Filter.Tendsto.{0, 0} Nat Real
+      (fun (j : Nat) =>
+        @HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+          (Real.log (@Nat.cast.{0} Real Real.instNatCast (u j))) (@Nat.cast.{0} Real Real.instNatCast (n j)))
+      (@Filter.atTop.{0} Nat Nat.instPreorder)
+      (@nhds.{0} Real
+        (@UniformSpace.toTopologicalSpace.{0} Real (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+        (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))))
+  (hm_rate :
+    ∀ (i : ι),
+      @Filter.Tendsto.{0, 0} Nat Real
+        (fun (j : Nat) =>
+          @HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+            (@Nat.cast.{0} Real Real.instNatCast (m i j)) (@Nat.cast.{0} Real Real.instNatCast (n j)))
+        (@Filter.atTop.{0} Nat Nat.instPreorder)
+        (@nhds.{0} Real
+          (@UniformSpace.toTopologicalSpace.{0} Real
+            (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+          (p i)))
+  (hh_rate :
+    @Filter.Tendsto.{0, 0} Nat Real
+      (fun (j : Nat) =>
+        @HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+          (Real.log (@Nat.cast.{0} Real Real.instNatCast (h j)))
+          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+            (@OfNat.ofNat.{0} Real (nat_lit 3)
+              (@instOfNatAtLeastTwo.{0} Real (nat_lit 3) Real.instNatCast
+                (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                  (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))))
+            (@Nat.cast.{0} Real Real.instNatCast (n j))))
+      (@Filter.atTop.{0} Nat Nat.instPreorder)
+      (@nhds.{0} Real
+        (@UniformSpace.toTopologicalSpace.{0} Real (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+        α))
+  (hab_rate :
+    @Filter.Tendsto.{0, 0} Nat Real
+      (fun (j : Nat) =>
+        @HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+          (Real.log
+            (@HDiv.hDiv.{0, 0, 0} Real Real Real
+              (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+              (@Nat.cast.{0} Real Real.instNatCast (b j)) (@Nat.cast.{0} Real Real.instNatCast (a j))))
+          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+            (@OfNat.ofNat.{0} Real (nat_lit 3)
+              (@instOfNatAtLeastTwo.{0} Real (nat_lit 3) Real.instNatCast
+                (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                  (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))))
+            (@Nat.cast.{0} Real Real.instNatCast (n j))))
+      (@Filter.atTop.{0} Nat Nat.instPreorder)
+      (@nhds.{0} Real
+        (@UniformSpace.toTopologicalSpace.{0} Real (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+        β)),
+  @GE.ge.{0} Real Real.instLE (Real.log (@BlockIdentities.Square.valueAtOmega.{u_1} K inst inst_1 A))
+    (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+      (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+        (@Finset.sum.{0, 0} ι Real Real.instAddCommMonoid (@Finset.univ.{0} ι inst_2) fun (i : ι) =>
+          @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (p i)
+            (Real.log (@BlockIdentities.Square.valueAtOmega.{u_1} K inst inst_1 (B i))))
+        α)
+      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+        (@BlockIdentities.Arithmetic.formalOmega.{u_1} K inst) β))
+ABI-END:general_extraction.v3
+ABI-BEGIN:shared_leg_value_inequality.v2
+@BlockIdentities.Square.shared_leg_value_inequality.{u_1} : ∀ {K : Type u_1} [inst : Field.{u_1} K]
+  [inst_1 : @IsAlgClosed.{u_1} K inst] {ι : Type} [inst_2 : Fintype.{0} ι]
+  (A : @BlockIdentities.Square.NonzeroTensor.{u_1} K inst) (B : ι → @BlockIdentities.Square.NonzeroTensor.{u_1} K inst)
+  (D : BlockIdentities.Square.MatrixShape) (E : ι → BlockIdentities.Square.MatrixShape)
+  (identity :
+    @BlockIdentities.Square.SharedLegIdentity.{u_1} K inst ι inst_2
+      (@Subtype.val.{u_1 + 1} (@BlockIdentities.FiniteTensor.{u_1} K inst)
+        (fun (A : @BlockIdentities.FiniteTensor.{u_1} K inst) => @BlockIdentities.Square.Nonzero.{u_1} K inst A) A)
+      (fun (i : ι) =>
+        @Subtype.val.{u_1 + 1} (@BlockIdentities.FiniteTensor.{u_1} K inst)
+          (fun (A : @BlockIdentities.FiniteTensor.{u_1} K inst) => @BlockIdentities.Square.Nonzero.{u_1} K inst A)
+          (B i))
+      D E),
+  @GE.ge.{0} Real Real.instLE
+    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+      (@Nat.cast.{0} Real Real.instNatCast (BlockIdentities.Square.MatrixShape.volume D))
+      (@BlockIdentities.Square.normalizedValueAtOmega.{u_1} K inst inst_1 A))
+    (@Finset.sum.{0, 0} ι Real Real.instAddCommMonoid (@Finset.univ.{0} ι inst_2) fun (i : ι) =>
+      @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+        (@Nat.cast.{0} Real Real.instNatCast (BlockIdentities.Square.MatrixShape.volume (E i)))
+        (@BlockIdentities.Square.normalizedValueAtOmega.{u_1} K inst inst_1 (B i)))
+ABI-END:shared_leg_value_inequality.v2
+ABI-BEGIN:identities_to_exponent.v2
+@BlockIdentities.Square.identities_to_exponent.{u_1} : ∀ {F : Type u_1} [inst : Field.{u_1} F] {V E : Type}
+  [Fintype.{0} V] [inst_2 : DecidableEq.{1} V] [inst_3 : Fintype.{0} E]
+  (A :
+    V → @BlockIdentities.FiniteTensor.{u_1} (@AlgebraicClosure.{u_1} F inst) (@AlgebraicClosure.instField.{u_1} F inst))
+  (hA :
+    ∀ (v : V),
+      @BlockIdentities.Square.Nonzero.{u_1} (@AlgebraicClosure.{u_1} F inst) (@AlgebraicClosure.instField.{u_1} F inst)
+        (A v))
+  (q : E → Nat) (σ : E → V) (w : (e : E) → Fin (q e) → V) (D : E → BlockIdentities.Square.MatrixShape)
+  (Dout : (e : E) → Fin (q e) → BlockIdentities.Square.MatrixShape)
+  (identities :
+    (e : E) →
+      @BlockIdentities.Square.SharedLegIdentity.{u_1} (@AlgebraicClosure.{u_1} F inst)
+        (@AlgebraicClosure.instField.{u_1} F inst) (Fin (q e)) (Fin.fintype (q e)) (A (σ e))
+        (fun (i : Fin (q e)) => A (w e i)) (D e) (Dout e))
+  (s t : V) (hst : @Ne.{1} V s t) (hterminal : ∀ (e : E), @Ne.{1} V (σ e) t) (d r : Nat)
+  (hd : @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) d)
+  (hr : @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) r)
+  (ht :
+    @BlockIdentities.Square.Isomorphic.{u_1} (@AlgebraicClosure.{u_1} F inst) (@AlgebraicClosure.instField.{u_1} F inst)
+      (@BlockIdentities.Square.symmetrize.{u_1} (@AlgebraicClosure.{u_1} F inst)
+        (@AlgebraicClosure.instField.{u_1} F inst) (A t))
+      (@BlockIdentities.Square.square.{u_1} (@AlgebraicClosure.{u_1} F inst) (@AlgebraicClosure.instField.{u_1} F inst)
+        d))
+  (hs :
+    @BlockIdentities.Square.BorderRankAtMost.{u_1} (@AlgebraicClosure.{u_1} F inst)
+      (@AlgebraicClosure.instField.{u_1} F inst) (A s) r)
+  (μ : E → Real)
+  (hμ :
+    ∀ (e : E),
+      @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) (μ e))
+  (hcertificate :
+    ∀ (v : V),
+      @Ne.{1} V v t →
+        @LE.le.{0} Real Real.instLE
+          (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+            (@Finset.sum.{0, 0} E Real Real.instAddCommMonoid (@Finset.univ.{0} E inst_3) fun (e : E) =>
+              @ite.{1} Real (@Eq.{1} V (σ e) v) (inst_2 (σ e) v)
+                (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                  (@Nat.cast.{0} Real Real.instNatCast (BlockIdentities.Square.MatrixShape.volume (D e))) (μ e))
+                (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)))
+            (@Finset.sum.{0, 0} E Real Real.instAddCommMonoid (@Finset.univ.{0} E inst_3) fun (e : E) =>
+              @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                (@Finset.sum.{0, 0} (Fin (q e)) Real Real.instAddCommMonoid
+                  (@Finset.univ.{0} (Fin (q e)) (Fin.fintype (q e))) fun (i : Fin (q e)) =>
+                  @ite.{1} Real (@Eq.{1} V (w e i) v) (inst_2 (w e i) v)
+                    (@Nat.cast.{0} Real Real.instNatCast (BlockIdentities.Square.MatrixShape.volume (Dout e i)))
+                    (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)))
+                (μ e)))
+          (@ite.{1} Real (@Eq.{1} V v s) (inst_2 v s)
+            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+            (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))))
+  (hL :
+    @LT.lt.{0} Real Real.instLT (@Inv.inv.{0} Real Real.instInv (@Nat.cast.{0} Real Real.instNatCast d))
+      (@Finset.sum.{0, 0} E Real Real.instAddCommMonoid (@Finset.univ.{0} E inst_3) fun (e : E) =>
+        @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+          (@Finset.sum.{0, 0} (Fin (q e)) Real Real.instAddCommMonoid (@Finset.univ.{0} (Fin (q e)) (Fin.fintype (q e)))
+            fun (i : Fin (q e)) =>
+            @ite.{1} Real (@Eq.{1} V (w e i) t) (inst_2 (w e i) t)
+              (@Nat.cast.{0} Real Real.instNatCast (BlockIdentities.Square.MatrixShape.volume (Dout e i)))
+              (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)))
+          (μ e))),
+  @LE.le.{0} Real Real.instLE (@BlockIdentities.Arithmetic.formalOmega.{u_1} F inst)
+    (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+        (@OfNat.ofNat.{0} Real (nat_lit 3)
+          (@instOfNatAtLeastTwo.{0} Real (nat_lit 3) Real.instNatCast
+            (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+              (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))))
+        (Real.log (@Nat.cast.{0} Real Real.instNatCast r)))
+      (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+        (Real.log (@Nat.cast.{0} Real Real.instNatCast d))
+        (Real.log
+          (@Finset.sum.{0, 0} E Real Real.instAddCommMonoid (@Finset.univ.{0} E inst_3) fun (e : E) =>
+            @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+              (@Finset.sum.{0, 0} (Fin (q e)) Real Real.instAddCommMonoid
+                (@Finset.univ.{0} (Fin (q e)) (Fin.fintype (q e))) fun (i : Fin (q e)) =>
+                @ite.{1} Real (@Eq.{1} V (w e i) t) (inst_2 (w e i) t)
+                  (@Nat.cast.{0} Real Real.instNatCast (BlockIdentities.Square.MatrixShape.volume (Dout e i)))
+                  (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)))
+              (μ e)))))
+ABI-END:identities_to_exponent.v2
+ABI-BEGIN:convolution_neighbor_degeneration.v2
+@BlockIdentities.Square.convolution_neighbor_degeneration.{u_1} : ∀ {K : Type u_1} [inst : Field.{u_1} K] (r b : PNat)
+  (hb : @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (PNat.val b)),
+  @BlockIdentities.Square.Degenerates.{u_1} K inst
+    (@BlockIdentities.Square.product.{u_1} K inst (@BlockIdentities.Square.convolution.{u_1} K inst r b)
+      (@BlockIdentities.Square.MatrixShape.tensor.{u_1} K inst BlockIdentities.Square.dotShape))
+    (@BlockIdentities.Square.neighborSplit.{u_1} K inst r b hb)
+ABI-END:convolution_neighbor_degeneration.v2
+ABI-BEGIN:convolution_tripling_degeneration.v2
+@BlockIdentities.Square.convolution_tripling_degeneration.{u_1} : ∀ {K : Type u_1} [inst : Field.{u_1} K] (r : PNat)
+  (hr : @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (PNat.val r)),
+  @BlockIdentities.Square.Degenerates.{u_1} K inst
+    (@BlockIdentities.Square.convolution.{u_1} K inst r
+      (@Subtype.mk.{1} Nat
+        (fun (n : Nat) => @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) n)
+        (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat)
+          (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+            (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))) (PNat.val r))
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        (BlockIdentities.Square.convolution_tripling_degeneration._proof_2 r hr)))
+    (@BlockIdentities.Square.triplingSplit.{u_1} K inst r hr)
+ABI-END:convolution_tripling_degeneration.v2
+ABI-BEGIN:tripling_middle_isomorphism.v2
+@BlockIdentities.Square.tripling_middle_isomorphism.{u_1} : ∀ {K : Type u_1} [inst : Field.{u_1} K] (r : PNat),
+  @BlockIdentities.Square.Isomorphic.{u_1} K inst (@BlockIdentities.Square.middleConvolution.{u_1} K inst r)
+    (@BlockIdentities.Square.permute.{u_1} K inst BlockIdentities.Square.LegPermutation.xzy
+      (@BlockIdentities.Square.convolution.{u_1} K inst r r))
+ABI-END:tripling_middle_isomorphism.v2
+ABI-BEGIN:convolution_boundary_isomorphism.v2
+@BlockIdentities.Square.convolution_boundary_isomorphism.{u_1} : ∀ {K : Type u_1} [inst : Field.{u_1} K] (r : PNat)
+  (hr : @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) (PNat.val r)),
+  @BlockIdentities.Square.Isomorphic.{u_1} K inst
+    (@BlockIdentities.Square.convolution.{u_1} K inst r
+      (@Subtype.mk.{1} Nat
+        (fun (n : Nat) => @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) n)
+        (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) (PNat.val r)
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        (BlockIdentities.Square.convolution_boundary_isomorphism._proof_2 r hr)))
+    (@BlockIdentities.Square.permute.{u_1} K inst BlockIdentities.Square.LegPermutation.yxz
+      (@BlockIdentities.Square.convolution.{u_1} K inst
+        (@Subtype.mk.{1} Nat
+          (fun (n : Nat) => @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) n)
+          (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) (PNat.val r)
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          (BlockIdentities.Square.convolution_boundary_isomorphism._proof_2 r hr))
+        r))
+ABI-END:convolution_boundary_isomorphism.v2
+ABI-BEGIN:finite_convolution_bound.v2
+BlockIdentities.Square.finite_convolution_bound.{u_1} : ∀ (F : Type u_1) [inst : Field.{u_1} F] (a : Nat)
+  (ha : @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) a),
+  @LE.le.{0} Real Real.instLE (@BlockIdentities.Arithmetic.formalOmega.{u_1} F inst)
+    (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+        (@OfNat.ofNat.{0} Real (nat_lit 3)
+          (@instOfNatAtLeastTwo.{0} Real (nat_lit 3) Real.instNatCast
+            (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+              (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))))
+        (Real.log
+          (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+              (@OfNat.ofNat.{0} Real (nat_lit 2)
+                (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+                  (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                    (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))))))
+              (@Nat.cast.{0} Real Real.instNatCast a))
+            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))))
+      (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+        (Real.log
+          (@OfNat.ofNat.{0} Real (nat_lit 2)
+            (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+              (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))))))
+        (Real.log
+          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+            (@HDiv.hDiv.{0, 0, 0} Real Real Real
+              (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+              (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                  (@OfNat.ofNat.{0} Real (nat_lit 3)
+                    (@instOfNatAtLeastTwo.{0} Real (nat_lit 3) Real.instNatCast
+                      (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                        (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))))
+                  (@Nat.cast.{0} Real Real.instNatCast a))
+                (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+              (@OfNat.ofNat.{0} Real (nat_lit 4)
+                (@instOfNatAtLeastTwo.{0} Real (nat_lit 4) Real.instNatCast
+                  (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                    (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))))))
+            (@Finset.prod.{0, 0} Nat Real Real.instCommMonoid
+              (@Finset.Icc.{0} Nat Nat.instPreorder Nat.instLocallyFiniteOrder
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) a
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+              fun (j : Nat) =>
+              @HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+                (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                  (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                  (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+                  (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                    (@OfNat.ofNat.{0} Real (nat_lit 3)
+                      (@instOfNatAtLeastTwo.{0} Real (nat_lit 3) Real.instNatCast
+                        (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                          (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))))
+                    (@Nat.cast.{0} Real Real.instNatCast j))))))))
+ABI-END:finite_convolution_bound.v2
+ABI-BEGIN:formalOmega_le_nine_quarters.v2
+BlockIdentities.Square.formalOmega_le_nine_quarters.{u_1} : ∀ (F : Type u_1) [inst : Field.{u_1} F],
+  @LE.le.{0} Real Real.instLE (@BlockIdentities.Arithmetic.formalOmega.{u_1} F inst)
+    (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+      (@OfNat.ofNat.{0} Real (nat_lit 9)
+        (@instOfNatAtLeastTwo.{0} Real (nat_lit 9) Real.instNatCast
+          (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 8) (instOfNatNat (nat_lit 8)))
+            (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 7) (instOfNatNat (nat_lit 7)))))))
+      (@OfNat.ofNat.{0} Real (nat_lit 4)
+        (@instOfNatAtLeastTwo.{0} Real (nat_lit 4) Real.instNatCast
+          (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+            (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))))))
+ABI-END:formalOmega_le_nine_quarters.v2
+ABI-BEGIN:formal_matrix_multiplication_cost_le.v2
+BlockIdentities.Square.formal_matrix_multiplication_cost_le.{u_1} : ∀ (F : Type u_1) [inst : Field.{u_1} F] (ε : Real)
+  (hε : @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) ε),
+  @Exists.{1} Real fun (C : Real) =>
+    And (@LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) C)
+      (∀ (n : Nat),
+        @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) n →
+          @Exists.{u_1 + 1} (OAI.MatrixMultiplication.Arithmetic.MatrixAlgorithm.{u_1} F n n n)
+            fun (P : OAI.MatrixMultiplication.Arithmetic.MatrixAlgorithm.{u_1} F n n n) =>
+            And (@BlockIdentities.Arithmetic.FormalCorrect.{u_1} F inst n n n P)
+              (@LE.le.{0} Real Real.instLE
+                (@Nat.cast.{0} Real Real.instNatCast
+                  (@OAI.MatrixMultiplication.Arithmetic.MatrixAlgorithm.cost.{u_1} F n n n P))
+                (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) C
+                  (@HPow.hPow.{0, 0, 0} Real Real Real (@instHPow.{0, 0} Real Real Real.instPow)
+                    (@Nat.cast.{0} Real Real.instNatCast n)
+                    (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                      (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                        (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                        (@OfNat.ofNat.{0} Real (nat_lit 9)
+                          (@instOfNatAtLeastTwo.{0} Real (nat_lit 9) Real.instNatCast
+                            (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 8) (instOfNatNat (nat_lit 8)))
+                              (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 7) (instOfNatNat (nat_lit 7)))))))
+                        (@OfNat.ofNat.{0} Real (nat_lit 4)
+                          (@instOfNatAtLeastTwo.{0} Real (nat_lit 4) Real.instNatCast
+                            (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                              (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))))))
+                      ε)))))
+ABI-END:formal_matrix_multiplication_cost_le.v2
+ABI-BEGIN:omega_le_nine_quarters.v2
+BlockIdentities.Square.omega_le_nine_quarters.{u_1} : ∀ (F : Type u_1) [inst : Field.{u_1} F],
+  @LE.le.{0} Real Real.instLE (@OAI.MatrixMultiplication.Arithmetic.omega.{u_1} F inst)
+    (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+      (@OfNat.ofNat.{0} Real (nat_lit 9)
+        (@instOfNatAtLeastTwo.{0} Real (nat_lit 9) Real.instNatCast
+          (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 8) (instOfNatNat (nat_lit 8)))
+            (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 7) (instOfNatNat (nat_lit 7)))))))
+      (@OfNat.ofNat.{0} Real (nat_lit 4)
+        (@instOfNatAtLeastTwo.{0} Real (nat_lit 4) Real.instNatCast
+          (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+            (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))))))
+ABI-END:omega_le_nine_quarters.v2
+ABI-BEGIN:rectangular.oriented_rank_asymptotics
+@BlockIdentities.Rectangular.oriented_rank_asymptotics.{u_1} : ∀ {F : Type u_1} [inst : Field.{u_1} F]
+  (u : BlockIdentities.Rectangular.Axis → NNReal) (d : BlockIdentities.Rectangular.Axis → Nat → Nat)
+  (hd :
+    ∀ (i : BlockIdentities.Rectangular.Axis) (j : Nat),
+      @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) (d i j))
+  (hrates :
+    ∀ (i : BlockIdentities.Rectangular.Axis),
+      @Filter.Tendsto.{0, 0} Nat Real
+        (fun (j : Nat) =>
+          @HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+            (Real.log (@Nat.cast.{0} Real Real.instNatCast (d i j)))
+            (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+              (@Nat.cast.{0} Real Real.instNatCast j)
+              (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))))
+        (@Filter.atTop.{0} Nat Nat.instPreorder)
+        (@nhds.{0} Real
+          (@UniformSpace.toTopologicalSpace.{0} Real
+            (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+          (NNReal.toReal (u i)))),
+  @Filter.Tendsto.{0, 0} Nat Real
+    (fun (j : Nat) =>
+      @HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+        (Real.log
+          (@Nat.cast.{0} Real Real.instNatCast
+            (@OAI.MatrixMultiplication.AuxiliarySeparation.exactRank.{u_1, 0, 0, 0} (@AlgebraicClosure.{u_1} F inst)
+              (@AlgebraicClosure.instField.{u_1} F inst)
+              (Prod.{0, 0}
+                (Fin
+                  (d
+                    (@OfNat.ofNat.{0} BlockIdentities.Rectangular.Axis (nat_lit 1)
+                      (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                        (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                        (nat_lit 1)))
+                    j))
+                (Fin
+                  (d
+                    (@OfNat.ofNat.{0} BlockIdentities.Rectangular.Axis (nat_lit 2)
+                      (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                        (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                        (nat_lit 2)))
+                    j)))
+              (Prod.{0, 0}
+                (Fin
+                  (d
+                    (@OfNat.ofNat.{0} BlockIdentities.Rectangular.Axis (nat_lit 2)
+                      (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                        (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                        (nat_lit 2)))
+                    j))
+                (Fin
+                  (d
+                    (@OfNat.ofNat.{0} BlockIdentities.Rectangular.Axis (nat_lit 0)
+                      (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                        (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                        (nat_lit 0)))
+                    j)))
+              (Prod.{0, 0}
+                (Fin
+                  (d
+                    (@OfNat.ofNat.{0} BlockIdentities.Rectangular.Axis (nat_lit 0)
+                      (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                        (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                        (nat_lit 0)))
+                    j))
+                (Fin
+                  (d
+                    (@OfNat.ofNat.{0} BlockIdentities.Rectangular.Axis (nat_lit 1)
+                      (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                        (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                        (nat_lit 1)))
+                    j)))
+              (@instFintypeProd.{0, 0}
+                (Fin
+                  (d
+                    (@OfNat.ofNat.{0} BlockIdentities.Rectangular.Axis (nat_lit 1)
+                      (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                        (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                        (nat_lit 1)))
+                    j))
+                (Fin
+                  (d
+                    (@OfNat.ofNat.{0} BlockIdentities.Rectangular.Axis (nat_lit 2)
+                      (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                        (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                        (nat_lit 2)))
+                    j))
+                (Fin.fintype
+                  (d
+                    (@OfNat.ofNat.{0} BlockIdentities.Rectangular.Axis (nat_lit 1)
+                      (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                        (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                        (nat_lit 1)))
+                    j))
+                (Fin.fintype
+                  (d
+                    (@OfNat.ofNat.{0} BlockIdentities.Rectangular.Axis (nat_lit 2)
+                      (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                        (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                        (nat_lit 2)))
+                    j)))
+              (@instFintypeProd.{0, 0}
+                (Fin
+                  (d
+                    (@OfNat.ofNat.{0} BlockIdentities.Rectangular.Axis (nat_lit 2)
+                      (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                        (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                        (nat_lit 2)))
+                    j))
+                (Fin
+                  (d
+                    (@OfNat.ofNat.{0} BlockIdentities.Rectangular.Axis (nat_lit 0)
+                      (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                        (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                        (nat_lit 0)))
+                    j))
+                (Fin.fintype
+                  (d
+                    (@OfNat.ofNat.{0} BlockIdentities.Rectangular.Axis (nat_lit 2)
+                      (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                        (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                        (nat_lit 2)))
+                    j))
+                (Fin.fintype
+                  (d
+                    (@OfNat.ofNat.{0} BlockIdentities.Rectangular.Axis (nat_lit 0)
+                      (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                        (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                        (nat_lit 0)))
+                    j)))
+              (@instFintypeProd.{0, 0}
+                (Fin
+                  (d
+                    (@OfNat.ofNat.{0} BlockIdentities.Rectangular.Axis (nat_lit 0)
+                      (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                        (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                        (nat_lit 0)))
+                    j))
+                (Fin
+                  (d
+                    (@OfNat.ofNat.{0} BlockIdentities.Rectangular.Axis (nat_lit 1)
+                      (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                        (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                        (nat_lit 1)))
+                    j))
+                (Fin.fintype
+                  (d
+                    (@OfNat.ofNat.{0} BlockIdentities.Rectangular.Axis (nat_lit 0)
+                      (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                        (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                        (nat_lit 0)))
+                    j))
+                (Fin.fintype
+                  (d
+                    (@OfNat.ofNat.{0} BlockIdentities.Rectangular.Axis (nat_lit 1)
+                      (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                        (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                        (nat_lit 1)))
+                    j)))
+              (@OAI.MatrixMultiplication.AuxiliarySeparation.matrixMultiplicationTensor.{u_1}
+                (@AlgebraicClosure.{u_1} F inst)
+                (@Semifield.toCommSemiring.{u_1} (@AlgebraicClosure.{u_1} F inst)
+                  (@Field.toSemifield.{u_1} (@AlgebraicClosure.{u_1} F inst)
+                    (@AlgebraicClosure.instField.{u_1} F inst)))
+                (d
+                  (@OfNat.ofNat.{0} BlockIdentities.Rectangular.Axis (nat_lit 1)
+                    (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                      (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 1)))
+                  j)
+                (d
+                  (@OfNat.ofNat.{0} BlockIdentities.Rectangular.Axis (nat_lit 2)
+                    (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                      (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 2)))
+                  j)
+                (d
+                  (@OfNat.ofNat.{0} BlockIdentities.Rectangular.Axis (nat_lit 0)
+                    (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                      (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 0)))
+                  j)))))
+        (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd) (@Nat.cast.{0} Real Real.instNatCast j)
+          (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))))
+    (@Filter.atTop.{0} Nat Nat.instPreorder)
+    (@nhds.{0} Real
+      (@UniformSpace.toTopologicalSpace.{0} Real (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+      (@BlockIdentities.Rectangular.orientedExponent.{u_1} F inst u))
+ABI-END:rectangular.oriented_rank_asymptotics
+ABI-BEGIN:rectangular.oriented_exponent_properties
+@BlockIdentities.Rectangular.oriented_exponent_properties.{u_1} : ∀ {F : Type u_1} [inst : Field.{u_1} F],
+  And
+    (@Eq.{1} Real
+      (@BlockIdentities.Rectangular.orientedExponent.{u_1} F inst
+        (@OfNat.ofNat.{0} (BlockIdentities.Rectangular.Axis → NNReal) (nat_lit 0)
+          (@Zero.toOfNat0.{0} (BlockIdentities.Rectangular.Axis → NNReal)
+            (@Pi.instZero.{0, 0} BlockIdentities.Rectangular.Axis (fun (a : BlockIdentities.Rectangular.Axis) => NNReal)
+              fun (i : BlockIdentities.Rectangular.Axis) => NNReal.instZero))))
+      (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)))
+    (And
+      (∀ (u v : BlockIdentities.Rectangular.Axis → NNReal),
+        @LE.le.{0} Real Real.instLE
+          (@BlockIdentities.Rectangular.orientedExponent.{u_1} F inst
+            (@HAdd.hAdd.{0, 0, 0} (BlockIdentities.Rectangular.Axis → NNReal)
+              (BlockIdentities.Rectangular.Axis → NNReal) (BlockIdentities.Rectangular.Axis → NNReal)
+              (@instHAdd.{0} (BlockIdentities.Rectangular.Axis → NNReal)
+                (@Pi.instAdd.{0, 0} BlockIdentities.Rectangular.Axis
+                  (fun (a : BlockIdentities.Rectangular.Axis) => NNReal) fun (i : BlockIdentities.Rectangular.Axis) =>
+                  @Distrib.toAdd.{0} NNReal (@instDistribOfSemiring.{0} NNReal NNReal.instSemiring)))
+              u v))
+          (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+            (@BlockIdentities.Rectangular.orientedExponent.{u_1} F inst u)
+            (@BlockIdentities.Rectangular.orientedExponent.{u_1} F inst v)))
+      (And
+        (∀ (t : NNReal) (u : BlockIdentities.Rectangular.Axis → NNReal),
+          @Eq.{1} Real
+            (@BlockIdentities.Rectangular.orientedExponent.{u_1} F inst
+              (@HSMul.hSMul.{0, 0, 0} NNReal (BlockIdentities.Rectangular.Axis → NNReal)
+                (BlockIdentities.Rectangular.Axis → NNReal)
+                (@instHSMul.{0, 0} NNReal (BlockIdentities.Rectangular.Axis → NNReal)
+                  (@Function.hasSMul.{0, 0, 0} BlockIdentities.Rectangular.Axis NNReal NNReal
+                    (@instSMulOfMul.{0} NNReal
+                      (@Distrib.toMul.{0} NNReal (@instDistribOfSemiring.{0} NNReal NNReal.instSemiring)))))
+                t u))
+            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (NNReal.toReal t)
+              (@BlockIdentities.Rectangular.orientedExponent.{u_1} F inst u)))
+        (And
+          (∀ (u v : BlockIdentities.Rectangular.Axis → NNReal),
+            (∀ (i : BlockIdentities.Rectangular.Axis),
+                @LE.le.{0} NNReal
+                  (@Preorder.toLE.{0} NNReal (@PartialOrder.toPreorder.{0} NNReal NNReal.instPartialOrder)) (u i)
+                  (v i)) →
+              @LE.le.{0} Real Real.instLE (@BlockIdentities.Rectangular.orientedExponent.{u_1} F inst u)
+                (@BlockIdentities.Rectangular.orientedExponent.{u_1} F inst v))
+          (∀ (u : BlockIdentities.Rectangular.Axis → NNReal) (i : BlockIdentities.Rectangular.Axis) (t : NNReal),
+            And
+              (@LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+                (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                  (@BlockIdentities.Rectangular.orientedExponent.{u_1} F inst
+                    (@HAdd.hAdd.{0, 0, 0} (BlockIdentities.Rectangular.Axis → NNReal)
+                      ((j : BlockIdentities.Rectangular.Axis) → NNReal) (BlockIdentities.Rectangular.Axis → NNReal)
+                      (@instHAdd.{0} (BlockIdentities.Rectangular.Axis → NNReal)
+                        (@Pi.instAdd.{0, 0} BlockIdentities.Rectangular.Axis
+                          (fun (a : BlockIdentities.Rectangular.Axis) => NNReal)
+                          fun (i : BlockIdentities.Rectangular.Axis) =>
+                          @Distrib.toAdd.{0} NNReal (@instDistribOfSemiring.{0} NNReal NNReal.instSemiring)))
+                      u
+                      (@Pi.single.{0, 0} BlockIdentities.Rectangular.Axis
+                        (fun (j : BlockIdentities.Rectangular.Axis) => NNReal)
+                        (fun (i : BlockIdentities.Rectangular.Axis) => NNReal.instZero)
+                        (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) i t)))
+                  (@BlockIdentities.Rectangular.orientedExponent.{u_1} F inst u)))
+              (@LE.le.{0} Real Real.instLE
+                (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                  (@BlockIdentities.Rectangular.orientedExponent.{u_1} F inst
+                    (@HAdd.hAdd.{0, 0, 0} (BlockIdentities.Rectangular.Axis → NNReal)
+                      ((j : BlockIdentities.Rectangular.Axis) → NNReal) (BlockIdentities.Rectangular.Axis → NNReal)
+                      (@instHAdd.{0} (BlockIdentities.Rectangular.Axis → NNReal)
+                        (@Pi.instAdd.{0, 0} BlockIdentities.Rectangular.Axis
+                          (fun (a : BlockIdentities.Rectangular.Axis) => NNReal)
+                          fun (i : BlockIdentities.Rectangular.Axis) =>
+                          @Distrib.toAdd.{0} NNReal (@instDistribOfSemiring.{0} NNReal NNReal.instSemiring)))
+                      u
+                      (@Pi.single.{0, 0} BlockIdentities.Rectangular.Axis
+                        (fun (j : BlockIdentities.Rectangular.Axis) => NNReal)
+                        (fun (i : BlockIdentities.Rectangular.Axis) => NNReal.instZero)
+                        (instDecidableEqFin (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))) i t)))
+                  (@BlockIdentities.Rectangular.orientedExponent.{u_1} F inst u))
+                (NNReal.toReal t))))))
+ABI-END:rectangular.oriented_exponent_properties
+ABI-BEGIN:rectangular.interior_support_exists
+@BlockIdentities.Rectangular.interior_support_exists.{u_1} : ∀ {F : Type u_1} [inst : Field.{u_1} F]
+  (v : BlockIdentities.Rectangular.Axis → NNReal)
+  (hv :
+    ∀ (i : BlockIdentities.Rectangular.Axis),
+      @LT.lt.{0} NNReal (@Preorder.toLT.{0} NNReal (@PartialOrder.toPreorder.{0} NNReal NNReal.instPartialOrder))
+        (@OfNat.ofNat.{0} NNReal (nat_lit 0) (@Zero.toOfNat0.{0} NNReal NNReal.instZero)) (v i)),
+  @Exists.{1} (@BlockIdentities.Rectangular.InteriorSupport.{u_1} F inst)
+    fun (S : @BlockIdentities.Rectangular.InteriorSupport.{u_1} F inst) =>
+    @Eq.{1} (BlockIdentities.Rectangular.Axis → NNReal)
+      (@BlockIdentities.Rectangular.InteriorSupport.direction.{u_1} F inst S) v
+ABI-END:rectangular.interior_support_exists
+ABI-BEGIN:rectangular.support_weight_bounds
+@BlockIdentities.Rectangular.support_weight_bounds.{u_1} : ∀ {F : Type u_1} [inst : Field.{u_1} F]
+  (S : @BlockIdentities.Rectangular.InteriorSupport.{u_1} F inst) (i : BlockIdentities.Rectangular.Axis),
+  @Membership.mem.{0, 0} Real (Set.{0} Real) (@Set.instMembership.{0} Real)
+    (@Set.Icc.{0} Real Real.instPreorder (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+      (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+    (@BlockIdentities.Rectangular.InteriorSupport.weight.{u_1} F inst S i)
+ABI-END:rectangular.support_weight_bounds
+ABI-BEGIN:rectangular.oriented_value_rank
+@BlockIdentities.Rectangular.oriented_value_rank.{u_1} : ∀ {F : Type u_1} [inst : Field.{u_1} F]
+  (S : @BlockIdentities.Rectangular.InteriorSupport.{u_1} F inst)
+  (T : @BlockIdentities.Rectangular.TensorOf.{u_1} F inst),
+  And (@Set.Nonempty.{0} Real (@BlockIdentities.Rectangular.orientedGains.{u_1} F inst S T))
+    (And (@BddAbove.{0} Real Real.instLE (@BlockIdentities.Rectangular.orientedGains.{u_1} F inst S T))
+      (And
+        (@LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+          (@BlockIdentities.Rectangular.orientedValue.{u_1} F inst S T))
+        (And
+          (@LE.le.{0} Real Real.instLE (@BlockIdentities.Rectangular.orientedValue.{u_1} F inst S T)
+            (@BlockIdentities.Rectangular.tensorAsymptoticRank.{u_1} (@AlgebraicClosure.{u_1} F inst)
+              (@AlgebraicClosure.instField.{u_1} F inst) T))
+          (∀ (r : Nat),
+            @BlockIdentities.Square.BorderRankAtMost.{u_1} (@AlgebraicClosure.{u_1} F inst)
+                (@AlgebraicClosure.instField.{u_1} F inst)
+                (@Subtype.val.{u_1 + 1}
+                  (@BlockIdentities.FiniteTensor.{u_1} (@AlgebraicClosure.{u_1} F inst)
+                    (@AlgebraicClosure.instField.{u_1} F inst))
+                  (fun
+                      (A :
+                        @BlockIdentities.FiniteTensor.{u_1} (@AlgebraicClosure.{u_1} F inst)
+                          (@AlgebraicClosure.instField.{u_1} F inst)) =>
+                    @BlockIdentities.Square.Nonzero.{u_1} (@AlgebraicClosure.{u_1} F inst)
+                      (@AlgebraicClosure.instField.{u_1} F inst) A)
+                  T)
+                r →
+              @LE.le.{0} Real Real.instLE
+                (@BlockIdentities.Rectangular.tensorAsymptoticRank.{u_1} (@AlgebraicClosure.{u_1} F inst)
+                  (@AlgebraicClosure.instField.{u_1} F inst) T)
+                (@Nat.cast.{0} Real Real.instNatCast r)))))
+ABI-END:rectangular.oriented_value_rank
+ABI-BEGIN:rectangular.oriented_value_properties
+@BlockIdentities.Rectangular.oriented_value_properties.{u_1} : ∀ {F : Type u_1} [inst : Field.{u_1} F]
+  (S : @BlockIdentities.Rectangular.InteriorSupport.{u_1} F inst),
+  And
+    (∀ (T U : @BlockIdentities.Rectangular.TensorOf.{u_1} F inst),
+      @BlockIdentities.Square.AsymptoticallyRestricts.{u_1} (@AlgebraicClosure.{u_1} F inst)
+          (@AlgebraicClosure.instField.{u_1} F inst)
+          (@Subtype.val.{u_1 + 1}
+            (@BlockIdentities.FiniteTensor.{u_1} (@AlgebraicClosure.{u_1} F inst)
+              (@AlgebraicClosure.instField.{u_1} F inst))
+            (fun
+                (A :
+                  @BlockIdentities.FiniteTensor.{u_1} (@AlgebraicClosure.{u_1} F inst)
+                    (@AlgebraicClosure.instField.{u_1} F inst)) =>
+              @BlockIdentities.Square.Nonzero.{u_1} (@AlgebraicClosure.{u_1} F inst)
+                (@AlgebraicClosure.instField.{u_1} F inst) A)
+            T)
+          (@Subtype.val.{u_1 + 1}
+            (@BlockIdentities.FiniteTensor.{u_1} (@AlgebraicClosure.{u_1} F inst)
+              (@AlgebraicClosure.instField.{u_1} F inst))
+            (fun
+                (A :
+                  @BlockIdentities.FiniteTensor.{u_1} (@AlgebraicClosure.{u_1} F inst)
+                    (@AlgebraicClosure.instField.{u_1} F inst)) =>
+              @BlockIdentities.Square.Nonzero.{u_1} (@AlgebraicClosure.{u_1} F inst)
+                (@AlgebraicClosure.instField.{u_1} F inst) A)
+            U) →
+        @LE.le.{0} Real Real.instLE (@BlockIdentities.Rectangular.orientedValue.{u_1} F inst S U)
+          (@BlockIdentities.Rectangular.orientedValue.{u_1} F inst S T))
+    (And
+      (∀ (T : @BlockIdentities.Rectangular.TensorOf.{u_1} F inst) (k : Nat),
+        @Eq.{1} Real
+          (@BlockIdentities.Rectangular.orientedValue.{u_1} F inst S
+            (@BlockIdentities.Square.NonzeroTensor.power.{u_1} (@AlgebraicClosure.{u_1} F inst)
+              (@AlgebraicClosure.instField.{u_1} F inst) T k))
+          (@HPow.hPow.{0, 0, 0} Real Nat Real
+            (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+            (@BlockIdentities.Rectangular.orientedValue.{u_1} F inst S T) k))
+      (And
+        (∀ (T U : @BlockIdentities.Rectangular.TensorOf.{u_1} F inst),
+          @LE.le.{0} Real Real.instLE
+            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+              (@BlockIdentities.Rectangular.orientedValue.{u_1} F inst S T)
+              (@BlockIdentities.Rectangular.orientedValue.{u_1} F inst S U))
+            (@BlockIdentities.Rectangular.orientedValue.{u_1} F inst S
+              (@BlockIdentities.Square.NonzeroTensor.product.{u_1} (@AlgebraicClosure.{u_1} F inst)
+                (@AlgebraicClosure.instField.{u_1} F inst) T U)))
+        (And
+          (∀ (T U : @BlockIdentities.Rectangular.TensorOf.{u_1} F inst),
+            @LE.le.{0} Real Real.instLE
+              (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                (@BlockIdentities.Rectangular.orientedValue.{u_1} F inst S T)
+                (@BlockIdentities.Rectangular.orientedValue.{u_1} F inst S U))
+              (@BlockIdentities.Rectangular.orientedValue.{u_1} F inst S
+                (@BlockIdentities.Square.NonzeroTensor.sum.{u_1} (@AlgebraicClosure.{u_1} F inst)
+                  (@AlgebraicClosure.instField.{u_1} F inst) T U)))
+          (And
+            (∀ (T : @BlockIdentities.Rectangular.TensorOf.{u_1} F inst) (D : BlockIdentities.Square.MatrixShape),
+              @Eq.{1} Real
+                (@BlockIdentities.Rectangular.orientedValue.{u_1} F inst S
+                  (@BlockIdentities.Square.NonzeroTensor.product.{u_1} (@AlgebraicClosure.{u_1} F inst)
+                    (@AlgebraicClosure.instField.{u_1} F inst) T
+                    (@BlockIdentities.Square.MatrixShape.nonzeroTensor.{u_1} (@AlgebraicClosure.{u_1} F inst)
+                      (@AlgebraicClosure.instField.{u_1} F inst) D)))
+                (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                  (@BlockIdentities.Rectangular.matrixWeight.{u_1} F inst S D)
+                  (@BlockIdentities.Rectangular.orientedValue.{u_1} F inst S T)))
+            (∀ (D : BlockIdentities.Square.MatrixShape),
+              @Eq.{1} Real
+                (@BlockIdentities.Rectangular.orientedValue.{u_1} F inst S
+                  (@BlockIdentities.Square.MatrixShape.nonzeroTensor.{u_1} (@AlgebraicClosure.{u_1} F inst)
+                    (@AlgebraicClosure.instField.{u_1} F inst) D))
+                (@BlockIdentities.Rectangular.matrixWeight.{u_1} F inst S D))))))
+ABI-END:rectangular.oriented_value_properties
+ABI-BEGIN:rectangular.oriented_general_extraction
+@BlockIdentities.Rectangular.oriented_general_extraction.{u_1} : ∀ {F : Type u_1} [inst : Field.{u_1} F] {ι : Type}
+  [inst_1 : Fintype.{0} ι] (S : @BlockIdentities.Rectangular.InteriorSupport.{u_1} F inst)
+  (A : @BlockIdentities.Rectangular.TensorOf.{u_1} F inst) (B : ι → @BlockIdentities.Rectangular.TensorOf.{u_1} F inst)
+  (n u h : Nat → Nat) (m : ι → Nat → Nat) (D E : Nat → BlockIdentities.Square.MatrixShape)
+  (hn : ∀ (j : Nat), @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) (n j))
+  (hu : ∀ (j : Nat), @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) (u j))
+  (hh : ∀ (j : Nat), @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) (h j))
+  (hntop :
+    @Filter.Tendsto.{0, 0} Nat Nat n (@Filter.atTop.{0} Nat Nat.instPreorder) (@Filter.atTop.{0} Nat Nat.instPreorder))
+  (hconvert :
+    ∀ (j : Nat),
+      @BlockIdentities.Square.AsymptoticallyRestricts.{u_1} (@AlgebraicClosure.{u_1} F inst)
+        (@AlgebraicClosure.instField.{u_1} F inst)
+        (@BlockIdentities.Square.copies.{u_1} (@AlgebraicClosure.{u_1} F inst)
+          (@AlgebraicClosure.instField.{u_1} F inst) (u j)
+          (@BlockIdentities.Square.product.{u_1} (@AlgebraicClosure.{u_1} F inst)
+            (@AlgebraicClosure.instField.{u_1} F inst)
+            (@BlockIdentities.Square.power.{u_1} (@AlgebraicClosure.{u_1} F inst)
+              (@AlgebraicClosure.instField.{u_1} F inst)
+              (@Subtype.val.{u_1 + 1}
+                (@BlockIdentities.FiniteTensor.{u_1} (@AlgebraicClosure.{u_1} F inst)
+                  (@AlgebraicClosure.instField.{u_1} F inst))
+                (fun
+                    (A :
+                      @BlockIdentities.FiniteTensor.{u_1} (@AlgebraicClosure.{u_1} F inst)
+                        (@AlgebraicClosure.instField.{u_1} F inst)) =>
+                  @BlockIdentities.Square.Nonzero.{u_1} (@AlgebraicClosure.{u_1} F inst)
+                    (@AlgebraicClosure.instField.{u_1} F inst) A)
+                A)
+              (n j))
+            (@BlockIdentities.Square.MatrixShape.tensor.{u_1} (@AlgebraicClosure.{u_1} F inst)
+              (@AlgebraicClosure.instField.{u_1} F inst) (D j))))
+        (@BlockIdentities.Square.copies.{u_1} (@AlgebraicClosure.{u_1} F inst)
+          (@AlgebraicClosure.instField.{u_1} F inst) (h j)
+          (@BlockIdentities.Square.product.{u_1} (@AlgebraicClosure.{u_1} F inst)
+            (@AlgebraicClosure.instField.{u_1} F inst)
+            (@BlockIdentities.Square.tensorProductList.{u_1} (@AlgebraicClosure.{u_1} F inst)
+              (@AlgebraicClosure.instField.{u_1} F inst)
+              (@List.ofFn.{u_1}
+                (@BlockIdentities.FiniteTensor.{u_1} (@AlgebraicClosure.{u_1} F inst)
+                  (@AlgebraicClosure.instField.{u_1} F inst))
+                (@Fintype.card.{0} ι inst_1) fun (l : Fin (@Fintype.card.{0} ι inst_1)) =>
+                have i : ι :=
+                  @DFunLike.coe.{1, 1, 1} (Equiv.{1, 1} (Fin (@Fintype.card.{0} ι inst_1)) ι)
+                    (Fin (@Fintype.card.{0} ι inst_1)) (fun (x : Fin (@Fintype.card.{0} ι inst_1)) => ι)
+                    (@EquivLike.toFunLike.{1, 1, 1} (Equiv.{1, 1} (Fin (@Fintype.card.{0} ι inst_1)) ι)
+                      (Fin (@Fintype.card.{0} ι inst_1)) ι
+                      (@Equiv.instEquivLike.{1, 1} (Fin (@Fintype.card.{0} ι inst_1)) ι))
+                    (@Equiv.symm.{1, 1} ι (Fin (@Fintype.card.{0} ι inst_1)) (@Fintype.equivFin.{0} ι inst_1)) l;
+                @BlockIdentities.Square.power.{u_1} (@AlgebraicClosure.{u_1} F inst)
+                  (@AlgebraicClosure.instField.{u_1} F inst)
+                  (@Subtype.val.{u_1 + 1}
+                    (@BlockIdentities.FiniteTensor.{u_1} (@AlgebraicClosure.{u_1} F inst)
+                      (@AlgebraicClosure.instField.{u_1} F inst))
+                    (fun
+                        (A :
+                          @BlockIdentities.FiniteTensor.{u_1} (@AlgebraicClosure.{u_1} F inst)
+                            (@AlgebraicClosure.instField.{u_1} F inst)) =>
+                      @BlockIdentities.Square.Nonzero.{u_1} (@AlgebraicClosure.{u_1} F inst)
+                        (@AlgebraicClosure.instField.{u_1} F inst) A)
+                    (B i))
+                  (m i j)))
+            (@BlockIdentities.Square.MatrixShape.tensor.{u_1} (@AlgebraicClosure.{u_1} F inst)
+              (@AlgebraicClosure.instField.{u_1} F inst) (E j)))))
+  (q : ι → Real) (α : Real) (β : BlockIdentities.Rectangular.Axis → Real)
+  (hu_rate :
+    @Filter.Tendsto.{0, 0} Nat Real
+      (fun (j : Nat) =>
+        @HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+          (Real.log (@Nat.cast.{0} Real Real.instNatCast (u j))) (@Nat.cast.{0} Real Real.instNatCast (n j)))
+      (@Filter.atTop.{0} Nat Nat.instPreorder)
+      (@nhds.{0} Real
+        (@UniformSpace.toTopologicalSpace.{0} Real (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+        (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))))
+  (hm_rate :
+    ∀ (i : ι),
+      @Filter.Tendsto.{0, 0} Nat Real
+        (fun (j : Nat) =>
+          @HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+            (@Nat.cast.{0} Real Real.instNatCast (m i j)) (@Nat.cast.{0} Real Real.instNatCast (n j)))
+        (@Filter.atTop.{0} Nat Nat.instPreorder)
+        (@nhds.{0} Real
+          (@UniformSpace.toTopologicalSpace.{0} Real
+            (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+          (q i)))
+  (hh_rate :
+    @Filter.Tendsto.{0, 0} Nat Real
+      (fun (j : Nat) =>
+        @HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+          (Real.log (@Nat.cast.{0} Real Real.instNatCast (h j))) (@Nat.cast.{0} Real Real.instNatCast (n j)))
+      (@Filter.atTop.{0} Nat Nat.instPreorder)
+      (@nhds.{0} Real
+        (@UniformSpace.toTopologicalSpace.{0} Real (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+        α))
+  (hdim_rate :
+    ∀ (i : BlockIdentities.Rectangular.Axis),
+      @Filter.Tendsto.{0, 0} Nat Real
+        (fun (j : Nat) =>
+          @HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+            (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+              (BlockIdentities.Rectangular.logDotDimensions (E j) i)
+              (BlockIdentities.Rectangular.logDotDimensions (D j) i))
+            (@Nat.cast.{0} Real Real.instNatCast (n j)))
+        (@Filter.atTop.{0} Nat Nat.instPreorder)
+        (@nhds.{0} Real
+          (@UniformSpace.toTopologicalSpace.{0} Real
+            (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+          (β i))),
+  @GE.ge.{0} Real Real.instLE (Real.log (@BlockIdentities.Rectangular.orientedValue.{u_1} F inst S A))
+    (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+      (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+        (@Finset.sum.{0, 0} ι Real Real.instAddCommMonoid (@Finset.univ.{0} ι inst_1) fun (i : ι) =>
+          @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (q i)
+            (Real.log (@BlockIdentities.Rectangular.orientedValue.{u_1} F inst S (B i))))
+        α)
+      (@Finset.sum.{0, 0} BlockIdentities.Rectangular.Axis Real Real.instAddCommMonoid
+        (@Finset.univ.{0} BlockIdentities.Rectangular.Axis
+          (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))))
+        fun (i : BlockIdentities.Rectangular.Axis) =>
+        @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+          (@BlockIdentities.Rectangular.InteriorSupport.weight.{u_1} F inst S i) (β i)))
+ABI-END:rectangular.oriented_general_extraction
+ABI-BEGIN:rectangular.oriented_shared_leg_entropy
+@BlockIdentities.Rectangular.oriented_shared_leg_entropy.{u_1} : ∀ {F : Type u_1} [inst : Field.{u_1} F] {ι : Type}
+  [inst_1 : Fintype.{0} ι] (S : @BlockIdentities.Rectangular.InteriorSupport.{u_1} F inst)
+  (A : @BlockIdentities.Rectangular.TensorOf.{u_1} F inst) (B : ι → @BlockIdentities.Rectangular.TensorOf.{u_1} F inst)
+  (D : BlockIdentities.Square.MatrixShape) (E : ι → BlockIdentities.Square.MatrixShape)
+  (identity :
+    @BlockIdentities.Square.SharedLegIdentity.{u_1} (@AlgebraicClosure.{u_1} F inst)
+      (@AlgebraicClosure.instField.{u_1} F inst) ι inst_1
+      (@Subtype.val.{u_1 + 1}
+        (@BlockIdentities.FiniteTensor.{u_1} (@AlgebraicClosure.{u_1} F inst)
+          (@AlgebraicClosure.instField.{u_1} F inst))
+        (fun
+            (A :
+              @BlockIdentities.FiniteTensor.{u_1} (@AlgebraicClosure.{u_1} F inst)
+                (@AlgebraicClosure.instField.{u_1} F inst)) =>
+          @BlockIdentities.Square.Nonzero.{u_1} (@AlgebraicClosure.{u_1} F inst)
+            (@AlgebraicClosure.instField.{u_1} F inst) A)
+        A)
+      (fun (i : ι) =>
+        @Subtype.val.{u_1 + 1}
+          (@BlockIdentities.FiniteTensor.{u_1} (@AlgebraicClosure.{u_1} F inst)
+            (@AlgebraicClosure.instField.{u_1} F inst))
+          (fun
+              (A :
+                @BlockIdentities.FiniteTensor.{u_1} (@AlgebraicClosure.{u_1} F inst)
+                  (@AlgebraicClosure.instField.{u_1} F inst)) =>
+            @BlockIdentities.Square.Nonzero.{u_1} (@AlgebraicClosure.{u_1} F inst)
+              (@AlgebraicClosure.instField.{u_1} F inst) A)
+          (B i))
+      D E)
+  (q : ι → Real)
+  (hq :
+    ∀ (i : ι),
+      @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) (q i))
+  (hsum :
+    @Eq.{1} Real (@Finset.sum.{0, 0} ι Real Real.instAddCommMonoid (@Finset.univ.{0} ι inst_1) fun (i : ι) => q i)
+      (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))),
+  @GE.ge.{0} Real Real.instLE
+    (Real.log
+      (@BlockIdentities.Rectangular.orientedValue.{u_1} F inst S
+        (@BlockIdentities.Square.NonzeroTensor.permute.{u_1} (@AlgebraicClosure.{u_1} F inst)
+          (@AlgebraicClosure.instField.{u_1} F inst)
+          (@BlockIdentities.Square.NonzeroTensor.product.{u_1} (@AlgebraicClosure.{u_1} F inst)
+            (@AlgebraicClosure.instField.{u_1} F inst) A
+            (@BlockIdentities.Square.MatrixShape.nonzeroTensor.{u_1} (@AlgebraicClosure.{u_1} F inst)
+              (@AlgebraicClosure.instField.{u_1} F inst) D))
+          (@BlockIdentities.Square.SharedLegIdentity.sourcePermutation.{u_1} (@AlgebraicClosure.{u_1} F inst)
+            (@AlgebraicClosure.instField.{u_1} F inst) ι inst_1
+            (@Subtype.val.{u_1 + 1}
+              (@BlockIdentities.FiniteTensor.{u_1} (@AlgebraicClosure.{u_1} F inst)
+                (@AlgebraicClosure.instField.{u_1} F inst))
+              (fun
+                  (A :
+                    @BlockIdentities.FiniteTensor.{u_1} (@AlgebraicClosure.{u_1} F inst)
+                      (@AlgebraicClosure.instField.{u_1} F inst)) =>
+                @BlockIdentities.Square.Nonzero.{u_1} (@AlgebraicClosure.{u_1} F inst)
+                  (@AlgebraicClosure.instField.{u_1} F inst) A)
+              A)
+            (fun (i : ι) =>
+              @Subtype.val.{u_1 + 1}
+                (@BlockIdentities.FiniteTensor.{u_1} (@AlgebraicClosure.{u_1} F inst)
+                  (@AlgebraicClosure.instField.{u_1} F inst))
+                (fun
+                    (A :
+                      @BlockIdentities.FiniteTensor.{u_1} (@AlgebraicClosure.{u_1} F inst)
+                        (@AlgebraicClosure.instField.{u_1} F inst)) =>
+                  @BlockIdentities.Square.Nonzero.{u_1} (@AlgebraicClosure.{u_1} F inst)
+                    (@AlgebraicClosure.instField.{u_1} F inst) A)
+                (B i))
+            D E identity))))
+    (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+        (@BlockIdentities.Rectangular.InteriorSupport.weight.{u_1} F inst S
+          (@OfNat.ofNat.{0} BlockIdentities.Rectangular.Axis (nat_lit 0)
+            (@Fin.instOfNat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+              (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) (nat_lit 0))))
+        (@OAI.MatrixMultiplication.Foundation.finiteEntropy.{0} ι inst_1 q))
+      (@Finset.sum.{0, 0} ι Real Real.instAddCommMonoid (@Finset.univ.{0} ι inst_1) fun (i : ι) =>
+        @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (q i)
+          (Real.log
+            (@BlockIdentities.Rectangular.orientedValue.{u_1} F inst S
+              (@BlockIdentities.Square.NonzeroTensor.permute.{u_1} (@AlgebraicClosure.{u_1} F inst)
+                (@AlgebraicClosure.instField.{u_1} F inst)
+                (@BlockIdentities.Square.NonzeroTensor.product.{u_1} (@AlgebraicClosure.{u_1} F inst)
+                  (@AlgebraicClosure.instField.{u_1} F inst) (B i)
+                  (@BlockIdentities.Square.MatrixShape.nonzeroTensor.{u_1} (@AlgebraicClosure.{u_1} F inst)
+                    (@AlgebraicClosure.instField.{u_1} F inst) (E i)))
+                (@BlockIdentities.Square.SharedLegIdentity.outputPermutation.{u_1} (@AlgebraicClosure.{u_1} F inst)
+                  (@AlgebraicClosure.instField.{u_1} F inst) ι inst_1
+                  (@Subtype.val.{u_1 + 1}
+                    (@BlockIdentities.FiniteTensor.{u_1} (@AlgebraicClosure.{u_1} F inst)
+                      (@AlgebraicClosure.instField.{u_1} F inst))
+                    (fun
+                        (A :
+                          @BlockIdentities.FiniteTensor.{u_1} (@AlgebraicClosure.{u_1} F inst)
+                            (@AlgebraicClosure.instField.{u_1} F inst)) =>
+                      @BlockIdentities.Square.Nonzero.{u_1} (@AlgebraicClosure.{u_1} F inst)
+                        (@AlgebraicClosure.instField.{u_1} F inst) A)
+                    A)
+                  (fun (i : ι) =>
+                    @Subtype.val.{u_1 + 1}
+                      (@BlockIdentities.FiniteTensor.{u_1} (@AlgebraicClosure.{u_1} F inst)
+                        (@AlgebraicClosure.instField.{u_1} F inst))
+                      (fun
+                          (A :
+                            @BlockIdentities.FiniteTensor.{u_1} (@AlgebraicClosure.{u_1} F inst)
+                              (@AlgebraicClosure.instField.{u_1} F inst)) =>
+                        @BlockIdentities.Square.Nonzero.{u_1} (@AlgebraicClosure.{u_1} F inst)
+                          (@AlgebraicClosure.instField.{u_1} F inst) A)
+                      (B i))
+                  D E identity i))))))
+ABI-END:rectangular.oriented_shared_leg_entropy
+ABI-BEGIN:rectangular.convolution_general_tripling
+@BlockIdentities.Rectangular.convolution_general_tripling.{u_1} : ∀ {K : Type u_1} [inst : Field.{u_1} K] (r s : PNat),
+  @BlockIdentities.Square.Degenerates.{u_1} K inst
+    (@BlockIdentities.Square.convolution.{u_1} K inst r
+      (@Subtype.mk.{1} Nat
+        (fun (n : Nat) => @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) n)
+        (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat)
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+            (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+              (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) (PNat.val s))
+            (PNat.val r))
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        (BlockIdentities.Rectangular.convolution_general_tripling._proof_2 r s)))
+    (@BlockIdentities.Rectangular.generalTriplingSplit.{u_1} K inst r s)
+ABI-END:rectangular.convolution_general_tripling
+ABI-BEGIN:rectangular.convolution_replication
+@BlockIdentities.Rectangular.convolution_replication.{u_1} : ∀ {F : Type u_1} [inst : Field.{u_1} F] (m r s : PNat),
+  @BlockIdentities.Square.Degenerates.{u_1} (@AlgebraicClosure.{u_1} F inst) (@AlgebraicClosure.instField.{u_1} F inst)
+    (@BlockIdentities.Square.convolution.{u_1} (@AlgebraicClosure.{u_1} F inst)
+      (@AlgebraicClosure.instField.{u_1} F inst)
+      (@HMul.hMul.{0, 0, 0} PNat PNat PNat (@instHMul.{0} PNat instMulPNat) m r)
+      (@HMul.hMul.{0, 0, 0} PNat PNat PNat (@instHMul.{0} PNat instMulPNat) m s))
+    (@BlockIdentities.Square.copies.{u_1} (@AlgebraicClosure.{u_1} F inst) (@AlgebraicClosure.instField.{u_1} F inst)
+      (PNat.val m)
+      (@BlockIdentities.Square.convolution.{u_1} (@AlgebraicClosure.{u_1} F inst)
+        (@AlgebraicClosure.instField.{u_1} F inst) r s))
+ABI-END:rectangular.convolution_replication
+ABI-BEGIN:rectangular.support_angular_constraint
+@BlockIdentities.Rectangular.support_angular_constraint.{u_1} : ∀ {F : Type u_1} [inst : Field.{u_1} F]
+  (S : @BlockIdentities.Rectangular.InteriorSupport.{u_1} F inst),
+  @LE.le.{0} Real Real.instLE
+    (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+      Real.pi
+      (@OfNat.ofNat.{0} Real (nat_lit 2)
+        (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+          (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+            (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))))))
+    (@Finset.sum.{0, 0} BlockIdentities.Rectangular.Axis Real Real.instAddCommMonoid
+      (@Finset.univ.{0} BlockIdentities.Rectangular.Axis
+        (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))))
+      fun (i : BlockIdentities.Rectangular.Axis) =>
+      Real.arccos (Real.sqrt (@BlockIdentities.Rectangular.InteriorSupport.weight.{u_1} F inst S i)))
+ABI-END:rectangular.support_angular_constraint
+ABI-BEGIN:rectangular.formalShapeOmega_eq_algebraicClosure
+BlockIdentities.Rectangular.formalShapeOmega_eq_algebraicClosure.{u_1} : ∀ (F : Type u_1) [inst : Field.{u_1} F]
+  (a b c : NNReal),
+  @Eq.{1} Real (@BlockIdentities.Arithmetic.formalShapeOmega.{u_1} F inst a b c)
+    (@BlockIdentities.Arithmetic.formalShapeOmega.{u_1} (@AlgebraicClosure.{u_1} F inst)
+      (@AlgebraicClosure.instField.{u_1} F inst) a b c)
+ABI-END:rectangular.formalShapeOmega_eq_algebraicClosure
+ABI-BEGIN:rectangular.formalShapeOmega_general_bound
+BlockIdentities.Rectangular.formalShapeOmega_general_bound.{u_1} : ∀ (F : Type u_1) [inst : Field.{u_1} F]
+  (a b c : NNReal)
+  (hab :
+    @LE.le.{0} NNReal (@Preorder.toLE.{0} NNReal (@PartialOrder.toPreorder.{0} NNReal NNReal.instPartialOrder)) b a)
+  (hbc :
+    @LE.le.{0} NNReal (@Preorder.toLE.{0} NNReal (@PartialOrder.toPreorder.{0} NNReal NNReal.instPartialOrder)) c b)
+  (hc :
+    @LT.lt.{0} NNReal (@Preorder.toLT.{0} NNReal (@PartialOrder.toPreorder.{0} NNReal NNReal.instPartialOrder))
+      (@OfNat.ofNat.{0} NNReal (nat_lit 0) (@Zero.toOfNat0.{0} NNReal NNReal.instZero)) c),
+  @LE.le.{0} Real Real.instLE (@BlockIdentities.Arithmetic.formalShapeOmega.{u_1} F inst a b c)
+    (@ite.{1} Real
+      (@LE.le.{0} Real Real.instLE (NNReal.toReal c)
+        (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (NNReal.toReal a) (NNReal.toReal b))
+          (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd) (NNReal.toReal a) (NNReal.toReal b))))
+      (Real.decidableLE (NNReal.toReal c)
+        (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (NNReal.toReal a) (NNReal.toReal b))
+          (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd) (NNReal.toReal a) (NNReal.toReal b))))
+      (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd) (NNReal.toReal a) (NNReal.toReal b))
+      (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+        (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+          (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+            (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd) (NNReal.toReal a) (NNReal.toReal b))
+            (NNReal.toReal c))
+          (@OfNat.ofNat.{0} Real (nat_lit 2)
+            (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+              (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))))))
+        (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+          (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+            (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+              (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (NNReal.toReal a)
+                  (NNReal.toReal b))
+                (NNReal.toReal c))
+              (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (NNReal.toReal a)
+                  (NNReal.toReal c))
+                (NNReal.toReal b)))
+            (@HDiv.hDiv.{0, 0, 0} Real Real Real
+              (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+              (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (NNReal.toReal b)
+                (NNReal.toReal c))
+              (NNReal.toReal a)))
+          (@OfNat.ofNat.{0} Real (nat_lit 4)
+            (@instOfNatAtLeastTwo.{0} Real (nat_lit 4) Real.instNatCast
+              (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))))))))
+ABI-END:rectangular.formalShapeOmega_general_bound
+ABI-BEGIN:rectangular.formalRectangularOmega_curve
+BlockIdentities.Rectangular.formalRectangularOmega_curve.{u_1} : ∀ (F : Type u_1) [inst : Field.{u_1} F] (k : Real)
+  (hk : @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) k),
+  @LE.le.{0} Real Real.instLE (@BlockIdentities.Arithmetic.formalRectangularOmega.{u_1} F inst k)
+    (@ite.{1} Real
+      (@LE.le.{0} Real Real.instLE k
+        (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+          (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+          (@OfNat.ofNat.{0} Real (nat_lit 2)
+            (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+              (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))))))))
+      (Real.decidableLE k
+        (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+          (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+          (@OfNat.ofNat.{0} Real (nat_lit 2)
+            (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+              (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))))))))
+      (@OfNat.ofNat.{0} Real (nat_lit 2)
+        (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+          (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+            (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))))))
+      (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+        (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+          (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) k)
+        (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+          (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+            (@OfNat.ofNat.{0} Real (nat_lit 4)
+              (@instOfNatAtLeastTwo.{0} Real (nat_lit 4) Real.instNatCast
+                (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                  (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))))
+            k))))
+ABI-END:rectangular.formalRectangularOmega_curve
+ABI-BEGIN:rectangular.formal_rectangular_cost_le
+BlockIdentities.Rectangular.formal_rectangular_cost_le.{u_1} : ∀ (F : Type u_1) [inst : Field.{u_1} F] (k : Real)
+  (hk : @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) k)
+  (ε : Real)
+  (hε : @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) ε),
+  @Exists.{1} Real fun (C : Real) =>
+    And (@LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) C)
+      (∀ (n : Nat),
+        @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) n →
+          @Exists.{u_1 + 1}
+            (OAI.MatrixMultiplication.Arithmetic.MatrixAlgorithm.{u_1} F n
+              (OAI.MatrixMultiplication.Arithmetic.innerSize n k) n)
+            fun
+              (P :
+                OAI.MatrixMultiplication.Arithmetic.MatrixAlgorithm.{u_1} F n
+                  (OAI.MatrixMultiplication.Arithmetic.innerSize n k) n) =>
+            And
+              (@BlockIdentities.Arithmetic.FormalCorrect.{u_1} F inst n
+                (OAI.MatrixMultiplication.Arithmetic.innerSize n k) n P)
+              (@LE.le.{0} Real Real.instLE
+                (@Nat.cast.{0} Real Real.instNatCast
+                  (@OAI.MatrixMultiplication.Arithmetic.MatrixAlgorithm.cost.{u_1} F n
+                    (OAI.MatrixMultiplication.Arithmetic.innerSize n k) n P))
+                (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) C
+                  (@HPow.hPow.{0, 0, 0} Real Real Real (@instHPow.{0, 0} Real Real Real.instPow)
+                    (@Nat.cast.{0} Real Real.instNatCast n)
+                    (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                      (@ite.{1} Real
+                        (@LE.le.{0} Real Real.instLE k
+                          (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                            (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+                            (@OfNat.ofNat.{0} Real (nat_lit 2)
+                              (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+                                (@Nat.instAtLeastTwoHAddOfNat
+                                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                                  (@Nat.instNeZeroSucc
+                                    (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))))))))
+                        (Real.decidableLE k
+                          (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                            (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+                            (@OfNat.ofNat.{0} Real (nat_lit 2)
+                              (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+                                (@Nat.instAtLeastTwoHAddOfNat
+                                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                                  (@Nat.instNeZeroSucc
+                                    (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))))))))
+                        (@OfNat.ofNat.{0} Real (nat_lit 2)
+                          (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+                            (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                              (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))))))
+                        (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                          (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) k)
+                          (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                            (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+                            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                              (@OfNat.ofNat.{0} Real (nat_lit 4)
+                                (@instOfNatAtLeastTwo.{0} Real (nat_lit 4) Real.instNatCast
+                                  (@Nat.instAtLeastTwoHAddOfNat
+                                    (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                                    (@Nat.instNeZeroSucc
+                                      (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))))
+                              k))))
+                      ε)))))
+ABI-END:rectangular.formal_rectangular_cost_le
+ABI-BEGIN:rectangular.rectangularOmega_curve
+BlockIdentities.Rectangular.rectangularOmega_curve.{u_1} : ∀ (F : Type u_1) [inst : Field.{u_1} F] (k : Real)
+  (hk : @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) k),
+  @LE.le.{0} Real Real.instLE (@OAI.MatrixMultiplication.Arithmetic.rectangularOmega.{u_1} F inst k)
+    (@ite.{1} Real
+      (@LE.le.{0} Real Real.instLE k
+        (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+          (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+          (@OfNat.ofNat.{0} Real (nat_lit 2)
+            (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+              (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))))))))
+      (Real.decidableLE k
+        (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+          (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+          (@OfNat.ofNat.{0} Real (nat_lit 2)
+            (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+              (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))))))))
+      (@OfNat.ofNat.{0} Real (nat_lit 2)
+        (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+          (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+            (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))))))
+      (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+        (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+          (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) k)
+        (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+          (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+            (@OfNat.ofNat.{0} Real (nat_lit 4)
+              (@instOfNatAtLeastTwo.{0} Real (nat_lit 4) Real.instNatCast
+                (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))
+                  (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))))
+            k))))
+ABI-END:rectangular.rectangularOmega_curve
+ABI-BEGIN:rectangular.formalAlpha_ge_half
+BlockIdentities.Rectangular.formalAlpha_ge_half.{u_1} : ∀ (F : Type u_1) [inst : Field.{u_1} F],
+  @LE.le.{0} Real Real.instLE
+    (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+      (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+      (@OfNat.ofNat.{0} Real (nat_lit 2)
+        (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+          (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+            (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))))))
+    (@BlockIdentities.Arithmetic.formalAlpha.{u_1} F inst)
+ABI-END:rectangular.formalAlpha_ge_half
+ABI-BEGIN:rectangular.rectangular_alpha_ge_half
+BlockIdentities.Rectangular.rectangular_alpha_ge_half.{u_1} : ∀ (F : Type u_1) [inst : Field.{u_1} F],
+  @LE.le.{0} Real Real.instLE
+    (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+      (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+      (@OfNat.ofNat.{0} Real (nat_lit 2)
+        (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+          (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+            (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))))))
+    (@SupSet.sSup.{0} Real Real.instSupSet
+      (@Set.ofPred.{0} Real fun (k : Real) =>
+        And
+          (@Membership.mem.{0, 0} Real (Set.{0} Real) (@Set.instMembership.{0} Real)
+            (@Set.Icc.{0} Real Real.instPreorder
+              (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+              (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+            k)
+          (@Eq.{1} Real (@OAI.MatrixMultiplication.Arithmetic.rectangularOmega.{u_1} F inst k)
+            (@OfNat.ofNat.{0} Real (nat_lit 2)
+              (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+                (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                  (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))))))))
+ABI-END:rectangular.rectangular_alpha_ge_half

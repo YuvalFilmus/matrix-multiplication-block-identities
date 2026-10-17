@@ -1,0 +1,60 @@
+'BlockIdentities.Square.matrix_rankAtMost_entry_counts' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.nonzero_matrixShape' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.MatrixShape.nonzeroTensor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.nonzero_finiteTensor_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.NonzeroTensor.sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Providers.general_extraction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.extraction_finite_value_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.value_power_nat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.value_symmetrize' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.value_permute' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.valueAtOmega_supermultiplicative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.mul_value_le_value_copies' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.valueAtOmega_mono_of_asymptoticallyRestricts' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Square.cyclic_cube_supplies_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.MatrixRate.absorb_copies' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.matrixRate_of_fixed_extraction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.MatrixRate.divide_matrix_of_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.asymptoticallyRestricts_of_eventually_classes' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Square.Degenerates.identityMinor_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.coefficient_isRestriction_directSum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.weightPartDegeneration' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.separator_degeneration' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.SharedLegIdentity.extraction_conversion' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Square.SharedLegIdentity.entropy_inequality' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.valueAtOmega_square' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.normalizedValueAtOmega_terminal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.Degenerates.matrix_rpow_exactRankExponent_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Square.MatrixRate.diagonal_rpow_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.valueAtOmega_le_of_borderRankAtMost' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.normalizedValueAtOmega_le_of_borderRankAtMost' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Square.convolution_borderRankAtMost' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.sharedFirstPairIdentity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.sharedFirstThreeIdentity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.convolutionNeighborIdentity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.convolutionTriplingIdentity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.convolution_two_one_terminal_isomorphic' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Square.normalizedValue_convolution_two_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.exponent_le_of_certificate_values' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.convolutionPotential_diagonal_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.convolutionNormalizedValue_neighbor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.convolutionNormalizedValue_tripling' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.convolutionNormalizedValue_diagonal_upper' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Square.convolution_normalized_diagonal_lower' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Square.exponent_le_of_rank_power_bound' depends on axioms: [propext, Classical.choice, Quot.sound]

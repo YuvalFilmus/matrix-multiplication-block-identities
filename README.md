@@ -20,7 +20,7 @@ exponents is not assumed over finite fields.
 
 ## Build and verify
 
-Install [elan](https://github.com/leanprover/elan) and Python3; Git and internet
+Install [elan](https://github.com/leanprover/elan) and Python 3; Git and internet
 access are needed for the first dependency/cache download. From this directory:
 
 ```sh
@@ -29,17 +29,27 @@ LEAN_NUM_THREADS=1 lake build BlockIdentities
 bash scripts/check.sh
 ```
 
-The toolchain is **Lean4.35.0**. Mathlib is pinned to
+The toolchain is **Lean 4.35.0**. Mathlib is pinned to
 `ccbef15ebdb41c2addfac682131f83c75904c3c1`; the lockfile pins transitive dependencies.
 Navot's adapted source is vendored as a relative path dependency, so there are
 no private repositories or machine-specific paths. Do not run `lake update` to
 reproduce this snapshot. Run one Lake build at a time.
 
-The full checker also builds all owned helper modules, compares all35 exact
-elaborated theorem types and approved source headers, checks the35 sealed
-exports plus44 square and321 rectangular helper axiom closures, tests the
-import-quarantine guard, and checks the306-module import boundary. Generated
+The full checker also builds all owned helper modules, compares all 35 exact
+elaborated theorem types and approved source headers, checks the 35 sealed
+exports plus 44 square and 321 rectangular helper axiom closures, tests the
+import-quarantine guard, and checks the 306-module import boundary. Generated
 probe files go in ignored `work/`; check outputs go in `review/`.
+
+The manuscript can be rebuilt with a TeX installation containing its packages:
+
+```sh
+cd source
+latexmk -pdf manuscript.tex
+```
+
+See [release verification](VERIFICATION.md) for the source inventory, review
+and isolated-build evidence.
 
 ## Lean API
 
@@ -63,7 +73,7 @@ Rectangular endpoints in namespace `BlockIdentities.Rectangular`:
 - `formalAlpha_ge_half`
 - `rectangular_alpha_ge_half`
 
-All17 square and18 rectangular targets are proved. No owned Lean declarations
+All 17 square and 18 rectangular targets are proved. No owned Lean declarations
 contain `sorry`, `admit`, or custom axioms. Audited axiom closures use only
 `propext`, `Classical.choice`, and `Quot.sound`. The [manifest](review/frozen-manifest.json)
 binds the approved statements, semantic definitions and exact ABI hashes.
@@ -72,7 +82,7 @@ Review-only `.lean.txt` headers and isolated guard fixtures are not library proo
 The proof develops finite polynomial identities, cancellation, extraction,
 entropy and convolution profiles, and scalar descent. It reuses Navot/OpenAI
 arithmetic programs, finite constructions, rank and interpolation APIs. The
-new proof's import closure excludes their existing final9/4, spectral,
+new proof's import closure excludes their existing final 9/4, spectral,
 Character, AllFields and RankBound proofs. Unused vendored results belong to
 upstream, rather than being new claims of this project.
 
@@ -85,14 +95,14 @@ papers has been formalized.
 
 ## Sources, attribution and licenses
 
-Code: [Apache2.0](LICENSE). Manuscript copyright remains with the author; no
+Code: [Apache 2.0](LICENSE). Manuscript copyright remains with the author; no
 manuscript license is inferred from the code license. See [NOTICE](NOTICE).
 
 This development builds on [Navot's all-fields extension](https://github.com/selanavot/matrix-multiplication-all-fields)
 of OpenAI's formalization. Its baseline revision is
 `08481ef22bca7dc9ffba091083b7c1e81e537220`; original licenses and notices are retained.
-The auxiliary rectangular source by Przemyslaw Uznanski is included under its
-CC BY4.0 license, with [version and provenance](source/rectangular/uznanski-v2/provenance.json).
+The auxiliary rectangular source by Przemysław Uznański is included under its
+CC BY 4.0 license, with [version and provenance](source/rectangular/uznanski-v2/provenance.json).
 
 This public repository starts with a clean source export. Private development
 history, scratch files, generated caches, and campaign correspondence are excluded.

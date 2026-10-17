@@ -14,6 +14,11 @@ The unused ComparatorAudit library target is omitted from the selected package
 configuration. UPSTREAM.md has a historical-provenance notice added.
 See vendor/navot/UPSTREAM.md for original attribution.
 
+The bundled FixedPointTheorems modules are by harfe, from
+fixed-point-theorems-lean4 commit770940ddf9878cf61952ed53d910b92bca841838,
+under the MIT license retained at vendor/navot/lean/FixedPointTheorems/LICENSE.txt.
+Their upstream compatibility patch is retained as a provenance artifact.
+
 source/manuscript.tex, source/manuscript.pdf and accompanying bibliography:
 author-supplied manuscript, published here with the author's authorization.
 Copyright retained by the author; the code license does not grant a manuscript

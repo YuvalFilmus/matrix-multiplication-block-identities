@@ -1,0 +1,1345 @@
+Frozen guard passed: 35 exact theorem anchors; semantic bytes and quarantine intact.
+DRAFT_ANCHORS: 0
+UNREGISTERED_SORRIES: 0; DRAFT_IMPORT_VIOLATIONS: 0
+baseline PASS
+leading-space PASS
+second-module PASS
+multiline-first PASS
+multiline-second PASS
+unknown PASS
+provider PASS
+comment PASS
+Import boundary passed: 306 project/upstream modules, no final bound or character proof.
+✔ [9059/9064] Built OAI.LinearAlgebra.MatrixMultiplication.Model (43s)
+✔ [9060/9064] Built OAI.LinearAlgebra.MatrixMultiplication.Tensor.ComplexTensor (3.9s)
+✔ [9061/9064] Built BlockIdentities.Arithmetic.FormalPolynomial (9.5s)
+✔ [9062/9065] Built OAI.LinearAlgebra.MatrixMultiplication.Tensor.ComplexTensorRestrictionComposition (4.4s)
+✔ [9063/9068] Built OAI.LinearAlgebra.MatrixMultiplication.AuxiliarySeparation.Tensor.DirectSum (19s)
+✔ [9064/9071] Built OAI.LinearAlgebra.MatrixMultiplication.ComplexArithmetic.Complexity (3.6s)
+✔ [9065/9071] Built OAI.LinearAlgebra.MatrixMultiplication.Tensor.ComplexTensorBatching (4.0s)
+✔ [9066/9074] Built OAI.LinearAlgebra.MatrixMultiplication.Tensor.ComplexMatrixTensor (3.8s)
+✔ [9067/9074] Built OAI.LinearAlgebra.MatrixMultiplication.Polynomial.ComplexPolynomialApproximation (3.8s)
+✔ [9068/9074] Built OAI.LinearAlgebra.MatrixMultiplication.AuxiliarySeparation.Tensor.MatrixMultiplication (3.3s)
+✔ [9069/9074] Built OAI.LinearAlgebra.MatrixMultiplication.Tensor.ComplexTensorFlattening (3.6s)
+✔ [9070/9074] Built OAI.LinearAlgebra.MatrixMultiplication.Tensor.ComplexTensorSymmetrization (3.0s)
+✔ [9071/9077] Built OAI.LinearAlgebra.MatrixMultiplication.AuxiliarySeparation.Arithmetic.RankExponent (4.9s)
+✔ [9072/9077] Built OAI.LinearAlgebra.MatrixMultiplication.Polynomial.ComplexPolynomialDegenerationComposition (4.9s)
+✔ [9073/9077] Built OAI.LinearAlgebra.MatrixMultiplication.Tensor.ComplexDotPairing (3.4s)
+✔ [9074/9077] Built OAI.LinearAlgebra.MatrixMultiplication.AuxiliarySeparation.Tensor.Semiring (5.1s)
+✔ [9075/9081] Built OAI.LinearAlgebra.MatrixMultiplication.AuxiliarySeparation.Convolution.Basic (5.1s)
+✔ [9076/9090] Built BlockIdentities.Tensor.Definitions (4.7s)
+✔ [9077/9090] Built OAI.LinearAlgebra.MatrixMultiplication.Arithmetic.Complexity (7.7s)
+✔ [9078/9090] Built BlockIdentities.Tensor.ConvolutionSplittings (4.4s)
+✔ [9079/9090] Built BlockIdentities.Square.Certificate (4.4s)
+✔ [9080/9090] Built BlockIdentities.Square.Yield (3.6s)
+✔ [9081/9090] Built BlockIdentities.Tensor.PolynomialMaps (4.5s)
+✔ [9082/9090] Built OAI.LinearAlgebra.MatrixMultiplication.Arithmetic.LowerBound (8.2s)
+✔ [9083/9096] Built OAI.LinearAlgebra.MatrixMultiplication.Arithmetic.Programs (8.7s)
+✔ [9084/9096] Built BlockIdentities.Square.Limit (4.4s)
+✔ [9085/9096] Built OAI.LinearAlgebra.MatrixMultiplication.Arithmetic.ProgramComposition (8.1s)
+✔ [9086/9101] Built OAI.LinearAlgebra.MatrixMultiplication.Polynomial.ExpressionFamily (7.5s)
+✔ [9087/9104] Built OAI.LinearAlgebra.MatrixMultiplication.Arithmetic.Padding (7.8s)
+✔ [9088/9104] Built OAI.LinearAlgebra.MatrixMultiplication.Arithmetic.RecursiveBlockPrograms (10s)
+✔ [9089/9104] Built OAI.LinearAlgebra.MatrixMultiplication.Arithmetic.NaiveAlgorithm (7.8s)
+✔ [9090/9104] Built BlockIdentities.Arithmetic.BilinearJets (3.7s)
+✔ [9091/9104] Built OAI.LinearAlgebra.MatrixMultiplication.AuxiliarySeparation.Arithmetic.ExponentComparison (4.7s)
+✔ [9092/9105] Built OAI.LinearAlgebra.MatrixMultiplication.Arithmetic.Growth (9.2s)
+✔ [9093/9105] Built BlockIdentities.Arithmetic.FormalBounds (8.4s)
+✔ [9094/9119] Built BlockIdentities.Arithmetic.ProgramRank (8.6s)
+✔ [9095/9119] Built OAI.LinearAlgebra.MatrixMultiplication.Arithmetic.FieldDescent (4.4s)
+✔ [9096/9184] Built BlockIdentities.Arithmetic.FormalComposition (7.0s)
+✔ [9097/9184] Built BlockIdentities.Arithmetic.FormalInfimum (7.5s)
+✔ [9098/9184] Built BlockIdentities.Tensor.Value (7.0s)
+✔ [9099/9184] Built BlockIdentities.Arithmetic.RankLowerBound (7.4s)
+✔ [9100/9184] Built OAI.LinearAlgebra.MatrixMultiplication.AuxiliarySeparation.Growth.PolynomialOverhead (5.2s)
+✔ [9101/9184] Built BlockIdentities.Tensor.Isomorphism (4.8s)
+⚠ [9102/9184] Built BlockIdentities.Providers.ConvolutionNeighbor (9.3s)
+warning: BlockIdentities/Providers/ConvolutionNeighbor.lean:79:29: This simp argument is unused:
+  Finset.sum_add_distrib
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [middleMap, hy, he, ite_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: BlockIdentities/Providers/ConvolutionNeighbor.lean:97:56: This simp argument is unused:
+  ite_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [rightMap, convolutionOutput, Nat.add_assoc, mul_ite, ← pow_two, apply_ite]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: BlockIdentities/Providers/ConvolutionNeighbor.lean:97:65: This simp argument is unused:
+  mul_ite
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [rightMap, convolutionOutput, Nat.add_assoc, ite_mul, ← pow_two, apply_ite]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: BlockIdentities/Providers/ConvolutionNeighbor.lean:98:8: This simp argument is unused:
+  ← pow_two
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [rightMap, convolutionOutput, Nat.add_assoc, ite_mul, mul_ite, apply_ite]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: BlockIdentities/Providers/ConvolutionNeighbor.lean:101:56: This simp argument is unused:
+  ite_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [rightMap, convolutionOutput, Nat.add_assoc, mul_ite, apply_ite]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: BlockIdentities/Providers/ConvolutionNeighbor.lean:101:65: This simp argument is unused:
+  mul_ite
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [rightMap, convolutionOutput, Nat.add_assoc, ite_mul, apply_ite]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: BlockIdentities/Providers/ConvolutionNeighbor.lean:113:66: This simp argument is unused:
+  ite_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [rightMap, rawTarget, convolutionOutput, Nat.add_assoc,
+    OAI.MatrixMultiplication.AuxiliarySeparation.convolution, mul_ite, ← pow_two, apply_ite]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: BlockIdentities/Providers/ConvolutionNeighbor.lean:113:75: This simp argument is unused:
+  mul_ite
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [rightMap, rawTarget, convolutionOutput, Nat.add_assoc,
+    OAI.MatrixMultiplication.AuxiliarySeparation.convolution, ite_mul, ← pow_two, apply_ite]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: BlockIdentities/Providers/ConvolutionNeighbor.lean:114:8: This simp argument is unused:
+  ← pow_two
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [rightMap, rawTarget, convolutionOutput, Nat.add_assoc,
+    OAI.MatrixMultiplication.AuxiliarySeparation.convolution, ite_mul, mul_ite, apply_ite]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: BlockIdentities/Providers/ConvolutionNeighbor.lean:120:66: This simp argument is unused:
+  ite_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [rightMap, rawTarget, convolutionOutput, Nat.add_assoc,
+    OAI.MatrixMultiplication.AuxiliarySeparation.convolution, mul_ite, apply_ite]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: BlockIdentities/Providers/ConvolutionNeighbor.lean:120:75: This simp argument is unused:
+  mul_ite
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [rightMap, rawTarget, convolutionOutput, Nat.add_assoc,
+    OAI.MatrixMultiplication.AuxiliarySeparation.convolution, ite_mul, apply_ite]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: BlockIdentities/Providers/ConvolutionNeighbor.lean:195:2: Try this:
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+✔ [9103/9189] Built BlockIdentities.Providers.ConvolutionTripling (7.4s)
+✔ [9104/9189] Built BlockIdentities.Square.FieldDescent (3.5s)
+✔ [9105/9189] Built BlockIdentities.Arithmetic.FormalRecursive (9.2s)
+✔ [9106/9189] Built OAI.LinearAlgebra.MatrixMultiplication.AuxiliarySeparation.Tensor.DirectSumClass (3.5s)
+⚠ [9107/9189] Built BlockIdentities.Tensor.DegenerationComposition (4.8s)
+warning: BlockIdentities/Tensor/DegenerationComposition.lean:30:8: automatically included section variable(s) unused in theorem `_private.BlockIdentities.Tensor.DegenerationComposition.0.OAI.MatrixMultiplication.Foundation.Tensor.PolynomialRestrictionDegeneration.base_eq`:
+  [Fintype U]
+  [Fintype V]
+  [Fintype W]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype U] [Fintype V] [Fintype W] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: BlockIdentities/Tensor/DegenerationComposition.lean:42:8: automatically included section variable(s) unused in theorem `_private.BlockIdentities.Tensor.DegenerationComposition.0.OAI.MatrixMultiplication.Foundation.Tensor.PolynomialRestrictionDegeneration.expand_restrict`:
+  [Fintype U]
+  [Fintype V]
+  [Fintype W]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype U] [Fintype V] [Fintype W] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [9108/9189] Built BlockIdentities.Square.SlowScale (4.9s)
+✔ [9109/9189] Built BlockIdentities.Square.ValueGainBound (8.5s)
+✔ [9110/9189] Built BlockIdentities.Tensor.RankOneContractions (10s)
+⚠ [9111/9189] Built BlockIdentities.Square.MatrixRateLimits (4.1s)
+warning: BlockIdentities/Square/MatrixRateLimits.lean:61:36: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Square/MatrixRateLimits.lean:61:40: Unused tactic linter: `ring` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Square/MatrixRateLimits.lean:71:46: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Square/MatrixRateLimits.lean:71:50: Unused tactic linter: `ring` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Square/MatrixRateLimits.lean:61:40: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: BlockIdentities/Square/MatrixRateLimits.lean:71:50: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+✔ [9112/9189] Built BlockIdentities.Square.SubexponentialCopies (3.8s)
+⚠ [9113/9189] Built BlockIdentities.Square.ValuePowerNumerics (3.6s)
+warning: BlockIdentities/Square/ValuePowerNumerics.lean:40:24: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Square/ValuePowerNumerics.lean:40:28: Unused tactic linter: `ring` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Square/ValuePowerNumerics.lean:40:28: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: BlockIdentities/Square/ValuePowerNumerics.lean:55:24: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Square/ValuePowerNumerics.lean:55:28: Unused tactic linter: `ring` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Square/ValuePowerNumerics.lean:55:28: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: BlockIdentities/Square/ValuePowerNumerics.lean:59:48: Variable name `hn` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hn
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: BlockIdentities/Square/ValuePowerNumerics.lean:61:13: Variable name `hk` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hk
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: BlockIdentities/Square/ValuePowerNumerics.lean:84:41: This simp argument is unused:
+  Nat.cast_ofNat
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Nat.cast_mul, Nat.cast_pow]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: BlockIdentities/Square/ValuePowerNumerics.lean:89:19: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Square/ValuePowerNumerics.lean:89:19: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [9114/9189] Built BlockIdentities.Square.ExtractionLogLimit (4.3s)
+warning: BlockIdentities/Square/ExtractionLogLimit.lean:57:32: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Square/ExtractionLogLimit.lean:57:36: Unused tactic linter: `ring` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Square/ExtractionLogLimit.lean:71:32: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Square/ExtractionLogLimit.lean:57:36: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: BlockIdentities/Square/ExtractionLogLimit.lean:71:32: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [9115/9210] Built BlockIdentities.Tensor.ElementaryRestrictions (28s)
+✔ [9116/9210] Built BlockIdentities.Frozen.formalCorrect_implies_correct (7.8s)
+✔ [9117/9210] Built OAI.LinearAlgebra.MatrixMultiplication.AuxiliarySeparation.Arithmetic.FieldExtension (5.3s)
+✔ [9118/9210] Built BlockIdentities.Tensor.IsomorphismClasses (5.2s)
+✔ [9119/9210] Built BlockIdentities.Frozen.convolution_boundary_isomorphism_v2 (7.6s)
+✔ [9120/9210] Built BlockIdentities.Frozen.tripling_middle_isomorphism_v2 (7.5s)
+✔ [9121/9210] Built BlockIdentities.Frozen.convolution_neighbor_degeneration_v2 (7.2s)
+✔ [9122/9210] Built BlockIdentities.Frozen.convolution_tripling_degeneration_v2 (7.1s)
+✔ [9123/9210] Built OAI.LinearAlgebra.MatrixMultiplication.Separation.ComplexTypeCounting (3.1s)
+✔ [9124/9210] Built BlockIdentities.Frozen.scalar_descent_v2 (7.2s)
+✔ [9125/9210] Built BlockIdentities.Arithmetic.FormalPadding (7.5s)
+✔ [9126/9210] Built BlockIdentities.Tensor.ClassIdentities (4.8s)
+✔ [9127/9210] Built BlockIdentities.Tensor.DegenerationProduct (4.8s)
+✔ [9128/9210] Built BlockIdentities.Tensor.ContractionDot (4.9s)
+✔ [9129/9210] Built BlockIdentities.Square.MatrixCancellationScales (3.5s)
+✔ [9130/9210] Built BlockIdentities.Square.ValueYieldNumerics (6.2s)
+⚠ [9131/9210] Built BlockIdentities.Square.DivisionRateLimits (4.2s)
+warning: BlockIdentities/Square/DivisionRateLimits.lean:79:46: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Square/DivisionRateLimits.lean:79:50: Unused tactic linter: `ring` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Square/DivisionRateLimits.lean:79:50: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+⚠ [9132/9210] Built BlockIdentities.Square.ValueRateLimits (3.7s)
+warning: BlockIdentities/Square/ValueRateLimits.lean:51:30: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Square/ValueRateLimits.lean:51:30: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [9133/9210] Built BlockIdentities.Square.AbsorptionRounding (3.9s)
+warning: BlockIdentities/Square/AbsorptionRounding.lean:47:46: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Square/AbsorptionRounding.lean:47:50: Unused tactic linter: `ring` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Square/AbsorptionRounding.lean:47:50: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+✔ [9134/9210] Built OAI.LinearAlgebra.MatrixMultiplication.AuxiliarySeparation.Polynomial.Interpolation (3.8s)
+✔ [9135/9211] Built BlockIdentities.Square.SeparatorWeights (3.6s)
+⚠ [9136/9212] Built BlockIdentities.Tensor.TypeSectorRestriction (4.5s)
+warning: BlockIdentities/Tensor/TypeSectorRestriction.lean:42:0: automatically included section variable(s) unused in theorem `BlockIdentities.Square.typeSectorTensor_support`:
+  [Fintype X]
+  [Fintype Y]
+  [Fintype Z]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype X] [Fintype Y] [Fintype Z] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: BlockIdentities/Tensor/TypeSectorRestriction.lean:67:0: automatically included section variable(s) unused in theorem `BlockIdentities.Square.typeSectorBlock_sum`:
+  [Fintype X]
+  [Fintype Y]
+  [Fintype Z]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype X] [Fintype Y] [Fintype Z] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: BlockIdentities/Tensor/TypeSectorRestriction.lean:86:32: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: BlockIdentities/Tensor/TypeSectorRestriction.lean:88:33: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+✔ [9137/9212] Built BlockIdentities.Arithmetic.FormalGrowth (7.7s)
+✔ [9138/9212] Built BlockIdentities.Tensor.MatrixRestrictions (4.4s)
+✔ [9139/9212] Built BlockIdentities.Tensor.DirectSumDegeneration (4.7s)
+⚠ [9140/9212] Built BlockIdentities.Tensor.DegenerationWeights (4.5s)
+warning: BlockIdentities/Tensor/DegenerationWeights.lean:30:53: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Tensor/DegenerationWeights.lean:30:57: Unused tactic linter: `ring` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Tensor/DegenerationWeights.lean:30:57: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+✔ [9141/9212] Built BlockIdentities.Tensor.DegenerationFlattening (4.6s)
+✔ [9142/9212] Built BlockIdentities.Tensor.ClassDegeneration (4.3s)
+⚠ [9143/9212] Built BlockIdentities.Square.RankSupplyRounding (5.1s)
+warning: BlockIdentities/Square/RankSupplyRounding.lean:95:50: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Square/RankSupplyRounding.lean:95:54: Unused tactic linter: `ring` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Square/RankSupplyRounding.lean:95:54: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+⚠ [9144/9212] Built BlockIdentities.Tensor.CoefficientExtraction (5.7s)
+warning: BlockIdentities/Tensor/CoefficientExtraction.lean:42:38: This simp argument is unused:
+  Finset.sum_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [h, Tensor.restrict, Fintype.sum_prod_type, Tensor.directSum, ite_and, mul_ite, Finset.mul_sum,
+    mul_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [9145/9213] Built OAI.LinearAlgebra.MatrixMultiplication.Tensor.ComplexFactorialLogBounds (4.8s)
+✔ [9146/9213] Built OAI.LinearAlgebra.MatrixMultiplication.Entropy.ComplexFiniteEntropy (3.9s)
+✔ [9147/9213] Built BlockIdentities.Arithmetic.RankUpperBound (7.6s)
+✔ [9148/9213] Built BlockIdentities.Tensor.ListClasses (4.4s)
+✔ [9149/9213] Built BlockIdentities.Tensor.DegenerationSum (4.0s)
+✔ [9150/9213] Built BlockIdentities.Tensor.AsymptoticClasses (4.3s)
+✔ [9151/9213] Built BlockIdentities.Tensor.ScalarSupply (7.8s)
+✔ [9152/9213] Built BlockIdentities.Tensor.FamilyClasses (4.7s)
+⚠ [9153/9213] Built BlockIdentities.Tensor.SupportClasses (5.1s)
+warning: BlockIdentities/Tensor/SupportClasses.lean:42:24: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: BlockIdentities/Tensor/SupportClasses.lean:49:22: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+✔ [9154/9213] Built BlockIdentities.Tensor.CyclicClasses (4.3s)
+✔ [9155/9213] Built BlockIdentities.Tensor.FiniteCancellation (4.3s)
+⚠ [9156/9233] Built BlockIdentities.Tensor.SeparatorPolynomial (4.8s)
+warning: BlockIdentities/Tensor/SeparatorPolynomial.lean:55:6: This simp argument is unused:
+  Finset.mul_sum
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [separatorPolynomial, Tensor.restrict, separatorPolynomialLeft, separatorPolynomialMiddle,
+    separatorPolynomialRight, mul_ite, ite_mul, Finset.sum_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: BlockIdentities/Tensor/SeparatorPolynomial.lean:55:22: This simp argument is unused:
+  Finset.sum_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [separatorPolynomial, Tensor.restrict, separatorPolynomialLeft, separatorPolynomialMiddle,
+    separatorPolynomialRight, mul_ite, ite_mul, Finset.mul_sum]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [9157/9233] Built OAI.LinearAlgebra.MatrixMultiplication.Entropy.ComplexEntropyContinuity (3.8s)
+✔ [9158/9282] Built BlockIdentities.Providers.RankAndField (7.4s)
+✔ [9159/9360] Built BlockIdentities.Tensor.MatrixRate (7.6s)
+⚠ [9160/9360] Built BlockIdentities.Tensor.EventualAsymptoticClasses (7.9s)
+warning: BlockIdentities/Tensor/EventualAsymptoticClasses.lean:37:18: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: BlockIdentities/Tensor/EventualAsymptoticClasses.lean:40:21: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: BlockIdentities/Tensor/EventualAsymptoticClasses.lean:48:21: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+✔ [9161/9360] Built BlockIdentities.Tensor.ValueBounds (8.6s)
+✔ [9162/9360] Built BlockIdentities.Tensor.WordProductClasses (4.3s)
+✔ [9163/9360] Built BlockIdentities.Tensor.CyclicSubrank (4.6s)
+✔ [9164/9360] Built BlockIdentities.Tensor.RectangularClasses (4.3s)
+✔ [9165/9360] Built BlockIdentities.Tensor.SwapClasses (4.4s)
+⚠ [9166/9360] Built BlockIdentities.Providers.Cancellation (8.1s)
+warning: BlockIdentities/Providers/Cancellation.lean:30:6: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+✔ [9167/9360] Built BlockIdentities.Tensor.SeparatorLeading (5.5s)
+✔ [9168/9360] Built OAI.LinearAlgebra.MatrixMultiplication.Separation.ComplexFiniteControl (4.5s)
+⚠ [9169/9360] Built BlockIdentities.Square.EntropyValueOptimization (3.9s)
+warning: BlockIdentities/Square/EntropyValueOptimization.lean:73:23: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Square/EntropyValueOptimization.lean:73:52: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Square/EntropyValueOptimization.lean:73:23: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: BlockIdentities/Square/EntropyValueOptimization.lean:73:52: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [9170/9360] Built BlockIdentities.Square.CertificateMultiplicity (2.6s)
+⚠ [9171/9360] Built BlockIdentities.Square.ExponentCriterionNumerics (4.4s)
+warning: BlockIdentities/Square/ExponentCriterionNumerics.lean:59:29: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Square/ExponentCriterionNumerics.lean:59:33: Unused tactic linter: `ring` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Square/ExponentCriterionNumerics.lean:59:33: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+✔ [9173/9366] Built BlockIdentities.Frozen.formalOmega_eq_algebraicClosure_v2 (7.3s)
+✔ [9174/9366] Built BlockIdentities.Frozen.formalOmega_eq_exactRankExponent_v2 (9.2s)
+✔ [9175/9366] Built OAI.LinearAlgebra.MatrixMultiplication.AuxiliarySeparation.Convolution.Rank (4.7s)
+⚠ [9176/9366] Built BlockIdentities.Square.ConvolutionPotentialBound (4.5s)
+warning: BlockIdentities/Square/ConvolutionPotentialBound.lean:63:40: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Square/ConvolutionPotentialBound.lean:63:40: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: BlockIdentities/Square/ConvolutionPotentialBound.lean:80:32: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Square/ConvolutionPotentialBound.lean:95:25: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Square/ConvolutionPotentialBound.lean:95:29: Unused tactic linter: `ring` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Square/ConvolutionPotentialBound.lean:95:29: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: BlockIdentities/Square/ConvolutionPotentialBound.lean:80:32: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: BlockIdentities/Square/ConvolutionPotentialBound.lean:100:5: Variable name `hx` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hx
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [9177/9366] Built BlockIdentities.Square.RankPowerComparison (3.9s)
+warning: BlockIdentities/Square/RankPowerComparison.lean:31:29: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Square/RankPowerComparison.lean:31:33: Unused tactic linter: `ring` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Square/RankPowerComparison.lean:31:33: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+⚠ [9178/9366] Built BlockIdentities.Tensor.MatrixShapeNonzero (7.6s)
+warning: BlockIdentities/Tensor/MatrixShapeNonzero.lean:23:2: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [matrixMultiplicationTensor] at hv
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+✔ [9179/9366] Built BlockIdentities.Tensor.NonzeroSum (7.5s)
+✔ [9180/9366] Built BlockIdentities.Arithmetic.RectangularProgramRank (8.4s)
+✔ [9181/9366] Built BlockIdentities.Tensor.RectangularFlattening (4.5s)
+✔ [9182/9366] Built BlockIdentities.Rectangular.ConeSupport (7.3s)
+✔ [9183/9366] Built BlockIdentities.Tensor.ScalarRank (4.7s)
+⚠ [9184/9366] Built BlockIdentities.Rectangular.ExtractionLogLimits (3.0s)
+warning: BlockIdentities/Rectangular/ExtractionLogLimits.lean:56:4: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Rectangular/ExtractionLogLimits.lean:56:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [9185/9366] Built BlockIdentities.Tensor.ConvolutionReplicationBasis (3.3s)
+warning: BlockIdentities/Tensor/ConvolutionReplicationBasis.lean:24:13: Variable name `hm` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hm
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [9186/9366] Built BlockIdentities.Rectangular.ProfileRescaling (3.9s)
+warning: BlockIdentities/Rectangular/ProfileRescaling.lean:6:0: 'Mathlib.Data.Real.Archimedean' has been deprecated: please replace this import by
+
+import Mathlib.Algebra.Order.Archimedean.Real.Basic
+warning: BlockIdentities/Rectangular/ProfileRescaling.lean:76:6: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Rectangular/ProfileRescaling.lean:76:10: Unused tactic linter: `ring` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Rectangular/ProfileRescaling.lean:76:10: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: BlockIdentities/Rectangular/ProfileRescaling.lean:134:6: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Rectangular/ProfileRescaling.lean:134:10: Unused tactic linter: `ring` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Rectangular/ProfileRescaling.lean:134:10: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: BlockIdentities/Rectangular/ProfileRescaling.lean:190:8: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Rectangular/ProfileRescaling.lean:190:12: Unused tactic linter: `ring` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Rectangular/ProfileRescaling.lean:190:12: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+⚠ [9187/9366] Built BlockIdentities.Rectangular.ProfileSlopes (4.7s)
+warning: BlockIdentities/Rectangular/ProfileSlopes.lean:60:2: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Rectangular/ProfileSlopes.lean:60:2: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: BlockIdentities/Rectangular/ProfileSlopes.lean:82:2: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Rectangular/ProfileSlopes.lean:82:6: Unused tactic linter: `ring` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Rectangular/ProfileSlopes.lean:82:6: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: BlockIdentities/Rectangular/ProfileSlopes.lean:135:2: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Rectangular/ProfileSlopes.lean:135:6: Unused tactic linter: `ring` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Rectangular/ProfileSlopes.lean:135:6: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: BlockIdentities/Rectangular/ProfileSlopes.lean:204:8: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Rectangular/ProfileSlopes.lean:204:12: Unused tactic linter: `ring` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Rectangular/ProfileSlopes.lean:204:12: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: BlockIdentities/Rectangular/ProfileSlopes.lean:272:22: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Rectangular/ProfileSlopes.lean:272:22: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [9188/9366] Built BlockIdentities.Rectangular.AngularOffsets (4.0s)
+warning: BlockIdentities/Rectangular/AngularOffsets.lean:28:51: This simp argument is unused:
+  neg_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [zero_mul, Real.sqrt_zero, mul_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: BlockIdentities/Rectangular/AngularOffsets.lean:42:51: This simp argument is unused:
+  neg_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mul_zero, Real.sqrt_zero, mul_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: BlockIdentities/Rectangular/AngularOffsets.lean:36:6: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Rectangular/AngularOffsets.lean:36:10: Unused tactic linter: `ring` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Rectangular/AngularOffsets.lean:51:6: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Rectangular/AngularOffsets.lean:51:10: Unused tactic linter: `ring` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Rectangular/AngularOffsets.lean:63:4: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Rectangular/AngularOffsets.lean:36:10: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: BlockIdentities/Rectangular/AngularOffsets.lean:51:10: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: BlockIdentities/Rectangular/AngularOffsets.lean:63:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: BlockIdentities/Rectangular/AngularOffsets.lean:193:4: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Rectangular/AngularOffsets.lean:193:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [9189/9366] Built BlockIdentities.Rectangular.WeightedTrigonometry (4.3s)
+warning: BlockIdentities/Rectangular/WeightedTrigonometry.lean:57:40: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Rectangular/WeightedTrigonometry.lean:57:40: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: BlockIdentities/Rectangular/WeightedTrigonometry.lean:108:31: Variable name `hc` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hc
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [9190/9366] Built BlockIdentities.Tensor.MatrixRateProduct (7.6s)
+✔ [9191/9366] Built BlockIdentities.Tensor.MatrixRatePower (7.4s)
+✔ [9192/9366] Built BlockIdentities.Tensor.ExtractionRankSupply (7.4s)
+✔ [9193/9366] Built BlockIdentities.Tensor.MatrixRateAbsorption (7.4s)
+⚠ [9194/9366] Built BlockIdentities.Tensor.MatrixRateBounds (9.2s)
+warning: BlockIdentities/Tensor/MatrixRateBounds.lean:65:40: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Tensor/MatrixRateBounds.lean:65:40: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [9195/9366] Built BlockIdentities.Tensor.MatrixBorderRank (8.5s)
+warning: BlockIdentities/Tensor/MatrixBorderRank.lean:28:8: automatically included section variable(s) unused in theorem `_private.BlockIdentities.Tensor.MatrixBorderRank.0.BlockIdentities.Square.diagonal_rankAtMost`:
+  [Infinite K]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Infinite K] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: BlockIdentities/Tensor/MatrixBorderRank.lean:34:8: This simp argument is unused:
+  diagonal
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Tensor.rankOne, mul_ite, ite_and]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: BlockIdentities/Tensor/MatrixBorderRank.lean:130:55: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Tensor/MatrixBorderRank.lean:130:59: Unused tactic linter: `ring` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Tensor/MatrixBorderRank.lean:130:59: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+✔ [9196/9366] Built BlockIdentities.Tensor.PowerClasses (7.6s)
+✔ [9197/9366] Built BlockIdentities.Tensor.ValueMonotonicity (7.3s)
+✔ [9198/9366] Built BlockIdentities.Tensor.RankOneValue (8.4s)
+✔ [9199/9366] Built BlockIdentities.Tensor.CyclicValueWitness (7.4s)
+⚠ [9200/9366] Built BlockIdentities.Tensor.MatrixSymmetries (4.4s)
+warning: BlockIdentities/Tensor/MatrixSymmetries.lean:36:25: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Tensor/MatrixSymmetries.lean:36:25: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [9201/9366] Built BlockIdentities.Tensor.MatrixRateCancellation (8.1s)
+✔ [9202/9366] Built BlockIdentities.Tensor.FiniteAsymptoticConversion (7.7s)
+✔ [9203/9366] Built BlockIdentities.Frozen.asymptotic_cancellation_v2 (8.3s)
+✔ [9204/9366] Built BlockIdentities.Tensor.SeparatorDegeneration (4.5s)
+⚠ [9205/9366] Built BlockIdentities.Tensor.SeparatorClasses (4.9s)
+warning: BlockIdentities/Tensor/SeparatorClasses.lean:26:0: automatically included section variable(s) unused in theorem `BlockIdentities.Square.separatorRetained_isRestriction_directSum`:
+  [DecidableEq X]
+  [DecidableEq Y]
+  [DecidableEq Z]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq X] [DecidableEq Y] [DecidableEq Z] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: BlockIdentities/Tensor/SeparatorClasses.lean:47:22: This simp argument is unused:
+  eq_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hg, hu]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [9206/9366] Built OAI.LinearAlgebra.MatrixMultiplication.Separation.ComplexRationalTypes (4.4s)
+✔ [9207/9366] Built OAI.LinearAlgebra.MatrixMultiplication.Arithmetic.Exponent (7.2s)
+✔ [9208/9366] Built BlockIdentities.Tensor.ConvolutionRankBound (6.6s)
+✔ [9209/9366] Built BlockIdentities.Arithmetic.RectangularRankProduct (6.9s)
+✔ [9210/9366] Built BlockIdentities.Arithmetic.RectangularRecursion (8.9s)
+⚠ [9211/9366] Built BlockIdentities.Rectangular.SupportBounds (2.9s)
+warning: BlockIdentities/Rectangular/SupportBounds.lean:39:20: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [u, hji]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [9212/9366] Built BlockIdentities.Tensor.ConvolutionReplicationMaps (3.8s)
+✔ [9213/9366] Built BlockIdentities.Rectangular.ProfileRescalingConcavity (3.8s)
+✔ [9214/9366] Built BlockIdentities.Rectangular.ProfileRescalingBounds (3.8s)
+⚠ [9215/9366] Built BlockIdentities.Rectangular.ProfileIncrements (4.4s)
+warning: BlockIdentities/Rectangular/ProfileIncrements.lean:63:23: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Rectangular/ProfileIncrements.lean:63:23: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [9216/9366] Built BlockIdentities.Rectangular.AngularOptimization (3.2s)
+warning: BlockIdentities/Rectangular/AngularOptimization.lean:17:37: Variable name `hp` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hp
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [9217/9366] Built BlockIdentities.Tensor.ExtractionRates (7.1s)
+⚠ [9218/9366] Built BlockIdentities.Tensor.DiagonalMatrixRate (7.2s)
+warning: BlockIdentities/Tensor/DiagonalMatrixRate.lean:55:40: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Tensor/DiagonalMatrixRate.lean:55:44: Unused tactic linter: `ring` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Tensor/DiagonalMatrixRate.lean:55:44: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+✔ [9219/9366] Built BlockIdentities.Tensor.RankOneRate (6.6s)
+✔ [9220/9366] Built BlockIdentities.Tensor.MatrixRateValue (6.9s)
+✔ [9221/9366] Built BlockIdentities.Tensor.ValueSymmetries (6.7s)
+✔ [9222/9366] Built BlockIdentities.Tensor.ConstructedCyclicity (6.4s)
+✔ [9223/9366] Built BlockIdentities.Tensor.MatrixRateMatrix (7.1s)
+✔ [9224/9366] Built BlockIdentities.Tensor.ValueCopiesLower (6.9s)
+⚠ [9225/9366] Built BlockIdentities.Tensor.SectorDotClasses (4.1s)
+warning: BlockIdentities/Tensor/SectorDotClasses.lean:65:0: automatically included section variable(s) unused in theorem `BlockIdentities.Square.blocks_eq_sectorBlock`:
+  [Fintype X]
+  [Fintype Y]
+  [Fintype Z]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype X] [Fintype Y] [Fintype Z] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [9226/9366] Built OAI.LinearAlgebra.MatrixMultiplication.Entropy.ComplexTypeEntropy (4.4s)
+✔ [9227/9366] Built BlockIdentities.Tensor.ConvolutionReplicationContraction (4.3s)
+⚠ [9228/9366] Built BlockIdentities.Rectangular.ProfileRescalingFamily (3.4s)
+warning: BlockIdentities/Rectangular/ProfileRescalingFamily.lean:53:38: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Rectangular/ProfileRescalingFamily.lean:53:42: Unused tactic linter: `ring` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Rectangular/ProfileRescalingFamily.lean:53:42: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+⚠ [9229/9366] Built BlockIdentities.Rectangular.ProfileCompletion (2.0s)
+warning: BlockIdentities/Rectangular/ProfileCompletion.lean:30:4: Try this:
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [9230/9366] Built BlockIdentities.Rectangular.ProfileSlopeIncrements (3.4s)
+warning: BlockIdentities/Rectangular/ProfileSlopeIncrements.lean:74:4: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Rectangular/ProfileSlopeIncrements.lean:74:8: Unused tactic linter: `ring` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Rectangular/ProfileSlopeIncrements.lean:74:8: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+✔ [9231/9366] Built BlockIdentities.Rectangular.AngularParameters (2.9s)
+✔ [9232/9366] Built BlockIdentities.Tensor.ValueRateUpperBound (6.7s)
+✔ [9233/9366] Built BlockIdentities.Tensor.ValuePowers (7.1s)
+✔ [9234/9366] Built BlockIdentities.Rectangular.Definitions (6.8s)
+✔ [9235/9366] Built BlockIdentities.Tensor.PermutationClasses (7.3s)
+✔ [9236/9366] Built BlockIdentities.Tensor.MatrixRateDivision (6.6s)
+⚠ [9237/9366] Built BlockIdentities.Tensor.TypeSectorModels (4.2s)
+warning: BlockIdentities/Tensor/TypeSectorModels.lean:38:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: BlockIdentities/Tensor/TypeSectorModels.lean:22:0: automatically included section variable(s) unused in theorem `BlockIdentities.Square.familyProduct_sectorBlock_apply`:
+  [Fintype X]
+  [Fintype Y]
+  [Fintype Z]
+  [Fintype ι]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype X] [Fintype Y] [Fintype Z] [Fintype ι] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: BlockIdentities/Tensor/TypeSectorModels.lean:55:15: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: BlockIdentities/Tensor/TypeSectorModels.lean:57:16: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+⚠ [9238/9366] Built BlockIdentities.Tensor.SharedSumIdentity (9.6s)
+warning: BlockIdentities/Tensor/SharedSumIdentity.lean:46:16: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: BlockIdentities/Tensor/SharedSumIdentity.lean:48:18: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: BlockIdentities/Tensor/SharedSumIdentity.lean:210:74: This simp argument is unused:
+  pairLeftBlock
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [sectorBlock, T, sy, pairRightBlock]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [9239/9366] Built BlockIdentities.Square.TypeCountSchedules (4.2s)
+⚠ [9240/9366] Built BlockIdentities.Tensor.ConvolutionReplicationInputs (4.3s)
+warning: BlockIdentities/Tensor/ConvolutionReplicationInputs.lean:51:62: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: BlockIdentities/Tensor/ConvolutionReplicationInputs.lean:53:34: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+✔ [9241/9366] Built BlockIdentities.Rectangular.ProfileRescalingTripling (3.6s)
+✔ [9242/9366] Built BlockIdentities.Rectangular.ProfileRealExtension (3.4s)
+✔ [9243/9366] Built BlockIdentities.Tensor.ValueAsymptoticMonotonicity (6.9s)
+✔ [9244/9366] Built BlockIdentities.Arithmetic.RectangularGrowth (7.4s)
+✔ [9245/9366] Built BlockIdentities.Arithmetic.RectangularBasics (7.5s)
+⚠ [9246/9366] Built BlockIdentities.Rectangular.Providers.ConvolutionGeneralTripling (10s)
+warning: BlockIdentities/Rectangular/Providers/ConvolutionGeneralTripling.lean:101:23: Variable name `s` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _s
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [9247/9366] Built BlockIdentities.Rectangular.AsymptoticRankBasics (7.6s)
+warning: BlockIdentities/Rectangular/AsymptoticRankBasics.lean:170:59: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: BlockIdentities/Rectangular/AsymptoticRankBasics.lean:170:23: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: BlockIdentities/Rectangular/AsymptoticRankBasics.lean:170:23: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Rectangular/AsymptoticRankBasics.lean:170:55: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Rectangular/AsymptoticRankBasics.lean:170:59: Unused tactic linter: `ring` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+✔ [9248/9366] Built BlockIdentities.Rectangular.OrientedWeights (6.8s)
+✔ [9249/9366] Built BlockIdentities.Arithmetic.ShapeLimitScales (7.3s)
+✔ [9250/9366] Built BlockIdentities.Arithmetic.ShapeBasics (7.1s)
+✔ [9251/9366] Built BlockIdentities.Tensor.CyclicProductClasses (6.7s)
+⚠ [9252/9366] Built BlockIdentities.Tensor.TypeSeparatorConversion (4.2s)
+warning: BlockIdentities/Tensor/TypeSeparatorConversion.lean:46:8: `Equiv.apply_eq_iff_eq_symm_apply` has been deprecated: Use `Equiv.eq_symm_apply` instead
+
+Note: The updated constant has a different type:
+  ∀ {α : Sort u_1} {β : Sort u_2} (e : α ≃ β) {x : β} {y : α}, y = e.symm x ↔ e y = x
+instead of
+  ∀ {α : Sort u} {β : Sort v} {x : α} {y : β} (f : α ≃ β), f x = y ↔ x = f.symm y
+⚠ [9253/9366] Built BlockIdentities.Tensor.ConvolutionSharedIdentities (7.5s)
+warning: BlockIdentities/Tensor/ConvolutionSharedIdentities.lean:60:31: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+✔ [9254/9366] Built BlockIdentities.Rectangular.BinomialEntropy (4.1s)
+⚠ [9255/9366] Built BlockIdentities.Square.ExtractionDimensionRates (4.2s)
+warning: BlockIdentities/Square/ExtractionDimensionRates.lean:74:19: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Square/ExtractionDimensionRates.lean:74:23: Unused tactic linter: `ring` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Square/ExtractionDimensionRates.lean:74:23: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+⚠ [9256/9366] Built BlockIdentities.Tensor.ConvolutionReplicationDegeneration (4.4s)
+warning: BlockIdentities/Tensor/ConvolutionReplicationDegeneration.lean:30:20: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Tensor/ConvolutionReplicationDegeneration.lean:30:20: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [9257/9366] Built BlockIdentities.Rectangular.ProfileRealLaws (3.6s)
+✔ [9258/9366] Built BlockIdentities.Tensor.ValueSupermultiplicativity (7.8s)
+✔ [9259/9366] Built BlockIdentities.Tensor.ValueMatrixFactorEquality (8.1s)
+✔ [9260/9366] Built BlockIdentities.Rectangular.Frozen.convolution_general_tripling (6.7s)
+✔ [9261/9366] Built BlockIdentities.Rectangular.AsymptoticRankGrowth (7.1s)
+✔ [9262/9366] Built BlockIdentities.Rectangular.OrientedGainBasics (7.4s)
+✔ [9263/9366] Built BlockIdentities.Rectangular.MatrixWeightProducts (7.2s)
+✔ [9264/9366] Built BlockIdentities.Arithmetic.ShapeMonotonicity (7.5s)
+✔ [9265/9366] Built BlockIdentities.Tensor.ValueBorderRank (7.1s)
+✔ [9266/9366] Built BlockIdentities.Tensor.SharedTypeConversion (4.1s)
+✔ [9267/9366] Built BlockIdentities.Tensor.ConvolutionReplicationFinite (4.3s)
+✔ [9268/9366] Built BlockIdentities.Rectangular.ProfileRealOrder (3.4s)
+✔ [9269/9366] Built BlockIdentities.Rectangular.ProfileRealConcavity (4.1s)
+✔ [9270/9366] Built BlockIdentities.Tensor.ValueProductList (6.7s)
+✔ [9271/9366] Built BlockIdentities.Tensor.ValueCopiesBound (6.7s)
+✔ [9272/9366] Built BlockIdentities.Tensor.OrientedConvolutionIdentities (6.0s)
+⚠ [9273/9366] Built BlockIdentities.Rectangular.AsymptoticRankMonotonicity (7.7s)
+warning: BlockIdentities/Rectangular/AsymptoticRankMonotonicity.lean:69:59: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: BlockIdentities/Rectangular/AsymptoticRankMonotonicity.lean:69:23: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: BlockIdentities/Rectangular/AsymptoticRankMonotonicity.lean:69:23: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Rectangular/AsymptoticRankMonotonicity.lean:69:55: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Rectangular/AsymptoticRankMonotonicity.lean:69:59: Unused tactic linter: `ring` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Rectangular/AsymptoticRankMonotonicity.lean:189:55: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: BlockIdentities/Rectangular/AsymptoticRankMonotonicity.lean:189:55: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+✔ [9274/9366] Built BlockIdentities.Rectangular.MatrixShapeClasses (7.6s)
+✔ [9275/9366] Built BlockIdentities.Arithmetic.ShapeRankSeeds (6.9s)
+✔ [9276/9366] Built BlockIdentities.Arithmetic.ShapeHomogeneity (6.0s)
+✔ [9277/9366] Built BlockIdentities.Tensor.OrientedSharedExtraction (6.8s)
+✔ [9278/9366] Built BlockIdentities.Tensor.SharedCyclicConversion (6.9s)
+✔ [9279/9366] Built BlockIdentities.Rectangular.Providers.ConvolutionReplication (6.5s)
+✔ [9280/9366] Built BlockIdentities.Tensor.ValueMatrices (13s)
+✔ [9281/9366] Built BlockIdentities.Tensor.ExtractionFiniteValue (11s)
+✔ [9282/9366] Built BlockIdentities.Providers.ValueMatrixFactor (8.6s)
+✔ [9283/9366] Built BlockIdentities.Rectangular.AsymptoticRankCopies (9.7s)
+✔ [9284/9366] Built BlockIdentities.Rectangular.OrientedGainOperations (8.5s)
+⚠ [9285/9366] Built BlockIdentities.Arithmetic.ShapeSymmetry (9.2s)
+warning: BlockIdentities/Arithmetic/ShapeSymmetry.lean:29:54: This simp argument is unused:
+  and_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [matrixMultiplicationTensor, eq_comm, and_comm, and_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [9286/9366] Built BlockIdentities.Arithmetic.ShapeFieldDescent (7.7s)
+✔ [9287/9366] Built BlockIdentities.Arithmetic.ShapeSubadditivity (8.9s)
+✔ [9288/9366] Built BlockIdentities.Arithmetic.ShapeRankLimits (9.2s)
+✔ [9289/9366] Built BlockIdentities.Tensor.SharedExtractionConversion (7.1s)
+✔ [9290/9366] Built BlockIdentities.Rectangular.Frozen.convolution_replication (6.9s)
+✔ [9291/9366] Built BlockIdentities.Tensor.ConvolutionTerminal (14s)
+⚠ [9292/9366] Built BlockIdentities.Providers.GeneralExtraction (7.7s)
+warning: BlockIdentities/Providers/GeneralExtraction.lean:26:5: Variable name `hn_tendsto` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hn_tendsto
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [9293/9366] Built BlockIdentities.Frozen.value_matrix_factor_v2 (7.2s)
+⚠ [9294/9366] Built BlockIdentities.Rectangular.OrientedSharedPermutation (7.4s)
+warning: BlockIdentities/Rectangular/OrientedSharedPermutation.lean:84:72: This simp argument is unused:
+  and_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Tensor.pullback, swapLast, matrixMultiplicationTensor, eq_comm, and_comm, and_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: BlockIdentities/Rectangular/OrientedSharedPermutation.lean:84:108: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Rectangular/OrientedSharedPermutation.lean:84:112: Unused tactic linter: `rfl` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Rectangular/OrientedSharedPermutation.lean:84:112: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: BlockIdentities/Rectangular/OrientedSharedPermutation.lean:124:15: This simp argument is unused:
+  tensorClass_permute_product
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [tensorClass_product_eq, tensorClass_permute, tensorClass_tensorProductList_ofFn,
+    tensorClass_power_eq, permuteClass_mul, permuteClass_prod_eq, permuteClass_pow_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [9295/9366] Built BlockIdentities.Rectangular.OrientedGainMatrix (7.5s)
+warning: BlockIdentities/Rectangular/OrientedGainMatrix.lean:41:57: This simp argument is unused:
+  mul_left_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [NonzeroTensor.product, MatrixShape.nonzeroTensor, tensorClass_product_eq, tensorClass_power_eq,
+    tensorClass_matrixShape_product, tensorClass_matrixShape_power, mul_pow, mul_assoc, mul_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: BlockIdentities/Rectangular/OrientedGainMatrix.lean:78:76: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: BlockIdentities/Rectangular/OrientedGainMatrix.lean:78:72: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Rectangular/OrientedGainMatrix.lean:78:76: Unused tactic linter: `ring` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+⚠ [9296/9366] Built BlockIdentities.Rectangular.OrientedGainProducts (7.3s)
+warning: BlockIdentities/Rectangular/OrientedGainProducts.lean:27:74: This simp argument is unused:
+  mul_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [NonzeroTensor.product, tensorClass_product_eq, tensorClass_power_eq,
+    tensorClass_matrixShape_product, mul_pow, mul_assoc, mul_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: BlockIdentities/Rectangular/OrientedGainProducts.lean:29:79: This simp argument is unused:
+  mul_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [tensorClass_product_eq, tensorClass_copies_eq, tensorClass_matrixShape_product, Nat.cast_mul,
+    mul_assoc, mul_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [9297/9366] Built BlockIdentities.Rectangular.Providers.FormalshapeomegaEqAlgebraicclosure (7.7s)
+✔ [9298/9366] Built BlockIdentities.Arithmetic.ShapeCoordinateBound (7.5s)
+✔ [9299/9366] Built BlockIdentities.Rectangular.MatrixSupportRank (8.3s)
+✔ [9300/9366] Built BlockIdentities.Frozen.general_extraction_v3 (6.7s)
+✔ [9301/9366] Built BlockIdentities.Rectangular.OrientedGainSums (8.1s)
+✔ [9302/9366] Built BlockIdentities.Rectangular.Frozen.formalShapeOmega_eq_algebraicClosure (6.6s)
+⚠ [9303/9366] Built BlockIdentities.Rectangular.OrientedGeometry (8.8s)
+warning: BlockIdentities/Rectangular/OrientedGeometry.lean:56:4: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [h] at hh
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+✔ [9304/9366] Built BlockIdentities.Arithmetic.ShapeContinuity (7.2s)
+✔ [9305/9366] Built BlockIdentities.Tensor.SharedEntropyInequality (6.9s)
+⚠ [9306/9366] Built BlockIdentities.Rectangular.SupportOptimization (7.1s)
+warning: BlockIdentities/Rectangular/SupportOptimization.lean:39:6: Unused tactic linter: `change _ + _ + _ = _ + _ + _` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+✔ [9307/9366] Built BlockIdentities.Rectangular.Providers.SupportWeightBounds (7.2s)
+✔ [9308/9366] Built BlockIdentities.Rectangular.Providers.InteriorSupportExists (6.7s)
+✔ [9309/9366] Built BlockIdentities.Rectangular.Providers.OrientedExponentProperties (7.4s)
+✔ [9310/9366] Built BlockIdentities.Arithmetic.ShapeRankAsymptotics (8.6s)
+✔ [9311/9366] Built BlockIdentities.Providers.SharedLegValue (7.4s)
+✔ [9312/9366] Built BlockIdentities.Rectangular.Frozen.support_weight_bounds (9.7s)
+✔ [9313/9366] Built BlockIdentities.Rectangular.Frozen.interior_support_exists (8.6s)
+✔ [9314/9366] Built BlockIdentities.Rectangular.Frozen.oriented_exponent_properties (9.4s)
+✔ [9315/9366] Built BlockIdentities.Rectangular.RankBoundMatrices (10s)
+✔ [9316/9366] Built BlockIdentities.Rectangular.Providers.OrientedRankAsymptotics (9.2s)
+✔ [9317/9366] Built BlockIdentities.Frozen.shared_leg_value_inequality_v2 (9.1s)
+✔ [9318/9366] Built BlockIdentities.Rectangular.RankBoundSupply (8.2s)
+✔ [9319/9366] Built BlockIdentities.Rectangular.Frozen.oriented_rank_asymptotics (7.2s)
+✔ [9320/9366] Built BlockIdentities.Tensor.ConvolutionValueRows (9.1s)
+✔ [9321/9366] Built BlockIdentities.Providers.IdentitiesToExponent (7.4s)
+⚠ [9322/9366] Built BlockIdentities.Rectangular.OrientedGainRankBound (8.5s)
+warning: BlockIdentities/Rectangular/OrientedGainRankBound.lean:214:66: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: BlockIdentities/Rectangular/OrientedGainRankBound.lean:214:21: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: BlockIdentities/Rectangular/OrientedGainRankBound.lean:214:35: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: BlockIdentities/Rectangular/OrientedGainRankBound.lean:214:21: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Rectangular/OrientedGainRankBound.lean:214:35: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Rectangular/OrientedGainRankBound.lean:214:62: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Rectangular/OrientedGainRankBound.lean:214:66: Unused tactic linter: `ring` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+✔ [9323/9366] Built BlockIdentities.Providers.FiniteConvolutionBound (10s)
+✔ [9324/9366] Built BlockIdentities.Frozen.identities_to_exponent_v2 (7.5s)
+⚠ [9325/9366] Built BlockIdentities.Rectangular.OrientedGainRankLimit (10s)
+warning: BlockIdentities/Rectangular/OrientedGainRankLimit.lean:130:52: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: BlockIdentities/Rectangular/OrientedGainRankLimit.lean:130:48: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Rectangular/OrientedGainRankLimit.lean:130:52: Unused tactic linter: `ring` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+✔ [9326/9366] Built BlockIdentities.Frozen.finite_convolution_bound_v2 (7.3s)
+✔ [9327/9366] Built BlockIdentities.Rectangular.OrientedValueOperations (8.5s)
+✔ [9328/9366] Built BlockIdentities.Rectangular.Providers.OrientedValueRank (6.9s)
+✔ [9329/9366] Built BlockIdentities.Providers.FinalSquare (6.8s)
+⚠ [9330/9366] Built BlockIdentities.Rectangular.OrientedValueSums (9.0s)
+warning: BlockIdentities/Rectangular/OrientedValueSums.lean:52:76: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: BlockIdentities/Rectangular/OrientedValueSums.lean:75:34: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: BlockIdentities/Rectangular/OrientedValueSums.lean:52:72: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Rectangular/OrientedValueSums.lean:52:76: Unused tactic linter: `ring` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Rectangular/OrientedValueSums.lean:75:30: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Rectangular/OrientedValueSums.lean:75:34: Unused tactic linter: `ring` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Rectangular/OrientedValueSums.lean:131:23: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: BlockIdentities/Rectangular/OrientedValueSums.lean:131:51: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: BlockIdentities/Rectangular/OrientedValueSums.lean:131:23: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Rectangular/OrientedValueSums.lean:131:51: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+✔ [9331/9366] Built BlockIdentities.Rectangular.OrientedConvolutionProfiles (8.1s)
+✔ [9332/9366] Built BlockIdentities.Rectangular.OrientedValueCopies (9.4s)
+✔ [9333/9366] Built BlockIdentities.Rectangular.Frozen.oriented_value_rank (9.3s)
+✔ [9334/9366] Built BlockIdentities.Frozen.omega_le_nine_quarters_v2 (7.0s)
+✔ [9335/9366] Built BlockIdentities.Frozen.formal_matrix_multiplication_cost_le_v2 (8.4s)
+✔ [9336/9366] Built BlockIdentities.Frozen.formalOmega_le_nine_quarters_v2 (10s)
+✔ [9337/9366] Built BlockIdentities.Rectangular.OrientedValueCopiesLower (8.3s)
+✔ [9338/9366] Built BlockIdentities.Rectangular.Providers.OrientedValueProperties (8.2s)
+✔ [9339/9366] Built BlockIdentities.Rectangular.ExtractionFiniteValue (8.6s)
+✔ [9340/9366] Built BlockIdentities.Rectangular.OrientedProfileReplication (7.8s)
+✔ [9341/9366] Built BlockIdentities.Rectangular.Frozen.oriented_value_properties (8.6s)
+⚠ [9342/9366] Built BlockIdentities.Rectangular.OrientedSharedEntropy (8.9s)
+warning: BlockIdentities/Rectangular/OrientedSharedEntropy.lean:58:66: This simp argument is unused:
+  Function.comp_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [NonzeroTensor.tensorProductList, L, List.map_ofFn, NonzeroTensor.power, hV]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [9343/9366] Built BlockIdentities.Rectangular.Providers.OrientedGeneralExtraction (10s)
+warning: BlockIdentities/Rectangular/Providers/OrientedGeneralExtraction.lean:21:5: Variable name `hntop` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hntop
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [9344/9366] Built BlockIdentities.Rectangular.OrientedProfileRows (9.2s)
+warning: BlockIdentities/Rectangular/OrientedProfileRows.lean:111:34: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: BlockIdentities/Rectangular/OrientedProfileRows.lean:113:34: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+✔ [9345/9366] Built BlockIdentities.Rectangular.Providers.OrientedSharedLegEntropy (9.2s)
+✔ [9346/9366] Built BlockIdentities.Rectangular.Frozen.oriented_general_extraction (9.6s)
+✔ [9347/9366] Built BlockIdentities.Rectangular.ProfileAngularAssembly (8.5s)
+⚠ [9348/9366] Built BlockIdentities.Rectangular.OrientedProfileCompletion (9.3s)
+warning: BlockIdentities/Rectangular/OrientedProfileCompletion.lean:67:18: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: BlockIdentities/Rectangular/OrientedProfileCompletion.lean:67:30: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: BlockIdentities/Rectangular/OrientedProfileCompletion.lean:75:18: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: BlockIdentities/Rectangular/OrientedProfileCompletion.lean:75:30: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: BlockIdentities/Rectangular/OrientedProfileCompletion.lean:75:42: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: BlockIdentities/Rectangular/OrientedProfileCompletion.lean:75:55: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: BlockIdentities/Rectangular/OrientedProfileCompletion.lean:112:20: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: BlockIdentities/Rectangular/OrientedProfileCompletion.lean:112:42: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: BlockIdentities/Rectangular/OrientedProfileCompletion.lean:116:18: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: BlockIdentities/Rectangular/OrientedProfileCompletion.lean:116:30: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: BlockIdentities/Rectangular/OrientedProfileCompletion.lean:116:42: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: BlockIdentities/Rectangular/OrientedProfileCompletion.lean:116:67: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: BlockIdentities/Rectangular/OrientedProfileCompletion.lean:120:18: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: BlockIdentities/Rectangular/OrientedProfileCompletion.lean:120:30: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: BlockIdentities/Rectangular/OrientedProfileCompletion.lean:141:18: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: BlockIdentities/Rectangular/OrientedProfileCompletion.lean:141:39: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: BlockIdentities/Rectangular/OrientedProfileCompletion.lean:141:54: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: BlockIdentities/Rectangular/OrientedProfileCompletion.lean:141:69: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: BlockIdentities/Rectangular/OrientedProfileCompletion.lean:154:19: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: BlockIdentities/Rectangular/OrientedProfileCompletion.lean:154:40: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: BlockIdentities/Rectangular/OrientedProfileCompletion.lean:154:52: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+✔ [9349/9366] Built BlockIdentities.Rectangular.Frozen.oriented_shared_leg_entropy (10s)
+✔ [9350/9366] Built BlockIdentities.Rectangular.Providers.SupportAngularConstraint (11s)
+✔ [9351/9366] Built BlockIdentities.Rectangular.Frozen.support_angular_constraint (8.4s)
+✔ [9352/9366] Built BlockIdentities.Rectangular.Providers.FormalshapeomegaGeneralBound (8.9s)
+✔ [9353/9366] Built BlockIdentities.Rectangular.Frozen.formalShapeOmega_general_bound (10s)
+⚠ [9354/9366] Built BlockIdentities.Rectangular.Providers.FormalrectangularomegaCurve (8.5s)
+warning: BlockIdentities/Rectangular/Providers/FormalrectangularomegaCurve.lean:40:17: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: BlockIdentities/Rectangular/Providers/FormalrectangularomegaCurve.lean:42:17: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: BlockIdentities/Rectangular/Providers/FormalrectangularomegaCurve.lean:58:15: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: BlockIdentities/Rectangular/Providers/FormalrectangularomegaCurve.lean:59:15: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: BlockIdentities/Rectangular/Providers/FormalrectangularomegaCurve.lean:43:24: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: BlockIdentities/Rectangular/Providers/FormalrectangularomegaCurve.lean:43:51: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: BlockIdentities/Rectangular/Providers/FormalrectangularomegaCurve.lean:60:22: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: BlockIdentities/Rectangular/Providers/FormalrectangularomegaCurve.lean:60:49: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: BlockIdentities/Rectangular/Providers/FormalrectangularomegaCurve.lean:43:24: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Rectangular/Providers/FormalrectangularomegaCurve.lean:43:51: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Rectangular/Providers/FormalrectangularomegaCurve.lean:60:22: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: BlockIdentities/Rectangular/Providers/FormalrectangularomegaCurve.lean:60:49: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+✔ [9355/9366] Built BlockIdentities.Rectangular.Frozen.formalRectangularOmega_curve (7.0s)
+⚠ [9356/9366] Built BlockIdentities.Rectangular.Providers.FormalalphaGeHalf (7.9s)
+warning: BlockIdentities/Rectangular/Providers/FormalalphaGeHalf.lean:23:16: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+✔ [9357/9366] Built BlockIdentities.Rectangular.Providers.RectangularomegaCurve (7.8s)
+✔ [9358/9366] Built BlockIdentities.Rectangular.Providers.FormalRectangularCostLe (9.4s)
+✔ [9359/9366] Built BlockIdentities.Rectangular.Frozen.formalAlpha_ge_half (8.2s)
+✔ [9360/9366] Built BlockIdentities.Rectangular.Frozen.rectangularOmega_curve (8.0s)
+✔ [9361/9366] Built BlockIdentities.Rectangular.Frozen.formal_rectangular_cost_le (8.5s)
+⚠ [9362/9366] Built BlockIdentities.Rectangular.Providers.RectangularAlphaGeHalf (7.9s)
+warning: BlockIdentities/Rectangular/Providers/RectangularAlphaGeHalf.lean:24:14: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+✔ [9363/9366] Built BlockIdentities.Rectangular.Frozen.rectangular_alpha_ge_half (9.4s)
+✔ [9364/9366] Built BlockIdentities.Rectangular (7.7s)
+✔ [9365/9366] Built BlockIdentities (8.3s)
+Build completed successfully (9366 jobs).
+Elaborated ABI check passed: 35 exact exports.
+Elaborated 17 headers: formalCorrect_implies_correct, formalOmega_eq_exactRankExponent, formalOmega_eq_algebraicClosure, scalar_descent, asymptotic_cancellation, value_matrix_factor, general_extraction, shared_leg_value_inequality, identities_to_exponent, convolution_neighbor_degeneration, convolution_tripling_degeneration, tripling_middle_isomorphism, convolution_boundary_isomorphism, finite_convolution_bound, formalOmega_le_nine_quarters, formal_matrix_multiplication_cost_le, omega_le_nine_quarters
+Frozen guard passed: 35 exact theorem anchors; semantic bytes and quarantine intact.
+DRAFT_ANCHORS: 0
+UNREGISTERED_SORRIES: 0; DRAFT_IMPORT_VIOLATIONS: 0
+Rectangular check passed: 18 approved types; definitions and proved rectangular/shape basics use standard axioms only.
+FROZEN_UNPROVED: 0
+Helper axiom closure passed: 44 exports, standard axioms only.
+Rectangular frontier axiom closure passed: 321 exports, standard axioms only.
+Import boundary passed: 306 project/upstream modules, no final bound or character proof.

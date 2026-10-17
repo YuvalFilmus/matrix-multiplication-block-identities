@@ -1,0 +1,519 @@
+'BlockIdentities.Arithmetic.formalShapeAdmissibleExponent_of_rank_seed' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Arithmetic.rectangular_matrix_rankAtMost_of_formalCorrect' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Arithmetic.rectangular_matrix_rankAtMost_product' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Arithmetic.rankAtMost_rectangular_of_tensor_power' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Arithmetic.formal_rectangular_rank_step' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Arithmetic.formal_rectangular_power_programs' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Arithmetic.abs_formalShapeOmega_sub_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Arithmetic.tendsto_formalShapeOmega' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Arithmetic.continuous_formalShapeOmega' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Arithmetic.rankAtMost_matrix_dot_first' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Arithmetic.rankAtMost_matrix_dot_third' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Arithmetic.rankAtMost_matrix_dot_second' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Arithmetic.formalShapeOmega_dot_first_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Arithmetic.formalShapeOmega_dot_second_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Arithmetic.formalShapeOmega_dot_third_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Arithmetic.formalShapeOmega_add_first_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Arithmetic.formalShapeOmega_add_second_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Arithmetic.formalShapeOmega_add_third_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Arithmetic.formalShapeOmega_algebraicClosure_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Arithmetic.formalShapeOmega_le_algebraicClosure' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Arithmetic.formalShapeOmega_algebraicClosure' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Arithmetic.FormalShapeAdmissibleExponent.scale' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Arithmetic.formalShapeOmega_scale_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Arithmetic.formalShapeOmega_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Arithmetic.tendsto_ceil_exp_nat_atTop' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Arithmetic.one_le_ceil_exp_nat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Arithmetic.tendsto_log_ceil_exp_nat_div' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Arithmetic.le_innerSize_ceil_exp_of_log_div_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Arithmetic.FormalShapeAdmissibleExponent.mono_shape' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Arithmetic.formalShapeAdmissibleExponent_of_omega_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Arithmetic.formalShapeOmega_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Arithmetic.one_le_exactRank_matrix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Arithmetic.eventually_log_exactRank_matrix_lt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Arithmetic.tendsto_log_exactRank_matrix_of_log_dimensions' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Arithmetic.rectangular_matrix_rankAtMost_mono' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Arithmetic.formalShapeOmega_log_dimensions_le_log_rank' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Arithmetic.formalShapeOmega_le_of_rank_seed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Arithmetic.FormalShapeAdmissibleExponent.eventually_rank_seed' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Arithmetic.formalShapeOmega_eventually_rank_seed' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Arithmetic.formalShapeOmega_le_iff_rank_seeds' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Arithmetic.formalShapeOmega_add_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Arithmetic.rectangular_matrix_rankAtMost_swap_first' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Arithmetic.formalShapeOmega_cyclic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Arithmetic.formalShapeOmega_swap_first' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.quadratic_middle_ge_neg_two_sqrt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.offset_sqrt_lower_of_quadratic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.offset_pair_quadratic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.offset_budget_quadratic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.angular_sum_ge_of_offset_budgets' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.offset_quadratic_of_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.arccos_sqrt_mem_Icc' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.cos_sq_arccos_sqrt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.weighted_parameters_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.weighted_parameters_le_threshold' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.cos_sum_arccos_sqrt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.cos_sum_arccos_sqrt_le_offset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.angular_parameters_of_offset_quadratics' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.exactRank_ofTensor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.exactRank_power_coeff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.one_le_exactRank_of_nonzero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.tensorRankRoots_nonempty' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.tensorRankRoots_one_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.tensorRankRoots_bddBelow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.one_le_tensorAsymptoticRank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.tensorAsymptoticRank_le_power_root' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.tensorAsymptoticRank_le_exactRank' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.BorderRankAtMost.exists_exact_power_rank_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.tensorAsymptoticRank_le_of_borderRankAtMost' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.tensorAsymptoticRank_eq_of_tensorClass_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.exactRank_power_copies_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.tensorAsymptoticRank_copies_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.exactRank_power_add_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.exactRank_power_mul_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.exists_exact_power_rank_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.exactRank_power_power' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.exactRank_power_product_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.exactRank_copies_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.tensorAsymptoticRank_le_of_uniform_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.tensorAsymptoticRank_power_le_rate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.tensorAsymptoticRank_power_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.tensorAsymptoticRank_pow_le_exactRank_power' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.tensorAsymptoticRank_power_ge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.tensorAsymptoticRank_power' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.tensorAsymptoticRank_mono_degeneration' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.tensorAsymptoticRank_mono_asymptotic' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.tensorAsymptoticRank_product_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.exists_binomial_entropy_schedule' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.exists_support_weights_of_sublinear' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.orientedValue_tensorProductList' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.ordered_extraction_finite_value_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.ordered_extraction_log_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.ordered_extraction_log_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.tensorClass_matrixShape_product' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.tensorClass_matrixShape_scalar' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.tensorClass_matrixShape_power' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.matrixShape_power_rankAtMost' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.matrixWeight_le_exact_power_root' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.matrixWeight_le_tensorAsymptoticRank' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Square.MatrixShape.product' does not depend on any axioms
+'BlockIdentities.Square.MatrixShape.power' depends on axioms: [propext]
+'BlockIdentities.Rectangular.matrixWeight_product' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.matrixWeight_power' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.convolutionLeftAxis' depends on axioms: [propext]
+'BlockIdentities.Rectangular.convolutionRightAxis' depends on axioms: [propext]
+'BlockIdentities.Rectangular.convolution_axes_distinct' depends on axioms: [propext]
+'BlockIdentities.Rectangular.convolutionSwapInputs' does not depend on any axioms
+'BlockIdentities.Rectangular.convolutionSwapInputs_twice' does not depend on any axioms
+'BlockIdentities.Rectangular.convolutionLeftAxis_swap' depends on axioms: [propext]
+'BlockIdentities.Rectangular.convolutionRightAxis_swap' depends on axioms: [propext]
+'BlockIdentities.Rectangular.orientedConvolution' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.convolutionProfile' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.one_le_convolutionProfile' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.rankAtMost_permute' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.convolutionProfile_le_rank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.orientedConvolution_input_swap_class' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.convolutionProfile_input_swap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.convolution_class_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.convolutionProfile_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.orientedGain_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.one_mem_orientedGains' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.orientedGains_nonempty' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.oriented_conversion_carry_matrix' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.oriented_conversion_absorb_matrix' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.matrixWeight_mul_mem_orientedGains' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.div_matrixWeight_mem_orientedGains' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.matrixWeight_mem_orientedGains' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.AsymptoticallyRestricts.trans' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.AsymptoticallyRestricts.product' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.AsymptoticallyRestricts.power' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.AsymptoticallyRestricts.congr_classes' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Square.AsymptoticallyRestricts.refl' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.orientedGains_mono_of_asymptoticallyRestricts' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.oriented_conversion_repeat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.oriented_gain_repeat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.oriented_conversion_product' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.oriented_gain_product_same_length' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.mul_mem_orientedGains' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.repeated_gain_conversion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.repeated_gain_weight_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.matrixShapeOfDotDimensions' depends on axioms: [propext]
+'BlockIdentities.Rectangular.auxiliaryPaddingShape' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.diagonalSupplyShape' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.matrixWeight_log_rate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.output_dimension_with_supply_log_rate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.repeated_gain_log_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.gainOutputShape' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.gainOutputShape_log_dimension_rate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.orientedGain_le_tensorAsymptoticRank' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.orientedGains_bddAbove' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.orientedValue_le_tensorAsymptoticRank' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.one_le_orientedValue' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.AsymptoticallyRestricts.copies' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.binomial_term_le_sum_power' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.oriented_conversion_binomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.binomial_mem_orientedGains' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.orientedExponent_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.orientedExponent_add_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.orientedExponent_smul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.orientedExponent_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.orientedExponent_single_increment' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.exists_interior_support' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.interiorSupport_weight_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.exists_oriented_convolution_continuous_profiles' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.exists_oriented_convolution_profile_laws' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.permuteClass_natCast' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.orientedConvolution_replication_classes' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.convolutionProfile_replication' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.exists_convolution_orientation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.convolutionSwapSides' does not depend on any axioms
+'BlockIdentities.Rectangular.convolutionLeftAxis_swapSides' depends on axioms: [propext]
+'BlockIdentities.Rectangular.sharedPhysicalAxis_eq_convolutionLeftAxis' depends on axioms: [propext]
+'BlockIdentities.Rectangular.orientedValue_double_permute_product_scalar' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.orientedValue_permute_product_dot' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.convolutionProfile_le_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.min_le_convolutionProfile' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.convolutionProfile_neighbor_powered' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.convolutionProfile_tripling_powered' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.oriented_shared_entropy_permute' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.oriented_shared_entropy' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.oriented_shared_powered_permute' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.permuteClass_one_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.permuteClass_natCast_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.permuteClass_pow_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.permuteClass_prod_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.asymptoticallyRestricts_permute' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.sharedPhysicalAxis' depends on axioms: [propext]
+'BlockIdentities.Rectangular.sharedPhysicalDotShape' depends on axioms: [propext, Quot.sound]
+'BlockIdentities.Rectangular.permute_dot_matrix_class' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.matrixWeight_sharedPhysicalDotShape' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.shared_extraction_conversion_permute' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.orientedValue_copies_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.mul_orientedValue_le_copies' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.orientedValue_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.orientedValue_eq_of_tensorClass_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.orientedValue_product_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.orientedValue_product_matrix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.orientedValue_scalar' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.orientedValue_matrix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.orientedValue_power_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.orientedValue_pow_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.orientedValue_power_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.orientedValue_power' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.oriented_binomial_log_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.oriented_entropy_log_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.sum_le_orientedValue_of_common_witnesses' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.add_le_orientedValue_of_gains' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.orientedValue_sum_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.matrixWeight_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.matrixWeight_scalar' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.log_matrixWeight' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.angular_of_six_profile_laws' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.exists_unique_continuous_extension_of_local_bounds' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.profile_ratio_of_finite_increment' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.profile_ratio_of_coordinate_increments' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.continuous_profile_powered_concave' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.rationalProfile_exists_unique_continuous_extension' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.positive_rat_cast_dense' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.continuous_profile_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.continuous_profile_homogeneous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.continuous_profile_tripling_of_rational' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.continuous_profile_scale_upper' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.continuous_profile_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.rationalProfile_interchange' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.continuous_profile_interchange' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.rationalProfileSamples' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.rationalProfile' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.rationalProfileSamples_nonempty' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.rationalProfileSamples_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.rationalProfileSamples_bddAbove' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.rationalProfile_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.positive_rat_common_integer_scale' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.rationalProfile_homogeneous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.rationalProfile_common_samples' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.rationalProfile_common_approximation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.rationalProfile_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.discrete_concave_chord' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.discrete_concave_jensen' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.discrete_profile_min_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.rationalProfile_min_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.rationalProfile_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.rationalProfile_scale_compare' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.rationalProfile_local_lipschitz' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.rationalProfile_simultaneous_limits' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.rationalProfile_powered_concave' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.rationalProfile_family_common_approximation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.rationalProfile_family_simultaneous_limits' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.rationalProfile_coupled_tripling' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.ratio_ge_of_common_slope' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.profile_ratio_ge_of_powered_slope' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.profile_second_increment_of_slope' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.profile_pair_quadratic_of_second_increments' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.concave_monotone_ratio_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.slope_tendsto_of_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.concave_increment_ge_ratio_slope' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.profile_ge_ratio_line' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.common_ratio_slope_of_tripling' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.tripling_sum_majorant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.common_positive_slope_offsets' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.exists_auxiliary_scale' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.auxiliaryPadding' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.auxiliaryPadding_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.auxiliaryPadding_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.auxiliaryPadding_log_rate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.repeated_dimension_log_rate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.auxiliary_input_log_rate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.auxiliary_output_log_rate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.auxiliary_matrix_rank_log_rate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.interiorSupport_exponent_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.diagonalSupplyScale' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.diagonalSupplyScale_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.diagonalSupplyDimension' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.diagonalSupplyDimension_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.diagonalSupplyDimension_log_rate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.eventually_diagonalSupply_rank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.eventually_diagonalSupply_degeneration' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.support_weights_mem_Icc' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.support_angles_ge_of_weight_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Rectangular.support_objective_le_of_angles' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.wolstenholme_real' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.weighted_cos_sq_le_of_sum_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.weighted_cos_sq_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Rectangular.weighted_cos_sq_le_threshold' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.convolutionReplicationSequence' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.convolutionReplicationBasis' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.convolutionReplicationBasis_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.convolutionReplicationBasis_span' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.convolutionReplicationBasis_block' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.convolutionReplicationBasis_repr_block' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Square.convolutionReplicationBasis_repr_carry' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Square.convolutionReplication_div_degree_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.convolutionReplication_product_expansion' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Square.convolutionReplication_contraction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.convolutionReplicationLeft' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.convolutionReplicationMiddle' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.convolutionReplicationRight' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.convolutionReplication_restricted_formula' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Square.convolutionReplicationTarget' depends on axioms: [propext, Quot.sound]
+'BlockIdentities.Square.convolutionReplication_filtered' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.convolutionReplicationRawDegeneration' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Square.convolution_replication_of_infinite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.convolutionReplicationPolynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.convolutionReplicationPolynomial_monic' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Square.convolutionReplicationPolynomial_natDegree' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Square.convolutionReplicationPolynomial_eval' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Square.convolutionReplicationLagrange' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.convolutionReplicationLagrange_natDegree' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Square.convolutionReplicationLagrange_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.convolutionReplicationInput' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.convolutionReplicationInput_degree_lt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Square.convolutionReplicationLagrange_product_degree_lt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Square.convolutionReplicationInput_block_product' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Square.convolutionReplicationBlockEval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.convolutionReplicationBlockEval_basis' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Square.convolutionReplicationBlockEval_block' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Square.convolutionReplicationBlockEval_division' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Square.convolutionReplication_remainder_eval' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Square.general_middle_convolution_class' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.generalTriplingSharedIdentity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.SharedLegIdentity.oriented_extraction_conversion' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Square.diagonal_rankAtMost' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.rank_natCast_le' depends on axioms: [propext, Classical.choice, Quot.sound]

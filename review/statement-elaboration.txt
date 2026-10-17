@@ -1,0 +1,220 @@
+fun {F} [Field F] {a b c} P hP =>
+  P.Correct : {F : Type u_1} →
+  [inst : Field F] → {a b c : ℕ} → (P : Arithmetic.MatrixAlgorithm F a b c) → FormalCorrect P → Prop
+fun F [Field F] => formalOmega F = AuxiliarySeparation.exactRankExponent F : (F : Type u_1) → [Field F] → Prop
+fun F [Field F] => formalOmega F = formalOmega (AlgebraicClosure F) : (F : Type u_1) → [Field F] → Prop
+fun {F} {X} {Y} {Z} [Field F] [Fintype X] [Fintype Y] [Fintype Z] T r h =>
+  ∃ q,
+    1 ≤ q ∧
+      ∀ (m : ℕ),
+        1 ≤ m →
+          (T.power m).RankAtMost
+            (q ^ 2 *
+              r ^
+                m) : {F : Type u_1} →
+  {X : Type u_2} →
+    {Y : Type u_3} →
+      {Z : Type u_4} →
+        [inst : Field F] →
+          [Fintype X] →
+            [Fintype Y] →
+              [Fintype Z] →
+                (T : Foundation.Tensor F X Y Z) →
+                  (r : ℕ) →
+                    Foundation.Tensor.RankAtMost (fun x y z => (algebraMap F (AlgebraicClosure F)) (T x y z)) r → Prop
+fun {K} [Field K] [IsAlgClosed K] A B Z hZ h =>
+  AsymptoticallyRestricts A
+    B : {K : Type u_1} →
+  [inst : Field K] →
+    [IsAlgClosed K] → (A B Z : FiniteTensor K) → Nonzero Z → AsymptoticallyRestricts (product A Z) (product B Z) → Prop
+fun {K} [Field K] [IsAlgClosed K] T hcyclic =>
+  (∀ (U : NonzeroTensor K),
+      Isomorphic (↑U) (permute LegPermutation.yzx ↑U) →
+        AsymptoticallyRestricts ↑T ↑U → valueAtOmega U ≤ valueAtOmega T) ∧
+    (∀ (d : ℕ) (hd : 1 ≤ d), valueAtOmega (T.product (nonzeroSquare d hd)) = ↑d ^ formalOmega K * valueAtOmega T) ∧
+      ∀ (b : ℕ) (hb : 1 ≤ b),
+        valueAtOmega (T.copies b hb) ≤
+          ↑b ^ formalOmega K *
+            valueAtOmega
+              T : {K : Type u_1} →
+  [inst : Field K] → [IsAlgClosed K] → (T : NonzeroTensor K) → Isomorphic (↑T) (permute LegPermutation.yzx ↑T) → Prop
+fun {K} [Field K] [IsAlgClosed K] {ι} [Fintype ι] A B n a b u h m π hn ha hb hu hh hn_tendsto hconvert p α β hu_rate
+    hm_rate hh_rate hab_rate =>
+  Real.log (valueAtOmega A) ≥
+    ∑ i, p i * Real.log (valueAtOmega (B i)) + α +
+      formalOmega K *
+        β : {K : Type u_1} →
+  [inst : Field K] →
+    [IsAlgClosed K] →
+      {ι : Type} →
+        [inst_2 : Fintype ι] →
+          (A : NonzeroTensor K) →
+            (B : ι → NonzeroTensor K) →
+              (n a b u h : ℕ → ℕ) →
+                (m : ι → ℕ → ℕ) →
+                  (π : ι → ℕ → LegPermutation) →
+                    (∀ (j : ℕ), 1 ≤ n j) →
+                      (∀ (j : ℕ), 1 ≤ a j) →
+                        (∀ (j : ℕ), 1 ≤ b j) →
+                          (∀ (j : ℕ), 1 ≤ u j) →
+                            (∀ (j : ℕ), 1 ≤ h j) →
+                              Filter.Tendsto n Filter.atTop Filter.atTop →
+                                (∀ (j : ℕ),
+                                    AsymptoticallyRestricts
+                                      (copies (u j) (product (power (symmetrize ↑A) (n j)) (square (a j))))
+                                      (copies (h j)
+                                        (product (square (b j))
+                                          (tensorProductList
+                                            (List.ofFn fun l =>
+                                              let i := (Fintype.equivFin ι).symm l;
+                                              power (symmetrize (permute (π i j) ↑(B i))) (m i j)))))) →
+                                  (p : ι → ℝ) →
+                                    (α β : ℝ) →
+                                      Filter.Tendsto (fun j => Real.log ↑(u j) / ↑(n j)) Filter.atTop (nhds 0) →
+                                        (∀ (i : ι),
+                                            Filter.Tendsto (fun j => ↑(m i j) / ↑(n j)) Filter.atTop (nhds (p i))) →
+                                          Filter.Tendsto (fun j => Real.log ↑(h j) / (3 * ↑(n j))) Filter.atTop
+                                              (nhds α) →
+                                            Filter.Tendsto (fun j => Real.log (↑(b j) / ↑(a j)) / (3 * ↑(n j)))
+                                                Filter.atTop (nhds β) →
+                                              Prop
+fun {K} [Field K] [IsAlgClosed K] {ι} [Fintype ι] A B D E identity =>
+  ↑D.volume * normalizedValueAtOmega A ≥
+    ∑ i,
+      ↑(E i).volume *
+        normalizedValueAtOmega
+          (B
+            i) : {K : Type u_1} →
+  [inst : Field K] →
+    [IsAlgClosed K] →
+      {ι : Type} →
+        [inst_2 : Fintype ι] →
+          (A : NonzeroTensor K) →
+            (B : ι → NonzeroTensor K) →
+              (D : MatrixShape) → (E : ι → MatrixShape) → SharedLegIdentity (↑A) (fun i => ↑(B i)) D E → Prop
+fun {F} [Field F] {V E} [Fintype V] [DecidableEq V] [Fintype E] A hA q σ w D Dout identities s t hst hterminal d r hd hr
+    ht hs μ hμ hcertificate hL =>
+  formalOmega F ≤
+    3 * Real.log ↑r /
+      (Real.log ↑d +
+        Real.log
+          (∑ e,
+            (∑ i, if w e i = t then ↑(Dout e i).volume else 0) *
+              μ
+                e)) : {F : Type u_1} →
+  [inst : Field F] →
+    {V E : Type} →
+      [Fintype V] →
+        [inst_2 : DecidableEq V] →
+          [inst_3 : Fintype E] →
+            (A : V → FiniteTensor (AlgebraicClosure F)) →
+              (∀ (v : V), Nonzero (A v)) →
+                (q : E → ℕ) →
+                  (σ : E → V) →
+                    (w : (e : E) → Fin (q e) → V) →
+                      (D : E → MatrixShape) →
+                        (Dout : (e : E) → Fin (q e) → MatrixShape) →
+                          ((e : E) → SharedLegIdentity (A (σ e)) (fun i => A (w e i)) (D e) (Dout e)) →
+                            (s t : V) →
+                              s ≠ t →
+                                (∀ (e : E), σ e ≠ t) →
+                                  (d r : ℕ) →
+                                    2 ≤ d →
+                                      1 ≤ r →
+                                        Isomorphic (symmetrize (A t)) (square d) →
+                                          BorderRankAtMost (A s) r →
+                                            (μ : E → ℝ) →
+                                              (∀ (e : E), 0 ≤ μ e) →
+                                                (∀ (v : V),
+                                                    v ≠ t →
+                                                      (∑ e, if σ e = v then ↑(D e).volume * μ e else 0) -
+                                                          ∑ e,
+                                                            (∑ i, if w e i = v then ↑(Dout e i).volume else 0) * μ e ≤
+                                                        if v = s then 1 else 0) →
+                                                  (↑d)⁻¹ <
+                                                      ∑ e, (∑ i, if w e i = t then ↑(Dout e i).volume else 0) * μ e →
+                                                    Prop
+fun {K} [Field K] r b hb =>
+  Degenerates (product (convolution r b) dotShape.tensor)
+    (neighborSplit r b hb) : {K : Type u_1} → [Field K] → ℕ+ → (b : ℕ+) → 2 ≤ ↑b → Prop
+fun {K} [Field K] r hr =>
+  Degenerates (convolution r ⟨4 * ↑r - 1, ⋯⟩)
+    (triplingSplit r hr) : {K : Type u_1} → [Field K] → (r : ℕ+) → 2 ≤ ↑r → Prop
+fun {K} [Field K] r =>
+  Isomorphic (middleConvolution r)
+    (permute LegPermutation.xzy (convolution r r)) : {K : Type u_1} → [Field K] → ℕ+ → Prop
+fun {K} [Field K] r hr =>
+  Isomorphic (convolution r ⟨↑r - 1, ⋯⟩)
+    (permute LegPermutation.yxz (convolution ⟨↑r - 1, ⋯⟩ r)) : {K : Type u_1} → [Field K] → (r : ℕ+) → 2 ≤ ↑r → Prop
+fun F [Field F] a ha =>
+  formalOmega F ≤
+    3 * Real.log (2 * ↑a - 1) /
+      (Real.log 2 +
+        Real.log
+          ((3 * ↑a - 1) / 4 *
+            ∏ j ∈ Finset.Icc 1 (a - 1), (1 + 1 / (3 * ↑j)))) : (F : Type u_1) → [Field F] → (a : ℕ) → 2 ≤ a → Prop
+fun F [Field F] => formalOmega F ≤ 9 / 4 : (F : Type u_1) → [Field F] → Prop
+fun F [Field F] ε hε =>
+  ∃ C,
+    0 < C ∧
+      ∀ (n : ℕ),
+        1 ≤ n →
+          ∃ P, FormalCorrect P ∧ ↑P.cost ≤ C * ↑n ^ (9 / 4 + ε) : (F : Type u_1) → [Field F] → (ε : ℝ) → 0 < ε → Prop
+fun F [Field F] => Arithmetic.omega F ≤ 9 / 4 : (F : Type u_1) → [Field F] → Prop
+'BlockIdentities.Arithmetic.map_evalProgramIn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Arithmetic.evalProgramIn_id' depends on axioms: [propext, Quot.sound]
+'BlockIdentities.Arithmetic.eval_polynomialOutputs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Arithmetic.formalCorrect_implies_correct' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Arithmetic.naiveAlgorithm_formalCorrect' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Arithmetic.formalOmega_mem_Icc' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Arithmetic.formalAdmissibleExponent_formalOmega' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Arithmetic.omega_le_formalOmega' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Arithmetic.evalProgramIn_substitute' depends on axioms: [propext, Quot.sound]
+'BlockIdentities.Arithmetic.FormalCorrect.evalProgramIn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Arithmetic.recursiveAlgorithm_formalCorrect' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Arithmetic.FormalCorrect.pad' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Arithmetic.formalAdmissibleExponent_of_rankAtMost' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Arithmetic.formalOmega_le_exactRankExponent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Arithmetic.mixedJet_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Arithmetic.program_mixedJet_rankAtMost' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Arithmetic.matrix_rankAtMost_of_formalCorrect' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Arithmetic.exactRankExponent_le_formalOmega' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Providers.formalOmega_eq_exactRankExponent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Providers.formalOmega_eq_algebraicClosure' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.scalar_descent_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.certificate_weakDuality' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.convolution_row_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.convolutionYield_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.convolutionYield_cube_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.convolutionYield_gt_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.tendsto_log_square_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.le_nine_fourths_of_finite_certificate_bounds' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BlockIdentities.Square.degenerates_of_restriction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.Degenerates.cyclic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.middleConvolution_isomorphic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.convolution_boundary_isomorphic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.formalCorrect_implies_correct' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.formalOmega_eq_exactRankExponent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.formalOmega_eq_algebraicClosure' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.scalar_descent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.tripling_middle_isomorphism' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.convolution_boundary_isomorphism' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.convolution_neighbor_degeneration' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.convolution_tripling_degeneration' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.asymptotic_cancellation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.value_matrix_factor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.general_extraction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.shared_leg_value_inequality' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.identities_to_exponent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.finite_convolution_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.formalOmega_le_nine_quarters' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.formal_matrix_multiplication_cost_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BlockIdentities.Square.omega_le_nine_quarters' depends on axioms: [propext, Classical.choice, Quot.sound]
