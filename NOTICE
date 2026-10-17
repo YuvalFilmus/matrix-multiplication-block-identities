@@ -10,6 +10,8 @@ This is a selected source distribution, excluding upstream campaign reports,
 Comparator challenges, and papers. Only the consumer import closure is validated.
 Changes relative to that baseline: stable Lean4.35.0/Mathlib pin adaptation;
 Tensor/ComplexTensor.lean closure_minimal uses an explicit inclusion lambda.
+The unused ComparatorAudit library target is omitted from the selected package
+configuration. UPSTREAM.md has a historical-provenance notice added.
 See vendor/navot/UPSTREAM.md for original attribution.
 
 source/manuscript.tex, source/manuscript.pdf and accompanying bibliography:

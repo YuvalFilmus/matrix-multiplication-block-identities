@@ -1,3 +1,7 @@
+> Historical upstream provenance. This selected distribution uses the current
+> pins and build instructions in the root README.md and NOTICE. Paths, tags
+> and commands below describe the upstream project; some are not shipped here.
+
 # Upstream provenance and modifications
 
 This is a focused source fork of [OpenAI's mathematics repository](https://github.com/openai/math).

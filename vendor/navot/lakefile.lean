@@ -16,7 +16,3 @@ require mathlib from git
 lean_lib OAI
 
 lean_lib FixedPointTheorems
-
--- Independent environments for the frozen Comparator challenge and its solution.
--- The challenge intentionally contains theorem holes and is never imported by OAI.
-lean_lib ComparatorAudit
