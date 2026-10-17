@@ -1,5 +1,7 @@
 # Matrix multiplication from block identities
 
+[![Build and verify](https://github.com/YuvalFilmus/matrix-multiplication-block-identities/actions/workflows/verify.yml/badge.svg)](https://github.com/YuvalFilmus/matrix-multiplication-block-identities/actions/workflows/verify.yml)
+
 Lean formalization of **Matrix multiplication from block identities**, proving
 square and rectangular matrix multiplication bounds over **every field**,
 including finite fields. The manuscript is included as [LaTeX](source/manuscript.tex)
@@ -40,6 +42,10 @@ elaborated theorem types and approved source headers, checks the 35 sealed
 exports plus 44 square and 321 rectangular helper axiom closures, tests the
 import-quarantine guard, and checks the 306-module import boundary. Generated
 probe files go in ignored `work/`; check outputs go in `review/`.
+
+GitHub Actions runs the full build and verification on every push and pull
+request, and supports manual runs. It uses the pinned toolchain, caches build
+artifacts, and uploads the verification log, including when checks fail.
 
 The manuscript can be rebuilt with a TeX installation containing its packages:
 

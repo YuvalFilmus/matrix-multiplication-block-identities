@@ -1,0 +1,65 @@
+name: Build and verify
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: Lean build and full verification
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    env:
+      LEAN_NUM_THREADS: '1'
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Check out source
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+
+      - name: Check frozen source and import boundaries
+        run: |
+          python3 scripts/check-frozen.py
+          python3 review/rectangular/guard-regression.py
+          python3 scripts/check-imports.py
+
+      - name: Cache the vendored dependency build
+        uses: actions/cache@caa296126883cff596d87d8935842f9db880ef25 # v5
+        with:
+          path: vendor/navot/.lake
+          key: navot-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json', 'vendor/navot/lakefile.lean', 'vendor/navot/lake-manifest.json', 'vendor/navot/lean/**/*.lean') }}
+
+      - name: Install pinned Lean, fetch Mathlib cache, and build
+        uses: leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6 # v1
+        with:
+          auto-config: 'false'
+          build: 'true'
+          build-args: BlockIdentities
+          use-mathlib-cache: 'true'
+          use-github-cache: 'true'
+
+      - name: Run all verification checks and build every owned module
+        id: verify
+        run: |
+          mkdir -p work
+          bash scripts/check.sh 2>&1 | tee work/ci-check.log
+
+      - name: Upload verification log
+        if: ${{ always() && steps.verify.outcome != 'skipped' }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: verification-log-${{ github.run_attempt }}
+          path: work/ci-check.log
+          if-no-files-found: ignore
+          retention-days: 14
