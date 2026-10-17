@@ -28,6 +28,34 @@ with one $C>0$ valid for all $n\geq1$. The same upper bounds are established
 for Navot's original functional exponents; equality of formal and functional
 exponents is not assumed over finite fields.
 
+## Main results in the manuscript
+
+The PDF uses formal polynomial correctness, including over finite fields.
+The links below lead to the corresponding **proved Lean statements**; the PDF
+page numbers refer to the included manuscript. Square statements are in
+`BlockIdentities.Square`, and rectangular statements in `BlockIdentities.Rectangular`.
+
+| Manuscript result | PDF page | Lean statement |
+| --- | --- | --- |
+| Theorem 1.1: identities-to-exponent criterion | [2](source/manuscript.pdf#page=2) | [identities_to_exponent](BlockIdentities/Frozen/identities_to_exponent_v2.lean#L16) |
+| Theorem 1.2: square bound | [5](source/manuscript.pdf#page=5) | [formalOmega_le_nine_quarters](BlockIdentities/Frozen/formalOmega_le_nine_quarters_v2.lean#L16), [omega_le_nine_quarters](BlockIdentities/Frozen/omega_le_nine_quarters_v2.lean#L16) |
+| Proposition 2.4: general extraction | [9](source/manuscript.pdf#page=9) | [general_extraction](BlockIdentities/Frozen/general_extraction_v3.lean#L16) |
+| Proposition 2.7: shared-leg value inequality | [11](source/manuscript.pdf#page=11) | [shared_leg_value_inequality](BlockIdentities/Frozen/shared_leg_value_inequality_v2.lean#L16) |
+| Proposition 3.1: convolution degenerations | [15](source/manuscript.pdf#page=15) | [convolution_neighbor_degeneration](BlockIdentities/Frozen/convolution_neighbor_degeneration_v2.lean#L16), [convolution_tripling_degeneration](BlockIdentities/Frozen/convolution_tripling_degeneration_v2.lean#L16) |
+| Theorem 5.1: oriented value bounded by asymptotic rank | [20](source/manuscript.pdf#page=20) | [oriented_value_rank](BlockIdentities/Rectangular/Frozen/oriented_value_rank.lean#L16) |
+| Proposition 5.2: oriented-value properties | [21](source/manuscript.pdf#page=21) | [oriented_value_properties](BlockIdentities/Rectangular/Frozen/oriented_value_properties.lean#L16) |
+| Proposition 5.3: oriented shared-leg inequality | [22](source/manuscript.pdf#page=22) | [oriented_shared_leg_entropy](BlockIdentities/Rectangular/Frozen/oriented_shared_leg_entropy.lean#L16) |
+| Theorem 5.4: rectangular curve and dual exponent | [23](source/manuscript.pdf#page=23) | [formalRectangularOmega_curve](BlockIdentities/Rectangular/Frozen/formalRectangularOmega_curve.lean#L16), [formalAlpha_ge_half](BlockIdentities/Rectangular/Frozen/formalAlpha_ge_half.lean#L16) |
+| Equation (5.15): angular constraint | [23](source/manuscript.pdf#page=23) | [support_angular_constraint](BlockIdentities/Rectangular/Frozen/support_angular_constraint.lean#L16) |
+| Equation (5.16): general rectangular shape bound | [23](source/manuscript.pdf#page=23) | [formalShapeOmega_general_bound](BlockIdentities/Rectangular/Frozen/formalShapeOmega_general_bound.lean#L16) |
+| Lemma A.1: fixed-overhead scalar descent | [27](source/manuscript.pdf#page=27) | [scalar_descent](BlockIdentities/Frozen/scalar_descent_v2.lean#L16) |
+
+The explicit algorithmic cost versions are [formal_matrix_multiplication_cost_le](BlockIdentities/Frozen/formal_matrix_multiplication_cost_le_v2.lean#L16)
+for square multiplication and [formal_rectangular_cost_le](BlockIdentities/Rectangular/Frozen/formal_rectangular_cost_le.lean#L16)
+for rectangular multiplication. Each includes every positive exponent allowance.
+The corresponding original functional rectangular results are
+[rectangularOmega_curve](BlockIdentities/Rectangular/Frozen/rectangularOmega_curve.lean#L16) and [rectangular_alpha_ge_half](BlockIdentities/Rectangular/Frozen/rectangular_alpha_ge_half.lean#L16).
+
 ## Build and verify
 
 Install [elan](https://github.com/leanprover/elan) and Python 3; Git and internet
